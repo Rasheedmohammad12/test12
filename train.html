@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osama Abushua'lah - CEO at QasFigures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --primary-light: #1a1a1a;
+            --primary-dark: #000000;
+            --accent: #1e3a8a;
+            --secondary: #3b82f6;
+            --gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --gradient-accent: linear-gradient(135deg, #000000 0%, #1e3a8a 100%);
+            --light-bg: #000000;
+            --light-card: rgba(26, 26, 26, 0.85);
+            --dark-text: #ffffff;
+            --light-text: #b0b0b0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --border: 1px solid #333333;
+            --instagram-verified: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: url('https://i.imgur.com/3kBCgyN.png');
+            background-size: 300px;
+            background-repeat: repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .profile-header {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--light-card);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            background: var(--gradient);
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.7;
+        }
+        
+        .profile-info {
+            position: relative;
+            padding: 0 20px 25px;
+            text-align: center;
+            margin-top: -70px;
+            z-index: 2;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .profile-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid var(--light-card);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            display: block;
+            background: url('https://i.imgur.com/3kBCgyN.png') center/cover;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: var(--instagram-verified);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            border: 2px solid var(--light-card);
+        }
+        
+        .name-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        .company-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--accent);
+        }
+        
+        .profile-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 15px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: var(--light-card);
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .about-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .highlight-box {
+            background: rgba(30, 58, 138, 0.15);
+            padding: 18px;
+            border-radius: 10px;
+            margin: 18px 0;
+            border-right: 3px solid var(--accent);
+        }
+        
+        .highlight-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        
+        /* Education Section */
+        .education-section {
+            background: var(--light-card);
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            text-align: right;
+            padding: 15px;
+            background: rgba(30, 58, 138, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .education-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .education-details {
+            flex-grow: 1;
+        }
+        
+        .education-degree {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--dark-text);
+        }
+        
+        .education-institution {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        
+        .education-description {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        /* Languages Section */
+        .languages-section {
+            background: var(--light-card);
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .language-card {
+            background: rgba(30, 58, 138, 0.1);
+            padding: 18px 12px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .language-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(30, 58, 138, 0.15);
+        }
+        
+        .language-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--dark-text);
+        }
+        
+        .language-level {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: var(--light-card);
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background: rgba(30, 58, 138, 0.1);
+            padding: 20px 12px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(30, 58, 138, 0.15);
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            color: white;
+            font-size: 1.3rem;
+        }
+        
+        .service-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+        }
+        
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-card);
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            padding: 10px;
+            background: rgba(30, 58, 138, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+        }
+        
+        .contact-item:hover {
+            background: rgba(30, 58, 138, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            width: 22px;
+        }
+        
+        .business-contact {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 18px;
+            box-shadow: var(--shadow);
+        }
+        
+        .business-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .business-number {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 35px 0 15px;
+        }
+        
+        .social-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            background: var(--light-card);
+            position: relative;
+            border: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--light-card);
+            color: var(--dark-text);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient-accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--accent);
+            color: white;
+        }
+        
+        .action-button i {
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            border-top: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: contain;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .footer-text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .cover-container {
+                height: 220px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .education-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .name-logo-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .stats-container {
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.1rem;
+            }
+
+            body {
+                background-size: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-header fade-in">
+        <div class="cover-container">
+            <img src="https://i.imgur.com/3kBCgyN.png" alt="Professional Cover" class="cover-photo">
+        </div>
+        <div class="profile-info">
+            <div class="profile-image-container">
+                <div class="profile-image"></div>
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            
+            <div class="name-logo-container">
+                <h1 class="profile-name">Osama Abushua'lah</h1>
+                <img src="https://i.imgur.com/3kBCgyN.png" alt="QasFigures Logo" class="company-logo">
+            </div>
+            
+            <div class="profile-title">CEO at QasFigures | Pharmacy Graduate</div>
+            
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Amman, Jordan</span>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">CEO</span>
+                    <span class="stat-label">Position</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Exp</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section fade-in delay-1">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                Professional with diverse skills and experience in multiple fields
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">Professional Summary</div>
+                <div class="about-text" style="text-align: center;">
+                    I am a dedicated professional with a background in pharmacy and business leadership. 
+                    As the CEO of QasFigures, I combine my pharmaceutical expertise with strategic business 
+                    management to drive company growth and innovation.
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-section fade-in delay-1">
+            <h2 class="section-title">What I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-name">Business Strategy</h3>
+                    <p class="service-desc">Strategic planning and business development for sustainable growth</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-name">Consultation</h3>
+                    <p class="service-desc">Professional consultation in pharmacy and business management</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-name">Leadership</h3>
+                    <p class="service-desc">Executive leadership and team management expertise</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="education-section fade-in delay-2">
+            <h2 class="section-title">Education & Certification</h2>
+            
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-details">
+                    <h3 class="education-degree">Bachelor of Pharmacy</h3>
+                    <p class="education-institution">University of Jordan</p>
+                    <p class="education-description">Graduated with a degree in Pharmacy from the prestigious University of Jordan</p>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="education-details">
+                    <h3 class="education-degree">Pharmacy License</h3>
+                    <p class="education-institution">Jordanian Pharmacists Association</p>
+                    <p class="education-description">Fully licensed pharmacist with comprehensive knowledge of pharmaceutical sciences</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="languages-section fade-in delay-2">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages-grid">
+                <div class="language-card">
+                    <h3 class="language-name">Arabic</h3>
+                    <p class="language-level">Native Speaker</p>
+                </div>
+                <div class="language-card">
+                    <h3 class="language-name">English</h3>
+                    <p class="language-level">Fluent</p>
+                </div>
+                <div class="language-card">
+                    <h3 class="language-name">Deutsch</h3>
+                    <p class="language-level">Proficient</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in delay-3">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+962 7 9513 7025</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+962 7 9513 7025</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>osama@qasfigures.com</span>
+                </div>
+            </div>
+            
+            <div class="business-contact">
+                <div class="business-title">For Business Inquiries</div>
+                <div class="business-number">+962 7 9513 7025</div>
+            </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-section fade-in delay-3">
+            <h2 class="social-title">Connect With Me</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.instagram.com/osamashualah?igsh=MXNxNTc2ZHZtMHRydQ==" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.snapchat.com/add/osamashualah?share_id=RPLxQXga_K4&locale=ar-AE" class="social-icon" target="_blank">
+                    <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="https://wa.me/962795137025" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+962795137025" class="social-icon">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in delay-3">
+            <button class="action-button primary" onclick="saveContact()">
+                <i class="fas fa-download"></i>
+                Save Contact
+            </button>
+            <a href="https://wa.me/962795137025" class="action-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+            <a href="tel:+962795137025" class="action-button">
+                <i class="fas fa-phone"></i>
+                Call Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="https://i.imgur.com/3kBCgyN.png" alt="QasFigures Logo" class="footer-logo">
+                <p class="footer-text">Osama Abushua'lah - CEO at QasFigures</p>
+                <p class="footer-text">Pharmacy Graduate • Business Leader • Multilingual Professional</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Save Contact functionality
+        function saveContact() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Osama Abushua'lah
+ORG:QasFigures
+TITLE:CEO
+TEL;TYPE=WORK,VOICE:+962795137025
+TEL;TYPE=CELL,VOICE:+962795137025
+EMAIL:osama@qasfigures.com
+URL:https://www.instagram.com/osamashualah
+END:VCARD`;
+            
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Osama_Abushualah.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('Contact saved successfully!');
+        }
+
+        // Add click effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.social-icon, .action-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
