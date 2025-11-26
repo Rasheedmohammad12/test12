@@ -68,23 +68,24 @@
         
         .cover-container {
             width: 100%;
-            height: 600px; /* زيادة الارتفاع */
+            height: 80vh; /* زيادة الارتفاع لملء الشاشة */
+            min-height: 600px; /* زيادة الارتفاع الأدنى */
             overflow: hidden;
             position: relative;
             background: var(--dark-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px; /* إضافة padding */
+            padding: 20px; /* تقليل الـ padding */
         }
         
         .logo-full {
-            width: 95%; /* تكبير اللوغو بشكل كبير */
-            height: auto; /* الحفاظ على التناسب */
-            max-height: 500px; /* زيادة أقصى ارتفاع */
+            width: 100%; /* جعل اللوجو يملأ العرض بالكامل */
+            height: 100%; /* جعل اللوجو يملأ الارتفاع بالكامل */
             object-fit: contain; /* عرض الصورة كاملة بدون قص */
             display: block;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8)); /* إضافة ظل للوغو */
+            max-width: 100%; /* إزالة أي قيود على العرض */
+            max-height: 100%; /* إزالة أي قيود على الارتفاع */
         }
         
         .profile-info {
@@ -548,12 +549,8 @@
             }
             
             .cover-container {
-                height: 500px; /* الحفاظ على الارتفاع في الشاشات الصغيرة */
-            }
-            
-            .logo-full {
-                width: 95%; /* الحفاظ على الحجم في الشاشات الصغيرة */
-                max-height: 400px;
+                height: 70vh; /* الحفاظ على الارتفاع في الشاشات الصغيرة */
+                min-height: 500px;
             }
             
             .action-buttons {
@@ -568,12 +565,8 @@
 
         @media (max-width: 480px) {
             .cover-container {
-                height: 400px; /* تعديل الارتفاع في الشاشات الصغيرة جداً */
-            }
-            
-            .logo-full {
-                width: 98%;
-                max-height: 350px;
+                height: 60vh; /* تعديل الارتفاع في الشاشات الصغيرة جداً */
+                min-height: 400px;
             }
             
             .gallery-preview {
