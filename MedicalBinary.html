@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Binary - الحلول الطبية المتكاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --primary-light: #2e86c1;
+            --primary-dark: #154360;
+            --accent: #e74c3c;
+            --accent-light: #ec7063;
+            --medical-blue: #1a5276;
+            --medical-light: #2e86c1;
+            --medical-dark: #154360;
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+            --light-text: #2c3e50;
+            --lighter-text: #566573;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --border: 1px solid #e0e0e0;
+            --radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--white);
+            color: var(--light-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: var(--medical-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--light-text);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--medical-blue);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--medical-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--medical-dark) 0%, var(--medical-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--medical-blue);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--medical-dark);
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--lighter-text);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--medical-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--medical-dark);
+        }
+        
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--medical-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--medical-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--medical-dark);
+        }
+        
+        .service-desc {
+            color: var(--lighter-text);
+            margin-bottom: 20px;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+        
+        .products-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: var(--white);
+            border: 1px solid var(--medical-light);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: var(--medical-blue);
+            color: var(--white);
+            border-color: var(--medical-blue);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--medical-light);
+            color: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--medical-dark);
+        }
+        
+        .product-desc {
+            color: var(--lighter-text);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--medical-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .product-link:hover {
+            gap: 10px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--medical-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--medical-dark);
+        }
+        
+        .contact-form {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--medical-dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--medical-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--medical-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .footer-about {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-right: 5px;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .about-section, .services-section, .products-section, .contact-section {
+                padding: 70px 0;
+            }
+            
+            .service-card, .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://i.imgur.com/J8ZSnRM.jpeg" alt="Medical Binary Logo">
+                </div>
+                <nav class="nav-links">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#products">منتجاتنا</a>
+                    <a href="#contact">اتصل بنا</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Medical Binary - الحلول الطبية المتكاملة</h1>
+                <p class="hero-subtitle">متخصصون في توريد المستلزمات الطبية والمواد الاستهلاكية وجميع احتياجات جراحة العظام والمستحضرات الصيدلانية</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        اتصل بنا الآن
+                    </a>
+                    <a href="#products" class="btn btn-secondary">
+                        <i class="fas fa-box-open"></i>
+                        تصفح منتجاتنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            <p class="section-subtitle">Medical Binary Establishment - مؤسسة متخصصة في الحلول الطبية المتكاملة</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>نحن في Medical Binary نقدم حلولاً طبية شاملة تشمل كل ما يلزم لجراحات العظام، بما في ذلك المواد القابلة للزرع من وكالات دولية مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا)، بالإضافة إلى مجموعة كاملة من الأدوات الجراحية لجراحة العظام، وأنظمة التثبيت الخارجي، ومجموعة متنوعة من الأجهزة الطبية، ومستلزمات المستشفيات، ومعدات غرفة العمليات.</p>
+                    
+                    <p>بالإضافة إلى مستودع أدوية شامل مزود بوكالات المستحضرات الصيدلانية والمكملات الغذائية من جميع أنحاء العالم، لدينا أيضًا صيدليتنا الخاصة لبيع المنتجات الطبية والأدوية.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>مواد جراحة العظام</h4>
+                                <p>من وكالات دولية معتمدة</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>مستودع أدوية شامل</h4>
+                                <p>مستحضرات صيدلانية عالمية</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>خدمات الرعاية الصحية</h4>
+                                <p>للمرضى القادمين من الخارج</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>تعاون مع المؤسسات الصحية</h4>
+                                <p>مستشفيات، صيدليات، مختبرات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="Medical Binary">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا</h2>
+            <p class="section-subtitle">نقدم مجموعة واسعة من الخدمات الطبية المتخصصة لتلبية جميع احتياجاتكم</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3 class="service-title">مواد جراحة العظام</h3>
+                    <p class="service-desc">مواد قابلة للزرع من وكالات دولية معتمدة مثل Austofix و Ortho-Trauma</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">الأدوات الجراحية</h3>
+                    <p class="service-desc">مجموعة كاملة من الأدوات الجراحية لجراحة العظام وأنظمة التثبيت الخارجي</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3 class="service-title">المستحضرات الصيدلانية</h3>
+                    <p class="service-desc">مستودع أدوية شامل مزود بوكالات المستحضرات الصيدلانية العالمية</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 class="service-title">مستلزمات المستشفيات</h3>
+                    <p class="service-desc">مجموعة متنوعة من الأجهزة الطبية ومستلزمات المستشفيات ومعدات غرفة العمليات</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-injured"></i>
+                    </div>
+                    <h3 class="service-title">رعاية المرضى الدوليين</h3>
+                    <p class="service-desc">تسهيل الإجراءات الطبية والجراحية للمرضى القادمين من الخارج للعلاج</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">التعاون المؤسسي</h3>
+                    <p class="service-desc">تعاون مع الأطباء، المستشفيات، الصيدليات، المختبرات، ومراكز الأشعة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <p class="section-subtitle">اكتشف مجموعتنا الواسعة من المنتجات الطبية والمستلزمات الصحية</p>
+            
+            <div class="products-tabs">
+                <button class="tab-btn active" data-category="all">جميع المنتجات</button>
+                <button class="tab-btn" data-category="orthopedic">جراحة العظام</button>
+                <button class="tab-btn" data-category="pharmaceutical">المستحضرات الصيدلانية</button>
+                <button class="tab-btn" data-category="cosmetic">مستحضرات التجميل</button>
+                <button class="tab-btn" data-category="equipment">المعدات الطبية</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Orthopedic Products -->
+                <div class="product-card" data-category="orthopedic">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/R4KKy5t.jpeg" alt="Orthopedic Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مواد جراحة العظام</h3>
+                        <p class="product-desc">مواد قابلة للزرع من Ortho-Trauma الدولية</p>
+                        <a href="Ortho Pedic.pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="orthopedic">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/Ra7yHBp.jpeg" alt="Orthopedic Supplies">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مستلزمات جراحة العظام</h3>
+                        <p class="product-desc">مجموعة متنوعة من المستلزمات الطبية لجراحة العظام</p>
+                        <a href="Conwe pdf.pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pharmaceutical Products -->
+                <div class="product-card" data-category="pharmaceutical">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/fFUKoQh.jpeg" alt="Pharmaceuticals">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">المستحضرات الصيدلانية</h3>
+                        <p class="product-desc">مستودع أدوية شامل بمستحضرات عالمية</p>
+                        <a href="Farmasi Catalogue ..pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cosmetic Products -->
+                <div class="product-card" data-category="cosmetic">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/DSOWciH.jpeg" alt="Cosmetic Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مستحضرات التجميل</h3>
+                        <p class="product-desc">مجموعة Farmasi من مستحضرات التجميل والعناية</p>
+                        <a href="Farmasi Catalogue ..pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="cosmetic">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/EV8A0GZ.jpeg" alt="OHO Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">منتجات OHO</h3>
+                        <p class="product-desc">منتجات العناية بالبشرة من زيت الزيتون العضوي</p>
+                        <a href="OHO Cataloge.pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Medical Equipment -->
+                <div class="product-card" data-category="equipment">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/dqkWLfm.jpeg" alt="Medical Equipment">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">الأجهزة الطبية</h3>
+                        <p class="product-desc">مجموعة متنوعة من الأجهزة والمعدات الطبية</p>
+                        <a href="NIMO TURKEY.pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="cosmetic">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/OeDkYnj.jpeg" alt="D.C. Tuna Products">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">منتجات D.C. Tuna</h3>
+                        <p class="product-desc">مجموعة متنوعة من منتجات العناية بالبشرة والشعر</p>
+                        <a href="Catalog D.C.Tuna.pdf" class="product-link" target="_blank">
+                            عرض الكتالوج
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <p class="section-subtitle">نحن هنا لمساعدتك في جميع استفساراتك واحتياجاتك الطبية</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>موقعنا</h4>
+                            <p>جبل الحسين - مقابل مستشفى هبة، مجمع لؤلؤات القريني 198، عمان، الأردن</p>
+                            <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" target="_blank" style="color: var(--medical-blue);">عرض على الخريطة</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>هاتف أرضي</h4>
+                            <p>065692727</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>هاتف محمول</h4>
+                            <p>0790408227</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>Rammaha@medical-binary.com</p>
+                            <p>Medical.Binary@yahoo.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>ساعات العمل</h4>
+                            <p>الأحد - الخميس: 8:00 ص - 6:00 م</p>
+                            <p>الجمعة: 9:00 ص - 1:00 م</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">رقم الهاتف</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">الموضوع</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">الرسالة</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://i.imgur.com/J8ZSnRM.jpeg" alt="Medical Binary Logo">
+                    </div>
+                    <p class="footer-about">Medical Binary Establishment - مؤسسة متخصصة في الحلول الطبية المتكاملة، توريد المستلزمات الطبية والمواد الاستهلاكية وجميع احتياجات جراحة العظام والمستحضرات الصيدلانية.</p>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <
