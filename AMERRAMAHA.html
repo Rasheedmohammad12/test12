@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMERR AMAHA - Medical Binary</title>
+    <title>Amer Rammaha - Medical Binary</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -78,9 +78,10 @@
         }
         
         .logo-full {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 80%; /* تصغير اللوغو */
+            height: auto; /* الحفاظ على التناسب */
+            max-height: 400px; /* تحديد أقصى ارتفاع */
+            object-fit: contain; /* عرض الصورة كاملة بدون قص */
             display: block;
         }
         
@@ -548,6 +549,11 @@
                 height: 400px;
             }
             
+            .logo-full {
+                width: 90%; /* تكبير قليلاً في الشاشات الصغيرة */
+                max-height: 350px;
+            }
+            
             .action-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -561,6 +567,11 @@
         @media (max-width: 480px) {
             .cover-container {
                 height: 300px;
+            }
+            
+            .logo-full {
+                width: 95%;
+                max-height: 250px;
             }
             
             .gallery-preview {
@@ -577,12 +588,12 @@
         </div>
         <div class="profile-info">
             <div class="profile-image-container">
-                <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="AMERR AMAHA" class="profile-image">
+                <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="Amer Rammaha" class="profile-image">
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
             </div>
-            <h1 class="profile-name">AMERR AMAHA</h1>
+            <h1 class="profile-name">Amer Rammaha</h1>
             <div class="profile-username">Medical Binary - Integrated Medical Solutions</div>
             
             <div class="stats-container">
@@ -1004,7 +1015,7 @@
         function saveContact() {
             const vcard = `BEGIN:VCARD
 VERSION:3.0
-FN:AMERR AMAHA
+FN:Amer Rammaha
 ORG:Medical Binary - Integrated Medical Solutions
 TEL;TYPE=WORK,VOICE:065692727
 TEL;TYPE=CELL,VOICE:0790408227
@@ -1019,7 +1030,7 @@ END:VCARD`;
             
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'AMERR AMAHA.vcf';
+            a.download = 'Amer Rammaha.vcf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
