@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Binary - Integrated Medical Solutions</title>
+    <title>Medical Binary - Product Catalogs Download</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -33,50 +33,31 @@
             font-family: 'Inter', sans-serif;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
         body {
-            background: var(--white);
+            background: var(--light-bg);
             color: var(--light-text);
             line-height: 1.7;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-        }
-        
-        a {
-            color: var(--medical-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            padding: 20px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
-        /* Header */
-        .main-header {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--medical-dark) 0%, var(--medical-blue) 100%);
+            color: white;
+            border-radius: var(--radius);
         }
         
         .logo {
-            height: 60px;
-            display: flex;
-            align-items: center;
+            height: 80px;
+            margin-bottom: 20px;
         }
         
         .logo img {
@@ -84,599 +65,204 @@
             width: auto;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
         
-        .nav-links a {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--light-text);
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: var(--medical-blue);
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--medical-blue);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--medical-dark) 0%, var(--medical-blue) 100%);
-            color: var(--white);
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
+        .header p {
+            font-size: 1.2rem;
             opacity: 0.9;
         }
         
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--medical-blue);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: var(--light-bg);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--medical-dark);
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--lighter-text);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-        
-        .about-content {
+        .pdf-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--medical-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-        
-        .feature-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--medical-dark);
-        }
-        
-        .about-image {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Services Section */
-        .services-section {
-            padding: 100px 0;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-bottom: 50px;
         }
         
-        .service-card {
+        .pdf-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 40px 30px;
-            text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--medical-blue);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--medical-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--white);
-            font-size: 2rem;
-        }
-        
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--medical-dark);
-        }
-        
-        .service-desc {
-            color: var(--lighter-text);
-            margin-bottom: 20px;
-        }
-        
-        /* Products Section */
-        .products-section {
-            padding: 100px 0;
-            background: var(--light-bg);
-        }
-        
-        .products-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-        
-        .tab-btn {
-            padding: 12px 25px;
-            background: var(--white);
-            border: 1px solid var(--medical-light);
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .tab-btn.active {
-            background: var(--medical-blue);
-            color: var(--white);
-            border-color: var(--medical-blue);
-        }
-        
-        .tab-btn:hover:not(.active) {
-            background: var(--medical-light);
-            color: var(--white);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .product-card {
-            background: var(--white);
-            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
         }
         
-        .product-card:hover {
+        .pdf-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
         
-        .product-header {
+        .pdf-header {
             background: var(--medical-blue);
             color: white;
-            padding: 20px;
+            padding: 25px;
             display: flex;
             align-items: center;
             gap: 15px;
         }
         
-        .product-icon {
-            width: 50px;
-            height: 50px;
+        .pdf-icon {
+            width: 60px;
+            height: 60px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
         }
         
-        .product-title {
-            font-size: 1.3rem;
+        .pdf-title {
+            font-size: 1.4rem;
             font-weight: 700;
             margin: 0;
         }
         
-        .product-content {
+        .pdf-content {
             padding: 25px;
         }
         
-        .product-info {
-            margin-bottom: 20px;
-        }
-        
-        .product-category {
+        .pdf-category {
             display: inline-block;
             background: var(--light-bg);
             color: var(--medical-blue);
-            padding: 5px 12px;
+            padding: 6px 15px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 15px;
         }
         
-        .product-description {
+        .pdf-description {
             color: var(--lighter-text);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .product-features {
-            list-style: none;
             margin-bottom: 20px;
+            font-size: 1rem;
         }
         
-        .product-features li {
+        .pdf-contents {
+            margin-bottom: 25px;
+        }
+        
+        .contents-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--medical-dark);
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contents-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+        
+        .contents-list li {
             margin-bottom: 8px;
-            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
             color: var(--lighter-text);
         }
         
-        .product-features i {
+        .contents-list li:before {
+            content: "•";
             color: var(--accent);
-            margin-top: 3px;
-            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
         
-        .product-actions {
+        .pdf-actions {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 12px;
         }
         
-        .product-link {
+        .download-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: var(--medical-blue);
             color: white;
             border-radius: var(--radius);
             font-weight: 600;
-            font-size: 0.9rem;
+            text-decoration: none;
             transition: all 0.3s ease;
             flex: 1;
             justify-content: center;
-            min-width: 120px;
         }
         
-        .product-link:hover {
+        .download-btn:hover {
             background: var(--medical-dark);
             transform: translateY(-2px);
-            gap: 12px;
         }
         
-        .product-link.secondary {
+        .download-btn.secondary {
             background: transparent;
             color: var(--medical-blue);
             border: 2px solid var(--medical-blue);
         }
         
-        .product-link.secondary:hover {
+        .download-btn.secondary:hover {
             background: var(--medical-blue);
             color: white;
         }
         
-        /* Contact Section */
         .contact-section {
-            padding: 100px 0;
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 30px;
         }
         
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
         
         .contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 15px;
+            padding: 15px;
+            background: var(--light-bg);
+            border-radius: var(--radius);
         }
         
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: var(--medical-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
         
-        .contact-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--medical-dark);
-        }
-        
-        .contact-form {
-            background: var(--light-bg);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--medical-dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--medical-blue);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        .main-footer {
-            background: var(--medical-dark);
-            color: var(--white);
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            height: 60px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo img {
-            height: 100%;
-            width: auto;
-        }
-        
-        .footer-about {
-            font-size: 1rem;
-            opacity: 0.8;
-            line-height: 1.7;
-        }
-        
-        .footer-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-title:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--white);
-            padding-left: 5px;
-        }
-        
-        .footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .footer-contact i {
-            color: var(--accent);
-            margin-top: 3px;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        /* Save Contact Button */
         .save-contact-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
+            gap: 10px;
+            padding: 15px 30px;
             background: var(--accent);
             color: white;
+            border: none;
             border-radius: var(--radius);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: none;
             margin-top: 20px;
         }
         
@@ -685,654 +271,359 @@
             transform: translateY(-2px);
         }
         
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--lighter-text);
+            border-top: 1px solid var(--border);
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .about-features {
+            .pdf-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-actions {
+            .pdf-actions {
                 flex-direction: column;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
             
-            .hero-section {
-                padding: 80px 0;
-            }
-            
-            .about-section, .services-section, .products-section, .contact-section {
-                padding: 70px 0;
-            }
-            
-            .service-card, .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .product-header {
+            .pdf-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="https://i.imgur.com/J8ZSnRM.jpeg" alt="Medical Binary Logo">
-                </div>
-                <nav class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#services">Services</a>
-                    <a href="#products">Products</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/J8ZSnRM.jpeg" alt="Medical Binary Logo">
             </div>
-        </div>
-    </header>
+            <h1>Medical Binary - Product Catalogs</h1>
+            <p>Download our comprehensive product catalogs and price lists</p>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Medical Binary - Integrated Medical Solutions</h1>
-                <p class="hero-subtitle">Specialized in supplying medical supplies, consumables, and all orthopedic surgery needs, pharmaceuticals, and medical equipment</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-phone"></i>
-                        Contact Us Now
-                    </a>
-                    <a href="#products" class="btn btn-secondary">
-                        <i class="fas fa-box-open"></i>
-                        Browse Products
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <p class="section-subtitle">Medical Binary Establishment - Specialized in Integrated Medical Solutions</p>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p>At Medical Binary, we provide comprehensive medical solutions including everything needed for orthopedic surgeries, including implantable materials from international agencies like Austofix (Australia) and Ortho-Trauma (England), as well as a full range of orthopedic surgical instruments, external fixation systems, various medical devices, hospital supplies, and operating room equipment.</p>
-                    
-                    <p>In addition to a comprehensive drug warehouse stocked with pharmaceutical and nutritional supplement agencies from around the world, we also have our own pharmacy selling medical products and medications.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-bone"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Orthopedic Surgery Materials</h4>
-                                <p>From certified international agencies</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-capsules"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Comprehensive Drug Warehouse</h4>
-                                <p>Global pharmaceutical preparations</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Healthcare Services</h4>
-                                <p>For patients coming from abroad</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Collaboration with Health Institutions</h4>
-                                <p>Hospitals, pharmacies, laboratories</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-image">
-                    <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="Medical Binary">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">We offer a wide range of specialized medical services to meet all your needs</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
+        <!-- PDF Download Section -->
+        <div class="pdf-grid">
+            <!-- Ortho-Trauma Catalog -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <h3 class="service-title">Orthopedic Surgery Materials</h3>
-                    <p class="service-desc">Implantable materials from certified international agencies like Austofix and Ortho-Trauma</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
+                    <div>
+                        <h3 class="pdf-title">Ortho-Trauma International</h3>
                     </div>
-                    <h3 class="service-title">Surgical Instruments</h3>
-                    <p class="service-desc">Complete range of orthopedic surgical instruments and external fixation systems</p>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-capsules"></i>
+                <div class="pdf-content">
+                    <div class="pdf-category">Orthopedic Surgery</div>
+                    <p class="pdf-description">Complete catalog of orthopedic implants and surgical instruments from Ortho-Trauma International LLP, United Kingdom.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
+                        </div>
+                        <ul class="contents-list">
+                            <li>Intra Medullary Interlocking Nailing System</li>
+                            <li>Orthopedic Implants & Instruments</li>
+                            <li>Surgical Procedure Guides</li>
+                            <li>Product Specifications & Sizes</li>
+                            <li>Technical Documentation</li>
+                            <li>Certification & Quality Standards</li>
+                        </ul>
                     </div>
-                    <h3 class="service-title">Pharmaceutical Preparations</h3>
-                    <p class="service-desc">Comprehensive drug warehouse stocked with global pharmaceutical agencies</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hospital"></i>
+                    
+                    <div class="pdf-actions">
+                        <a href="Ortho_Trauma_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="Ortho_Trauma_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
                     </div>
-                    <h3 class="service-title">Hospital Supplies</h3>
-                    <p class="service-desc">Various medical devices, hospital supplies, and operating room equipment</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-injured"></i>
-                    </div>
-                    <h3 class="service-title">International Patient Care</h3>
-                    <p class="service-desc">Facilitating medical and surgical procedures for patients coming from abroad for treatment</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="service-title">Institutional Collaboration</h3>
-                    <p class="service-desc">Collaboration with doctors, hospitals, pharmacies, laboratories, and radiology centers</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <div class="container">
-            <h2 class="section-title">Our Products</h2>
-            <p class="section-subtitle">Discover our wide range of medical products and health supplies</p>
-            
-            <div class="products-tabs">
-                <button class="tab-btn active" data-category="all">All Products</button>
-                <button class="tab-btn" data-category="orthopedic">Orthopedic Surgery</button>
-                <button class="tab-btn" data-category="pharmaceutical">Pharmaceuticals</button>
-                <button class="tab-btn" data-category="cosmetic">Cosmetics</button>
-                <button class="tab-btn" data-category="equipment">Medical Equipment</button>
+            <!-- Orthopedic Supplies -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div>
+                        <h3 class="pdf-title">Orthopedic Supplies</h3>
+                    </div>
+                </div>
+                <div class="pdf-content">
+                    <div class="pdf-category">Medical Supports & Braces</div>
+                    <p class="pdf-description">Complete range of orthopedic supports, braces, and rehabilitation equipment for various medical needs.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
+                        </div>
+                        <ul class="contents-list">
+                            <li>Arm Slings (All Sizes)</li>
+                            <li>Wrist & Ankle Supports</li>
+                            <li>Cervical Collars</li>
+                            <li>Knee Braces & Supports</li>
+                            <li>Elastic Bandages</li>
+                            <li>Rehabilitation Equipment</li>
+                            <li>Size Charts & Fitting Guides</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pdf-actions">
+                        <a href="Orthopedic_Supplies_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="Orthopedic_Supplies_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="products-grid">
-                <!-- Orthopedic Products -->
-                <div class="product-card" data-category="orthopedic">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-bone"></i>
-                        </div>
-                        <div>
-                            <h3 class="product-title">Ortho-Trauma International</h3>
-                        </div>
+
+            <!-- Farmasi Products -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
+                        <i class="fas fa-pills"></i>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Orthopedic Surgery</div>
-                        <div class="product-info">
-                            <p class="product-description">Orthopedic implants and instruments from Ortho-Trauma International LLP, United Kingdom. Specialized in intra medullary interlocking nailing systems.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Intra Medullary Interlocking Nailing System</li>
-                                <li><i class="fas fa-check"></i> Orthopedic Implants & Instruments</li>
-                                <li><i class="fas fa-check"></i> UK Certified Products</li>
-                                <li><i class="fas fa-check"></i> Comprehensive Surgical Solutions</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="Ortho_Pedic_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="Ortho_Pedic_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                    <div>
+                        <h3 class="pdf-title">Farmasi Products</h3>
                     </div>
                 </div>
-                
-                <div class="product-card" data-category="orthopedic">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-procedures"></i>
+                <div class="pdf-content">
+                    <div class="pdf-category">Cosmetics & Pharmaceuticals</div>
+                    <p class="pdf-description">Complete Farmasi product line including cosmetics, skincare, makeup, and beauty products.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
                         </div>
-                        <div>
-                            <h3 class="product-title">Orthopedic Supplies</h3>
-                        </div>
+                        <ul class="contents-list">
+                            <li>VFX PRO Foundation Collection</li>
+                            <li>Stay Matte Mineral Products</li>
+                            <li>Mascara & Eye Makeup</li>
+                            <li>Skincare & Face Care</li>
+                            <li>Body Care Products</li>
+                            <li>Makeup Removers</li>
+                            <li>Product Usage Guides</li>
+                        </ul>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Medical Supports & Braces</div>
-                        <div class="product-info">
-                            <p class="product-description">Comprehensive range of orthopedic supports including arm slings, wrist supports, cervical collars, knee braces, and ankle splints in various sizes.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Arm Slings (S/M/L/XL)</li>
-                                <li><i class="fas fa-check"></i> Wrist & Ankle Supports</li>
-                                <li><i class="fas fa-check"></i> Cervical Collars with Plastic Insert</li>
-                                <li><i class="fas fa-check"></i> Elastic Hinged Knee Braces</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="Orthopedic_Supplies_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="Orthopedic_Supplies_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                    
+                    <div class="pdf-actions">
+                        <a href="Farmasi_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="Farmasi_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Pharmaceutical Products -->
-                <div class="product-card" data-category="pharmaceutical">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <div>
-                            <h3 class="product-title">Farmasi Pharmaceuticals</h3>
-                        </div>
+            </div>
+
+            <!-- OHO Products -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
+                        <i class="fas fa-spa"></i>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Pharmaceuticals & Cosmetics</div>
-                        <div class="product-info">
-                            <p class="product-description">Comprehensive range of Farmasi products including cosmetics, skincare, haircare, and beauty products with international quality standards.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> VFX PRO Foundation & Concealer</li>
-                                <li><i class="fas fa-check"></i> Stay Matte Mineral Enriched</li>
-                                <li><i class="fas fa-check"></i> Mascara Collection</li>
-                                <li><i class="fas fa-check"></i> Skincare & Body Care Products</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="Farmasi_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="Farmasi_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                    <div>
+                        <h3 class="pdf-title">OHO Olive Oil Products</h3>
                     </div>
                 </div>
-                
-                <!-- Cosmetic Products -->
-                <div class="product-card" data-category="cosmetic">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-spa"></i>
+                <div class="pdf-content">
+                    <div class="pdf-category">Organic Skincare</div>
+                    <p class="pdf-description">100% organic olive oil-based skincare products for all skin types, especially sensitive and dry skin.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
                         </div>
-                        <div>
-                            <h3 class="product-title">OHO Olive Oil Products</h3>
-                        </div>
+                        <ul class="contents-list">
+                            <li>Repairing Creams & Lotions</li>
+                            <li>Body Care Products</li>
+                            <li>Baby Care Line</li>
+                            <li>Hand & Foot Care</li>
+                            <li>Organic Ingredients List</li>
+                            <li>Usage Instructions</li>
+                            <li>Dermatological Certifications</li>
+                        </ul>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Organic Skincare</div>
-                        <div class="product-info">
-                            <p class="product-description">100% organic OHO Olive Oil formulations for effective and natural active substances. Dermocosmetic products for all skin types, especially sensitive and dry skin.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> 100% Organic Extra Virgin Olive Oil</li>
-                                <li><i class="fas fa-check"></i> Repairing Creams & Lotions</li>
-                                <li><i class="fas fa-check"></i> Baby Care Products</li>
-                                <li><i class="fas fa-check"></i> Dermatologically Tested</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="OHO_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="OHO_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                    
+                    <div class="pdf-actions">
+                        <a href="OHO_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="OHO_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Medical Equipment -->
-                <div class="product-card" data-category="equipment">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <div>
-                            <h3 class="product-title">Medical Equipment</h3>
-                        </div>
+            </div>
+
+            <!-- Medical Equipment -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
+                        <i class="fas fa-stethoscope"></i>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Medical Devices</div>
-                        <div class="product-info">
-                            <p class="product-description">Various medical equipment and devices including nebulizers, compressors, and healthcare products from international manufacturers.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> HUNKAR Medical Equipment</li>
-                                <li><i class="fas fa-check"></i> Kompresoriu Nebulizator</li>
-                                <li><i class="fas fa-check"></i> Healthcare Products</li>
-                                <li><i class="fas fa-check"></i> Medical Devices Catalog</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="Medical_Equipment_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="Medical_Equipment_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                    <div>
+                        <h3 class="pdf-title">Medical Equipment</h3>
                     </div>
                 </div>
-                
-                <div class="product-card" data-category="cosmetic">
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <i class="fas fa-pump-soap"></i>
+                <div class="pdf-content">
+                    <div class="pdf-category">Medical Devices</div>
+                    <p class="pdf-description">Comprehensive range of medical equipment, devices, and healthcare products from international manufacturers.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
                         </div>
-                        <div>
-                            <h3 class="product-title">D.C. Tuna Products</h3>
-                        </div>
+                        <ul class="contents-list">
+                            <li>HUNKAR Medical Equipment</li>
+                            <li>Nebulizers & Compressors</li>
+                            <li>Diagnostic Equipment</li>
+                            <li>Therapy Devices</li>
+                            <li>Healthcare Products</li>
+                            <li>Technical Specifications</li>
+                            <li>Operation Manuals</li>
+                        </ul>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">Skincare & Haircare</div>
-                        <div class="product-info">
-                            <p class="product-description">Comprehensive range of D.C. Tuna skincare and haircare products including specialized lines for different skin and hair types.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Sun Care with Baobab Extract</li>
-                                <li><i class="fas fa-check"></i> Activated Charcoal Line</li>
-                                <li><i class="fas fa-check"></i> Tea Tree Oil Products</li>
-                                <li><i class="fas fa-check"></i> Hair Care Solutions</li>
-                            </ul>
+                    
+                    <div class="pdf-actions">
+                        <a href="Medical_Equipment_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="Medical_Equipment_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D.C. Tuna Products -->
+            <div class="pdf-card">
+                <div class="pdf-header">
+                    <div class="pdf-icon">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <div>
+                        <h3 class="pdf-title">D.C. Tuna Products</h3>
+                    </div>
+                </div>
+                <div class="pdf-content">
+                    <div class="pdf-category">Skincare & Haircare</div>
+                    <p class="pdf-description">Specialized skincare and haircare products with natural ingredients for various skin and hair types.</p>
+                    
+                    <div class="pdf-contents">
+                        <div class="contents-title">
+                            <i class="fas fa-list"></i>
+                            Catalog Contents:
                         </div>
-                        <div class="product-actions">
-                            <a href="DC_Tuna_Catalog.pdf" class="product-link" download>
-                                <i class="fas fa-download"></i>
-                                Download Catalog
-                            </a>
-                            <a href="DC_Tuna_Price_List.pdf" class="product-link secondary" download>
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                Price List
-                            </a>
-                        </div>
+                        <ul class="contents-list">
+                            <li>Sun Care Products (SPF 50+)</li>
+                            <li>Activated Charcoal Line</li>
+                            <li>Tea Tree Oil Products</li>
+                            <li>Hair Care Solutions</li>
+                            <li>Foot Care Products</li>
+                            <li>Specialized Treatment Lines</li>
+                            <li>Ingredient Information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pdf-actions">
+                        <a href="DC_Tuna_Catalog.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Catalog
+                        </a>
+                        <a href="DC_Tuna_Prices.pdf" class="download-btn secondary" download>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            Price List
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">We're here to help with all your inquiries and medical needs</p>
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Contact Information</h2>
+            <p>Get in touch with us for more information or inquiries</p>
             
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Our Location</h4>
-                            <p>Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198, Amman, Jordan</p>
-                            <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" target="_blank" style="color: var(--medical-blue);">View on Map</a>
-                        </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Landline</h4>
-                            <p>065692727</p>
-                        </div>
+                    <div>
+                        <strong>Address</strong>
+                        <div>Jabal Al-Hussein - Opposite Hiba Hospital</div>
+                        <div>Luluat Al-Quraini Complex 198, Amman, Jordan</div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Mobile</h4>
-                            <p>0790408227</p>
-                        </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>Rammaha@medical-binary.com</p>
-                            <p>Medical.Binary@yahoo.com</p>
-                        </div>
+                    <div>
+                        <strong>Phone Numbers</strong>
+                        <div>Landline: 065692727</div>
+                        <div>Mobile: 0790408227</div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Working Hours</h4>
-                            <p>Sunday - Thursday: 8:00 AM - 6:00 PM</p>
-                            <p>Friday: 9:00 AM - 1:00 PM</p>
-                        </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
+                    <div>
+                        <strong>Email</strong>
+                        <div>Rammaha@medical-binary.com</div>
+                        <div>Medical.Binary@yahoo.com</div>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Save Contact Button -->
-                    <button class="save-contact-btn" onclick="saveContact()">
-                        <i class="fas fa-address-card"></i>
-                        Save Contact to Phone
-                    </button>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
+            <button class="save-contact-btn" onclick="saveContact()">
+                <i class="fas fa-address-card"></i>
+                Save Contact to Phone
+            </button>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="https://i.imgur.com/J8ZSnRM.jpeg" alt="Medical Binary Logo">
-                    </div>
-                    <p class="footer-about">Medical Binary Establishment - Specialized in integrated medical solutions, supplying medical supplies, consumables, all orthopedic surgery needs, and pharmaceutical preparations.</p>
-                </div>
-                
-                <div class="footer-links-container">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact-container">
-                    <h3 class="footer-title">Contact Information</h3>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>065692727</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>0790408227</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>Rammaha@medical-binary.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>All Rights Reserved &copy; 2023 Medical Binary Establishment</p>
-            </div>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2023 Medical Binary Establishment. All rights reserved.</p>
+            <p>Specialized in medical supplies, orthopedic surgery materials, pharmaceuticals, and healthcare services</p>
+        </footer>
+    </div>
 
     <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const productCards = document.querySelectorAll('.product-card');
-            
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    // Filter products
-                    productCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Contact form submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for contacting us! We will get back to you as soon as possible.');
-                contactForm.reset();
-            });
-        });
-
         // Save Contact Functionality
         function saveContact() {
             const vcard = `BEGIN:VCARD
@@ -1345,7 +636,7 @@ EMAIL:Rammaha@medical-binary.com
 EMAIL:Medical.Binary@yahoo.com
 ADR;TYPE=WORK:;;Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198;Amman;;Jordan;
 URL:https://medical-binary.com
-NOTE:Specialized in medical supplies, orthopedic surgery materials, pharmaceuticals, and healthcare services
+NOTE:Specialized in medical supplies, orthopedic surgery materials, pharmaceuticals, and healthcare services. Download our product catalogs for complete information.
 END:VCARD`;
             
             const blob = new Blob([vcard], { type: 'text/vcard' });
@@ -1353,14 +644,26 @@ END:VCARD`;
             
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Medical Binary Contact.vcf';
+            a.download = 'Medical_Binary_Contact.vcf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            alert('Contact saved successfully! The vCard file has been downloaded.');
+            alert('Contact saved successfully! The vCard file has been downloaded to your device.');
         }
+
+        // Add download tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const fileName = this.getAttribute('href');
+                    console.log('Download initiated:', fileName);
+                    // Here you can add analytics tracking if needed
+                });
+            });
+        });
     </script>
 </body>
 </html>
