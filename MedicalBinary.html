@@ -307,9 +307,18 @@
         }
         
         .company-logo {
-            font-size: 3rem;
-            color: var(--medical-blue);
-            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .company-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         .company-name {
@@ -324,32 +333,51 @@
             color: var(--light-text);
         }
         
-        .product-showcase {
+        .products-showcase {
+            margin: 50px 0;
+        }
+        
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            margin-top: 30px;
         }
         
         .product-card {
-            background: var(--medical-light);
-            padding: 30px;
+            background: white;
             border-radius: 15px;
-            text-align: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             border-color: var(--medical-blue);
             box-shadow: var(--shadow-lg);
         }
         
-        .product-icon {
-            font-size: 3rem;
-            color: var(--medical-blue);
-            margin-bottom: 20px;
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: var(--medical-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-content {
+            padding: 25px;
+            text-align: center;
         }
         
         .product-title {
@@ -368,7 +396,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin: 30px 0;
+            margin: 40px 0;
         }
         
         .feature-item {
@@ -697,6 +725,11 @@
             .company-name {
                 font-size: 2rem;
             }
+            
+            .company-logo {
+                width: 120px;
+                height: 120px;
+            }
         }
         
         /* Language Content */
@@ -719,7 +752,7 @@
         <div class="medical-container">
             <div class="header-content">
                 <div class="logo-container">
-                    <img src="https://i.imgur.com/xndbhOp.png" alt="Medical Binary Establishment Logo" class="logo-img">
+                    <img src="https://i.imgur.com/0LHYdRH.png" alt="Medical Binary Establishment Logo" class="logo-img">
                 </div>
                 <div>
                     <h1 class="medical-logo">
@@ -883,7 +916,7 @@
             <div class="orthotrauma-container">
                 <div class="company-header">
                     <div class="company-logo">
-                        <i class="fas fa-bone"></i>
+                        <img src="https://i.imgur.com/0LHYdRH.png" alt="Ortho-Trauma International Logo" class="company-logo-img">
                     </div>
                     <h2 class="company-name">ORTHOTRAUMA UK LIMITED</h2>
                     <p class="company-location">
@@ -892,47 +925,114 @@
                     </p>
                 </div>
 
-                <div class="product-showcase">
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-tools"></i>
+                <div class="products-showcase">
+                    <h3 class="section-title" style="font-size: 1.8rem; margin-bottom: 30px;">
+                        <span class="lang-content ar active">منتجاتنا المتخصصة</span>
+                        <span class="lang-content en">Our Specialized Products</span>
+                    </h3>
+                    
+                    <div class="products-grid">
+                        <!-- نظام التثبيت النخاعي -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/hktdLIu.png" alt="Intra Medullary Interlocking Nailing System" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">نظام التثبيت النخاعي</span>
+                                    <span class="lang-content en">Intra Medullary Interlocking Nailing System</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">نظام متقدم لتثبيت الكسور داخل النخاع مع تقنية القفل المزدوج لتوفير ثبات فائق ودعم للشفاء</span>
+                                    <span class="lang-content en">Advanced system for intramedullary fracture fixation with double locking technology for superior stability and healing support</span>
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="product-title">
-                            <span class="lang-content ar active">نظام التثبيت النخاعي</span>
-                            <span class="lang-content en">Intra Medullary Interlocking Nailing System</span>
-                        </h3>
-                        <p class="product-description">
-                            <span class="lang-content ar active">نظام متقدم لتثبيت الكسور داخل النخاع مع تقنية القفل المزدوج لتوفير ثبات فائق</span>
-                            <span class="lang-content en">Advanced system for intramedullary fracture fixation with double locking technology for superior stability</span>
-                        </p>
-                    </div>
 
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-cogs"></i>
+                        <!-- الغرسات العظمية -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/RZ8JNrF.png" alt="Orthopaedic Implants" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">الغرسات العظمية</span>
+                                    <span class="lang-content en">Orthopaedic Implants</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">مجموعة شاملة من الغرسات العظمية عالية الجودة المصممة لتلبية احتياجات جراحة العظام المختلفة</span>
+                                    <span class="lang-content en">Comprehensive range of high-quality orthopedic implants designed to meet various orthopedic surgery needs</span>
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="product-title">
-                            <span class="lang-content ar active">الغرسات العظمية</span>
-                            <span class="lang-content en">Orthopaedic Implants</span>
-                        </h3>
-                        <p class="product-description">
-                            <span class="lang-content ar active">مجموعة شاملة من الغرسات العظمية عالية الجودة المصممة لتلبية احتياجات جراحة العظام</span>
-                            <span class="lang-content en">Comprehensive range of high-quality orthopedic implants designed to meet all orthopedic surgery needs</span>
-                        </p>
-                    </div>
 
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-stethoscope"></i>
+                        <!-- الأدوات الجراحية -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/d6bRRoF.png" alt="Surgical Instruments" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">الأدوات الجراحية</span>
+                                    <span class="lang-content en">Surgical Instruments</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">أدوات جراحية متخصصة مصممة بدقة لتسهيل إجراءات جراحة العظام المعقدة وضمان الدقة</span>
+                                    <span class="lang-content en">Specialized surgical instruments precisely designed to facilitate complex orthopedic procedures and ensure accuracy</span>
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="product-title">
-                            <span class="lang-content ar active">الأدوات الجراحية</span>
-                            <span class="lang-content en">Surgical Instruments</span>
-                        </h3>
-                        <p class="product-description">
-                            <span class="lang-content ar active">أدوات جراحية متخصصة مصممة بدقة لتسهيل إجراءات جراحة العظام المعقدة</span>
-                            <span class="lang-content en">Specialized surgical instruments precisely designed to facilitate complex orthopedic procedures</span>
-                        </p>
+
+                        <!-- أنظمة التثبيت -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/HCzk8Td.png" alt="Fixation Systems" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">أنظمة التثبيت الخارجي</span>
+                                    <span class="lang-content en">External Fixation Systems</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">أنظمة تثبيت خارجي متطورة لتثبيت الكسور المعقدة وتوفير الدعم اللازم خلال فترة الشفاء</span>
+                                    <span class="lang-content en">Advanced external fixation systems for complex fractures and providing necessary support during healing</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- مسامير العظام -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/lHvqCO3.png" alt="Bone Screws" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">مسامير العظام</span>
+                                    <span class="lang-content en">Bone Screws</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">مجموعة متنوعة من مسامير العظام بمقاسات وتصميمات مختلفة لتتناسب مع مختلف الإجراءات الجراحية</span>
+                                    <span class="lang-content en">Various bone screws with different sizes and designs to suit different surgical procedures</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- الصفائح العظمية -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://i.imgur.com/xndbhOp.png" alt="Bone Plates" class="product-img">
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">
+                                    <span class="lang-content ar active">الصفائح العظمية</span>
+                                    <span class="lang-content en">Bone Plates</span>
+                                </h3>
+                                <p class="product-description">
+                                    <span class="lang-content ar active">صفائح عظمية مصممة هندسياً لتوفير ثبات ميكانيكي مثالي وتعزيز عملية التئام العظام</span>
+                                    <span class="lang-content en">Engineered bone plates providing optimal mechanical stability and enhancing bone healing process</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -945,8 +1045,8 @@
                                 <span class="lang-content en">High Quality</span>
                             </h4>
                             <p>
-                                <span class="lang-content ar active">منتجات مصنوعة بأعلى معايير الجودة</span>
-                                <span class="lang-content en">Products manufactured to highest quality standards</span>
+                                <span class="lang-content ar active">منتجات مصنوعة بأعلى معايير الجودة والسلامة</span>
+                                <span class="lang-content en">Products manufactured to highest quality and safety standards</span>
                             </p>
                         </div>
                     </div>
@@ -959,8 +1059,8 @@
                                 <span class="lang-content en">European Standards</span>
                             </h4>
                             <p>
-                                <span class="lang-content ar active">مطابقة للمواصفات والمعايير الأوروبية</span>
-                                <span class="lang-content en">Compliant with European specifications and standards</span>
+                                <span class="lang-content ar active">مطابقة للمواصفات والمعايير الأوروبية والدولية</span>
+                                <span class="lang-content en">Compliant with European and international specifications</span>
                             </p>
                         </div>
                     </div>
@@ -973,8 +1073,8 @@
                                 <span class="lang-content en">Technical Support</span>
                             </h4>
                             <p>
-                                <span class="lang-content ar active">دعم فني متكامل وتدريب للأطباء</span>
-                                <span class="lang-content en">Comprehensive technical support and doctor training</span>
+                                <span class="lang-content ar active">دعم فني متكامل وتدريب للأطباء والطواقم الطبية</span>
+                                <span class="lang-content en">Comprehensive technical support and training for doctors</span>
                             </p>
                         </div>
                     </div>
@@ -987,8 +1087,8 @@
                                 <span class="lang-content en">Global Distribution</span>
                             </h4>
                             <p>
-                                <span class="lang-content ar active">توفر المنتجات في أكثر من 40 دولة</span>
-                                <span class="lang-content en">Products available in over 40 countries</span>
+                                <span class="lang-content ar active">توفر المنتجات في أكثر من 40 دولة حول العالم</span>
+                                <span class="lang-content en">Products available in over 40 countries worldwide</span>
                             </p>
                         </div>
                     </div>
@@ -1000,80 +1100,6 @@
                         <span class="lang-content ar active">زيارة الموقع الرسمي</span>
                         <span class="lang-content en">Visit Official Website</span>
                     </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section">
-        <div class="medical-container">
-            <h2 class="section-title">
-                <span class="lang-content ar active">خدماتنا</span>
-                <span class="lang-content en">Our Services</span>
-            </h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-bone"></i>
-                        </div>
-                        <h3 class="service-title">
-                            <span class="lang-content ar active">مستلزمات جراحة العظام</span>
-                            <span class="lang-content en">Orthopedic Surgery Supplies</span>
-                        </h3>
-                    </div>
-                    <div class="service-body">
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مواد زرع من Austofix (أستراليا)</span><span class="lang-content en">Implants from Austofix (Australia)</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مواد زرع من Ortho-Trauma (إنجلترا)</span><span class="lang-content en">Implants from Ortho-Trauma (England)</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أدوات جراحة العظام الكاملة</span><span class="lang-content en">Complete orthopedic surgical instruments</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أنظمة التثبيت الخارجي</span><span class="lang-content en">External fixation systems</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">معدات غرفة العمليات</span><span class="lang-content en">Operating room equipment</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <h3 class="service-title">
-                            <span class="lang-content ar active">المستحضرات الصيدلانية</span>
-                            <span class="lang-content en">Pharmaceuticals</span>
-                        </h3>
-                    </div>
-                    <div class="service-body">
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مستودع أدوية شامل</span><span class="lang-content en">Comprehensive drug warehouse</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">وكالات مستحضرات صيدلانية عالمية</span><span class="lang-content en">Global pharmaceutical agencies</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مكملات غذائية متنوعة</span><span class="lang-content en">Various nutritional supplements</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">صيدلية لبيع المنتجات الطبية</span><span class="lang-content en">Pharmacy for medical products</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أدوية متخصصة وعلاجات مبتكرة</span><span class="lang-content en">Specialized drugs and innovative treatments</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h3 class="service-title">
-                            <span class="lang-content ar active">خدمات الرعاية الصحية</span>
-                            <span class="lang-content en">Healthcare Services</span>
-                        </h3>
-                    </div>
-                    <div class="service-body">
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">رعاية المرضى القادمين من الخارج</span><span class="lang-content en">Care for patients coming from abroad</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تنسيق مع الأطباء والمستشفيات</span><span class="lang-content en">Coordination with doctors and hospitals</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تيسير الإجراءات الجراحية</span><span class="lang-content en">Facilitation of surgical procedures</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تعاون مع مراكز الأشعة والتشخيص</span><span class="lang-content en">Cooperation with radiology and diagnostic centers</span></li>
-                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">علاجات طبية شاملة في الأردن</span><span class="lang-content en">Comprehensive medical treatments in Jordan</span></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
