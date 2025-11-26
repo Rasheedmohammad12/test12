@@ -58,7 +58,7 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header - MODIFIED */
         .profile-header {
             width: 100%;
             position: relative;
@@ -80,9 +80,9 @@
         .logo-full {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; /* Changed from 'contain' to 'cover' */
             display: block;
-            padding: 40px;
+            /* Removed padding to make it full width */
         }
         
         .profile-info {
@@ -526,10 +526,6 @@
                 height: 400px;
             }
             
-            .logo-full {
-                padding: 20px;
-            }
-            
             .action-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -543,10 +539,6 @@
         @media (max-width: 480px) {
             .cover-container {
                 height: 300px;
-            }
-            
-            .logo-full {
-                padding: 15px;
             }
         }
     </style>
