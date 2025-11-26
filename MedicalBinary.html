@@ -6,6 +6,7 @@
     <title>Medical Binary Establishment - مستلزمات طبية شاملة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a5276;
@@ -28,7 +29,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
         }
         
         body {
@@ -36,6 +36,13 @@
             color: var(--dark-text);
             line-height: 1.7;
             overflow-x: hidden;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .en {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+            text-align: left;
         }
         
         .medical-container {
@@ -81,6 +88,30 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 20px;
+        }
+        
+        /* Language Toggle */
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: var(--medical-blue);
         }
         
         /* Navigation */
@@ -235,10 +266,62 @@
             margin-left: 15px;
         }
         
+        /* PDF Section */
+        .pdf-section {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+        
+        .pdf-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .pdf-preview {
+            background: var(--medical-light);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .pdf-icon {
+            font-size: 4rem;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+        }
+        
+        .pdf-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .pdf-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--medical-blue);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-download:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
         /* Services Section */
         .services-section {
             padding: 80px 0;
-            background: var(--light-bg);
+            background: white;
         }
         
         .services-grid {
@@ -299,58 +382,6 @@
         .service-features li i {
             color: var(--medical-blue);
             margin-left: 10px;
-        }
-        
-        /* Products Section */
-        .products-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .product-image {
-            height: 200px;
-            background: var(--medical-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--medical-blue);
-            font-size: 3rem;
-        }
-        
-        .product-content {
-            padding: 20px;
-        }
-        
-        .product-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--dark-text);
-        }
-        
-        .product-desc {
-            color: var(--light-text);
-            font-size: 0.95rem;
         }
         
         /* Contact Section */
@@ -555,18 +586,43 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .language-toggle {
+                position: relative;
+                top: auto;
+                left: auto;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="medical-header">
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="ar">العربية</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
         <div class="medical-container">
             <h1 class="medical-logo">
                 <i class="fas fa-hospital-alt"></i>
-                Medical Binary Establishment
+                <span class="lang-content ar active">Medical Binary Establishment</span>
+                <span class="lang-content en">Medical Binary Establishment</span>
             </h1>
-            <p class="medical-subtitle">مستلزمات طبية شاملة - جراحة العظام - المستحضرات الصيدلانية</p>
+            <p class="medical-subtitle">
+                <span class="lang-content ar active">مستلزمات طبية شاملة - جراحة العظام - المستحضرات الصيدلانية</span>
+                <span class="lang-content en">Comprehensive Medical Supplies - Orthopedic Surgery - Pharmaceuticals</span>
+            </p>
         </div>
     </header>
 
@@ -574,12 +630,26 @@
     <nav class="medical-nav">
         <div class="medical-container">
             <div class="nav-container">
-                <div class="nav-item active">الرئيسية</div>
-                <div class="nav-item">من نحن</div>
-                <div class="nav-item">الخدمات</div>
-                <div class="nav-item">المنتجات</div>
-                <div class="nav-item">الشركاء</div>
-                <div class="nav-item">اتصل بنا</div>
+                <div class="nav-item active">
+                    <span class="lang-content ar active">الرئيسية</span>
+                    <span class="lang-content en">Home</span>
+                </div>
+                <div class="nav-item">
+                    <span class="lang-content ar active">من نحن</span>
+                    <span class="lang-content en">About Us</span>
+                </div>
+                <div class="nav-item">
+                    <span class="lang-content ar active">الخدمات</span>
+                    <span class="lang-content en">Services</span>
+                </div>
+                <div class="nav-item">
+                    <span class="lang-content ar active">المنتجات</span>
+                    <span class="lang-content en">Products</span>
+                </div>
+                <div class="nav-item">
+                    <span class="lang-content ar active">اتصل بنا</span>
+                    <span class="lang-content en">Contact Us</span>
+                </div>
             </div>
         </div>
     </nav>
@@ -587,30 +657,54 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="medical-container">
-            <h1 class="hero-title">الرعاية الصحية الشاملة والمواد الطبية المتخصصة</h1>
-            <p class="hero-subtitle">نوفر حلولاً طبية متكاملة من مستلزمات جراحة العظام إلى المستحضرات الصيدلانية، مع خدمات الرعاية الصحية للمرضى الدوليين</p>
+            <h1 class="hero-title">
+                <span class="lang-content ar active">الرعاية الصحية الشاملة والمواد الطبية المتخصصة</span>
+                <span class="lang-content en">Comprehensive Healthcare and Specialized Medical Supplies</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-content ar active">نوفر حلولاً طبية متكاملة من مستلزمات جراحة العظام إلى المستحضرات الصيدلانية، مع خدمات الرعاية الصحية للمرضى الدوليين</span>
+                <span class="lang-content en">We provide integrated medical solutions from orthopedic surgery supplies to pharmaceuticals, with healthcare services for international patients</span>
+            </p>
             
             <div class="hero-features">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <h3 class="feature-title">جراحة العظام</h3>
-                    <p>مواد زرع عالمية وأدوات جراحية متخصصة</p>
+                    <h3 class="feature-title">
+                        <span class="lang-content ar active">جراحة العظام</span>
+                        <span class="lang-content en">Orthopedic Surgery</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content ar active">مواد زرع عالمية وأدوات جراحية متخصصة</span>
+                        <span class="lang-content en">Global implant materials and specialized surgical tools</span>
+                    </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-pills"></i>
                     </div>
-                    <h3 class="feature-title">مستحضرات صيدلانية</h3>
-                    <p>مستودع أدوية شامل بوكالات دولية</p>
+                    <h3 class="feature-title">
+                        <span class="lang-content ar active">مستحضرات صيدلانية</span>
+                        <span class="lang-content en">Pharmaceuticals</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content ar active">مستودع أدوية شامل بوكالات دولية</span>
+                        <span class="lang-content en">Comprehensive drug warehouse with international agencies</span>
+                    </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <h3 class="feature-title">رعاية المرضى الدوليين</h3>
-                    <p>تسهيل العلاج في المستشفيات الأردنية</p>
+                    <h3 class="feature-title">
+                        <span class="lang-content ar active">رعاية المرضى الدوليين</span>
+                        <span class="lang-content en">International Patient Care</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content ar active">تسهيل العلاج في المستشفيات الأردنية</span>
+                        <span class="lang-content en">Facilitating treatment in Jordanian hospitals</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -619,34 +713,82 @@
     <!-- About Section -->
     <section class="about-section">
         <div class="medical-container">
-            <h2 class="section-title">من نحن</h2>
+            <h2 class="section-title">
+                <span class="lang-content ar active">من نحن</span>
+                <span class="lang-content en">About Us</span>
+            </h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>نحن مؤسسة طبية رائدة متخصصة في توريد المستلزمات الطبية والمواد الاستهلاكية الشاملة. نقدم حلولاً متكاملة لجراحة العظام تشمل المواد القابلة للزرع من وكالات دولية مرموقة مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا).</p>
-                    <p>بالإضافة إلى مجموعة كاملة من أدوات جراحة العظام، أنظمة التثبيت الخارجي، والأجهزة الطبية المتقدمة. كما نمتلك مستودع أدوية شامل يحتوي على مستحضرات صيدلانية ومكملات غذائية من وكالات عالمية.</p>
+                    <p class="lang-content ar active">
+                        نحن مؤسسة طبية رائدة متخصصة في توريد المستلزمات الطبية والمواد الاستهلاكية الشاملة. نقدم حلولاً متكاملة لجراحة العظام تشمل المواد القابلة للزرع من وكالات دولية مرموقة مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا).
+                    </p>
+                    <p class="lang-content ar active">
+                        بالإضافة إلى مجموعة كاملة من أدوات جراحة العظام، أنظمة التثبيت الخارجي، والأجهزة الطبية المتقدمة. كما نمتلك مستودع أدوية شامل يحتوي على مستحضرات صيدلانية ومكملات غذائية من وكالات عالمية.
+                    </p>
+                    
+                    <p class="lang-content en">
+                        We are a leading medical institution specialized in supplying comprehensive medical supplies and consumables. We provide integrated solutions for orthopedic surgery including implantable materials from prestigious international agencies such as Austofix (Australia) and Ortho-Trauma (England).
+                    </p>
+                    <p class="lang-content en">
+                        In addition to a complete range of orthopedic surgical instruments, external fixation systems, and advanced medical devices. We also have a comprehensive drug warehouse containing pharmaceuticals and nutritional supplements from global agencies.
+                    </p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>خبرة تزيد عن 10 سنوات في القطاع الطبي</span>
+                        <span class="lang-content ar active">خبرة تزيد عن 10 سنوات في القطاع الطبي</span>
+                        <span class="lang-content en">Over 10 years of experience in the medical sector</span>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>شراكات مع وكالات دولية مرموقة</span>
+                        <span class="lang-content ar active">شراكات مع وكالات دولية مرموقة</span>
+                        <span class="lang-content en">Partnerships with prestigious international agencies</span>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>تغطية شاملة لمستلزمات المستشفيات</span>
+                        <span class="lang-content ar active">تغطية شاملة لمستلزمات المستشفيات</span>
+                        <span class="lang-content en">Comprehensive coverage of hospital supplies</span>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>خدمات الرعاية الصحية للمرضى الدوليين</span>
+                        <span class="lang-content ar active">خدمات الرعاية الصحية للمرضى الدوليين</span>
+                        <span class="lang-content en">Healthcare services for international patients</span>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>صيدلية خاصة للمنتجات الطبية والأدوية</span>
+                        <span class="lang-content ar active">صيدلية خاصة للمنتجات الطبية والأدوية</span>
+                        <span class="lang-content en">Private pharmacy for medical products and medications</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Section -->
+    <section class="pdf-section">
+        <div class="medical-container">
+            <h2 class="section-title">
+                <span class="lang-content ar active">Ortho-Trauma International</span>
+                <span class="lang-content en">Ortho-Trauma International</span>
+            </h2>
+            <div class="pdf-container">
+                <div class="pdf-preview">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">Ortho-Trauma International LLP</h3>
+                    <p class="lang-content ar active">
+                        Intra Medullary Interlocking Nailing System - المملكة المتحدة
+                    </p>
+                    <p class="lang-content en">
+                        Intra Medullary Interlocking Nailing System - United Kingdom
+                    </p>
+                </div>
+                <a href="#" class="pdf-download" id="downloadPdf">
+                    <i class="fas fa-download"></i>
+                    <span class="lang-content ar active">تحميل الكتيب</span>
+                    <span class="lang-content en">Download Brochure</span>
+                </a>
             </div>
         </div>
     </section>
@@ -654,22 +796,28 @@
     <!-- Services Section -->
     <section class="services-section">
         <div class="medical-container">
-            <h2 class="section-title">خدماتنا</h2>
+            <h2 class="section-title">
+                <span class="lang-content ar active">خدماتنا</span>
+                <span class="lang-content en">Our Services</span>
+            </h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-bone"></i>
                         </div>
-                        <h3 class="service-title">مستلزمات جراحة العظام</h3>
+                        <h3 class="service-title">
+                            <span class="lang-content ar active">مستلزمات جراحة العظام</span>
+                            <span class="lang-content en">Orthopedic Surgery Supplies</span>
+                        </h3>
                     </div>
                     <div class="service-body">
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> مواد زرع من Austofix (أستراليا)</li>
-                            <li><i class="fas fa-check"></i> مواد زرع من Ortho-Trauma (إنجلترا)</li>
-                            <li><i class="fas fa-check"></i> أدوات جراحة العظام الكاملة</li>
-                            <li><i class="fas fa-check"></i> أنظمة التثبيت الخارجي</li>
-                            <li><i class="fas fa-check"></i> معدات غرفة العمليات</li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مواد زرع من Austofix (أستراليا)</span><span class="lang-content en">Implants from Austofix (Australia)</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مواد زرع من Ortho-Trauma (إنجلترا)</span><span class="lang-content en">Implants from Ortho-Trauma (England)</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أدوات جراحة العظام الكاملة</span><span class="lang-content en">Complete orthopedic surgical instruments</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أنظمة التثبيت الخارجي</span><span class="lang-content en">External fixation systems</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">معدات غرفة العمليات</span><span class="lang-content en">Operating room equipment</span></li>
                         </ul>
                     </div>
                 </div>
@@ -679,15 +827,18 @@
                         <div class="service-icon">
                             <i class="fas fa-pills"></i>
                         </div>
-                        <h3 class="service-title">المستحضرات الصيدلانية</h3>
+                        <h3 class="service-title">
+                            <span class="lang-content ar active">المستحضرات الصيدلانية</span>
+                            <span class="lang-content en">Pharmaceuticals</span>
+                        </h3>
                     </div>
                     <div class="service-body">
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> مستودع أدوية شامل</li>
-                            <li><i class="fas fa-check"></i> وكالات مستحضرات صيدلانية عالمية</li>
-                            <li><i class="fas fa-check"></i> مكملات غذائية متنوعة</li>
-                            <li><i class="fas fa-check"></i> صيدلية لبيع المنتجات الطبية</li>
-                            <li><i class="fas fa-check"></i> أدوية متخصصة وعلاجات مبتكرة</li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مستودع أدوية شامل</span><span class="lang-content en">Comprehensive drug warehouse</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">وكالات مستحضرات صيدلانية عالمية</span><span class="lang-content en">Global pharmaceutical agencies</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">مكملات غذائية متنوعة</span><span class="lang-content en">Various nutritional supplements</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">صيدلية لبيع المنتجات الطبية</span><span class="lang-content en">Pharmacy for medical products</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">أدوية متخصصة وعلاجات مبتكرة</span><span class="lang-content en">Specialized drugs and innovative treatments</span></li>
                         </ul>
                     </div>
                 </div>
@@ -697,64 +848,19 @@
                         <div class="service-icon">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <h3 class="service-title">خدمات الرعاية الصحية</h3>
+                        <h3 class="service-title">
+                            <span class="lang-content ar active">خدمات الرعاية الصحية</span>
+                            <span class="lang-content en">Healthcare Services</span>
+                        </h3>
                     </div>
                     <div class="service-body">
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> رعاية المرضى القادمين من الخارج</li>
-                            <li><i class="fas fa-check"></i> تنسيق مع الأطباء والمستشفيات</li>
-                            <li><i class="fas fa-check"></i> تيسير الإجراءات الجراحية</li>
-                            <li><i class="fas fa-check"></i> تعاون مع مراكز الأشعة والتشخيص</li>
-                            <li><i class="fas fa-check"></i> علاجات طبية شاملة في الأردن</li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">رعاية المرضى القادمين من الخارج</span><span class="lang-content en">Care for patients coming from abroad</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تنسيق مع الأطباء والمستشفيات</span><span class="lang-content en">Coordination with doctors and hospitals</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تيسير الإجراءات الجراحية</span><span class="lang-content en">Facilitation of surgical procedures</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">تعاون مع مراكز الأشعة والتشخيص</span><span class="lang-content en">Cooperation with radiology and diagnostic centers</span></li>
+                            <li><i class="fas fa-check"></i> <span class="lang-content ar active">علاجات طبية شاملة في الأردن</span><span class="lang-content en">Comprehensive medical treatments in Jordan</span></li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="medical-container">
-            <h2 class="section-title">منتجاتنا</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-procedures"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">المواد القابلة للزرع</h3>
-                        <p class="product-desc">مواد زرع عالية الجودة من وكالات دولية معتمدة لجراحة العظام</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">أدوات الجراحة</h3>
-                        <p class="product-desc">مجموعة كاملة من أدوات جراحة العظام المتخصصة والدقيقة</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-crutch"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">أنظمة التثبيت</h3>
-                        <p class="product-desc">أنظمة تثبيت خارجي متطورة وأجهزة تقويم العظام</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-capsules"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">مستحضرات صيدلانية</h3>
-                        <p class="product-desc">أدوية ومكملات غذائية من وكالات عالمية متنوعة</p>
                     </div>
                 </div>
             </div>
@@ -764,7 +870,10 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="medical-container">
-            <h2 class="section-title">اتصل بنا</h2>
+            <h2 class="section-title">
+                <span class="lang-content ar active">اتصل بنا</span>
+                <span class="lang-content en">Contact Us</span>
+            </h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -772,7 +881,10 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>هاتف أرضي</h3>
+                            <h3>
+                                <span class="lang-content ar active">هاتف أرضي</span>
+                                <span class="lang-content en">Landline</span>
+                            </h3>
                             <p>065692727</p>
                         </div>
                     </div>
@@ -782,7 +894,10 @@
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>جوال</h3>
+                            <h3>
+                                <span class="lang-content ar active">جوال</span>
+                                <span class="lang-content en">Mobile</span>
+                            </h3>
                             <p>0790408227</p>
                         </div>
                     </div>
@@ -792,7 +907,7 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>واتساب</h3>
+                            <h3>WhatsApp</h3>
                             <p>0790408227</p>
                         </div>
                     </div>
@@ -802,7 +917,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>البريد الإلكتروني</h3>
+                            <h3>Email</h3>
                             <p>Rammaha@medical-binary.com</p>
                             <p>Medical.Binary@yahoo.com</p>
                         </div>
@@ -813,8 +928,14 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>العنوان</h3>
-                            <p>جبل الحسين - مقابل مستشفى هبة، مجمع لولوات القريني 198</p>
+                            <h3>
+                                <span class="lang-content ar active">العنوان</span>
+                                <span class="lang-content en">Address</span>
+                            </h3>
+                            <p>
+                                <span class="lang-content ar active">جبل الحسين - مقابل مستشفى هبة، مجمع لولوات القريني 198</span>
+                                <span class="lang-content en">Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -822,11 +943,15 @@
                 <div class="map-container">
                     <div class="map-placeholder">
                         <i class="fas fa-map-marked-alt"></i>
-                        <p>خريطة الموقع</p>
+                        <p>
+                            <span class="lang-content ar active">خريطة الموقع</span>
+                            <span class="lang-content en">Location Map</span>
+                        </p>
                     </div>
                     <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" class="cta-button" target="_blank">
                         <i class="fas fa-directions"></i>
-                        عرض الموقع على الخريطة
+                        <span class="lang-content ar active">عرض الموقع على الخريطة</span>
+                        <span class="lang-content en">View Location on Map</span>
                     </a>
                 </div>
             </div>
@@ -836,20 +961,29 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="medical-container">
-            <h2 class="cta-title">هل تحتاج إلى استشارة طبية أو مستلزمات متخصصة؟</h2>
-            <p>نحن هنا لمساعدتك في توفير أفضل الحلول الطبية والرعاية الصحية</p>
+            <h2 class="cta-title">
+                <span class="lang-content ar active">هل تحتاج إلى استشارة طبية أو مستلزمات متخصصة؟</span>
+                <span class="lang-content en">Do you need medical consultation or specialized supplies?</span>
+            </h2>
+            <p>
+                <span class="lang-content ar active">نحن هنا لمساعدتك في توفير أفضل الحلول الطبية والرعاية الصحية</span>
+                <span class="lang-content en">We are here to help you provide the best medical solutions and healthcare</span>
+            </p>
             <div class="cta-buttons">
                 <a href="https://wa.me/962790408227" class="cta-button primary" target="_blank">
                     <i class="fab fa-whatsapp"></i>
-                    تواصل عبر واتساب
+                    <span class="lang-content ar active">تواصل عبر واتساب</span>
+                    <span class="lang-content en">Contact via WhatsApp</span>
                 </a>
                 <a href="tel:065692727" class="cta-button">
                     <i class="fas fa-phone"></i>
-                    اتصل بنا الآن
+                    <span class="lang-content ar active">اتصل بنا الآن</span>
+                    <span class="lang-content en">Call Us Now</span>
                 </a>
-                <a href="mailto:Rammaha@medical-binary.com" class="cta-button">
-                    <i class="fas fa-envelope"></i>
-                    راسلنا عبر البريد
+                <a href="#" class="cta-button" id="saveContact">
+                    <i class="fas fa-address-book"></i>
+                    <span class="lang-content ar active">حفظ جهة الاتصال</span>
+                    <span class="lang-content en">Save Contact</span>
                 </a>
             </div>
         </div>
@@ -861,51 +995,125 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Medical Binary Establishment</h3>
-                    <p>مؤسسة طبية رائدة في توريد المستلزمات الطبية الشاملة والرعاية الصحية للمرضى الدوليين.</p>
+                    <p>
+                        <span class="lang-content ar active">مؤسسة طبية رائدة في توريد المستلزمات الطبية الشاملة والرعاية الصحية للمرضى الدوليين.</span>
+                        <span class="lang-content en">A leading medical institution in supplying comprehensive medical supplies and healthcare for international patients.</span>
+                    </p>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>روابط سريعة</h3>
+                    <h3>
+                        <span class="lang-content ar active">روابط سريعة</span>
+                        <span class="lang-content en">Quick Links</span>
+                    </h3>
                     <ul class="footer-links">
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#">من نحن</a></li>
-                        <li><a href="#">الخدمات</a></li>
-                        <li><a href="#">المنتجات</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">الرئيسية</span>
+                            <span class="lang-content en">Home</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">من نحن</span>
+                            <span class="lang-content en">About Us</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">الخدمات</span>
+                            <span class="lang-content en">Services</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">المنتجات</span>
+                            <span class="lang-content en">Products</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">اتصل بنا</span>
+                            <span class="lang-content en">Contact Us</span>
+                        </a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>خدماتنا</h3>
+                    <h3>
+                        <span class="lang-content ar active">خدماتنا</span>
+                        <span class="lang-content en">Our Services</span>
+                    </h3>
                     <ul class="footer-links">
-                        <li><a href="#">مستلزمات جراحة العظام</a></li>
-                        <li><a href="#">المستحضرات الصيدلانية</a></li>
-                        <li><a href="#">الأجهزة الطبية</a></li>
-                        <li><a href="#">رعاية المرضى الدوليين</a></li>
-                        <li><a href="#">مستلزمات المستشفيات</a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">مستلزمات جراحة العظام</span>
+                            <span class="lang-content en">Orthopedic Surgery Supplies</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">المستحضرات الصيدلانية</span>
+                            <span class="lang-content en">Pharmaceuticals</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">الأجهزة الطبية</span>
+                            <span class="lang-content en">Medical Devices</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">رعاية المرضى الدوليين</span>
+                            <span class="lang-content en">International Patient Care</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="lang-content ar active">مستلزمات المستشفيات</span>
+                            <span class="lang-content en">Hospital Supplies</span>
+                        </a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>معلومات الاتصال</h3>
+                    <h3>
+                        <span class="lang-content ar active">معلومات الاتصال</span>
+                        <span class="lang-content en">Contact Information</span>
+                    </h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> 065692727</li>
                         <li><i class="fas fa-mobile-alt"></i> 0790408227</li>
                         <li><i class="fas fa-envelope"></i> Rammaha@medical-binary.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> جبل الحسين - مجمع لولوات القريني</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            <span class="lang-content ar active">جبل الحسين - مجمع لولوات القريني</span>
+                            <span class="lang-content en">Jabal Al-Hussein - Luluat Al-Quraini Complex</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2023 Medical Binary Establishment. جميع الحقوق محفوظة.</p>
+                <p>© 2023 Medical Binary Establishment. 
+                    <span class="lang-content ar active">جميع الحقوق محفوظة.</span>
+                    <span class="lang-content en">All rights reserved.</span>
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple navigation active state
+        // Language Toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const arContents = document.querySelectorAll('.lang-content.ar');
+            const enContents = document.querySelectorAll('.lang-content.en');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update button states
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update content visibility
+                    if (lang === 'ar') {
+                        arContents.forEach(content => content.classList.add('active'));
+                        enContents.forEach(content => content.classList.remove('active'));
+                        document.body.setAttribute('dir', 'rtl');
+                    } else {
+                        arContents.forEach(content => content.classList.remove('active'));
+                        enContents.forEach(content => content.classList.add('active'));
+                        document.body.setAttribute('dir', 'ltr');
+                    }
+                });
+            });
+            
+            // Navigation active state
             const navItems = document.querySelectorAll('.nav-item');
             
             navItems.forEach(item => {
@@ -915,14 +1123,75 @@
                 });
             });
             
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
+            // Save Contact functionality
+            document.getElementById('saveContact').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create vCard content
+                const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Medical Binary Establishment
+ORG:Medical Binary Establishment
+TEL;TYPE=WORK,VOICE:065692727
+TEL;TYPE=CELL,VOICE:0790408227
+EMAIL;TYPE=WORK,INTERNET:Rammaha@medical-binary.com
+ADR;TYPE=WORK:;;Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198;;;;Jordan
+URL:https://medical-binary.com
+END:VCARD`;
+                
+                // Create download link
+                const blob = new Blob([vCard], { type: 'text/vcard' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Medical-Binary-Establishment.vcf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                // Show confirmation message
+                const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                const message = currentLang === 'ar' 
+                    ? 'تم حفظ جهة الاتصال بنجاح' 
+                    : 'Contact saved successfully';
+                alert(message);
+            });
+            
+            // PDF Download functionality
+            document.getElementById('downloadPdf').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create a simple PDF content (in a real scenario, this would be a link to an actual PDF file)
+                const pdfContent = `
+                    Ortho-Trauma International LLP
+                    United Kingdom
+                    
+                    ORTHOTRAUMA UK LIMITED
+                    Intra Medullary Interlocking Nailing System
+                    www.orthotraumaint.co.uk
+                    
+                    Ortho-Trauma International LLP
+                    United Kingdom
+                    ORTHOPAEDIC IMPLANTS & INSTRUMENTS
+                `;
+                
+                const blob = new Blob([pdfContent], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Ortho-Trauma-International.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                // Show confirmation message
+                const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                const message = currentLang === 'ar' 
+                    ? 'تم تحميل الكتيب بنجاح' 
+                    : 'Brochure downloaded successfully';
+                alert(message);
             });
         });
     </script>
