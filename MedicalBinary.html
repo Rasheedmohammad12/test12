@@ -390,6 +390,7 @@
         .product-image {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
         .product-image img {
@@ -401,6 +402,18 @@
         
         .product-card:hover .product-image img {
             transform: scale(1.05);
+        }
+        
+        .pdf-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
         
         .product-content {
@@ -431,6 +444,97 @@
         
         .product-link:hover {
             gap: 10px;
+        }
+        
+        /* PDF Modal */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pdf-modal.active {
+            display: flex;
+        }
+        
+        .pdf-modal-content {
+            background: white;
+            border-radius: var(--radius);
+            width: 90%;
+            height: 90%;
+            max-width: 1000px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pdf-modal-header {
+            padding: 15px 20px;
+            background: var(--medical-blue);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        
+        .pdf-modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .pdf-modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pdf-modal-body {
+            flex: 1;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        
+        .pdf-download-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 10px 15px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-download-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
         }
         
         /* Contact Section */
@@ -645,6 +749,11 @@
                 max-width: 300px;
                 justify-content: center;
             }
+            
+            .pdf-modal-content {
+                width: 95%;
+                height: 95%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -841,11 +950,12 @@
                 <div class="product-card" data-category="orthopedic">
                     <div class="product-image">
                         <img src="https://i.imgur.com/R4KKy5t.jpeg" alt="Orthopedic Products">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">مواد جراحة العظام</h3>
                         <p class="product-desc">مواد قابلة للزرع من Ortho-Trauma الدولية</p>
-                        <a href="Ortho Pedic.pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="Ortho Pedic.pdf" data-title="كتالوج Ortho-Trauma">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -855,11 +965,12 @@
                 <div class="product-card" data-category="orthopedic">
                     <div class="product-image">
                         <img src="https://i.imgur.com/Ra7yHBp.jpeg" alt="Orthopedic Supplies">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">مستلزمات جراحة العظام</h3>
                         <p class="product-desc">مجموعة متنوعة من المستلزمات الطبية لجراحة العظام</p>
-                        <a href="Conwe pdf.pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="Conwe pdf.pdf" data-title="كتالوج مستلزمات العظام">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -870,11 +981,12 @@
                 <div class="product-card" data-category="pharmaceutical">
                     <div class="product-image">
                         <img src="https://i.imgur.com/fFUKoQh.jpeg" alt="Pharmaceuticals">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">المستحضرات الصيدلانية</h3>
                         <p class="product-desc">مستودع أدوية شامل بمستحضرات عالمية</p>
-                        <a href="Farmasi Catalogue ..pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="Farmasi Catalogue ..pdf" data-title="كتالوج Farmasi">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -885,11 +997,12 @@
                 <div class="product-card" data-category="cosmetic">
                     <div class="product-image">
                         <img src="https://i.imgur.com/DSOWciH.jpeg" alt="Cosmetic Products">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">مستحضرات التجميل</h3>
                         <p class="product-desc">مجموعة Farmasi من مستحضرات التجميل والعناية</p>
-                        <a href="Farmasi Catalogue ..pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="Farmasi Catalogue ..pdf" data-title="كتالوج Farmasi">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -899,11 +1012,12 @@
                 <div class="product-card" data-category="cosmetic">
                     <div class="product-image">
                         <img src="https://i.imgur.com/EV8A0GZ.jpeg" alt="OHO Products">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">منتجات OHO</h3>
                         <p class="product-desc">منتجات العناية بالبشرة من زيت الزيتون العضوي</p>
-                        <a href="OHO Cataloge.pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="OHO Cataloge.pdf" data-title="كتالوج OHO">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -914,11 +1028,12 @@
                 <div class="product-card" data-category="equipment">
                     <div class="product-image">
                         <img src="https://i.imgur.com/dqkWLfm.jpeg" alt="Medical Equipment">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">الأجهزة الطبية</h3>
                         <p class="product-desc">مجموعة متنوعة من الأجهزة والمعدات الطبية</p>
-                        <a href="NIMO TURKEY.pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="NIMO TURKEY.pdf" data-title="كتالوج NIMO TURKEY">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -928,11 +1043,12 @@
                 <div class="product-card" data-category="cosmetic">
                     <div class="product-image">
                         <img src="https://i.imgur.com/OeDkYnj.jpeg" alt="D.C. Tuna Products">
+                        <div class="pdf-badge">PDF</div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">منتجات D.C. Tuna</h3>
                         <p class="product-desc">مجموعة متنوعة من منتجات العناية بالبشرة والشعر</p>
-                        <a href="Catalog D.C.Tuna.pdf" class="product-link" target="_blank">
+                        <a href="#" class="product-link view-pdf" data-pdf="Catalog D.C.Tuna.pdf" data-title="كتالوج D.C. Tuna">
                             عرض الكتالوج
                             <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -941,6 +1057,25 @@
             </div>
         </div>
     </section>
+
+    <!-- PDF Modal -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 class="pdf-modal-title" id="pdfModalTitle">كتالوج المنتجات</h3>
+                <button class="pdf-modal-close" id="pdfModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe class="pdf-iframe" id="pdfIframe" src=""></iframe>
+                <a href="#" class="pdf-download-btn" id="pdfDownloadBtn" target="_blank">
+                    <i class="fas fa-download"></i>
+                    تحميل الملف
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
@@ -1056,4 +1191,114 @@
                     <h3 class="footer-title">روابط سريعة</h3>
                     <ul class="footer-links">
                         <li><a href="#home">الرئيسية</a></li>
-                        <
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#products">منتجاتنا</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-container">
+                    <h3 class="footer-title">معلومات الاتصال</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>جبل الحسين - مقابل مستشفى هبة، مجمع لؤلؤات القريني 198</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>065692727</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>0790408227</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Rammaha@medical-binary.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2023 Medical Binary Establishment</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // PDF Modal functionality
+            const pdfModal = document.getElementById('pdfModal');
+            const pdfIframe = document.getElementById('pdfIframe');
+            const pdfModalTitle = document.getElementById('pdfModalTitle');
+            const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+            const pdfModalClose = document.getElementById('pdfModalClose');
+            const viewPdfLinks = document.querySelectorAll('.view-pdf');
+            
+            viewPdfLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pdfFile = this.getAttribute('data-pdf');
+                    const title = this.getAttribute('data-title');
+                    
+                    pdfModalTitle.textContent = title;
+                    pdfIframe.src = pdfFile;
+                    pdfDownloadBtn.href = pdfFile;
+                    pdfModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal
+            pdfModalClose.addEventListener('click', function() {
+                pdfModal.classList.remove('active');
+                pdfIframe.src = '';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            pdfModal.addEventListener('click', function(e) {
+                if (e.target === pdfModal) {
+                    pdfModal.classList.remove('active');
+                    pdfIframe.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('شكراً لتواصلكم معنا! سنرد عليكم في أقرب وقت ممكن.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
