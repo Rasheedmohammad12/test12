@@ -14,8 +14,8 @@
             --primary-dark: #3E2723;
             --accent: #6D4C41;
             --accent-dark: #4E342E;
-            --brown-text: #ffffff; /* تغيير من البني إلى الأبيض */
-            --brown-light: #ffffff; /* تغيير من البني الفاتح إلى الأبيض */
+            --brown-text: #ffffff;
+            --brown-light: #ffffff;
             --gradient: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
             --gradient-accent: linear-gradient(135deg, #4E342E 0%, #6D4C41 100%);
             --dark-bg: #121212;
@@ -128,7 +128,7 @@
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 10px;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
             font-family: 'Playfair Display', serif;
             letter-spacing: 1px;
         }
@@ -136,7 +136,7 @@
         .profile-username {
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--brown-text); /* الآن أبيض */
+            color: var(--brown-text);
             margin-bottom: 20px;
         }
         
@@ -155,7 +155,7 @@
         .stat-number {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
             display: block;
         }
         
@@ -182,7 +182,7 @@
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 25px;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
             font-family: 'Playfair Display', serif;
             position: relative;
             display: inline-block;
@@ -196,7 +196,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 2px;
-            background: var(--brown-text); /* الآن أبيض */
+            background: var(--brown-text);
         }
         
         .about-text {
@@ -212,14 +212,14 @@
             padding: 25px;
             border-radius: 15px;
             margin: 25px 0;
-            border-right: 4px solid var(--brown-text); /* الآن أبيض */
+            border-right: 4px solid var(--brown-text);
         }
         
         .highlight-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
         }
         
         /* Services Section */
@@ -259,13 +259,13 @@
         .service-icon {
             width: 70px;
             height: 70px;
-            background: var(--brown-text); /* الآن أبيض */
+            background: var(--brown-text);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
-            color: var(--dark-bg); /* تغيير لون الأيقونة إلى داكن */
+            color: var(--dark-bg);
             font-size: 1.8rem;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
         }
@@ -274,7 +274,7 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
         }
         
         .service-desc {
@@ -294,87 +294,53 @@
             border: var(--border);
         }
         
-        .gallery-grid {
+        .gallery-preview {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
         }
         
-        .gallery-item {
-            border-radius: 15px;
+        .preview-item {
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
             background: white;
-            position: relative;
-            cursor: pointer;
         }
         
-        .gallery-item:hover {
-            transform: translateY(-5px);
+        .preview-item:hover {
+            transform: scale(1.05);
         }
         
-        .gallery-item img {
+        .preview-item img {
             width: 100%;
-            height: 250px;
+            height: 120px;
             object-fit: cover;
             display: block;
         }
         
-        /* Lightbox Modal */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            overflow: auto;
-            animation: fadeIn 0.3s;
-        }
-        
-        .lightbox-content {
-            position: relative;
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 800px;
-            margin-top: 5%;
-            animation: zoomIn 0.3s;
-        }
-        
-        .lightbox-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        
-        .close-lightbox {
-            position: absolute;
-            top: 20px;
-            right: 30px;
+        .gallery-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--gradient-accent);
             color: white;
-            font-size: 40px;
-            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
         }
         
-        .close-lightbox:hover {
-            color: var(--brown-light); /* الآن أبيض */
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes zoomIn {
-            from { transform: scale(0.8); }
-            to { transform: scale(1); }
+        .gallery-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
         
         /* Contact Section */
@@ -415,7 +381,7 @@
         }
         
         .contact-item i {
-            color: var(--brown-text); /* الآن أبيض */
+            color: var(--brown-text);
             font-size: 1.3rem;
             width: 30px;
         }
@@ -450,7 +416,7 @@
             font-size: 1.8rem;
             font-weight: 800;
             margin-bottom: 40px;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
             font-family: 'Playfair Display', serif;
         }
         
@@ -471,20 +437,20 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: var(--brown-text); /* الآن أبيض */
+            color: var(--brown-text);
             text-decoration: none;
             transition: all 0.4s ease;
             box-shadow: var(--shadow);
             background: var(--dark-card);
             position: relative;
-            border: 2px solid var(--brown-text); /* الآن أبيض */
+            border: 2px solid var(--brown-text);
         }
         
         .social-icon:hover {
             transform: translateY(-8px) scale(1.05);
             box-shadow: var(--shadow-lg);
-            background: var(--brown-text); /* الآن أبيض */
-            color: var(--dark-bg); /* تغيير لون الأيقونة عند hover */
+            background: var(--brown-text);
+            color: var(--dark-bg);
         }
         
         /* Action Buttons */
@@ -502,8 +468,8 @@
             gap: 12px;
             padding: 18px 32px;
             background: var(--dark-card);
-            color: var(--brown-light); /* الآن أبيض */
-            border: 2px solid var(--brown-text); /* الآن أبيض */
+            color: var(--brown-light);
+            border: 2px solid var(--brown-text);
             border-radius: 15px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -516,7 +482,7 @@
         .action-button.primary {
             background: var(--gradient-accent);
             color: white;
-            border: 2px solid var(--brown-text); /* الآن أبيض */
+            border: 2px solid var(--brown-text);
         }
         
         .action-button:hover {
@@ -526,7 +492,7 @@
         
         .action-button i {
             font-size: 1.3rem;
-            color: var(--brown-light); /* الآن أبيض */
+            color: var(--brown-light);
         }
         
         .action-button.primary i {
@@ -587,13 +553,8 @@
                 align-items: center;
             }
             
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .lightbox-content {
-                width: 95%;
-                margin-top: 10%;
+            .gallery-preview {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
 
@@ -601,18 +562,14 @@
             .cover-container {
                 height: 300px;
             }
+            
+            .gallery-preview {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Lightbox Modal -->
-    <div id="lightboxModal" class="lightbox-modal">
-        <span class="close-lightbox">&times;</span>
-        <div class="lightbox-content">
-            <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
-        </div>
-    </div>
-
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
@@ -710,44 +667,27 @@
         <!-- Gallery Section -->
         <div class="gallery-section fade-in delay-2">
             <h2 class="section-title">Our Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/R4KKy5t.jpeg')">
+            <p class="about-text">Preview of our medical products and equipment</p>
+            
+            <div class="gallery-preview">
+                <div class="preview-item">
                     <img src="https://i.imgur.com/R4KKy5t.jpeg" alt="Medical Products">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/Ra7yHBp.jpeg')">
+                <div class="preview-item">
                     <img src="https://i.imgur.com/Ra7yHBp.jpeg" alt="Medical Equipment">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/fFUKoQh.jpeg')">
+                <div class="preview-item">
                     <img src="https://i.imgur.com/fFUKoQh.jpeg" alt="Healthcare Solutions">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/DSOWciH.jpeg')">
+                <div class="preview-item">
                     <img src="https://i.imgur.com/DSOWciH.jpeg" alt="Surgical Instruments">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/EV8A0GZ.jpeg')">
-                    <img src="https://i.imgur.com/EV8A0GZ.jpeg" alt="Pharmaceuticals">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/dqkWLfm.jpeg')">
-                    <img src="https://i.imgur.com/dqkWLfm.jpeg" alt="Medical Devices">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/rP4mB4V.jpeg')">
-                    <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="Orthopedic Supplies">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/OeDkYnj.jpeg')">
-                    <img src="https://i.imgur.com/OeDkYnj.jpeg" alt="Hospital Equipment">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/cIpK7eB.jpeg')">
-                    <img src="https://i.imgur.com/cIpK7eB.jpeg" alt="Medical Solutions">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/YJ1pdzA.jpeg')">
-                    <img src="https://i.imgur.com/YJ1pdzA.jpeg" alt="Healthcare Services">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/Kp8GsrS.jpeg')">
-                    <img src="https://i.imgur.com/Kp8GsrS.jpeg" alt="Medical Products">
-                </div>
-                <div class="gallery-item" onclick="openLightbox('https://i.imgur.com/h59p222.jpeg')">
-                    <img src="https://i.imgur.com/h59p222.jpeg" alt="Surgical Tools">
-                </div>
             </div>
+            
+            <button class="gallery-button" onclick="openGallery()">
+                <i class="fas fa-external-link-alt"></i>
+                Open Full Gallery (12 Photos)
+            </button>
         </div>
 
         <!-- Contact Section -->
@@ -823,24 +763,243 @@
     </footer>
 
     <script>
-        // Lightbox functionality
-        function openLightbox(imgSrc) {
-            document.getElementById('lightboxImg').src = imgSrc;
-            document.getElementById('lightboxModal').style.display = 'block';
+        // دالة لفتح معرض الصور الكامل
+        function openGallery() {
+            // إنشاء محتوى HTML لملف المعرض
+            const galleryHTML = `
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور - Medical Binary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
         
-        // Close lightbox when clicking X
-        document.querySelector('.close-lightbox').addEventListener('click', function() {
-            document.getElementById('lightboxModal').style.display = 'none';
-        });
+        body {
+            background: #121212;
+            color: #E0E0E0;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
         
-        // Close lightbox when clicking outside the image
-        document.getElementById('lightboxModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .gallery-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #1E1E1E;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .gallery-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .gallery-subtitle {
+            font-size: 1.2rem;
+            color: #BDBDBD;
+            margin-bottom: 20px;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: #6D4C41;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #5D4037;
+            transform: translateY(-2px);
+        }
+        
+        .full-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-title {
+            padding: 15px;
+            text-align: center;
+            background: #1E1E1E;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .full-gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
-        });
+            
+            .gallery-title {
+                font-size: 2rem;
+            }
+        }
         
+        @media (max-width: 480px) {
+            .full-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1 class="gallery-title">معرض الصور الكامل</h1>
+            <p class="gallery-subtitle">Medical Binary - Integrated Medical Solutions</p>
+            <button class="back-button" onclick="window.close()">
+                <i class="fas fa-arrow-left"></i>
+                العودة للصفحة الرئيسية
+            </button>
+        </div>
+        
+        <div class="full-gallery-grid">
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/R4KKy5t.jpeg" alt="Medical Products">
+                <div class="image-title">Medical Products</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/Ra7yHBp.jpeg" alt="Medical Equipment">
+                <div class="image-title">Medical Equipment</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/fFUKoQh.jpeg" alt="Healthcare Solutions">
+                <div class="image-title">Healthcare Solutions</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/DSOWciH.jpeg" alt="Surgical Instruments">
+                <div class="image-title">Surgical Instruments</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/EV8A0GZ.jpeg" alt="Pharmaceuticals">
+                <div class="image-title">Pharmaceuticals</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/dqkWLfm.jpeg" alt="Medical Devices">
+                <div class="image-title">Medical Devices</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/rP4mB4V.jpeg" alt="Orthopedic Supplies">
+                <div class="image-title">Orthopedic Supplies</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/OeDkYnj.jpeg" alt="Hospital Equipment">
+                <div class="image-title">Hospital Equipment</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/cIpK7eB.jpeg" alt="Medical Solutions">
+                <div class="image-title">Medical Solutions</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/YJ1pdzA.jpeg" alt="Healthcare Services">
+                <div class="image-title">Healthcare Services</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/Kp8GsrS.jpeg" alt="Medical Products">
+                <div class="image-title">Medical Products</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/h59p222.jpeg" alt="Surgical Tools">
+                <div class="image-title">Surgical Tools</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // إضافة تأثيرات للصور
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    const lightbox = document.createElement('div');
+                    lightbox.style.cssText = \`
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        cursor: pointer;
+                    \`;
+                    
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = this.src;
+                    lightboxImg.style.cssText = \`
+                        max-width: 90%;
+                        max-height: 90%;
+                        border-radius: 10px;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+                    \`;
+                    
+                    lightbox.appendChild(lightboxImg);
+                    document.body.appendChild(lightbox);
+                    
+                    lightbox.addEventListener('click', function() {
+                        document.body.removeChild(lightbox);
+                    });
+                });
+            });
+        });
+    <\/script>
+</body>
+</html>`;
+
+            // فتح نافذة جديدة مع محتوى المعرض
+            const galleryWindow = window.open('', '_blank');
+            galleryWindow.document.write(galleryHTML);
+            galleryWindow.document.close();
+        }
+
         // Save Contact functionality
         function saveContact() {
             const vcard = `BEGIN:VCARD
@@ -866,13 +1025,12 @@ END:VCARD`;
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            // Show confirmation
             alert('Contact saved successfully!');
         }
         
         // Add click effects
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.social-icon, .action-button');
+            const buttons = document.querySelectorAll('.social-icon, .action-button, .gallery-button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     this.style.transform = 'scale(0.95)';
