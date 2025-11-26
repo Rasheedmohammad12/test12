@@ -369,7 +369,7 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
         
@@ -379,7 +379,6 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            text-align: center;
         }
         
         .product-card:hover {
@@ -387,57 +386,116 @@
             box-shadow: var(--shadow-lg);
         }
         
+        .product-header {
+            background: var(--medical-blue);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
         .product-icon {
-            height: 200px;
-            background: var(--medical-light);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 4rem;
-            position: relative;
-        }
-        
-        .pdf-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .product-content {
-            padding: 20px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
         
         .product-title {
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--medical-dark);
+            margin: 0;
         }
         
-        .product-desc {
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-info {
+            margin-bottom: 20px;
+        }
+        
+        .product-category {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--medical-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
             color: var(--lighter-text);
             margin-bottom: 15px;
             font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--lighter-text);
+        }
+        
+        .product-features i {
+            color: var(--accent);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         
         .product-link {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            color: var(--medical-blue);
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--medical-blue);
+            color: white;
+            border-radius: var(--radius);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            flex: 1;
+            justify-content: center;
+            min-width: 120px;
         }
         
         .product-link:hover {
-            gap: 10px;
+            background: var(--medical-dark);
+            transform: translateY(-2px);
+            gap: 12px;
+        }
+        
+        .product-link.secondary {
+            background: transparent;
+            color: var(--medical-blue);
+            border: 2px solid var(--medical-blue);
+        }
+        
+        .product-link.secondary:hover {
+            background: var(--medical-blue);
+            color: white;
         }
         
         /* PDF Modal */
@@ -748,6 +806,14 @@
                 width: 95%;
                 height: 95%;
             }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 480px) {
@@ -765,6 +831,12 @@
             
             .service-card, .contact-form {
                 padding: 30px 20px;
+            }
+            
+            .product-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
             }
         }
     </style>
@@ -942,110 +1014,203 @@
             <div class="products-grid">
                 <!-- Orthopedic Products -->
                 <div class="product-card" data-category="orthopedic">
-                    <div class="product-icon">
-                        <i class="fas fa-bone"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">Ortho-Trauma International</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Orthopedic Surgery Materials</h3>
-                        <p class="product-desc">Implantable materials from Ortho-Trauma International</p>
-                        <a href="Ortho%20Pedic.pdf" class="product-link view-pdf" data-pdf="Ortho%20Pedic.pdf" data-title="Ortho-Trauma Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Orthopedic Surgery</div>
+                        <div class="product-info">
+                            <p class="product-description">Orthopedic implants and instruments from Ortho-Trauma International LLP, United Kingdom. Specialized in intra medullary interlocking nailing systems.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> Intra Medullary Interlocking Nailing System</li>
+                                <li><i class="fas fa-check"></i> Orthopedic Implants & Instruments</li>
+                                <li><i class="fas fa-check"></i> UK Certified Products</li>
+                                <li><i class="fas fa-check"></i> Comprehensive Surgical Solutions</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="Ortho%20Pedic.pdf" class="product-link view-pdf" data-pdf="Ortho%20Pedic.pdf" data-title="Ortho-Trauma International Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="Ortho%20Pedic.pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="product-card" data-category="orthopedic">
-                    <div class="product-icon">
-                        <i class="fas fa-procedures"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">Orthopedic Supplies</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Orthopedic Supplies</h3>
-                        <p class="product-desc">Various medical supplies for orthopedic surgery</p>
-                        <a href="Conwe%20pdf.pdf" class="product-link view-pdf" data-pdf="Conwe%20pdf.pdf" data-title="Orthopedic Supplies Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Medical Supports & Braces</div>
+                        <div class="product-info">
+                            <p class="product-description">Comprehensive range of orthopedic supports including arm slings, wrist supports, cervical collars, knee braces, and ankle splints in various sizes.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> Arm Slings (S/M/L/XL)</li>
+                                <li><i class="fas fa-check"></i> Wrist & Ankle Supports</li>
+                                <li><i class="fas fa-check"></i> Cervical Collars with Plastic Insert</li>
+                                <li><i class="fas fa-check"></i> Elastic Hinged Knee Braces</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="Conwe%20pdf.pdf" class="product-link view-pdf" data-pdf="Conwe%20pdf.pdf" data-title="Orthopedic Supplies Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="Conwe%20pdf.pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Pharmaceutical Products -->
                 <div class="product-card" data-category="pharmaceutical">
-                    <div class="product-icon">
-                        <i class="fas fa-pills"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">Farmasi Pharmaceuticals</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Pharmaceutical Preparations</h3>
-                        <p class="product-desc">Comprehensive drug warehouse with global preparations</p>
-                        <a href="Farmasi%20Catalogue%20..pdf" class="product-link view-pdf" data-pdf="Farmasi%20Catalogue%20..pdf" data-title="Farmasi Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Pharmaceuticals & Cosmetics</div>
+                        <div class="product-info">
+                            <p class="product-description">Comprehensive range of Farmasi products including cosmetics, skincare, haircare, and beauty products with international quality standards.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> VFX PRO Foundation & Concealer</li>
+                                <li><i class="fas fa-check"></i> Stay Matte Mineral Enriched</li>
+                                <li><i class="fas fa-check"></i> Mascara Collection</li>
+                                <li><i class="fas fa-check"></i> Skincare & Body Care Products</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="Farmasi%20Catalogue%20..pdf" class="product-link view-pdf" data-pdf="Farmasi%20Catalogue%20..pdf" data-title="Farmasi Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="Farmasi%20Catalogue%20..pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Cosmetic Products -->
                 <div class="product-card" data-category="cosmetic">
-                    <div class="product-icon">
-                        <i class="fas fa-palette"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">OHO Olive Oil Products</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Cosmetic Products</h3>
-                        <p class="product-desc">Farmasi range of cosmetics and care products</p>
-                        <a href="Farmasi%20Catalogue%20..pdf" class="product-link view-pdf" data-pdf="Farmasi%20Catalogue%20..pdf" data-title="Farmasi Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="cosmetic">
-                    <div class="product-icon">
-                        <i class="fas fa-spa"></i>
-                        <div class="pdf-badge">PDF</div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">OHO Products</h3>
-                        <p class="product-desc">Organic olive oil-based skincare products</p>
-                        <a href="OHO%20Cataloge.pdf" class="product-link view-pdf" data-pdf="OHO%20Cataloge.pdf" data-title="OHO Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Organic Skincare</div>
+                        <div class="product-info">
+                            <p class="product-description">100% organic OHO Olive Oil formulations for effective and natural active substances. Dermocosmetic products for all skin types, especially sensitive and dry skin.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> 100% Organic Extra Virgin Olive Oil</li>
+                                <li><i class="fas fa-check"></i> Repairing Creams & Lotions</li>
+                                <li><i class="fas fa-check"></i> Baby Care Products</li>
+                                <li><i class="fas fa-check"></i> Dermatologically Tested</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="OHO%20Cataloge.pdf" class="product-link view-pdf" data-pdf="OHO%20Cataloge.pdf" data-title="OHO Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="OHO%20Cataloge.pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Medical Equipment -->
                 <div class="product-card" data-category="equipment">
-                    <div class="product-icon">
-                        <i class="fas fa-stethoscope"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">Medical Equipment</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Medical Equipment</h3>
-                        <p class="product-desc">Various medical devices and equipment</p>
-                        <a href="NIMO%20TURKEY.pdf" class="product-link view-pdf" data-pdf="NIMO%20TURKEY.pdf" data-title="NIMO TURKEY Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Medical Devices</div>
+                        <div class="product-info">
+                            <p class="product-description">Various medical equipment and devices including nebulizers, compressors, and healthcare products from international manufacturers.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> HUNKAR Medical Equipment</li>
+                                <li><i class="fas fa-check"></i> Kompresoriu Nebulizator</li>
+                                <li><i class="fas fa-check"></i> Healthcare Products</li>
+                                <li><i class="fas fa-check"></i> Medical Devices Catalog</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="NIMO%20TURKEY.pdf" class="product-link view-pdf" data-pdf="NIMO%20TURKEY.pdf" data-title="Medical Equipment Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="NIMO%20TURKEY.pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="product-card" data-category="cosmetic">
-                    <div class="product-icon">
-                        <i class="fas fa-pump-soap"></i>
-                        <div class="pdf-badge">PDF</div>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div>
+                            <h3 class="product-title">D.C. Tuna Products</h3>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">D.C. Tuna Products</h3>
-                        <p class="product-desc">Various skincare and hair care products</p>
-                        <a href="Catalog%20D.C.Tuna.pdf" class="product-link view-pdf" data-pdf="Catalog%20D.C.Tuna.pdf" data-title="D.C. Tuna Catalog">
-                            View Catalog
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="product-category">Skincare & Haircare</div>
+                        <div class="product-info">
+                            <p class="product-description">Comprehensive range of D.C. Tuna skincare and haircare products including specialized lines for different skin and hair types.</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> Sun Care with Baobab Extract</li>
+                                <li><i class="fas fa-check"></i> Activated Charcoal Line</li>
+                                <li><i class="fas fa-check"></i> Tea Tree Oil Products</li>
+                                <li><i class="fas fa-check"></i> Hair Care Solutions</li>
+                            </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="Catalog%20D.C.Tuna.pdf" class="product-link view-pdf" data-pdf="Catalog%20D.C.Tuna.pdf" data-title="D.C. Tuna Catalog">
+                                <i class="fas fa-eye"></i>
+                                View Catalog
+                            </a>
+                            <a href="Catalog%20D.C.Tuna.pdf" class="product-link secondary" download>
+                                <i class="fas fa-download"></i>
+                                Download
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
