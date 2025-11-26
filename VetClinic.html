@@ -1,1 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Vet Clinic - عيادة بيطرية متخصصة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --primary-light: #3CB371;
+            --primary-dark: #228B22;
+            --accent: #32CD32;
+            --gradient: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+            --gradient-accent: linear-gradient(135deg, #2E8B57 0%, #32CD32 100%);
+            --light-bg: #F0FFF0;
+            --light-card: #FFFFFF;
+            --dark-text: #2F4F4F;
+            --light-text: #556B2F;
+            --shadow: 0 10px 30px rgba(46, 139, 87, 0.2);
+            --shadow-lg: 0 20px 40px rgba(46, 139, 87, 0.3);
+            --border: 1px solid #98FB98;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .logo-subtext {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .contact-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 139, 87, 0.9), rgba(46, 139, 87, 0.8)), url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .service-desc {
+            color: var(--light-text);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background: #f8f9fa;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-card {
+            background: var(--light-card);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .contact-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        .contact-details p {
+            color: var(--light-text);
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Save Contact Section */
+        .save-contact-section {
+            background: var(--light-card);
+            padding: 60px 0;
+        }
+        
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .form-input, .form-textarea {
+            padding: 12px 15px;
+            border: var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .form-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .form-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 50px 0 30px;
+        }
+        
+        .social-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--dark-text);
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            background: white;
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 32px;
+            background: white;
+            color: var(--dark-text);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient-accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .action-button i {
+            font-size: 1.3rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://i.imgur.com/gB0dPap.jpeg" alt="Real Vet Clinic Logo" class="logo-img">
+                    <div>
+                        <div class="logo-text">Real Vet Clinic</div>
+                        <div class="logo-subtext">VETABD</div>
+                    </div>
+                </div>
+                <div class="contact-header">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0786844099</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>عيادة بيطرية متخصصة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Real Vet Clinic</h1>
+                <p class="hero-subtitle">عيادة بيطرية متخصصة في علاج ورعاية الحيوانات الأليفة</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/962786844099" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        تواصل عبر واتساب
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-map-marker-alt"></i>
+                        موقعنا على الخريطة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        مرحباً بكم في Real Vet Clinic، عيادتكم البيطرية المتخصصة في علاج ورعاية الحيوانات الأليفة. نحن نقدم خدمات بيطرية شاملة ومهنية بمعايير عالمية.
+                    </p>
+                    <p>
+                        نتميز بفريق طبي مؤهل وذو خبرة واسعة في تشخيص وعلاج مختلف الحالات المرضية للحيوانات الأليفة. نستخدم أحدث التقنيات والأجهزة الطبية لتقديم أفضل رعاية ممكنة لحيواناتكم.
+                    </p>
+                    <p>
+                        نؤمن بأن الحيوانات الأليفة جزء من العائلة، لذلك نقدم لهم الرعاية الطبية الشاملة التي يستحقونها في بيئة آمنة ومريحة.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.imgur.com/gB0dPap.jpeg" alt="Real Vet Clinic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="service-title">فحوصات مخبرية</h3>
+                    <p class="service-desc">فحوصات دقيقة ومتقدمة لتشخيص الحالات المرضية بدقة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 class="service-title">العلاج الطبي</h3>
+                    <p class="service-desc">برامج علاجية متكاملة لمختلف الأمراض والحالات الصحية</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3 class="service-title">العمليات الجراحية</h3>
+                    <p class="service-desc">عمليات جراحية متخصصة بأعلى معايير السلامة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3 class="service-title">مبيت فندقي</h3>
+                    <p class="service-desc">خدمة إيواء فندقية مريحة للحيوانات تحت إشراف طبي</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3 class="service-title">الحمام والحلاقة</h3>
+                    <p class="service-desc">خدمات النظافة والعناية بمظهر الحيوانات الأليفة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="service-title">مستلزمات الحيوانات</h3>
+                    <p class="service-desc">توفير جميع المستلزمات والأدوية اللازمة للحيوانات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">معرض الصور</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1579168765467-3b235f938439?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="عيادة بيطرية">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a4310e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="فحص طبي">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596273315325-ee7ad9171841?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="رعاية الحيوانات">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1545529462-1c6615d22c58?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مستلزمات بيطرية">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Save Contact Section -->
+    <section class="section save-contact-section">
+        <div class="container">
+            <h2 class="section-title">احفظ معلومات الاتصال</h2>
+            <div class="contact-form-container">
+                <h3 class="form-title">احفظ معلوماتنا للرجوع إليها لاحقاً</h3>
+                <form class="contact-form" id="saveContactForm">
+                    <div class="form-group">
+                        <label for="contactName" class="form-label">اسم جهة الاتصال</label>
+                        <input type="text" id="contactName" class="form-input" placeholder="Real Vet Clinic" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactPhone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="contactPhone" class="form-input" placeholder="0786844099" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactAddress" class="form-label">العنوان</label>
+                        <textarea id="contactAddress" class="form-textarea" placeholder="الموقع: https://maps.app.goo.gl/HTw8TG25vcA1SVay9"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactNotes" class="form-label">ملاحظات إضافية</label>
+                        <textarea id="contactNotes" class="form-textarea" placeholder="عيادة بيطرية متخصصة - VETABD"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">حفظ جهة الاتصال</button>
+                    
+                    <div class="form-success" id="formSuccess">
+                        تم حفظ معلومات الاتصال بنجاح!
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Icons -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="social-title">تابعنا على وسائل التواصل</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.instagram.com/realvet_clinic00?igsh=MWRqMjl6OXFvc3FmaQ==" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61558181501351&mibextid=ZbWKwL" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://wa.me/962786844099" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:0786844099" class="social-icon">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>واتساب</h3>
+                            <p>0786844099</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>هاتف العيادة</h3>
+                            <p>0786844099</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>الموقع</h3>
+                            <p>انقر على الخريطة للوصول إلى موقعنا</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>ساعات العمل</h3>
+                            <p>يومياً من 9:00 صباحاً - 9:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3387.454676796576!2d35.86844157536603!3d31.905942916870117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU0JzIxLjQiTiAzNcKwNTQnMzcuMSJF!5e0!3m2!1sen!2sjo!4v1620000000000!5m2!1sen!2sjo" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <a href="https://wa.me/962786844099" class="action-button primary" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            تواصل عبر واتساب
+        </a>
+        <a href="tel:0786844099" class="action-button">
+            <i class="fas fa-phone"></i>
+            اتصل الآن
+        </a>
+        <a href="https://maps.app.goo.gl/HTw8TG25vcA1SVay9" class="action-button" target="_blank">
+            <i class="fas fa-map-marker-alt"></i>
+            موقع العيادة
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Real Vet Clinic</h3>
+                    <p>عيادة بيطرية متخصصة في علاج ورعاية الحيوانات الأليفة. نقدم خدمات طبية شاملة بمعايير عالمية.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> خدماتنا</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/962786844099"><i class="fab fa-whatsapp"></i> واتساب: 0786844099</a></li>
+                        <li><a href="tel:0786844099"><i class="fas fa-phone"></i> هاتف: 0786844099</a></li>
+                        <li><a href="https://maps.app.goo.gl/HTw8TG25vcA1SVay9"><i class="fas fa-map-marker-alt"></i> موقع العيادة</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Real Vet Clinic - VETABD. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Save Contact Form functionality
+        document.getElementById('saveContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const address = document.getElementById('contactAddress').value;
+            const notes = document.getElementById('contactNotes').value;
+            
+            // Create vCard content
+            const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL:${phone}
+ADR:${address}
+NOTE:${notes}
+END:VCARD`;
+            
+            // Create download link
+            const blob = new Blob([vCardContent], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${name}.vcf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show success message
+            const successMsg = document.getElementById('formSuccess');
+            successMsg.style.display = 'block';
+            
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('saveContactForm').reset();
+                successMsg.style.display = 'none';
+            }, 3000);
+        });
+
+        // Add animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.service-card, .gallery-item, .contact-card');
+            
+            const fadeOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
+            };
+            
+            // Set initial state
+            fadeElements.forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            });
+            
+            window.addEventListener('scroll', fadeOnScroll);
+            fadeOnScroll(); // Trigger once on load
+        });
+    </script>
+</body>
+</html>
