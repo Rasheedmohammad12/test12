@@ -591,6 +591,64 @@
             opacity: 0.9;
         }
         
+        /* Save Contact Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .modal-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-button.primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .modal-button.secondary {
+            background: #f0f0f0;
+            color: var(--dark-text);
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -641,6 +699,10 @@
             
             .offer-desc {
                 font-size: 1rem;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
             }
         }
     </style>
@@ -1064,14 +1126,33 @@
                 <i class="fab fa-whatsapp"></i>
                 طلب عبر واتساب
             </a>
+            <a href="#" class="action-button" id="saveContactBtn">
+                <i class="fas fa-download"></i>
+                حفظ جهة الاتصال
+            </a>
             <a href="tel:0796792971" class="action-button">
                 <i class="fas fa-phone"></i>
                 اتصل الآن
             </a>
-            <a href="https://www.facebook.com/share/17YZbz1VJk/" class="action-button" target="_blank">
-                <i class="fab fa-facebook"></i>
-                صفحة الفيسبوك
-            </a>
+        </div>
+    </div>
+
+    <!-- Save Contact Modal -->
+    <div class="modal" id="saveContactModal">
+        <div class="modal-content">
+            <h3 class="modal-title">حفظ جهة الاتصال</h3>
+            <p>اختر الطريقة التي تريد بها حفظ جهة اتصال مطعم ست الشام:</p>
+            <div class="modal-buttons">
+                <button class="modal-button primary" id="downloadVCF">
+                    <i class="fas fa-download"></i> تحميل ملف VCF
+                </button>
+                <button class="modal-button secondary" id="manualSave">
+                    <i class="fas fa-mobile-alt"></i> حفظ يدوي
+                </button>
+                <button class="modal-button secondary" id="closeModal">
+                    إلغاء
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1094,6 +1175,63 @@
                         this.style.transform = '';
                     }, 150);
                 });
+            });
+
+            // Save Contact Modal
+            const saveContactBtn = document.getElementById('saveContactBtn');
+            const saveContactModal = document.getElementById('saveContactModal');
+            const closeModal = document.getElementById('closeModal');
+            const downloadVCF = document.getElementById('downloadVCF');
+            const manualSave = document.getElementById('manualSave');
+
+            saveContactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                saveContactModal.style.display = 'flex';
+            });
+
+            closeModal.addEventListener('click', function() {
+                saveContactModal.style.display = 'none';
+            });
+
+            // Download VCF file
+            downloadVCF.addEventListener('click', function() {
+                // Create VCF content
+                const vcfContent = `BEGIN:VCARD
+VERSION:3.0
+FN:معجنات ست الشام
+ORG:معجنات ست الشام
+TEL;TYPE=WORK,VOICE:0796792971
+TEL;TYPE=CELL,VOICE:0796792971
+URL:https://www.facebook.com/share/17YZbz1VJk/
+ADR;TYPE=WORK:;;جبل الزهور بين مسجد الرواس ومدرسة الوكالة الجديدة;;;;;
+NOTE:مطعم معجنات وبيتزا - أسعارنا بسيطة وعجينتنا رهيبة
+END:VCARD`;
+
+                // Create blob and download link
+                const blob = new Blob([vcfContent], { type: 'text/vcard' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'معجنات_ست_الشام.vcf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                saveContactModal.style.display = 'none';
+            });
+
+            // Manual save instructions
+            manualSave.addEventListener('click', function() {
+                alert('لحفظ جهة الاتصال يدويًا:\n\n1. افتح تطبيق جهات الاتصال\n2. اضغط على إضافة جهة اتصال جديدة\n3. أدخل المعلومات التالية:\n   - الاسم: معجنات ست الشام\n   - رقم الهاتف: 0796792971\n   - العنوان: جبل الزهور بين مسجد الرواس ومدرسة الوكالة الجديدة\n4. احفظ جهة الاتصال');
+                saveContactModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === saveContactModal) {
+                    saveContactModal.style.display = 'none';
+                }
             });
         });
     </script>
