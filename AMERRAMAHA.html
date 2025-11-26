@@ -68,19 +68,20 @@
         
         .cover-container {
             width: 100%;
-            height: 500px;
+            height: 550px; /* زيادة ارتفاع الحاوية */
             overflow: hidden;
             position: relative;
             background: var(--dark-bg);
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px; /* إضافة padding */
         }
         
         .logo-full {
-            width: 95%; /* تكبير اللوغو */
+            width: 100%; /* اللوغو يأخذ كامل العرض */
             height: auto;
-            max-height: 450px; /* زيادة أقصى ارتفاع */
+            max-height: 500px; /* زيادة كبيرة في الارتفاع الأقصى */
             object-fit: contain;
             display: block;
         }
@@ -546,12 +547,12 @@
             }
             
             .cover-container {
-                height: 400px;
+                height: 450px; /* تكبير في الشاشات المتوسطة */
+                padding: 15px;
             }
             
             .logo-full {
-                width: 98%; /* تكبير أكثر في الشاشات الصغيرة */
-                max-height: 380px;
+                max-height: 400px; /* تكبير في الشاشات المتوسطة */
             }
             
             .action-buttons {
@@ -566,12 +567,12 @@
 
         @media (max-width: 480px) {
             .cover-container {
-                height: 350px; /* زيادة ارتفاع الحاوية للشاشات الصغيرة */
+                height: 400px; /* تكبير في الشاشات الصغيرة */
+                padding: 10px;
             }
             
             .logo-full {
-                width: 100%;
-                max-height: 320px;
+                max-height: 350px; /* تكبير في الشاشات الصغيرة */
             }
             
             .gallery-preview {
