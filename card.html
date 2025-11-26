@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Binary Establishment - مستلزمات طبية شاملة</title>
+    <title>12 Million Coffee - وجهتكم المفضلة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a5276;
-            --primary-light: #2874a6;
-            --primary-dark: #154360;
-            --accent: #3498db;
-            --gradient: linear-gradient(135deg, #1a5276 0%, #154360 100%);
-            --gradient-accent: linear-gradient(135deg, #1a5276 0%, #3498db 100%);
-            --light-bg: #f4f6f7;
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --primary-dark: #654321;
+            --accent: #D2691E;
+            --gradient: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            --gradient-accent: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            --light-bg: #FAF0E6;
             --light-card: #FFFFFF;
-            --dark-text: #1b2631;
-            --light-text: #566573;
-            --shadow: 0 10px 30px rgba(26, 82, 118, 0.2);
-            --shadow-lg: 0 20px 40px rgba(26, 82, 118, 0.3);
-            --border: 1px solid #d6dbdf;
+            --dark-text: #2C1810;
+            --light-text: #5D4037;
+            --shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            --shadow-lg: 0 20px 40px rgba(139, 69, 19, 0.3);
+            --border: 1px solid #E8D5C4;
         }
         
         * {
@@ -201,7 +201,7 @@
         }
         
         .highlight-box {
-            background: rgba(52, 152, 219, 0.1);
+            background: rgba(210, 105, 30, 0.1);
             padding: 25px;
             border-radius: 15px;
             margin: 25px 0;
@@ -215,67 +215,8 @@
             color: var(--accent);
         }
         
-        /* Services Section */
-        .services-section {
-            background: var(--light-card);
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 800px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            border: var(--border);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .service-card {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: var(--border);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            background: rgba(52, 152, 219, 0.15);
-        }
-        
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            color: white;
-            font-size: 1.8rem;
-        }
-        
-        .service-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--dark-text);
-        }
-        
-        .service-desc {
-            font-size: 0.95rem;
-            color: var(--light-text);
-        }
-        
-        /* Products Section */
-        .products-section {
+        /* Menu Slider Section */
+        .menu-section {
             background: var(--light-card);
             margin: 40px auto;
             padding: 40px;
@@ -305,7 +246,7 @@
             display: none;
         }
         
-        .product-item {
+        .menu-item {
             min-width: 280px;
             background: white;
             border-radius: 15px;
@@ -315,17 +256,17 @@
             transition: transform 0.3s ease;
         }
         
-        .product-item:hover {
+        .menu-item:hover {
             transform: translateY(-5px);
         }
         
-        .product-item img {
+        .menu-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
         
-        .product-item-content {
+        .menu-item-content {
             padding: 20px;
         }
         
@@ -359,6 +300,65 @@
             left: -25px;
         }
         
+        /* Services Section */
+        .services-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: rgba(210, 105, 30, 0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(210, 105, 30, 0.15);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .service-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--light-text);
+        }
+        
         /* Contact Section */
         .contact-section {
             background: var(--light-card);
@@ -385,14 +385,14 @@
             gap: 15px;
             font-size: 1.1rem;
             padding: 15px;
-            background: rgba(52, 152, 219, 0.1);
+            background: rgba(210, 105, 30, 0.1);
             border-radius: 10px;
             transition: all 0.3s ease;
             color: var(--dark-text);
         }
         
         .contact-item:hover {
-            background: rgba(52, 152, 219, 0.2);
+            background: rgba(210, 105, 30, 0.2);
             transform: translateY(-2px);
         }
         
@@ -573,7 +573,7 @@
                 left: -20px;
             }
             
-            .product-item {
+            .menu-item {
                 min-width: 250px;
             }
             
@@ -588,22 +588,22 @@
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
-            <img src="https://i.imgur.com/xndbhOp.png" alt="Medical Binary Establishment Cover" class="cover-photo">
+            <img src="https://i.imgur.com/xndbhOp.png" alt="12 Million Coffee Cover" class="cover-photo">
         </div>
         <div class="profile-info">
             <div class="profile-image-container">
-                <img src="https://i.imgur.com/xndbhOp.png" alt="Medical Binary Establishment" class="profile-image">
+                <img src="https://i.imgur.com/xndbhOp.png" alt="12 Million Coffee" class="profile-image">
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
             </div>
-            <h1 class="profile-name">Medical Binary Establishment</h1>
-            <div class="profile-username">AMERRAMAHA</div>
+            <h1 class="profile-name">12 Million Coffee</h1>
+            <div class="profile-username">@twelvemillioncoffee</div>
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Services</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">24/7</span>
@@ -611,7 +611,7 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">⭐</span>
-                    <span class="stat-label">Trusted</span>
+                    <span class="stat-label">Rating</span>
                 </div>
             </div>
         </div>
@@ -623,17 +623,65 @@
         <div class="about-section fade-in delay-1">
             <h2 class="section-title">Welcome</h2>
             <div class="about-text">
-                Specialized in medical supplies and consumables for orthopedic surgery and healthcare
+                Your favorite destination for comfortable atmosphere and distinguished service
             </div>
             
             <div class="highlight-box">
                 <div class="highlight-title">About Us</div>
                 <div class="about-text" style="text-align: center; direction: rtl;">
-                    نحن مؤسسة ثنائية طبية، متخصصون في المستلزمات الطبية والمواد الاستهلاكية، بما في ذلك كل ما يلزم لجراحة العظام، مثل المواد القابلة للزرع من الوكالات الدولية مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا)، بالإضافة إلى مجموعة كاملة من أدوات جراحة العظام، وأنظمة التثبيت الخارجي، ومجموعة متنوعة من الأجهزة الطبية، ومستلزمات المستشفيات، ومعدات غرفة العمليات.
-                    <br><br>
-                    بالإضافة إلى مستودع أدوية شامل يحتوي على وكالات المستحضرات الصيدلانية والمكملات الغذائية من جميع أنحاء العالم. لدينا أيضًا صيدليتنا الخاصة التي تبيع المنتجات الطبية والأدوية.
-                    <br><br>
-                    كما نقدم الرعاية الصحية للمرضى القادمين من الخارج للعلاج، مما يسهل ذلك من خلال تعاوننا مع الأطباء والمستشفيات والصيدليات والمختبرات ومراكز الأشعة والتشخيص وغيرها من مؤسسات الرعاية الصحية. نحن نسهل إجراءاتهم الجراحية والعلاجات الطبية اللازمة في المستشفيات داخل المملكة الأردنية الهاشمية.
+                    مرحبًا بكم في 12 Million Coffee 
+                    وجهتكم المفضلة للاستمتاع بأجواء مريحة وخدمة مميزة.
+                    نوفر لكم مجموعة من التجارب الممتعة تشمل ألعاب الذكاء، إنترنت سريع، محطات شحن (باور بانك)، لوح الذكريات لتوثيق اجمل الذكريات،بالإضافة إلى تنظيم أعياد الميلاد بأجواء فريدة.نسعد بزيارتكم دائمًا!
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Slider Section -->
+        <div class="menu-section fade-in delay-2">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider(-1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider(1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="menuSlider">
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/hktdLIu.png" alt="Coffee Menu 1">
+                        <div class="menu-item-content">
+                            <h3>Italian Coffee</h3>
+                            <p>Finest Italian coffee varieties</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/RZ8JNrF.png" alt="Coffee Menu 2">
+                        <div class="menu-item-content">
+                            <h3>Cold Beverages</h3>
+                            <p>Various refreshing drinks</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/d6bRRoF.png" alt="Coffee Menu 3">
+                        <div class="menu-item-content">
+                            <h3>Turkish Coffee</h3>
+                            <p>Authentic Turkish coffee</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/HCzk8Td.png" alt="Coffee Menu 4">
+                        <div class="menu-item-content">
+                            <h3>Espresso</h3>
+                            <p>Strong concentrated espresso</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/lHvqCO3.png" alt="Coffee Menu 5">
+                        <div class="menu-item-content">
+                            <h3>Cappuccino</h3>
+                            <p>Creamy cappuccino with perfect foam</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -644,81 +692,31 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-bone"></i>
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    <h3 class="service-name">Orthopedic Supplies</h3>
-                    <p class="service-desc">Complete range of orthopedic surgical instruments and implants</p>
+                    <h3 class="service-name">Intelligence Games</h3>
+                    <p class="service-desc">Various intelligence and entertainment games</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-pills"></i>
+                        <i class="fas fa-wifi"></i>
                     </div>
-                    <h3 class="service-name">Pharmaceuticals</h3>
-                    <p class="service-desc">Comprehensive drug warehouse with international agencies</p>
+                    <h3 class="service-name">Fast Internet</h3>
+                    <p class="service-desc">Ultra-fast internet connection for free</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-hospital"></i>
+                        <i class="fas fa-battery-full"></i>
                     </div>
-                    <h3 class="service-name">Medical Equipment</h3>
-                    <p class="service-desc">Hospital supplies and operating room equipment</p>
+                    <h3 class="service-name">Charging Stations</h3>
+                    <p class="service-desc">Power bank and charging for your devices</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
+                        <i class="fas fa-birthday-cake"></i>
                     </div>
-                    <h3 class="service-name">Healthcare Services</h3>
-                    <p class="service-desc">Medical tourism facilitation and patient care coordination</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Products Section -->
-        <div class="products-section fade-in delay-2">
-            <h2 class="section-title">Our Products</h2>
-            <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider(-1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn next" onclick="scrollSlider(1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="slider" id="productSlider">
-                    <div class="product-item">
-                        <img src="https://i.imgur.com/hktdLIu.png" alt="Orthopedic Implants">
-                        <div class="product-item-content">
-                            <h3>Orthopedic Implants</h3>
-                            <p>High-quality implantable materials from international agencies</p>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://i.imgur.com/RZ8JNrF.png" alt="Surgical Instruments">
-                        <div class="product-item-content">
-                            <h3>Surgical Instruments</h3>
-                            <p>Complete range of orthopedic surgical instruments</p>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://i.imgur.com/d6bRRoF.png" alt="External Fixation">
-                        <div class="product-item-content">
-                            <h3>External Fixation</h3>
-                            <p>Advanced external fixation systems</p>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://i.imgur.com/HCzk8Td.png" alt="Medical Devices">
-                        <div class="product-item-content">
-                            <h3>Medical Devices</h3>
-                            <p>Various medical devices and hospital supplies</p>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://i.imgur.com/lHvqCO3.png" alt="Pharmaceuticals">
-                        <div class="product-item-content">
-                            <h3>Pharmaceuticals</h3>
-                            <p>Comprehensive range of drugs and supplements</p>
-                        </div>
-                    </div>
+                    <h3 class="service-name">Birthday Parties</h3>
+                    <p class="service-desc">Organizing special birthday parties</p>
                 </div>
             </div>
         </div>
@@ -729,60 +727,55 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <span>0790408227</span>
+                    <span>962790863038</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>065692727</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Jabal Al-Hussein - Opposite Hiba Hospital, Luluat Al-Quraini Complex 198</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>Rammaha@medical-binary.com</span>
+                    <span>962790863038</span>
                 </div>
             </div>
             
             <div class="business-contact">
-                <div class="business-title">For Medical Inquiries & International Patients</div>
-                <div class="business-number">00962790408227</div>
+                <div class="business-title">For Reservations & Inquiries</div>
+                <div class="business-number">00962790863038</div>
             </div>
         </div>
 
         <!-- Social Icons -->
         <div class="social-section fade-in delay-3">
-            <h2 class="social-title">Connect With Us</h2>
+            <h2 class="social-title">Follow Us</h2>
             <div class="social-icons-grid">
-                <a href="https://wa.me/962790408227" class="social-icon" target="_blank">
+                <a href="https://www.instagram.com/twelvemillioncoffee?igsh=MWlqMGlwYmxqYjJndA%3D%3D&utm_source=qr" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/16beKnmJrA/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://snapchat.com/t/xNCfDgkR" class="social-icon" target="_blank">
+                    <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="https://wa.me/962790863038" class="social-icon" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="tel:065692727" class="social-icon">
+                <a href="tel:962790863038" class="social-icon">
                     <i class="fas fa-phone"></i>
-                </a>
-                <a href="mailto:Rammaha@medical-binary.com" class="social-icon">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" class="social-icon" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i>
                 </a>
             </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="action-buttons fade-in delay-3">
-            <a href="https://wa.me/962790408227" class="action-button primary" target="_blank">
+            <a href="VCF/12-million-coffee.vcf" class="action-button primary" download>
+                <i class="fas fa-download"></i>
+                Save Contact
+            </a>
+            <a href="https://wa.me/962790863038" class="action-button" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 WhatsApp
             </a>
-            <a href="tel:065692727" class="action-button">
+            <a href="tel:962790863038" class="action-button">
                 <i class="fas fa-phone"></i>
                 Call Now
-            </a>
-            <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" class="action-button" target="_blank">
-                <i class="fas fa-map-marker-alt"></i>
-                View Location
             </a>
         </div>
     </div>
@@ -790,15 +783,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text">Medical Binary Establishment - Comprehensive Medical Supplies</p>
-            <p class="footer-text">Orthopedic Surgery • Pharmaceuticals • Medical Equipment • Healthcare Services</p>
+            <p class="footer-text">12 Million Coffee - Your Favorite Destination</p>
+            <p class="footer-text">Comfortable Atmosphere • Distinguished Service • Enjoyable Experiences</p>
         </div>
     </footer>
 
     <script>
         // Slider functionality
         function scrollSlider(direction) {
-            const slider = document.getElementById('productSlider');
+            const slider = document.getElementById('menuSlider');
             const scrollAmount = 300;
             slider.scrollLeft += direction * scrollAmount;
         }
