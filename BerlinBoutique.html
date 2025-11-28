@@ -56,6 +56,35 @@
             padding: 0 20px;
         }
         
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0,0,0,0.7);
+            border-radius: 25px;
+            padding: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--light-text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+        
         /* Header */
         .profile-header {
             width: 100%;
@@ -66,7 +95,7 @@
         
         .cover-container {
             width: 100%;
-            height: 100vh;
+            height: 60vh;
             overflow: hidden;
             position: relative;
             background: #000000;
@@ -84,23 +113,23 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
             z-index: 2;
         }
         
         .profile-image-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 20px;
-            border: 5px solid rgba(255,255,255,0.2);
+            border: 4px solid rgba(255,255,255,0.2);
             object-fit: cover;
             box-shadow: var(--shadow-lg);
             display: block;
@@ -109,42 +138,42 @@
         
         .verified-badge {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 8px;
+            right: 8px;
             background: var(--gold);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             border: 2px solid rgba(255,255,255,0.2);
         }
         
         .profile-name {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--dark-text);
             font-family: 'Playfair Display', serif;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
         
         .profile-username {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
         }
         
         .stats-container {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
+            gap: 30px;
+            margin: 15px 0;
             flex-wrap: wrap;
         }
         
@@ -153,7 +182,7 @@
         }
         
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
             display: block;
@@ -161,7 +190,7 @@
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--light-text);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -562,6 +591,37 @@
             margin-bottom: 10px;
         }
         
+        /* Language-specific styles */
+        [lang="en"] {
+            direction: ltr;
+            text-align: left;
+        }
+        
+        [lang="en"] .section-title:after {
+            left: 0;
+            transform: none;
+        }
+        
+        [lang="en"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--accent);
+        }
+        
+        [lang="en"] .slider-btn.prev {
+            right: auto;
+            left: -25px;
+        }
+        
+        [lang="en"] .slider-btn.next {
+            left: auto;
+            right: -25px;
+        }
+        
+        [lang="en"] .contact-item,
+        [lang="en"] .action-button {
+            flex-direction: row-reverse;
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -585,16 +645,26 @@
         /* Responsive */
         @media (max-width: 768px) {
             .profile-name {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .profile-image {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
             
             .cover-container {
-                height: 70vh;
+                height: 50vh;
+            }
+            
+            .language-switcher {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
             }
             
             .slider-btn {
@@ -623,6 +693,12 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
@@ -635,20 +711,20 @@
                     </div>
                 </div>
                 <h1 class="profile-name">Berlin Boutique</h1>
-                <div class="profile-username">الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه</div>
+                <div class="profile-username" data-ar="الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه" data-en="The quality you feel. The style you own">الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه</div>
                 
                 <div class="stats-container">
                     <div class="stat-item">
                         <span class="stat-number">4+</span>
-                        <span class="stat-label">أقسام</span>
+                        <span class="stat-label" data-ar="أقسام" data-en="Sections">أقسام</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">⭐</span>
-                        <span class="stat-label">تقييم</span>
+                        <span class="stat-label" data-ar="تقييم" data-en="Rating">تقييم</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">جودة</span>
+                        <span class="stat-label" data-ar="جودة" data-en="Quality">جودة</span>
                     </div>
                 </div>
             </div>
@@ -659,14 +735,14 @@
     <div class="container">
         <!-- About Section -->
         <div class="about-section fade-in delay-1">
-            <h2 class="section-title">مرحباً بكم</h2>
-            <div class="about-text">
+            <h2 class="section-title" data-ar="مرحباً بكم" data-en="Welcome">مرحباً بكم</h2>
+            <div class="about-text" data-ar="Berlin – الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه" data-en="Berlin – The quality you feel. The style you own">
                 Berlin – الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه
             </div>
             
             <div class="highlight-box">
-                <div class="highlight-title">عن بوتيك برلين</div>
-                <div class="about-text" style="text-align: center; direction: rtl;">
+                <div class="highlight-title" data-ar="عن بوتيك برلين" data-en="About Berlin Boutique">عن بوتيك برلين</div>
+                <div class="about-text" data-ar="اكتشفي Berlin Boutique… المكان اللي بجمع الجمال والستايل بجودة عالية مكفولة.<br><br>عطور هاند ميد بروائح ثابتة، سكرابات وزيوت طبيعية 100٪ للعناية الحقيقية، وملابس وشوزات وكل ما يحتاجه الرجل والمرأة.<br><br>برلين… كل قطعة فيها قصة، وكل منتج وراه ضمان. جربي الجودة اللي بتحكي عن حالها." data-en="Discover Berlin Boutique… The place that combines beauty and style with guaranteed high quality.<br><br>Handmade perfumes with lasting scents, 100% natural scrubs and oils for real care, and clothes, shoes, and everything needed for men and women.<br><br>Berlin… Every piece has a story, and every product comes with a guarantee. Experience the quality that speaks for itself.">
                     اكتشفي Berlin Boutique… المكان اللي بجمع الجمال والستايل بجودة عالية مكفولة.
                     <br><br>
                     عطور هاند ميد بروائح ثابتة، سكرابات وزيوت طبيعية 100٪ للعناية الحقيقية، وملابس وشوزات وكل ما يحتاجه الرجل والمرأة.
@@ -678,7 +754,7 @@
 
         <!-- Menu Slider Section -->
         <div class="menu-section fade-in delay-2">
-            <h2 class="section-title">منتجاتنا</h2>
+            <h2 class="section-title" data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h2>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="scrollSlider(-1)">
                     <i class="fas fa-chevron-right"></i>
@@ -690,43 +766,43 @@
                     <div class="menu-item">
                         <img src="https://i.imgur.com/rgyn8bY.png" alt="عطور هاند ميد">
                         <div class="menu-item-content">
-                            <h3>عطور هاند ميد</h3>
-                            <p>عطور يدوية الصنع بروائح ثابتة ومميزة</p>
+                            <h3 data-ar="عطور هاند ميد" data-en="Handmade Perfumes">عطور هاند ميد</h3>
+                            <p data-ar="عطور يدوية الصنع بروائح ثابتة ومميزة" data-en="Handmade perfumes with lasting and unique scents">عطور يدوية الصنع بروائح ثابتة ومميزة</p>
                         </div>
                     </div>
                     <div class="menu-item">
                         <img src="https://i.imgur.com/OufbN8A.png" alt="سكرابات وزيوت طبيعية">
                         <div class="menu-item-content">
-                            <h3>سكرابات وزيوت طبيعية</h3>
-                            <p>منتجات عناية طبيعية 100% للبشرة</p>
+                            <h3 data-ar="سكرابات وزيوت طبيعية" data-en="Natural Scrubs & Oils">سكرابات وزيوت طبيعية</h3>
+                            <p data-ar="منتجات عناية طبيعية 100% للبشرة" data-en="100% natural care products for skin">منتجات عناية طبيعية 100% للبشرة</p>
                         </div>
                     </div>
                     <div class="menu-item">
                         <img src="https://i.imgur.com/O57UflH.png" alt="ملابس نسائية">
                         <div class="menu-item-content">
-                            <h3>ملابس نسائية</h3>
-                            <p>أحدث صيحات الموضة والأزياء</p>
+                            <h3 data-ar="ملابس نسائية" data-en="Women's Clothing">ملابس نسائية</h3>
+                            <p data-ar="أحدث صيحات الموضة والأزياء" data-en="Latest fashion trends and styles">أحدث صيحات الموضة والأزياء</p>
                         </div>
                     </div>
                     <div class="menu-item">
                         <img src="https://i.imgur.com/JYIIlda.png" alt="ملابس رجالية">
                         <div class="menu-item-content">
-                            <h3>ملابس رجالية</h3>
-                            <p>أزياء عصرية للرجل العصري</p>
+                            <h3 data-ar="ملابس رجالية" data-en="Men's Clothing">ملابس رجالية</h3>
+                            <p data-ar="أزياء عصرية للرجل العصري" data-en="Modern fashion for the contemporary man">أزياء عصرية للرجل العصري</p>
                         </div>
                     </div>
                     <div class="menu-item">
                         <img src="https://i.imgur.com/86R36VE.png" alt="أحذية وإكسسوارات">
                         <div class="menu-item-content">
-                            <h3>أحذية وإكسسوارات</h3>
-                            <p>تكملات أنيقة لإطلالتك المميزة</p>
+                            <h3 data-ar="أحذية وإكسسوارات" data-en="Shoes & Accessories">أحذية وإكسسوارات</h3>
+                            <p data-ar="تكملات أنيقة لإطلالتك المميزة" data-en="Elegant complements for your distinctive look">تكملات أنيقة لإطلالتك المميزة</p>
                         </div>
                     </div>
                     <div class="menu-item">
                         <img src="https://i.imgur.com/vYPYAF4.png" alt="منتجات إضافية">
                         <div class="menu-item-content">
-                            <h3>منتجات متنوعة</h3>
-                            <p>تشكيلة واسعة من المنتجات المميزة</p>
+                            <h3 data-ar="منتجات متنوعة" data-en="Various Products">منتجات متنوعة</h3>
+                            <p data-ar="تشكيلة واسعة من المنتجات المميزة" data-en="Wide range of distinctive products">تشكيلة واسعة من المنتجات المميزة</p>
                         </div>
                     </div>
                 </div>
@@ -735,42 +811,42 @@
 
         <!-- Services Section -->
         <div class="services-section fade-in delay-2">
-            <h2 class="section-title">أقسام المتجر</h2>
+            <h2 class="section-title" data-ar="أقسام المتجر" data-en="Store Sections">أقسام المتجر</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-spray-can"></i>
                     </div>
-                    <h3 class="service-name">عطور هاند ميد</h3>
-                    <p class="service-desc">عطور يدوية الصنع بروائح ثابتة وفريدة</p>
+                    <h3 class="service-name" data-ar="عطور هاند ميد" data-en="Handmade Perfumes">عطور هاند ميد</h3>
+                    <p class="service-desc" data-ar="عطور يدوية الصنع بروائح ثابتة وفريدة" data-en="Handmade perfumes with lasting and unique scents">عطور يدوية الصنع بروائح ثابتة وفريدة</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-spa"></i>
                     </div>
-                    <h3 class="service-name">سكرابات وزيوت</h3>
-                    <p class="service-desc">منتجات عناية طبيعية 100% للبشرة والجسم</p>
+                    <h3 class="service-name" data-ar="سكرابات وزيوت" data-en="Scrubs & Oils">سكرابات وزيوت</h3>
+                    <p class="service-desc" data-ar="منتجات عناية طبيعية 100% للبشرة والجسم" data-en="100% natural care products for skin and body">منتجات عناية طبيعية 100% للبشرة والجسم</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tshirt"></i>
                     </div>
-                    <h3 class="service-name">ملابس نسائية</h3>
-                    <p class="service-desc">أحدث صيحات الموضة والأزياء النسائية</p>
+                    <h3 class="service-name" data-ar="ملابس نسائية" data-en="Women's Clothing">ملابس نسائية</h3>
+                    <p class="service-desc" data-ar="أحدث صيحات الموضة والأزياء النسائية" data-en="Latest women's fashion trends and styles">أحدث صيحات الموضة والأزياء النسائية</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3 class="service-name">ملابس رجالية</h3>
-                    <p class="service-desc">أزياء عصرية وأنيقة للرجل العصري</p>
+                    <h3 class="service-name" data-ar="ملابس رجالية" data-en="Men's Clothing">ملابس رجالية</h3>
+                    <p class="service-desc" data-ar="أزياء عصرية وأنيقة للرجل العصري" data-en="Modern and elegant fashion for the contemporary man">أزياء عصرية وأنيقة للرجل العصري</p>
                 </div>
             </div>
         </div>
 
         <!-- Contact Section -->
         <div class="contact-section fade-in delay-3">
-            <h2 class="section-title">اتصل بنا</h2>
+            <h2 class="section-title" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
@@ -782,19 +858,19 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>الزرقاء الجديدة - دوار البتراوي</span>
+                    <span data-ar="الزرقاء الجديدة - دوار البتراوي" data-en="New Zarqa - Al-Batrawi Circle">الزرقاء الجديدة - دوار البتراوي</span>
                 </div>
             </div>
             
             <div class="business-contact">
-                <div class="business-title">للطلبات والاستفسارات</div>
+                <div class="business-title" data-ar="للطلبات والاستفسارات" data-en="For Orders & Inquiries">للطلبات والاستفسارات</div>
                 <div class="business-number">0782541758</div>
             </div>
         </div>
 
         <!-- Social Icons -->
         <div class="social-section fade-in delay-3">
-            <h2 class="social-title">تابعونا</h2>
+            <h2 class="social-title" data-ar="تابعونا" data-en="Follow Us">تابعونا</h2>
             <div class="social-icons-grid">
                 <a href="https://www.instagram.com/berlinboutique27?igsh=MW5kMTVyOTJtdGZ3dw==" class="social-icon" target="_blank">
                     <i class="fab fa-instagram"></i>
@@ -818,15 +894,15 @@
         <div class="action-buttons fade-in delay-3">
             <a href="VCF/berlin-boutique.vcf" class="action-button primary" download>
                 <i class="fas fa-download"></i>
-                حفظ جهة الاتصال
+                <span data-ar="حفظ جهة الاتصال" data-en="Save Contact">حفظ جهة الاتصال</span>
             </a>
             <a href="https://wa.me/962782541758" class="action-button" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                واتساب
+                <span data-ar="واتساب" data-en="WhatsApp">واتساب</span>
             </a>
             <a href="tel:0782541758" class="action-button">
                 <i class="fas fa-phone"></i>
-                اتصل الآن
+                <span data-ar="اتصل الآن" data-en="Call Now">اتصل الآن</span>
             </a>
         </div>
     </div>
@@ -835,21 +911,49 @@
     <footer>
         <div class="container">
             <img src="https://i.imgur.com/Qj0sfmU.png" alt="Berlin Boutique Logo" class="footer-logo">
-            <p class="footer-text">Berlin Boutique - الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه</p>
-            <p class="footer-text">الزرقاء الجديدة - دوار البتراوي • هاتف: 0782541758</p>
+            <p class="footer-text" data-ar="Berlin Boutique - الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه" data-en="Berlin Boutique - The quality you feel. The style you own">Berlin Boutique - الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه</p>
+            <p class="footer-text" data-ar="الزرقاء الجديدة - دوار البتراوي • هاتف: 0782541758" data-en="New Zarqa - Al-Batrawi Circle • Phone: 0782541758">الزرقاء الجديدة - دوار البتراوي • هاتف: 0782541758</p>
         </div>
     </footer>
 
     <script>
-        // Slider functionality
-        function scrollSlider(direction) {
-            const slider = document.getElementById('menuSlider');
-            const scrollAmount = 300;
-            slider.scrollLeft += direction * scrollAmount;
-        }
-
-        // Add click effects
+        // Language switching functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const elementsToTranslate = document.querySelectorAll('[data-ar]');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update HTML lang attribute and direction
+                    document.documentElement.lang = selectedLang;
+                    document.documentElement.dir = selectedLang === 'ar' ? 'rtl' : 'ltr';
+                    
+                    // Update all translatable elements
+                    elementsToTranslate.forEach(element => {
+                        const translation = element.getAttribute(`data-${selectedLang}`);
+                        if (translation) {
+                            element.textContent = translation;
+                        }
+                    });
+                });
+            });
+            
+            // Slider functionality
+            function scrollSlider(direction) {
+                const slider = document.getElementById('menuSlider');
+                const scrollAmount = 300;
+                slider.scrollLeft += direction * scrollAmount;
+            }
+            
+            window.scrollSlider = scrollSlider;
+            
+            // Add click effects
             const buttons = document.querySelectorAll('.social-icon, .action-button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
