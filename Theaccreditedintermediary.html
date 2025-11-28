@@ -155,6 +155,7 @@
         
         .category-content {
             padding: 20px;
+            text-align: center;
         }
         
         .category-name {
@@ -170,10 +171,21 @@
             margin-bottom: 15px;
         }
         
-        .category-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent);
+        .inquiry-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .inquiry-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
         }
         
         /* Features Section */
@@ -437,8 +449,10 @@
                     <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="سيارات اقتصادية" class="category-image">
                     <div class="category-content">
                         <h3 class="category-name">سيارات اقتصادية</h3>
-                        <p class="category-desc">سيارات موفرة للوقود ومناسبة للرحلات اليومية</p>
-                        <div class="category-price">بداية من 25 دينار/يوم</div>
+                        <p class="category-desc">سيارات موفرة للوقود ومناسبة للرحلات اليومية والاستخدام الشخصي</p>
+                        <button class="inquiry-btn" onclick="window.location.href='tel:0775704860'">
+                            استفسر عن السعر
+                        </button>
                     </div>
                 </div>
                 
@@ -447,7 +461,9 @@
                     <div class="category-content">
                         <h3 class="category-name">سيارات عائلية</h3>
                         <p class="category-desc">مريحة وواسعة مناسبة للعائلات والرحلات الطويلة</p>
-                        <div class="category-price">بداية من 40 دينار/يوم</div>
+                        <button class="inquiry-btn" onclick="window.location.href='tel:0775704860'">
+                            استفسر عن السعر
+                        </button>
                     </div>
                 </div>
                 
@@ -455,8 +471,10 @@
                     <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="سيارات فاخرة" class="category-image">
                     <div class="category-content">
                         <h3 class="category-name">سيارات فاخرة</h3>
-                        <p class="category-desc">لرحلة استثنائية بتصميم أنيق ومواصفات عالية</p>
-                        <div class="category-price">بداية من 70 دينار/يوم</div>
+                        <p class="category-desc">لرحلة استثنائية بتصميم أنيق ومواصفات عالية الجودة</p>
+                        <button class="inquiry-btn" onclick="window.location.href='tel:0775704860'">
+                            استفسر عن السعر
+                        </button>
                     </div>
                 </div>
                 
@@ -464,8 +482,10 @@
                     <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="دفع رباعي" class="category-image">
                     <div class="category-content">
                         <h3 class="category-name">سيارات دفع رباعي</h3>
-                        <p class="category-desc">مثالية للطرق الوعرة والرحلات البرية</p>
-                        <div class="category-price">بداية من 55 دينار/يوم</div>
+                        <p class="category-desc">مثالية للطرق الوعرة والرحلات البرية والمغامرات</p>
+                        <button class="inquiry-btn" onclick="window.location.href='tel:0775704860'">
+                            استفسر عن السعر
+                        </button>
                     </div>
                 </div>
             </div>
@@ -504,7 +524,23 @@
                         <i class="fas fa-car-side"></i>
                     </div>
                     <h3 class="feature-name">تسليم السيارة</h3>
-                    <p class="feature-desc">نسلم لك السيارة في الموقع الذي تختاره</p>
+                    <p class="feature-desc">نسلم لك السيارة في الموقع الذي تختاره داخل المدينة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3 class="feature-name">وقت التسليم</h3>
+                    <p class="feature-desc">مرونة في مواعيد استلام وتسليم المركبات</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-name">دعم متكامل</h3>
+                    <p class="feature-desc">فريق خدمة عملاء متخصص لمساعدتك في جميع استفساراتك</p>
                 </div>
             </div>
         </section>
@@ -558,7 +594,7 @@
     <script>
         // Add click effects
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.action-button, .category-card');
+            const buttons = document.querySelectorAll('.action-button, .category-card, .inquiry-btn');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     this.style.transform = 'scale(0.95)';
