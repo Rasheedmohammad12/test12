@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -16,13 +15,14 @@
             --accent: #D2691E;
             --gradient: linear-gradient(135deg, #8B4513 0%, #654321 100%);
             --gradient-accent: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            --light-bg: #FAF0E6;
+            --light-bg: #f8f5f2;
             --light-card: #FFFFFF;
             --dark-text: #2C1810;
             --light-text: #5D4037;
-            --shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-            --shadow-lg: 0 20px 40px rgba(139, 69, 19, 0.3);
+            --shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
+            --shadow-lg: 0 20px 40px rgba(139, 69, 19, 0.25);
             --border: 1px solid #E8D5C4;
+            --gold: #D4AF37;
         }
         
         * {
@@ -43,6 +43,11 @@
             line-height: 1.7;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            background-image: url('https://i.imgur.com/Qj0sfmU.png');
+            background-size: 300px;
+            background-repeat: repeat;
+            background-blend-mode: overlay;
+            background-color: #f8f5f2;
         }
         
         a {
@@ -62,6 +67,7 @@
             position: relative;
             overflow: hidden;
             background: var(--light-card);
+            box-shadow: var(--shadow);
         }
         
         .cover-container {
@@ -76,7 +82,29 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: brightness(0.9);
+            filter: brightness(0.85);
+        }
+        
+        .logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            z-index: 3;
+        }
+        
+        .logo-overlay img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
         }
         
         .profile-info {
@@ -107,7 +135,7 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            background: var(--accent);
+            background: var(--gold);
             color: white;
             width: 30px;
             height: 30px;
@@ -125,6 +153,7 @@
             margin-bottom: 10px;
             color: var(--dark-text);
             font-family: 'Playfair Display', serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
         .profile-username {
@@ -170,6 +199,20 @@
             text-align: center;
             box-shadow: var(--shadow);
             border: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('https://i.imgur.com/Qj0sfmU.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
         }
         
         .section-title {
@@ -207,6 +250,7 @@
             border-radius: 15px;
             margin: 25px 0;
             border-right: 4px solid var(--accent);
+            position: relative;
         }
         
         .highlight-title {
@@ -255,20 +299,38 @@
             box-shadow: var(--shadow);
             border: var(--border);
             transition: transform 0.3s ease;
+            position: relative;
         }
         
         .menu-item:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .menu-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-item:hover img {
+            transform: scale(1.05);
         }
         
         .menu-item-content {
             padding: 20px;
+        }
+        
+        .menu-item-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .menu-item-content p {
+            color: var(--light-text);
+            font-size: 0.95rem;
         }
         
         .slider-btn {
@@ -518,11 +580,19 @@
             text-align: center;
             margin-top: 60px;
             color: white;
+            position: relative;
+        }
+        
+        .footer-logo {
+            width: 120px;
+            margin: 0 auto 20px;
+            display: block;
         }
         
         .footer-text {
             font-size: 1rem;
             opacity: 0.9;
+            margin-bottom: 10px;
         }
         
         /* Animations */
@@ -560,6 +630,11 @@
                 height: 300px;
             }
             
+            .logo-overlay {
+                width: 150px;
+                height: 150px;
+            }
+            
             .slider-btn {
                 width: 40px;
                 height: 40px;
@@ -589,11 +664,14 @@
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
-            <img src="https://i.imgur.com/xndbhOp.png" alt="Berlin Boutique Cover" class="cover-photo">
+            <img src="https://i.imgur.com/xwPfJ4k.png" alt="Berlin Boutique Cover" class="cover-photo">
+            <div class="logo-overlay">
+                <img src="https://i.imgur.com/Qj0sfmU.png" alt="Berlin Boutique Logo">
+            </div>
         </div>
         <div class="profile-info">
             <div class="profile-image-container">
-                <img src="https://i.imgur.com/xndbhOp.png" alt="Berlin Boutique" class="profile-image">
+                <img src="https://i.imgur.com/xwPfJ4k.png" alt="Berlin Boutique" class="profile-image">
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
@@ -651,38 +729,45 @@
                 </button>
                 <div class="slider" id="menuSlider">
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/hktdLIu.png" alt="عطور هاند ميد">
+                        <img src="https://i.imgur.com/rgyn8bY.png" alt="عطور هاند ميد">
                         <div class="menu-item-content">
                             <h3>عطور هاند ميد</h3>
                             <p>عطور يدوية الصنع بروائح ثابتة ومميزة</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/RZ8JNrF.png" alt="سكرابات وزيوت طبيعية">
+                        <img src="https://i.imgur.com/OufbN8A.png" alt="سكرابات وزيوت طبيعية">
                         <div class="menu-item-content">
                             <h3>سكرابات وزيوت طبيعية</h3>
                             <p>منتجات عناية طبيعية 100% للبشرة</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/d6bRRoF.png" alt="ملابس نسائية">
+                        <img src="https://i.imgur.com/O57UflH.png" alt="ملابس نسائية">
                         <div class="menu-item-content">
                             <h3>ملابس نسائية</h3>
                             <p>أحدث صيحات الموضة والأزياء</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/HCzk8Td.png" alt="ملابس رجالية">
+                        <img src="https://i.imgur.com/JYIIlda.png" alt="ملابس رجالية">
                         <div class="menu-item-content">
                             <h3>ملابس رجالية</h3>
                             <p>أزياء عصرية للرجل العصري</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/lHvqCO3.png" alt="أحذية وإكسسوارات">
+                        <img src="https://i.imgur.com/86R36VE.png" alt="أحذية وإكسسوارات">
                         <div class="menu-item-content">
                             <h3>أحذية وإكسسوارات</h3>
                             <p>تكملات أنيقة لإطلالتك المميزة</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i.imgur.com/vYPYAF4.png" alt="منتجات إضافية">
+                        <div class="menu-item-content">
+                            <h3>منتجات متنوعة</h3>
+                            <p>تشكيلة واسعة من المنتجات المميزة</p>
                         </div>
                     </div>
                 </div>
@@ -790,6 +875,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <img src="https://i.imgur.com/Qj0sfmU.png" alt="Berlin Boutique Logo" class="footer-logo">
             <p class="footer-text">Berlin Boutique - الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه</p>
             <p class="footer-text">الزرقاء الجديدة - دوار البتراوي • هاتف: 0782541758</p>
         </div>
