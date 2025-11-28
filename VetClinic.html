@@ -8,19 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF8C42; /* برتقالي فاتح بدلاً من الأخضر */
-            --primary-light: #FFA366; /* برتقالي أفتح */
-            --primary-dark: #E67A36; /* برتقالي أغمق */
-            --accent: #FF9F4D; /* برتقالي مميز */
-            --gradient: linear-gradient(135deg, #FF8C42 0%, #E67A36 100%); /* جرادينت برتقالي */
-            --gradient-accent: linear-gradient(135deg, #FF8C42 0%, #FF9F4D 100%); /* جرادينت برتقالي مميز */
-            --light-bg: #F5F5F0; /* لون بيج فاتح */
+            --primary: #D4B896; /* بيج دافئ */
+            --primary-light: #E8D9C5; /* بيج فاتح */
+            --primary-dark: #B89A7A; /* بيج غامق */
+            --accent: #C8AD8F; /* بيج مميز */
+            --gradient: linear-gradient(135deg, #D4B896 0%, #B89A7A 100%); /* جرادينت بيج */
+            --gradient-accent: linear-gradient(135deg, #D4B896 0%, #C8AD8F 100%); /* جرادينت بيج مميز */
+            --light-bg: #F5F5F0; /* لون بيج فاتح جداً */
             --light-card: #FFFFFF;
-            --dark-text: #2F4F4F; /* لون نص أغمق للتباين */
-            --light-text: #666666; /* لون نص أفتح */
-            --shadow: 0 10px 30px rgba(255, 140, 66, 0.15); /* ظل برتقالي خفيف */
-            --shadow-lg: 0 20px 40px rgba(255, 140, 66, 0.25); /* ظل برتقالي متوسط */
-            --border: 1px solid #FFE8D6; /* حدود برتقالية فاتحة */
+            --dark-text: #5D4037; /* لون بني دافئ للتباين */
+            --light-text: #8D6E63; /* لون بني فاتح */
+            --shadow: 0 10px 30px rgba(212, 184, 150, 0.15); /* ظل بيج خفيف */
+            --shadow-lg: 0 20px 40px rgba(212, 184, 150, 0.25); /* ظل بيج متوسط */
+            --border: 1px solid #EFEBE9; /* حدود بيج فاتحة */
             --radius: 16px;
             --beige-light: #F8F6F0; /* لون بيج فاتح إضافي */
             --beige-medium: #F0EDE5; /* لون بيج متوسط */
@@ -179,7 +179,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255, 140, 66, 0.9), rgba(230, 122, 54, 0.8)), url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(212, 184, 150, 0.9), rgba(184, 154, 122, 0.8)), url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -364,7 +364,7 @@
         .service-icon {
             width: 90px;
             height: 90px;
-            background: rgba(255, 140, 66, 0.1); /* خلفية برتقالية فاتحة */
+            background: rgba(212, 184, 150, 0.1); /* خلفية بيج فاتحة */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -426,7 +426,7 @@
         }
         
         .rating-stars {
-            color: #FFD700;
+            color: #D4B896; /* بيج بدلاً من الأصفر */
             font-size: 2rem;
             margin-bottom: 10px;
         }
@@ -479,7 +479,7 @@
         
         .rating-bar-fill {
             height: 100%;
-            background: #FFD700;
+            background: #D4B896; /* بيج */
             border-radius: 5px;
         }
         
@@ -516,7 +516,7 @@
             top: 10px;
             right: 20px;
             font-size: 5rem;
-            color: rgba(255, 140, 66, 0.1); /* برتقالي فاتح */
+            color: rgba(212, 184, 150, 0.1); /* بيج فاتح */
             line-height: 1;
         }
         
@@ -537,7 +537,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary); /* برتقالي */
+            background: var(--primary); /* بيج */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -557,7 +557,7 @@
         }
         
         .review-rating {
-            color: #FFD700;
+            color: #D4B896; /* بيج بدلاً من الأصفر */
         }
         
         .review-text {
@@ -664,7 +664,7 @@
         .star-rating input:checked ~ label,
         .star-rating label:hover,
         .star-rating label:hover ~ label {
-            color: #FFD700;
+            color: #D4B896; /* بيج بدلاً من الأصفر */
         }
         
         .review-form {
@@ -684,7 +684,7 @@
         .form-input:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.1); /* ظل برتقالي */
+            box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.1); /* ظل بيج */
         }
         
         .form-textarea {
@@ -747,7 +747,7 @@
             content: '•';
             position: absolute;
             right: 0;
-            color: var(--primary); /* برتقالي */
+            color: var(--primary); /* بيج */
         }
         
         .payment-card {
@@ -767,7 +767,7 @@
         .payment-icon {
             width: 90px;
             height: 90px;
-            background: rgba(255, 140, 66, 0.1); /* خلفية برتقالية فاتحة */
+            background: rgba(212, 184, 150, 0.1); /* خلفية بيج فاتحة */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -801,12 +801,12 @@
         }
         
         .payment-note {
-            background: rgba(255, 140, 66, 0.1); /* خلفية برتقالية فاتحة */
+            background: rgba(212, 184, 150, 0.1); /* خلفية بيج فاتحة */
             padding: 15px;
             border-radius: 10px;
             margin-top: 20px;
             font-size: 0.9rem;
-            border-right: 3px solid var(--primary); /* حدود برتقالية */
+            border-right: 3px solid var(--primary); /* حدود بيج */
         }
         
         /* Contact Section */
@@ -845,7 +845,7 @@
         .contact-icon {
             width: 60px;
             height: 60px;
-            background: rgba(255, 140, 66, 0.1); /* خلفية برتقالية فاتحة */
+            background: rgba(212, 184, 150, 0.1); /* خلفية بيج فاتحة */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -944,7 +944,7 @@
         .form-input:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.1); /* ظل برتقالي */
+            box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.1); /* ظل بيج */
         }
         
         .form-textarea {
@@ -983,7 +983,7 @@
         
         /* Footer */
         footer {
-            background: var(--primary-dark); /* برتقالي غامق */
+            background: var(--primary-dark); /* بيج غامق */
             color: white;
             padding: 60px 0 20px;
         }
@@ -1009,7 +1009,7 @@
             right: 0;
             width: 50px;
             height: 2px;
-            background: var(--accent); /* برتقالي مميز */
+            background: var(--accent); /* بيج مميز */
         }
         
         .footer-links {
@@ -1073,13 +1073,13 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: var(--accent); /* برتقالي مميز */
+            color: var(--accent); /* بيج مميز */
             text-decoration: none;
             transition: all 0.4s ease;
             box-shadow: var(--shadow);
             background: white;
             position: relative;
-            border: 2px solid var(--accent); /* حدود برتقالية */
+            border: 2px solid var(--accent); /* حدود بيج */
         }
         
         .social-icon:hover {
@@ -1108,7 +1108,7 @@
             padding: 18px 32px;
             background: white;
             color: var(--dark-text);
-            border: 2px solid var(--accent); /* حدود برتقالية */
+            border: 2px solid var(--accent); /* حدود بيج */
             border-radius: 15px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -1119,7 +1119,7 @@
         }
         
         .action-button.primary {
-            background: var(--gradient-accent); /* جرادينت برتقالي */
+            background: var(--gradient-accent); /* جرادينت بيج */
             color: white;
             border: 2px solid var(--accent);
         }
@@ -1746,188 +1746,4 @@
                     <ul class="footer-links">
                         <li><a href="https://wa.me/962786844099"><i class="fab fa-whatsapp"></i> <span data-ar="واتساب: 0786844099" data-en="WhatsApp: 0786844099">واتساب: 0786844099</span></a></li>
                         <li><a href="tel:0786844099"><i class="fas fa-phone"></i> <span data-ar="هاتف: 0786844099" data-en="Phone: 0786844099">هاتف: 0786844099</span></a></li>
-                        <li><a href="https://maps.app.goo.gl/HTw8TG25vcA1SVay9"><i class="fas fa-map-marker-alt"></i> <span data-ar="موقع العيادة" data-en="Clinic Location">موقع العيادة</span></a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h3>
-                    <ul class="footer-links">
-                        <!-- تم تحديث ساعات العمل هنا -->
-                        <li><i class="fas fa-clock"></i> <span data-ar="من الأحد إلى الخميس: 12 ظهراً - 9 مساءً" data-en="Sunday to Thursday: 12 PM - 9 PM">من الأحد إلى الخميس: 12 ظهراً - 9 مساءً</span></li>
-                        <li><i class="fas fa-clock"></i> <span data-ar="الجمعة: 4 مساءً - 9 مساءً" data-en="Friday: 4 PM - 9 PM">الجمعة: 4 مساءً - 9 مساءً</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2023 Real Vet Clinic - VETABD. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Language Switcher Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.lang-btn');
-            const currentLang = localStorage.getItem('preferredLang') || 'ar';
-            
-            // Set initial language
-            setLanguage(currentLang);
-            
-            // Add event listeners to language buttons
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                    localStorage.setItem('preferredLang', lang);
-                });
-            });
-            
-            function setLanguage(lang) {
-                // Update active button
-                langButtons.forEach(btn => {
-                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-                });
-                
-                // Update HTML lang attribute and direction
-                document.documentElement.lang = lang;
-                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-                
-                // Update all elements with data attributes
-                document.querySelectorAll('[data-ar], [data-en]').forEach(element => {
-                    const text = element.getAttribute(`data-${lang}`);
-                    if (text) {
-                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                            element.placeholder = text;
-                        } else {
-                            element.textContent = text;
-                        }
-                    }
-                });
-            }
-        });
-
-        // Review Modal Functionality - FIXED
-        document.addEventListener('DOMContentLoaded', function() {
-            const reviewModal = document.getElementById('reviewModal');
-            const openReviewModalBtn = document.getElementById('openReviewModal');
-            const closeReviewModalBtn = document.getElementById('closeReviewModal');
-            const reviewForm = document.getElementById('reviewForm');
-            const starInputs = document.querySelectorAll('.star-rating input');
-            
-            // Open modal
-            openReviewModalBtn.addEventListener('click', function() {
-                reviewModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-            
-            // Close modal
-            closeReviewModalBtn.addEventListener('click', function() {
-                reviewModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                if (event.target === reviewModal) {
-                    reviewModal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                }
-            });
-            
-            // Handle form submission
-            reviewForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const reviewerName = document.getElementById('reviewerName').value;
-                const reviewText = document.getElementById('reviewText').value;
-                const rating = document.querySelector('input[name="rating"]:checked');
-                
-                // Validate rating
-                if (!rating) {
-                    alert('يرجى اختيار تقييم من النجوم');
-                    return;
-                }
-                
-                // In a real application, you would send this data to a server
-                // For this example, we'll just show an alert and close the modal
-                alert(`شكراً ${reviewerName} على تقييمك! سيتم عرضه بعد المراجعة.`);
-                reviewModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
-                reviewForm.reset();
-                
-                // Reset stars
-                starInputs.forEach(input => {
-                    input.checked = false;
-                });
-            });
-            
-            // Add animation on scroll
-            const fadeElements = document.querySelectorAll('.service-card, .contact-card, .review-card');
-            
-            const fadeOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.style.opacity = "1";
-                        element.style.transform = "translateY(0)";
-                    }
-                });
-            };
-            
-            // Set initial state
-            fadeElements.forEach(element => {
-                element.style.opacity = "0";
-                element.style.transform = "translateY(20px)";
-                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            });
-            
-            window.addEventListener('scroll', fadeOnScroll);
-            fadeOnScroll(); // Trigger once on load
-        });
-
-        // Save Contact Form functionality
-        document.getElementById('saveContactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('contactName').value;
-            const phone = document.getElementById('contactPhone').value;
-            const address = document.getElementById('contactAddress').value;
-            const notes = document.getElementById('contactNotes').value;
-            
-            // Create vCard content
-            const vCardContent = `BEGIN:VCARD
-VERSION:3.0
-FN:${name}
-TEL:${phone}
-ADR:${address}
-NOTE:${notes}
-END:VCARD`;
-            
-            // Create download link
-            const blob = new Blob([vCardContent], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${name}.vcf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            // Show success message
-            const successMsg = document.getElementById('formSuccess');
-            successMsg.style.display = 'block';
-            
-            // Reset form
-            setTimeout(() => {
-                document.getElementById('saveContactForm').reset();
-                successMsg.style.display = 'none';
-            }, 3000);
-        });
-    </script>
-</body>
-</html>
+                        <li><a href="https://maps.app.goo.gl/HTw8TG25vcA1SVay9"><i class="fas fa-map-marker-alt"></i> <span data-ar="موقع
