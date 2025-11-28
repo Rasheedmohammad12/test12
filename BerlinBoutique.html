@@ -358,6 +358,59 @@
             left: -25px;
         }
         
+        /* Products Icons Section */
+        .products-icons-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .product-icon-item {
+            background: rgba(210, 105, 30, 0.2);
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .product-icon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(210, 105, 30, 0.25);
+        }
+        
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .product-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
         /* Services Section */
         .services-section {
             background: var(--light-card);
@@ -685,6 +738,11 @@
                 min-width: 250px;
             }
             
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+            
             .action-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -752,9 +810,9 @@
             </div>
         </div>
 
-        <!-- Menu Slider Section -->
+        <!-- Menu Slider Section - الملابس فقط -->
         <div class="menu-section fade-in delay-2">
-            <h2 class="section-title" data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h2>
+            <h2 class="section-title" data-ar="مجموعة الملابس" data-en="Clothing Collection">مجموعة الملابس</h2>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="scrollSlider(-1)">
                     <i class="fas fa-chevron-right"></i>
@@ -764,47 +822,102 @@
                 </button>
                 <div class="slider" id="menuSlider">
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/rgyn8bY.png" alt="عطور هاند ميد">
+                        <img src="https://i.imgur.com/O57UflH.png" alt="فساتين سهرة">
                         <div class="menu-item-content">
-                            <h3 data-ar="عطور هاند ميد" data-en="Handmade Perfumes">عطور هاند ميد</h3>
-                            <p data-ar="عطور يدوية الصنع بروائح ثابتة ومميزة" data-en="Handmade perfumes with lasting and unique scents">عطور يدوية الصنع بروائح ثابتة ومميزة</p>
+                            <h3 data-ar="فساتين سهرة" data-en="Evening Dresses">فساتين سهرة</h3>
+                            <p data-ar="فساتين أنيقة للمناسبات الخاصة" data-en="Elegant dresses for special occasions">فساتين أنيقة للمناسبات الخاصة</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/OufbN8A.png" alt="سكرابات وزيوت طبيعية">
+                        <img src="https://i.imgur.com/JYIIlda.png" alt="ملابس يومية">
                         <div class="menu-item-content">
-                            <h3 data-ar="سكرابات وزيوت طبيعية" data-en="Natural Scrubs & Oils">سكرابات وزيوت طبيعية</h3>
-                            <p data-ar="منتجات عناية طبيعية 100% للبشرة" data-en="100% natural care products for skin">منتجات عناية طبيعية 100% للبشرة</p>
+                            <h3 data-ar="ملابس يومية" data-en="Casual Wear">ملابس يومية</h3>
+                            <p data-ar="ملابس مريحة وعصرية للارتداء اليومي" data-en="Comfortable and modern clothes for daily wear">ملابس مريحة وعصرية للارتداء اليومي</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/O57UflH.png" alt="ملابس نسائية">
+                        <img src="https://i.imgur.com/86R36VE.png" alt="ملابس عمل">
                         <div class="menu-item-content">
-                            <h3 data-ar="ملابس نسائية" data-en="Women's Clothing">ملابس نسائية</h3>
-                            <p data-ar="أحدث صيحات الموضة والأزياء" data-en="Latest fashion trends and styles">أحدث صيحات الموضة والأزياء</p>
+                            <h3 data-ar="ملابس عمل" data-en="Work Attire">ملابس عمل</h3>
+                            <p data-ar="ملابس مهنية وأنيقة لمكان العمل" data-en="Professional and elegant attire for the workplace">ملابس مهنية وأنيقة لمكان العمل</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/JYIIlda.png" alt="ملابس رجالية">
+                        <img src="https://i.imgur.com/vYPYAF4.png" alt="ملابس خارجية">
                         <div class="menu-item-content">
-                            <h3 data-ar="ملابس رجالية" data-en="Men's Clothing">ملابس رجالية</h3>
-                            <p data-ar="أزياء عصرية للرجل العصري" data-en="Modern fashion for the contemporary man">أزياء عصرية للرجل العصري</p>
+                            <h3 data-ar="ملابس خارجية" data-en="Outerwear">ملابس خارجية</h3>
+                            <p data-ar="معاطف وجواكت للطقس البارد" data-en="Coats and jackets for cold weather">معاطف وجواكت للطقس البارد</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/86R36VE.png" alt="أحذية وإكسسوارات">
+                        <img src="https://i.imgur.com/rgyn8bY.png" alt="ملابس رياضية">
                         <div class="menu-item-content">
-                            <h3 data-ar="أحذية وإكسسوارات" data-en="Shoes & Accessories">أحذية وإكسسوارات</h3>
-                            <p data-ar="تكملات أنيقة لإطلالتك المميزة" data-en="Elegant complements for your distinctive look">تكملات أنيقة لإطلالتك المميزة</p>
+                            <h3 data-ar="ملابس رياضية" data-en="Sportswear">ملابس رياضية</h3>
+                            <p data-ar="ملابس مريحة للنشاطات الرياضية" data-en="Comfortable clothes for sports activities">ملابس مريحة للنشاطات الرياضية</p>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="https://i.imgur.com/vYPYAF4.png" alt="منتجات إضافية">
+                        <img src="https://i.imgur.com/OufbN8A.png" alt="ملابس بحر">
                         <div class="menu-item-content">
-                            <h3 data-ar="منتجات متنوعة" data-en="Various Products">منتجات متنوعة</h3>
-                            <p data-ar="تشكيلة واسعة من المنتجات المميزة" data-en="Wide range of distinctive products">تشكيلة واسعة من المنتجات المميزة</p>
+                            <h3 data-ar="ملابس بحر" data-en="Beachwear">ملابس بحر</h3>
+                            <p data-ar="ملابس سباحة وأغطية شاطئية" data-en="Swimwear and beach covers">ملابس سباحة وأغطية شاطئية</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Icons Section -->
+        <div class="products-icons-section fade-in delay-2">
+            <h2 class="section-title" data-ar="منتجاتنا الأخرى" data-en="Our Other Products">منتجاتنا الأخرى</h2>
+            <div class="products-grid">
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <div class="product-name" data-ar="عطور" data-en="Perfumes">عطور</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="product-name" data-ar="سكرابات" data-en="Scrubs">سكرابات</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="product-name" data-ar="زيوت طبيعية" data-en="Natural Oils">زيوت طبيعية</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-name" data-ar="ملابس" data-en="Clothing">ملابس</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="product-name" data-ar="أحذية" data-en="Shoes">أحذية</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="product-name" data-ar="إكسسوارات" data-en="Accessories">إكسسوارات</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="product-name" data-ar="هدايا" data-en="Gifts">هدايا</div>
+                </div>
+                <div class="product-icon-item">
+                    <div class="product-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="product-name" data-ar="عناية" data-en="Care">عناية</div>
                 </div>
             </div>
         </div>
