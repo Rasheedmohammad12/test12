@@ -14,14 +14,16 @@
             --accent: #32CD32;
             --gradient: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
             --gradient-accent: linear-gradient(135deg, #2E8B57 0%, #32CD32 100%);
-            --light-bg: #F8FDF9;
+            --light-bg: #F5F5F0; /* تغيير إلى اللون البيج الفاتح */
             --light-card: #FFFFFF;
-            --dark-text: #1A3C27;
-            --light-text: #4A6B57;
+            --dark-text: #2F4F4F; /* لون نص أغمق للتباين مع الخلفية البيج */
+            --light-text: #556B2F;
             --shadow: 0 10px 30px rgba(46, 139, 87, 0.15);
             --shadow-lg: 0 20px 40px rgba(46, 139, 87, 0.25);
             --border: 1px solid #E8F5E9;
             --radius: 16px;
+            --beige-light: #F8F6F0; /* لون بيج فاتح إضافي */
+            --beige-medium: #F0EDE5; /* لون بيج متوسط */
         }
         
         * {
@@ -315,6 +317,10 @@
         }
         
         /* Services Section */
+        .services-section {
+            background: var(--beige-light); /* خلفية بيج فاتح للقسم */
+        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -388,7 +394,7 @@
         
         /* Reviews Section */
         .reviews-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--beige-medium); /* خلفية بيج متوسطة للقسم */
         }
         
         .reviews-header {
@@ -706,7 +712,7 @@
         
         /* Payment Section */
         .payment-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--beige-light); /* خلفية بيج فاتح للقسم */
         }
         
         .payment-content {
@@ -805,7 +811,7 @@
         
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--beige-medium); /* خلفية بيج متوسطة للقسم */
         }
         
         .contact-content {
@@ -1040,6 +1046,7 @@
         .social-section {
             text-align: center;
             padding: 80px 0 50px;
+            background: var(--beige-light); /* خلفية بيج فاتح للقسم */
         }
         
         .social-title {
@@ -1089,6 +1096,9 @@
             gap: 20px;
             margin: 50px 0;
             flex-wrap: wrap;
+            background: var(--beige-medium); /* خلفية بيج متوسطة للقسم */
+            padding: 40px 20px;
+            border-radius: var(--radius);
         }
         
         .action-button {
@@ -1334,7 +1344,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section" style="background: #f8f9fa;">
+    <section id="services" class="section services-section">
         <div class="container">
             <h2 class="section-title" data-ar="خدماتنا" data-en="Our Services">خدماتنا</h2>
             <div class="services-grid">
@@ -1564,7 +1574,6 @@
                         <li data-ar="اسم المستفيد: Real Vet Clinic" data-en="Beneficiary Name: Real Vet Clinic">اسم المستفيد: <strong>Real Vet Clinic</strong></li>
                         <li data-ar="اسم المستعار: VETABD" data-en="Alias Name: VETABD">اسم المستعار: <strong>VETABD</strong></li>
                         <li data-ar="رقم الحساب (Uwallet): 0786844099" data-en="Account Number (Uwallet): 0786844099">رقم الحساب (Uwallet): <strong>0786844099</strong></li>
-                        <li data-ar="اسم البنك: كليك" data-en="Bank Name: Click">اسم البنك: <strong>كليك</strong></li>
                     </ul>
                     <p style="margin-top: 15px;" data-ar="بعد إتمام عملية التحويل، يرجى إرسال إشعار الدفع عبر واتساب إلى الرقم 0786844099 لتأكيد الحجز أو لتلقي الخدمة." data-en="After completing the transfer process, please send the payment notification via WhatsApp to 0786844099 to confirm the reservation or to receive the service.">
                         بعد إتمام عملية التحويل، يرجى إرسال إشعار الدفع عبر واتساب إلى الرقم <strong>0786844099</strong> لتأكيد الحجز أو لتلقي الخدمة.
