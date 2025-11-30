@@ -371,6 +371,84 @@
             color: var(--primary-dark);
         }
         
+        /* Rating Section */
+        .rating-section {
+            background: var(--light-card);
+            margin: 30px auto;
+            padding: 35px;
+            border-radius: 25px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .rating-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+        }
+        
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .rating-star {
+            font-size: 2.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .rating-star.active {
+            color: #ffc107;
+        }
+        
+        .rating-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .rating-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .rating-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: var(--border);
+            margin-bottom: 20px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .rating-submit {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .rating-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.3);
+        }
+        
         /* Social Icons Section */
         .social-section {
             text-align: center;
@@ -549,6 +627,10 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .rating-star {
+                font-size: 2rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -595,6 +677,10 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.1rem;
+            }
+            
+            .rating-star {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -665,6 +751,25 @@
                         <div class="gallery-slide">
                             <img src="https://i.imgur.com/lZDsrpG.png" alt="بيئة علاجية مريحة">
                         </div>
+                        <!-- الصور المضافة حديثاً -->
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/gW54CVW.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/aCKwP5P.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/F8Q15E0.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/KypyILw.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/mktK4wK.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://i.imgur.com/qtRZEei.png" alt="مركز الياسمين للعلاج الطبيعي">
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-nav">
@@ -686,6 +791,13 @@
                 <div class="gallery-dot" data-index="6"></div>
                 <div class="gallery-dot" data-index="7"></div>
                 <div class="gallery-dot" data-index="8"></div>
+                <!-- النقاط المضافة حديثاً للصور الجديدة -->
+                <div class="gallery-dot" data-index="9"></div>
+                <div class="gallery-dot" data-index="10"></div>
+                <div class="gallery-dot" data-index="11"></div>
+                <div class="gallery-dot" data-index="12"></div>
+                <div class="gallery-dot" data-index="13"></div>
+                <div class="gallery-dot" data-index="14"></div>
             </div>
         </div>
 
@@ -721,6 +833,23 @@
                     <h3 class="service-name">الحالات العصبية</h3>
                     <p>علاج وإعادة تأهيل للحالات العصبية</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Rating Section -->
+        <div class="rating-section fade-in delay-3">
+            <h2 class="rating-title">قيم تجربتك معنا</h2>
+            <div class="rating-stars">
+                <span class="rating-star" data-rating="1">★</span>
+                <span class="rating-star" data-rating="2">★</span>
+                <span class="rating-star" data-rating="3">★</span>
+                <span class="rating-star" data-rating="4">★</span>
+                <span class="rating-star" data-rating="5">★</span>
+            </div>
+            <p class="rating-text">شاركنا رأيك لنساعد الآخرين في اختيار الرعاية المناسبة</p>
+            <div class="rating-form">
+                <textarea class="rating-input" placeholder="اكتب تقييمك هنا..."></textarea>
+                <button class="rating-submit">إرسال التقييم</button>
             </div>
         </div>
 
@@ -837,6 +966,74 @@
                 currentSlide = (currentSlide + 1) % slidesCount;
                 updateSlide();
             }, 5000);
+            
+            // Rating System
+            const stars = document.querySelectorAll('.rating-star');
+            let currentRating = 0;
+            
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    currentRating = rating;
+                    
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseover', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.style.color = '#ffc107';
+                        } else {
+                            s.style.color = '#ddd';
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseout', function() {
+                    stars.forEach((s, index) => {
+                        if (index < currentRating) {
+                            s.style.color = '#ffc107';
+                        } else {
+                            s.style.color = '#ddd';
+                        }
+                    });
+                });
+            });
+            
+            // Submit Rating
+            const submitBtn = document.querySelector('.rating-submit');
+            const ratingInput = document.querySelector('.rating-input');
+            
+            submitBtn.addEventListener('click', function() {
+                if (currentRating === 0) {
+                    alert('يرجى اختيار تقييم من 1 إلى 5 نجوم');
+                    return;
+                }
+                
+                if (ratingInput.value.trim() === '') {
+                    alert('يرجى كتابة تعليقك قبل الإرسال');
+                    return;
+                }
+                
+                // هنا يمكنك إضافة كود إرسال التقييم إلى الخادم
+                alert(`شكراً لك! تم استلام تقييمك ${currentRating} نجوم وتعليقك بنجاح.`);
+                
+                // إعادة تعيين النموذج
+                stars.forEach(star => {
+                    star.classList.remove('active');
+                    star.style.color = '#ddd';
+                });
+                currentRating = 0;
+                ratingInput.value = '';
+            });
             
             // Add click effects to buttons
             const buttons = document.querySelectorAll('.social-icon, .action-button, .gallery-btn');
