@@ -183,6 +183,7 @@
             transition: all 0.3s ease;
             aspect-ratio: 4/3;
             background-color: var(--light-bg);
+            cursor: pointer;
         }
         
         .gallery-item:hover {
@@ -223,6 +224,119 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 5px;
+        }
+        
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-caption {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .lightbox-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
         }
         
         /* Contact Section */
@@ -590,6 +704,18 @@
             .rating-star {
                 font-size: 2rem;
             }
+            
+            .lightbox-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -636,6 +762,18 @@
             .rating-star {
                 font-size: 1.8rem;
             }
+            
+            .lightbox-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-close {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -677,92 +815,92 @@
             <h2 class="gallery-title">معرض المركز</h2>
             <div class="gallery-grid">
                 <!-- الصور الأصلية -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="0">
                     <img src="https://i.imgur.com/kUJABi1.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="1">
                     <img src="https://i.imgur.com/Sbn7Vch.png" alt="جلسات العلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">جلسات العلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="2">
                     <img src="https://i.imgur.com/aGWi6Cv.png" alt="أجهزة العلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">أجهزة العلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="3">
                     <img src="https://i.imgur.com/E01lZxV.png" alt="علاج العظام">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">علاج العظام</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="4">
                     <img src="https://i.imgur.com/GpIaSno.png" alt="التأهيل الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">التأهيل الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="5">
                     <img src="https://i.imgur.com/0Wv4lHS.png" alt="علاج الأطفال">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">علاج الأطفال</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="6">
                     <img src="https://i.imgur.com/qPDtFLE.png" alt="الحالات العصبية">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">الحالات العصبية</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="7">
                     <img src="https://i.imgur.com/fC5RoDf.png" alt="مركز متكامل">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز متكامل</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="8">
                     <img src="https://i.imgur.com/lZDsrpG.png" alt="بيئة علاجية مريحة">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">بيئة علاجية مريحة</div>
                     </div>
                 </div>
                 <!-- الصور المضافة حديثاً -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="9">
                     <img src="https://i.imgur.com/gW54CVW.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="10">
                     <img src="https://i.imgur.com/aCKwP5P.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="11">
                     <img src="https://i.imgur.com/F8Q15E0.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="12">
                     <img src="https://i.imgur.com/KypyILw.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="13">
                     <img src="https://i.imgur.com/mktK4wK.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="14">
                     <img src="https://i.imgur.com/qtRZEei.png" alt="مركز الياسمين للعلاج الطبيعي">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">مركز الياسمين للعلاج الطبيعي</div>
@@ -771,6 +909,27 @@
             </div>
         </div>
 
+        <!-- Lightbox Modal -->
+        <div class="lightbox-modal" id="lightbox">
+            <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-content">
+                <img class="lightbox-image" id="lightboxImage" src="" alt="">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+                <div class="lightbox-nav">
+                    <button class="lightbox-btn" id="lightboxPrev">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="lightbox-btn" id="lightboxNext">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="lightbox-counter" id="lightboxCounter"></div>
+            </div>
+        </div>
+
+        <!-- باقي الأقسام تبقى كما هي -->
         <!-- Services Section -->
         <div class="services-section fade-in delay-3">
             <h2 class="services-title">خدماتنا</h2>
@@ -891,8 +1050,88 @@
     </footer>
 
     <script>
-        // Rating System
+        // Lightbox Functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            let currentIndex = 0;
+            const totalImages = galleryItems.length;
+            
+            // Open lightbox when clicking on a gallery item
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Update lightbox content
+            function updateLightbox() {
+                const currentItem = galleryItems[currentIndex];
+                const imgSrc = currentItem.querySelector('img').src;
+                const caption = currentItem.querySelector('.gallery-caption').textContent;
+                
+                lightboxImage.src = imgSrc;
+                lightboxCaption.textContent = caption;
+                lightboxCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+            }
+            
+            // Close lightbox
+            lightboxClose.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+            
+            // Navigate to previous image
+            lightboxPrev.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateLightbox();
+            });
+            
+            // Navigate to next image
+            lightboxNext.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateLightbox();
+            });
+            
+            // Close lightbox when clicking on the background
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = '';
+                        break;
+                    case 'ArrowRight':
+                        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                        updateLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        currentIndex = (currentIndex + 1) % totalImages;
+                        updateLightbox();
+                        break;
+                }
+            });
+            
+            // Rating System
             const stars = document.querySelectorAll('.rating-star');
             let currentRating = 0;
             
