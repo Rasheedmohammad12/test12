@@ -1008,7 +1008,7 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons fade-in delay-3">
-            <a href="VCF/berlin-boutique.vcf" class="action-button primary" download>
+            <a href="#" class="action-button primary" id="saveContactBtn">
                 <i class="fas fa-download"></i>
                 <span data-ar="حفظ جهة الاتصال" data-en="Save Contact">حفظ جهة الاتصال</span>
             </a>
@@ -1078,6 +1078,42 @@
                         this.style.transform = '';
                     }, 150);
                 });
+            });
+            
+            // Save Contact functionality
+            document.getElementById('saveContactBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create VCF content
+                const vcfContent = `BEGIN:VCARD
+VERSION:3.0
+FN:Berlin Boutique
+ORG:Berlin Boutique
+TEL;TYPE=CELL,VOICE:0782541758
+ADR;TYPE=WORK:;;الزرقاء الجديدة - دوار البتراوي;;;
+URL:https://www.instagram.com/berlinboutique27
+EMAIL:info@berlinboutique.com
+NOTE:Berlin Boutique - الجودة التي تشعرين بها. الأسلوب الذي تمتلكينه
+END:VCARD`;
+                
+                // Create Blob and download link
+                const blob = new Blob([vcfContent], { type: 'text/vcard' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Berlin-Boutique.vcf';
+                document.body.appendChild(a);
+                a.click();
+                
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+                
+                // Show success message
+                alert('تم حفظ جهة الاتصال بنجاح!');
             });
         });
     </script>
