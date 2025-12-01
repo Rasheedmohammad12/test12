@@ -251,7 +251,7 @@
             filter: drop-shadow(0 20px 40px rgba(44, 128, 185, 0.2));
         }
         
-        /* Steps Section - مكون جديد */
+        /* Steps Section */
         .steps-section {
             padding: 80px 0;
             background: white;
@@ -406,10 +406,55 @@
             margin-bottom: 15px;
         }
         
+        /* Products Showcase */
+        .products-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--medical-blue);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
         /* PDF Library Section */
         .pdf-library-section {
             padding: 80px 0;
-            background: white;
+            background: var(--light-bg);
         }
         
         .pdf-grid {
@@ -492,6 +537,7 @@
             display: flex;
             gap: 10px;
             margin-top: auto;
+            flex-wrap: wrap;
         }
         
         .pdf-btn {
@@ -506,6 +552,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            min-width: 120px;
         }
         
         .pdf-btn.view {
@@ -517,6 +564,13 @@
             background: var(--medical-light);
             color: var(--medical-blue);
             border: 2px solid var(--medical-blue);
+        }
+        
+        .pdf-btn.images {
+            background: var(--medical-green);
+            color: white;
+            margin-top: 10px;
+            width: 100%;
         }
         
         .pdf-btn:hover {
@@ -685,11 +739,124 @@
             color: var(--medical-blue);
         }
         
-        /* PDF Preview Images */
-        .pdf-preview-img {
+        /* PDF Images Gallery */
+        .pdf-images-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .images-modal-content {
+            background: white;
+            max-width: 1400px;
+            margin: 40px auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            animation: modalSlide 0.3s ease;
+        }
+        
+        .images-gallery {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .image-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 200px;
             object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .image-title {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-text);
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Image Viewer Modal */
+        .image-viewer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 10001;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .image-viewer-content {
+            background: transparent;
+            max-width: 1400px;
+            margin: 40px auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            animation: modalSlide 0.3s ease;
+            position: relative;
+        }
+        
+        .image-viewer-header {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .full-image-container {
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        
+        .full-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             border-radius: 5px;
         }
         
@@ -838,6 +1005,32 @@
             margin-right: auto;
         }
         
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
         .footer-bottom {
             margin-top: 40px;
             padding-top: 30px;
@@ -883,6 +1076,22 @@
             .hero-title {
                 font-size: 2.5rem;
             }
+            
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .images-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pdf-actions {
+                flex-direction: column;
+            }
+            
+            .pdf-btn {
+                width: 100%;
+            }
         }
         
         @media (max-width: 768px) {
@@ -921,6 +1130,14 @@
                 min-width: 130px;
                 padding: 10px 20px;
             }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .images-gallery {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 480px) {
@@ -933,6 +1150,10 @@
             }
             
             .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1053,7 +1274,7 @@
         </div>
     </section>
 
-    <!-- Steps Section - مكون جديد -->
+    <!-- Steps Section -->
     <section class="steps-section" id="steps">
         <div class="container">
             <h2 class="section-title fade-in">
@@ -1210,6 +1431,60 @@
         </div>
     </section>
 
+    <!-- Products Showcase -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title fade-in">
+                <span class="lang-content ar active">منتجاتنا</span>
+                <span class="lang-content en">Our Products</span>
+            </h2>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in delay-1">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="Orthopedic Implants" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">
+                            <span class="lang-content ar active">المواد القابلة للزرع</span>
+                            <span class="lang-content en">Implantable Materials</span>
+                        </h3>
+                        <p>
+                            <span class="lang-content ar active">مواد جراحية قابلة للزرع للأطراف والمفاصل</span>
+                            <span class="lang-content en">Surgical implantable materials for limbs and joints</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-2">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="Surgical Instruments" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">
+                            <span class="lang-content ar active">الأدوات الجراحية</span>
+                            <span class="lang-content en">Surgical Instruments</span>
+                        </h3>
+                        <p>
+                            <span class="lang-content ar active">أدوات جراحية متخصصة لجراحة العظام</span>
+                            <span class="lang-content en">Specialized surgical instruments for orthopedic surgery</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-3">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="Medical Devices" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">
+                            <span class="lang-content ar active">الأجهزة الطبية</span>
+                            <span class="lang-content en">Medical Devices</span>
+                        </h3>
+                        <p>
+                            <span class="lang-content ar active">أجهزة طبية متنوعة للتشخيص والعلاج</span>
+                            <span class="lang-content en">Various medical devices for diagnosis and treatment</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PDF Library Section -->
     <section class="pdf-library-section" id="pdf-library">
         <div class="container">
@@ -1217,6 +1492,10 @@
                 <span class="lang-content ar active">مكتبة الكتالوجات والمنتجات</span>
                 <span class="lang-content en">Product Catalogs Library</span>
             </h2>
+            <p class="text-center mb-40 fade-in" style="color: var(--light-text); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                <span class="lang-content ar active">تصفح كتالوجات منتجاتنا ومستلزماتنا الطبية المتخصصة</span>
+                <span class="lang-content en">Browse our specialized medical product catalogs and supplies</span>
+            </p>
             
             <div class="pdf-grid" id="pdfGrid">
                 <!-- سيتم تعبئته بـ JavaScript -->
@@ -1331,6 +1610,7 @@
                     </h3>
                     <p class="contact-detail">065692727</p>
                     <p class="contact-detail">0790408227</p>
+                    <p class="contact-detail">0790408227</p>
                 </div>
                 
                 <div class="contact-card">
@@ -1360,8 +1640,28 @@
                 <span class="lang-content en">Your trusted destination for healthcare and medical supplies</span>
             </p>
             
+            <div class="social-links">
+                <a href="https://wa.me/962790408227" class="social-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:Rammaha@medical-binary.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+96265692727" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" 
+                   class="social-link" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+            
             <div class="footer-bottom">
                 <p>© 2024 Medical Binary Establishment. All Rights Reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    <span class="lang-content ar active">متخصصون في المستلزمات الطبية ومواد جراحة العظام</span>
+                    <span class="lang-content en">Specialists in medical supplies and orthopedic surgery materials</span>
+                </p>
             </div>
         </div>
     </footer>
@@ -1415,11 +1715,39 @@
         </div>
     </div>
 
+    <!-- PDF Images Gallery Modal -->
+    <div class="pdf-images-modal" id="pdfImagesModal">
+        <div class="images-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="imagesModalTitle">معرض الصور</h3>
+                <button class="modal-close" id="imagesModalClose">&times;</button>
+            </div>
+            
+            <div class="images-gallery" id="imagesGallery">
+                <!-- سيتم تعبئته بـ JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div class="image-viewer-modal" id="imageViewerModal">
+        <div class="image-viewer-content">
+            <div class="image-viewer-header">
+                <h3 class="modal-title" id="imageViewerTitle">عرض الصورة</h3>
+                <button class="modal-close" id="imageViewerClose">&times;</button>
+            </div>
+            
+            <div class="full-image-container">
+                <img id="fullImage" src="" alt="Full Size Image" class="full-image">
+            </div>
+        </div>
+    </div>
+
     <script>
         // تعريف worker قبل الاستخدام
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-        // بيانات ملفات PDF مع روابط تعمل فعلياً
+        // بيانات مكتبة PDF مع هيكل المجلدات المنظم
         const pdfLibrary = [
             {
                 id: 1,
@@ -1431,13 +1759,19 @@
                     ar: "كتالوج شامل لمنتجات طبية تركية متنوعة تشمل أجهزة طبية ومستلزمات",
                     en: "Comprehensive catalog of various Turkish medical products including devices and supplies"
                 },
+                folderName: "nimo-turkey",
                 pages: 10,
                 size: "3.5 MB",
                 category: "medical",
                 color: "#2c80b9",
-                // رابط PDF يحتوي على صور حقيقية
-                pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-                thumbnail: "https://cdn-icons-png.flaticon.com/512/337/337946.png"
+                pdfUrl: "pdf-files/nimo-turkey/catalog.pdf",
+                thumbnail: "pdf-files/nimo-turkey/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/nimo-turkey/images/image1.jpg",
+                    "pdf-files/nimo-turkey/images/image2.jpg",
+                    "pdf-files/nimo-turkey/images/image3.jpg",
+                    "pdf-files/nimo-turkey/images/image4.jpg"
+                ]
             },
             {
                 id: 2,
@@ -1449,13 +1783,20 @@
                     ar: "كتالوج كامل لمنتجات Austofix الأسترالية لجراحة العظام والكسور",
                     en: "Complete catalog of Austofix Australian products for orthopedic surgery and fractures"
                 },
+                folderName: "austofix",
                 pages: 12,
                 size: "4.8 MB",
                 category: "orthopedic",
                 color: "#27ae60",
-                // رابط PDF يحتوي على صور حقيقية
-                pdfUrl: "https://www.africau.edu/images/default/sample.pdf",
-                thumbnail: "https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
+                pdfUrl: "pdf-files/austofix/catalog.pdf",
+                thumbnail: "pdf-files/austofix/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/austofix/images/product1.jpg",
+                    "pdf-files/austofix/images/product2.jpg",
+                    "pdf-files/austofix/images/product3.jpg",
+                    "pdf-files/austofix/images/product4.jpg",
+                    "pdf-files/austofix/images/product5.jpg"
+                ]
             },
             {
                 id: 3,
@@ -1467,13 +1808,19 @@
                     ar: "كتالوج المناظير والأدوات الجراحية الدقيقة بمختلف الأحجام",
                     en: "Catalog of surgical lenses and precision tools in various sizes"
                 },
+                folderName: "surgical-lenses",
                 pages: 8,
                 size: "3.2 MB",
                 category: "surgical",
                 color: "#8e44ad",
-                // رابط PDF يحتوي على صور حقيقية
-                pdfUrl: "https://www.africau.edu/images/default/sample.pdf",
-                thumbnail: "https://cdn-icons-png.flaticon.com/512/1998/1998679.png"
+                pdfUrl: "pdf-files/surgical-lenses/catalog.pdf",
+                thumbnail: "pdf-files/surgical-lenses/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/surgical-lenses/images/lens1.jpg",
+                    "pdf-files/surgical-lenses/images/lens2.jpg",
+                    "pdf-files/surgical-lenses/images/lens3.jpg",
+                    "pdf-files/surgical-lenses/images/tools1.jpg"
+                ]
             },
             {
                 id: 4,
@@ -1485,13 +1832,18 @@
                     ar: "كتالوج شركة Ortho-Trauma الدولية لمنتجات جراحة العظام",
                     en: "Ortho-Trauma International company catalog for orthopedic products"
                 },
+                folderName: "ortho-trauma",
                 pages: 3,
                 size: "2.1 MB",
                 category: "orthopedic",
                 color: "#3498db",
-                // رابط PDF يحتوي على صور حقيقية
-                pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-                thumbnail: "https://cdn-icons-png.flaticon.com/512/2913/2913514.png"
+                pdfUrl: "pdf-files/ortho-trauma/catalog.pdf",
+                thumbnail: "pdf-files/ortho-trauma/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/ortho-trauma/images/implant1.jpg",
+                    "pdf-files/ortho-trauma/images/implant2.jpg",
+                    "pdf-files/ortho-trauma/images/set.jpg"
+                ]
             },
             {
                 id: 5,
@@ -1503,14 +1855,101 @@
                     ar: "كتالوج دعامات وأجهزة تقويم للركبة والرسغ والكاحل",
                     en: "Catalog of braces and orthopedic devices for knee, wrist and ankle"
                 },
+                folderName: "conwe",
                 pages: 2,
                 size: "1.8 MB",
                 category: "orthopedic",
                 color: "#e74c3c",
-                // رابط PDF يحتوي على صور حقيقية
-                pdfUrl: "https://file-examples.com/storage/fe8c7eef0c6364f6c95040a/2017/10/file-example_PDF_1MB.pdf",
-                thumbnail: "https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
+                pdfUrl: "pdf-files/conwe/catalog.pdf",
+                thumbnail: "pdf-files/conwe/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/conwe/images/brace1.jpg",
+                    "pdf-files/conwe/images/brace2.jpg",
+                    "pdf-files/conwe/images/brace3.jpg",
+                    "pdf-files/conwe/images/devices.jpg"
+                ]
+            },
+            {
+                id: 6,
+                title: {
+                    ar: "OHO Cataloge - زيوت ومنتجات العناية",
+                    en: "OHO Cataloge - Care Oils and Products"
+                },
+                description: {
+                    ar: "كتالوج منتجات العناية بالبشرة والشعر من زيت الزيتون",
+                    en: "Catalog of skin and hair care products from olive oil"
+                },
+                folderName: "oho",
+                pages: 8,
+                size: "3.9 MB",
+                category: "cosmetic",
+                color: "#f39c12",
+                pdfUrl: "pdf-files/oho/catalog.pdf",
+                thumbnail: "pdf-files/oho/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/oho/images/oil1.jpg",
+                    "pdf-files/oho/images/oil2.jpg",
+                    "pdf-files/oho/images/care1.jpg"
+                ]
+            },
+            {
+                id: 7,
+                title: {
+                    ar: "Catalog D.C.Tuna - منتجات العناية بالبشرة",
+                    en: "Catalog D.C.Tuna - Skin Care Products"
+                },
+                description: {
+                    ar: "كتالوج شامل لمنتجات العناية بالبشرة والشعر بمكونات طبيعية",
+                    en: "Comprehensive catalog of skin and hair care products with natural ingredients"
+                },
+                folderName: "dc-tuna",
+                pages: 14,
+                size: "5.2 MB",
+                category: "cosmetic",
+                color: "#16a085",
+                pdfUrl: "pdf-files/dc-tuna/catalog.pdf",
+                thumbnail: "pdf-files/dc-tuna/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/dc-tuna/images/skin1.jpg",
+                    "pdf-files/dc-tuna/images/skin2.jpg",
+                    "pdf-files/dc-tuna/images/hair1.jpg",
+                    "pdf-files/dc-tuna/images/products.jpg"
+                ]
+            },
+            {
+                id: 8,
+                title: {
+                    ar: "Farmasi Catalogue - منتجات التجميل والعناية",
+                    en: "Farmasi Catalogue - Cosmetics and Care Products"
+                },
+                description: {
+                    ar: "كتالوج منتجات التجميل والعناية من Farmasi",
+                    en: "Catalog of cosmetics and care products from Farmasi"
+                },
+                folderName: "farmasi",
+                pages: 24,
+                size: "6.5 MB",
+                category: "cosmetic",
+                color: "#9b59b6",
+                pdfUrl: "pdf-files/farmasi/catalog.pdf",
+                thumbnail: "pdf-files/farmasi/images/thumbnail.jpg",
+                images: [
+                    "pdf-files/farmasi/images/cosmetics1.jpg",
+                    "pdf-files/farmasi/images/cosmetics2.jpg",
+                    "pdf-files/farmasi/images/cosmetics3.jpg",
+                    "pdf-files/farmasi/images/cosmetics4.jpg",
+                    "pdf-files/farmasi/images/cosmetics5.jpg"
+                ]
             }
+        ];
+
+        // روابط صور افتراضية لاستخدامها في حال عدم وجود الصور الحقيقية
+        const defaultImages = [
+            "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w-400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w-400&h=300&fit=crop"
         ];
 
         // متغيرات PDF Viewer
@@ -1538,6 +1977,12 @@
             
             // إعداد Save Contact
             setupSaveContact();
+            
+            // إعداد معرض الصور
+            setupImagesGallery();
+            
+            // إعداد عارض الصور الكاملة
+            setupImageViewer();
             
             // إضافة تأثيرات Fade-in عند التمرير
             setupScrollAnimations();
@@ -1632,12 +2077,16 @@
                 pdfCard.className = 'pdf-card fade-in';
                 pdfCard.style.animationDelay = `${pdf.id * 0.1}s`;
                 
+                // استخدام صورة افتراضية إذا لم توجد صورة مصغرة
+                const thumbnailUrl = pdf.thumbnail || defaultImages[0];
+                const hasImages = pdf.images && pdf.images.length > 0;
+                
                 pdfCard.innerHTML = `
                     <div class="pdf-header" style="background: ${pdf.color}">
                         <h3 class="pdf-title">${pdf.title[currentLang]}</h3>
                     </div>
                     <div class="pdf-thumbnail">
-                        <img src="${pdf.thumbnail}" alt="${pdf.title[currentLang]}" class="pdf-preview-img">
+                        <img src="${thumbnailUrl}" alt="${pdf.title[currentLang]}" class="pdf-preview-img" onerror="this.onerror=null; this.src='${defaultImages[0]}';">
                         <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">
                             ${pdf.pages} <i class="far fa-file"></i>
                         </div>
@@ -1651,13 +2100,21 @@
                         <div class="pdf-actions">
                             <button class="pdf-btn view" data-id="${pdf.id}" style="background: ${pdf.color}">
                                 <i class="fas fa-eye"></i>
-                                ${currentLang === 'ar' ? 'عرض' : 'View'}
+                                ${currentLang === 'ar' ? 'عرض PDF' : 'View PDF'}
                             </button>
                             <button class="pdf-btn download" onclick="downloadPDF(${pdf.id})" style="border-color: ${pdf.color}; color: ${pdf.color}">
                                 <i class="fas fa-download"></i>
-                                ${currentLang === 'ar' ? 'تحميل' : 'Download'}
+                                ${currentLang === 'ar' ? 'تحميل PDF' : 'Download PDF'}
                             </button>
                         </div>
+                        ${hasImages ? `
+                        <div style="margin-top: 15px;">
+                            <button class="pdf-btn images" onclick="viewImagesGallery(${pdf.id})">
+                                <i class="fas fa-images"></i>
+                                ${currentLang === 'ar' ? 'عرض الصور (' + pdf.images.length + ')' : 'View Images (' + pdf.images.length + ')'}
+                            </button>
+                        </div>
+                        ` : ''}
                     </div>
                 `;
                 
@@ -1671,6 +2128,123 @@
                     openPDF(pdfId);
                 });
             });
+        }
+
+        // إعداد معرض الصور
+        function setupImagesGallery() {
+            const modal = document.getElementById('pdfImagesModal');
+            const modalClose = document.getElementById('imagesModalClose');
+            
+            // إغلاق Modal
+            modalClose.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // إغلاق بالضغط على ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // إغلاق بالنقر خارج المحتوى
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // إعداد عارض الصور الكاملة
+        function setupImageViewer() {
+            const modal = document.getElementById('imageViewerModal');
+            const modalClose = document.getElementById('imageViewerClose');
+            
+            // إغلاق Modal
+            modalClose.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // إغلاق بالضغط على ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // إغلاق بالنقر خارج المحتوى
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // عرض معرض الصور
+        function viewImagesGallery(pdfId) {
+            const pdf = pdfLibrary.find(p => p.id === pdfId);
+            if (!pdf) return;
+            
+            const modal = document.getElementById('pdfImagesModal');
+            const modalTitle = document.getElementById('imagesModalTitle');
+            const gallery = document.getElementById('imagesGallery');
+            const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+            
+            modalTitle.textContent = `${pdf.title[currentLang]} - معرض الصور`;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // تنظيف المعرض
+            gallery.innerHTML = '';
+            
+            // إضافة الصور
+            if (pdf.images && pdf.images.length > 0) {
+                pdf.images.forEach((imageUrl, index) => {
+                    const imageItem = document.createElement('div');
+                    imageItem.className = 'image-item fade-in';
+                    imageItem.style.animationDelay = `${index * 0.1}s`;
+                    
+                    imageItem.innerHTML = `
+                        <img src="${imageUrl}" alt="صورة ${index + 1}" class="gallery-image" onclick="viewFullImage('${imageUrl}', '${pdf.title[currentLang]} - صورة ${index + 1}')" onerror="this.onerror=null; this.src='${defaultImages[index % defaultImages.length]}';">
+                        <div class="image-title">صورة ${index + 1}</div>
+                    `;
+                    
+                    gallery.appendChild(imageItem);
+                });
+            } else {
+                // إذا لم توجد صور، عرض رسالة
+                gallery.innerHTML = `
+                    <div style="text-align: center; padding: 60px; grid-column: 1 / -1;">
+                        <i class="fas fa-image fa-4x" style="color: #ddd; margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--light-text); margin-bottom: 15px;">
+                            ${currentLang === 'ar' ? 'لا توجد صور متاحة' : 'No images available'}
+                        </h3>
+                        <p style="color: #999;">
+                            ${currentLang === 'ar' ? 
+                                'سيتم إضافة الصور قريباً' : 
+                                'Images will be added soon'}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // عرض صورة كاملة الحجم
+        function viewFullImage(imageUrl, title) {
+            const modal = document.getElementById('imageViewerModal');
+            const modalTitle = document.getElementById('imageViewerTitle');
+            const fullImage = document.getElementById('fullImage');
+            
+            modalTitle.textContent = title;
+            fullImage.src = imageUrl;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         // إعداد عرض PDF
@@ -1808,22 +2382,30 @@
                 }).catch(error => {
                     console.error('Error loading PDF:', error);
                     
-                    // محاولة استخدام رابط بديل
-                    const fallbackUrl = "https://www.africau.edu/images/default/sample.pdf";
-                    
+                    // عرض رسالة خطأ
                     loadingElement.innerHTML = `
-                        <i class="fas fa-sync-alt fa-spin fa-3x" style="color: var(--medical-blue);"></i>
-                        <p style="margin-top: 20px; color: var(--dark-text); font-size: 1.1rem;">
+                        <i class="fas fa-exclamation-triangle fa-3x" style="color: #e74c3c; margin-bottom: 20px;"></i>
+                        <h3 style="color: #e74c3c; margin-bottom: 15px;">
+                            ${currentLang === 'ar' ? 'فشل تحميل الملف' : 'Failed to load file'}
+                        </h3>
+                        <p style="color: #7f8c8d; margin-bottom: 20px;">
                             ${currentLang === 'ar' ? 
-                                'جاري محاولة تحميل ملف بديل...' : 
-                                'Trying to load alternative file...'}
+                                'عذراً، لا يمكن تحميل ملف PDF حالياً.' : 
+                                'Sorry, the PDF file cannot be loaded at the moment.'}
                         </p>
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            ${pdf.images && pdf.images.length > 0 ? `
+                            <button onclick="viewImagesGallery(${pdfId})" style="padding: 12px 20px; background: var(--medical-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                                <i class="fas fa-images"></i>
+                                ${currentLang === 'ar' ? 'عرض الصور' : 'View Images'}
+                            </button>
+                            ` : ''}
+                            <button onclick="closePDFModal()" style="padding: 12px 20px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                                <i class="fas fa-times"></i>
+                                ${currentLang === 'ar' ? 'إغلاق' : 'Close'}
+                            </button>
+                        </div>
                     `;
-                    
-                    // محاولة تحميل ملف بديل
-                    setTimeout(() => {
-                        loadPDF(fallbackUrl);
-                    }, 1000);
                 });
                 
                 // إضافة event listeners لتتبع التقدم
@@ -1901,22 +2483,6 @@
                         renderPage(pageNumPending);
                         pageNumPending = null;
                     }
-                    
-                    // التحقق من وجود صور في الصفحة
-                    page.getOperatorList().then(opList => {
-                        let hasImages = false;
-                        for (let i = 0; i < opList.fnArray.length; i++) {
-                            if (opList.fnArray[i] === pdfjsLib.OPS.paintImageXObject ||
-                                opList.fnArray[i] === pdfjsLib.OPS.paintInlineImageXObject) {
-                                hasImages = true;
-                                break;
-                            }
-                        }
-                        
-                        if (hasImages) {
-                            console.log('Page contains images');
-                        }
-                    });
                 }).catch(error => {
                     console.error('Error rendering page:', error);
                     pageRendering = false;
@@ -1971,7 +2537,7 @@
             if (!pdf) return;
             
             const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
-            const filename = pdf.title[currentLang].replace(/[^a-z0-9\u0600-\u06FF]/gi, '_') + '.pdf';
+            const filename = `${pdf.folderName}.pdf`;
             
             // إنشاء زر تحميل
             const link = document.createElement('a');
@@ -2087,7 +2653,7 @@ END:VCARD`;
             }, observerOptions);
             
             // مراقبة العناصر لإضافة تأثيرات
-            document.querySelectorAll('.pdf-card, .service-card, .company-card, .contact-card, .step-card').forEach(el => {
+            document.querySelectorAll('.pdf-card, .service-card, .company-card, .contact-card, .step-card, .product-card').forEach(el => {
                 observer.observe(el);
             });
         }
