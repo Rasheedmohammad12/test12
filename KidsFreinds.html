@@ -3,57 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Freinds - عالم الأطفال والتسلية</title>
+    <title>متجر الألعاب - أفضل ألعاب الفيديو والإلكترونيات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B8B;
-            --primary-light: #FF8FA3;
-            --primary-dark: #E05573;
-            --secondary: #4ECDC4;
-            --accent: #FFD166;
-            --gradient: linear-gradient(135deg, #FF6B8B 0%, #FF8FA3 100%);
-            --gradient-secondary: linear-gradient(135deg, #4ECDC4 0%, #6EE7E0 100%);
-            --gradient-accent: linear-gradient(135deg, #FFD166 0%, #FFE5A5 100%);
-            --light-bg: #FFF9FB;
-            --light-card: #FFFFFF;
-            --dark-text: #2C1810;
-            --light-text: #5D4037;
-            --shadow: 0 10px 30px rgba(255, 107, 139, 0.2);
-            --shadow-lg: 0 20px 40px rgba(255, 107, 139, 0.3);
-            --border: 1px solid #FFE5E9;
+            --primary: #FF4757;
+            --primary-light: #FF6B81;
+            --primary-dark: #E44036;
+            --secondary: #2ED573;
+            --accent: #FFA502;
+            --dark: #2F3542;
+            --light: #F1F2F6;
+            --gradient: linear-gradient(135deg, #FF4757 0%, #FF6B81 100%);
+            --gradient-secondary: linear-gradient(135deg, #2ED573 0%, #1DD1A1 100%);
+            --gradient-dark: linear-gradient(135deg, #2F3542 0%, #57606F 100%);
+            --gradient-accent: linear-gradient(135deg, #FFA502 0%, #FFBE76 100%);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+            --shadow-hover: 0 15px 35px rgba(255, 71, 87, 0.2);
+            --radius: 12px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
-        
-        html {
-            -webkit-text-size-adjust: 100%;
-            scroll-behavior: smooth;
         }
         
         body {
-            background: var(--light-bg);
-            color: var(--dark-text);
-            min-height: 100vh;
-            line-height: 1.7;
+            font-family: 'Cairo', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 215, 102, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 20%);
-        }
-        
-        a {
-            color: var(--secondary);
-            text-decoration: none;
         }
         
         .container {
@@ -62,21 +46,20 @@
             padding: 0 20px;
         }
         
-        /* Header */
-        .kids-header {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 20px 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        /* Header & Navigation */
+        .main-header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .header-content {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            padding: 15px 0;
         }
         
         .logo-container {
@@ -85,137 +68,157 @@
             gap: 15px;
         }
         
-        .logo {
-            width: 70px;
-            height: 70px;
+        .logo-img {
+            height: 60px;
+            width: auto;
+            border-radius: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .store-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Rubik', sans-serif;
+        }
+        
+        .store-tagline {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: var(--dark);
+            cursor: pointer;
+            position: relative;
+            padding: 8px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-        
-        .brand-name {
-            color: white;
-            font-size: 2.2rem;
-            font-weight: 900;
-            font-family: 'Rubik', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .brand-subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .nav-btn {
-            padding: 12px 25px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
         }
         
         /* Hero Section */
         .hero-section {
+            background: var(--gradient-dark);
+            color: white;
             padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
         
-        .hero-content {
+        .hero-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
         
-        .hero-text {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
+        .hero-content h1 {
+            font-size: 3.2rem;
             font-weight: 900;
-            color: var(--primary);
             margin-bottom: 20px;
             line-height: 1.2;
-            font-family: 'Rubik', sans-serif;
         }
         
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-        
-        .hero-description {
+        .hero-content p {
             font-size: 1.2rem;
-            color: var(--light-text);
             margin-bottom: 30px;
-            line-height: 1.8;
+            opacity: 0.9;
         }
         
-        .hero-badges {
+        .hero-btns {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
         }
         
-        .badge {
-            padding: 10px 20px;
-            background: rgba(255, 215, 102, 0.2);
-            border: 2px solid var(--accent);
+        .btn {
+            padding: 14px 30px;
             border-radius: 30px;
             font-weight: 600;
-            color: var(--dark-text);
-            display: flex;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .hero-image {
-            position: relative;
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
         }
         
-        .hero-img {
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .hero-image img {
             width: 100%;
-            border-radius: 20px;
+            border-radius: var(--radius);
+            transform: perspective(1000px) rotateY(-5deg);
             box-shadow: var(--shadow-lg);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: transform 0.5s ease;
         }
         
-        .hero-img:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-        
-        /* Features Section */
-        .features-section {
+        /* Categories Section */
+        .categories-section {
             padding: 80px 0;
-            background: white;
-            position: relative;
         }
         
         .section-header {
@@ -226,11 +229,10 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
-            font-family: 'Rubik', sans-serif;
         }
         
         .section-title:after {
@@ -239,157 +241,223 @@
             bottom: -10px;
             right: 50%;
             transform: translateX(50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
-            background: var(--accent);
+            background: var(--gradient);
             border-radius: 2px;
         }
         
         .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--light-text);
+            font-size: 1.1rem;
+            color: #666;
             max-width: 600px;
             margin: 0 auto;
         }
         
-        .features-grid {
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
         
-        .feature-card {
-            background: var(--light-bg);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
             overflow: hidden;
-            border: var(--border);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 30px 20px;
         }
         
-        .feature-card:hover {
+        .category-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
         
-        .feature-card:nth-child(1) {
-            background: linear-gradient(135deg, rgba(255, 107, 139, 0.1) 0%, rgba(255, 143, 163, 0.1) 100%);
-        }
-        
-        .feature-card:nth-child(2) {
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(110, 231, 224, 0.1) 100%);
-        }
-        
-        .feature-card:nth-child(3) {
-            background: linear-gradient(135deg, rgba(255, 209, 102, 0.1) 0%, rgba(255, 229, 165, 0.1) 100%);
-        }
-        
-        .feature-icon {
+        .category-icon {
             width: 80px;
             height: 80px;
+            background: var(--gradient);
             border-radius: 50%;
-            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 2rem;
-            color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-        
-        .feature-card:nth-child(1) .feature-icon {
-            background: var(--gradient);
             color: white;
         }
         
-        .feature-card:nth-child(2) .feature-icon {
-            background: var(--gradient-secondary);
-            color: white;
-        }
-        
-        .feature-card:nth-child(3) .feature-icon {
-            background: var(--gradient-accent);
-            color: var(--dark-text);
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
+        .category-title {
+            font-size: 1.4rem;
             font-weight: 800;
-            margin-bottom: 15px;
-            color: var(--dark-text);
+            margin-bottom: 10px;
+            color: var(--dark);
         }
         
-        .feature-description {
-            color: var(--light-text);
-            font-size: 1rem;
-            line-height: 1.6;
+        .category-count {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
         }
         
-        /* Services Section */
-        .services-section {
+        /* Featured Products */
+        .products-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, rgba(255, 107, 139, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            background: #f8f9fa;
         }
         
-        .services-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
         
-        .service-card {
+        .product-card {
             background: white;
-            border-radius: 20px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.4s ease;
-            border: var(--border);
+            position: relative;
         }
         
-        .service-card:hover {
+        .product-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
         
-        .service-image {
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
         
-        .service-content {
-            padding: 30px;
+        .product-content {
+            padding: 20px;
         }
         
-        .service-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary);
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
             margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
         }
         
-        .service-details {
-            color: var(--light-text);
-            margin-bottom: 20px;
-            line-height: 1.6;
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
         }
         
-        .service-features {
+        .price {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .add-to-cart {
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Console Section */
+        .console-section {
+            padding: 80px 0;
+        }
+        
+        .console-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .console-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+        
+        .console-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .console-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .console-content {
+            padding: 25px;
+        }
+        
+        .console-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .console-features {
             list-style: none;
+            margin-bottom: 20px;
         }
         
-        .service-features li {
-            padding: 8px 0;
-            color: var(--light-text);
+        .console-features li {
+            padding: 5px 0;
+            color: #666;
             position: relative;
             padding-right: 25px;
         }
         
-        .service-features li:before {
+        .console-features li:before {
             content: '✓';
             position: absolute;
             right: 0;
@@ -397,164 +465,94 @@
             font-weight: bold;
         }
         
-        /* Activities Section */
-        .activities-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .activities-slider {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 20px 10px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .activities-slider::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .activity-card {
-            min-width: 300px;
-            background: var(--light-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .activity-card:hover {
-            transform: scale(1.05);
-        }
-        
-        .activity-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .activity-content {
-            padding: 25px;
-        }
-        
-        .activity-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .activity-description {
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-        
         /* Contact Section */
         .contact-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-dark);
             color: white;
-            text-align: center;
         }
         
-        .contact-title {
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .contact-info h2 {
             font-size: 2.5rem;
-            font-weight: 900;
             margin-bottom: 20px;
-            color: white;
-            font-family: 'Rubik', sans-serif;
         }
         
-        .contact-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .contact-details {
+            margin: 30px 0;
         }
         
-        .contact-info {
+        .contact-item {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-method {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 20px;
-            min-width: 250px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-method:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-        
-        .contact-label {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .contact-value {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        /* Social Section */
-        .social-section {
-            padding: 60px 0;
-            background: white;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .social-link {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            background: var(--light-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            font-size: 1.3rem;
         }
         
-        .social-link:hover {
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-btn {
+            width: 100%;
+            padding: 15px;
             background: var(--gradient);
             color: white;
-            transform: translateY(-5px);
-            border-color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-btn:hover {
+            background: var(--primary-dark);
         }
         
         /* Footer */
-        .footer {
-            background: var(--dark-text);
+        .main-footer {
+            background: var(--dark);
             color: white;
-            padding: 50px 0 20px;
+            padding: 60px 0 20px;
         }
         
         .footer-content {
@@ -579,23 +577,48 @@
         }
         
         .footer-links a {
-            color: rgba(255,255,255,0.8);
+            color: #ccc;
+            text-decoration: none;
             transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: var(--accent);
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
             font-size: 0.9rem;
         }
         
-        /* Floating WhatsApp */
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -613,11 +636,7 @@
             z-index: 1000;
             transition: all 0.3s ease;
             animation: float 3s ease-in-out infinite;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            text-decoration: none;
         }
         
         @keyframes float {
@@ -625,64 +644,43 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.2s; opacity: 0; }
-        .delay-2 { animation-delay: 0.4s; opacity: 0; }
-        .delay-3 { animation-delay: 0.6s; opacity: 0; }
-        
         /* Responsive */
         @media (max-width: 992px) {
-            .hero-content {
+            .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             
-            .hero-title {
-                font-size: 2.8rem;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
             
-            .header-content {
+            .header-container {
                 flex-direction: column;
                 gap: 20px;
-                text-align: center;
+            }
+            
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
         
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.4rem;
+            .hero-content h1 {
+                font-size: 2rem;
             }
             
             .section-title {
                 font-size: 2rem;
             }
             
-            .brand-name {
-                font-size: 1.8rem;
+            .store-name {
+                font-size: 1.5rem;
             }
             
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
+            .nav-icons {
+                gap: 15px;
             }
             
             .whatsapp-float {
@@ -696,248 +694,335 @@
     </style>
 </head>
 <body>
-    <!-- Floating WhatsApp -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/962797234982" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Header -->
-    <header class="kids-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <div class="logo">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <div>
-                        <h1 class="brand-name">Kids Freinds</h1>
-                        <p class="brand-subtitle">عالم من المتعة والتعليم للأطفال</p>
-                    </div>
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://i.imgur.com/Fyh6oN8.png" alt="متجر الألعاب" class="logo-img">
+                <div class="logo-text">
+                    <div class="store-name">متجر الألعاب</div>
+                    <div class="store-tagline">أفضل ألعاب الفيديو والإلكترونيات</div>
                 </div>
-                <div class="nav-buttons">
-                    <a href="#services" class="nav-btn">خدماتنا</a>
-                    <a href="#contact" class="nav-btn">اتصل بنا</a>
-                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#products" class="nav-link">الألعاب</a></li>
+                    <li><a href="#consoles" class="nav-link">الأجهزة</a></li>
+                    <li><a href="#categories" class="nav-link">التصنيفات</a></li>
+                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-icons">
+                <button class="icon-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section fade-in">
-        <div class="container">
+    <section class="hero-section" id="home">
+        <div class="container hero-container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h2 class="hero-title">Kids Freinds</h2>
-                    <h3 class="hero-subtitle">أول وجهة ترفيهية وتعليمية للأطفال</h3>
-                    <p class="hero-description">
-                        نقدم بيئة آمنة وممتعة للأطفال تجمع بين الترفيه والتعليم والتطور.
-                        من خلال أنشطة مبتكرة وبرامج متنوعة، نساعد أطفالك على تنمية مواهبهم
-                        وقدراتهم في أجواء مليئة بالمرح والإبداع.
-                    </p>
-                    
-                    <div class="hero-badges">
-                        <div class="badge">
-                            <i class="fas fa-shield-alt"></i>
-                            بيئة آمنة
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-graduation-cap"></i>
-                            تعليم ترفيهي
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-heart"></i>
-                            رعاية متخصصة
-                        </div>
-                    </div>
-                    
-                    <div class="hero-badges">
-                        <a href="tel:0797234982" class="nav-btn" style="background: var(--secondary); border-color: var(--secondary);">
-                            <i class="fas fa-phone"></i> اتصل الآن: 0797234982
-                        </a>
-                        <a href="https://wa.me/962797234982" class="nav-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> واتساب
-                        </a>
-                    </div>
+                <h1>استمتع بأفضل تجربة ألعاب</h1>
+                <p>
+                    اكتشف أحدث ألعاب الفيديو، أجهزة الألعاب، وملحقاتها بأسعار منافسة.
+                    نوفر لكم تشكيلة واسعة من الألعاب لجميع المنصات والاهتمامات.
+                </p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn btn-primary">
+                        <i class="fas fa-gamepad"></i> تصفح الألعاب
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> تواصل معنا
+                    </a>
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="Kids Freinds" class="hero-img">
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                     alt="ألعاب الفيديو">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تصنيفات الألعاب</h2>
+                <p class="section-subtitle">
+                    اكتشف ألعابك المفضلة حسب التصنيف والمنصة
+                </p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3 class="category-title">ألعاب الحركة</h3>
+                    <p class="category-count">150+ لعبة</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <h3 class="category-title">ألعاب الرعب</h3>
+                    <p class="category-count">80+ لعبة</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-racing-flag"></i>
+                    </div>
+                    <h3 class="category-title">سباقات السيارات</h3>
+                    <p class="category-count">60+ لعبة</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3 class="category-title">ألعاب رياضية</h3>
+                    <p class="category-count">120+ لعبة</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-swords"></i>
+                    </div>
+                    <h3 class="category-title">ألعاب القتال</h3>
+                    <p class="category-count">90+ لعبة</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="category-title">مغامرات</h3>
+                    <p class="category-count">200+ لعبة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section fade-in delay-1">
+    <!-- Featured Products -->
+    <section class="products-section" id="products">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">لماذا تختار Kids Freinds؟</h2>
+                <h2 class="section-title">ألعاب مميزة</h2>
                 <p class="section-subtitle">
-                    نقدم تجربة فريدة تجمع بين التعليم والترفيه في بيئة آمنة ومحفزة
+                    أحدث وأشهر الألعاب المتوفرة لدينا
                 </p>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">الأكثر مبيعًا</div>
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة Call of Duty" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Call of Duty: Modern Warfare</h3>
+                        <p class="product-description">
+                            لعبة إطلاق نار من منظور الشخص الأول، مع حملة قتالية مشوقة ووضعية متعددة اللاعبين.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">49.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <h3 class="feature-title">أنشطة تنمية الذكاء</h3>
-                    <p class="feature-description">
-                        برامج متخصصة لتنمية المهارات العقلية والإبداعية لدى الأطفال
-                        من خلال ألعاب ذكاء وتحديات عقلية محفزة
-                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                <div class="product-card">
+                    <div class="product-badge">جديد</div>
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة FIFA 24" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">FIFA 24</h3>
+                        <p class="product-description">
+                            محاكاة كرة القدم الأشهر مع فرق حقيقية ولاعبين مرخصين وتجربة لعب محسنة.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">54.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <h3 class="feature-title">تفاعل اجتماعي</h3>
-                    <p class="feature-description">
-                        فرص للتواصل واللعب الجماعي لتنمية المهارات الاجتماعية
-                        وبناء الصداقات في بيئة صحية وآمنة
-                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+                <div class="product-card">
+                    <div class="product-badge">عرض خاص</div>
+                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة Spider-Man" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Spider-Man 2</h3>
+                        <p class="product-description">
+                            انضم إلى سبايدرمان في مغامرة جديدة مليئة بالإثارة عبر مدينة نيويورك.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="old-price">69.99 د.أ</span>
+                                <span class="price">59.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <h3 class="feature-title">ورش إبداعية</h3>
-                    <p class="feature-description">
-                        ورش عمل فنية وحرفية تشجع الإبداع وتنمي المواهب
-                        لدى الأطفال بأدوات وآمنة ومناسبة لأعمارهم
-                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة Assassin's Creed" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Assassin's Creed Valhalla</h3>
+                        <p class="product-description">
+                            انضم إلى غزاة الفايكنج في رحلة ملحمية خلال العصور الوسطى.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">44.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة GTA V" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Grand Theft Auto V</h3>
+                        <p class="product-description">
+                            عالم مفتوح واسع مع قصص متعددة وألعاب عبر الإنترنت لا تنتهي.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">39.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">الأكثر طلبًا</div>
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="لعبة Red Dead Redemption" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Red Dead Redemption 2</h3>
+                        <p class="product-description">
+                            رحلة في الغرب الأمريكي المتوحش مع رسومات واقعية وقصة عميقة.
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">49.99 د.أ</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section fade-in delay-2" id="services">
+    <!-- Consoles Section -->
+    <section class="console-section" id="consoles">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">خدماتنا المتكاملة</h2>
+                <h2 class="section-title">أجهزة الألعاب</h2>
                 <p class="section-subtitle">
-                    نقدم مجموعة متنوعة من الخدمات المصممة خصيصًا لاحتياجات الأطفال
+                    أفضل أجهزة الألعاب بأسعار تنافسية
                 </p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="تعليم ترفيهي" class="service-image">
-                    <div class="service-content">
-                        <h3 class="service-title">التعليم الترفيهي</h3>
-                        <p class="service-details">
-                            برامج تعليمية تفاعلية تجمع بين المتعة والمعرفة،
-                            تساعد الأطفال على التعلم بطريقة مشوقة ومبتكرة.
-                        </p>
-                        <ul class="service-features">
-                            <li>تعليم القراءة والكتابة بطريقة ممتعة</li>
-                            <li>تعليم الحساب من خلال الألعاب</li>
-                            <li>ورش اللغات للأطفال</li>
-                            <li>برامج تنمية المهارات الأساسية</li>
+            <div class="console-grid">
+                <div class="console-card">
+                    <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="PlayStation 5" class="console-image">
+                    <div class="console-content">
+                        <h3 class="console-name">PlayStation 5</h3>
+                        <ul class="console-features">
+                            <li>معالج AMD Zen 2 القوي</li>
+                            <li>محرك أقراص سريعة SSD</li>
+                            <li>دعم 4K بتردد 120Hz</li>
+                            <li>تتبع الأشعة في الوقت الحقيقي</li>
                         </ul>
+                        <div class="product-price">
+                            <span class="price">499.99 د.أ</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1525253013412-55c1a69a5738?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="أنشطة حركية" class="service-image">
-                    <div class="service-content">
-                        <h3 class="service-title">الأنشطة الحركية</h3>
-                        <p class="service-details">
-                            أنشطة رياضية وحركية مصممة لتنمية المهارات الحركية
-                            وتعزيز الصحة البدنية للأطفال.
-                        </p>
-                        <ul class="service-features">
-                            <li>ألعاب رياضية متنوعة</li>
-                            <li>أنشطة التوازن والتنسيق</li>
-                            <li>تمارين اللياقة المناسبة للأطفال</li>
-                            <li>ألعاب جماعية حركية</li>
+                <div class="console-card">
+                    <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Xbox Series X" class="console-image">
+                    <div class="console-content">
+                        <h3 class="console-name">Xbox Series X</h3>
+                        <ul class="console-features">
+                            <li>أقوى وحدة معالجة في العالم</li>
+                            <li>سرعة 120 إطار في الثانية</li>
+                            <li>دعم 8K الحقيقي</li>
+                            <li>مكتبة ألعاب Game Pass</li>
                         </ul>
+                        <div class="product-price">
+                            <span class="price">479.99 د.أ</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="حفلات أعياد الميلاد" class="service-image">
-                    <div class="service-content">
-                        <h3 class="service-title">حفلات أعياد الميلاد</h3>
-                        <p class="service-details">
-                            تنظيم حفلات أعياد ميلاد مميزة مع برامج ترفيهية
-                            وأنشطة خاصة تجعل مناسبة طفلك لا تنسى.
-                        </p>
-                        <ul class="service-features">
-                            <li>تصميم الحفلات حسب الطلب</li>
-                            <li>فقرات ترفيهية متنوعة</li>
-                            <li>أنشطة تفاعلية للضيوف</li>
-                            <li>هدايا وتذكارات خاصة</li>
+                <div class="console-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Nintendo Switch" class="console-image">
+                    <div class="console-content">
+                        <h3 class="console-name">Nintendo Switch</h3>
+                        <ul class="console-features">
+                            <li>محمول ومنزلي</li>
+                            <li>شاشة تعمل باللمس 6.2 بوصة</li>
+                            <li>مكتبة ألعاب حصرية</li>
+                            <li>تحكم Joy-Con قابل للفصل</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <section class="activities-section fade-in delay-3">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">أنشطتنا المتنوعة</h2>
-                <p class="section-subtitle">
-                    اكتشف عالمًا من المتعة والتعلم مع أنشطتنا المصممة بعناية
-                </p>
-            </div>
-            
-            <div class="activities-slider">
-                <div class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="ألعاب ذكاء" class="activity-image">
-                    <div class="activity-content">
-                        <h3 class="activity-title">ألعاب الذكاء</h3>
-                        <p class="activity-description">
-                            مجموعة متنوعة من ألعاب الذكاء التي تحفز التفكير
-                            المنطقي والإبداعي لدى الأطفال.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="ورش فنية" class="activity-image">
-                    <div class="activity-content">
-                        <h3 class="activity-title">الورش الفنية</h3>
-                        <p class="activity-description">
-                            ورش عمل فنية تطور المهارات الحركية الدقيقة
-                            وتعزز الإبداع الفني لدى الأطفال.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="أنشطة جماعية" class="activity-image">
-                    <div class="activity-content">
-                        <h3 class="activity-title">أنشطة جماعية</h3>
-                        <p class="activity-description">
-                            أنشطة تعاونية تعزز العمل الجماعي وتنمي
-                            المهارات الاجتماعية لدى الأطفال.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                         alt="تعلم باللعب" class="activity-image">
-                    <div class="activity-content">
-                        <h3 class="activity-title">التعلم باللعب</h3>
-                        <p class="activity-description">
-                            برامج تعليمية تفاعية تجعل من عملية التعلم
-                            مغامرة ممتعة وشيقة للأطفال.
-                        </p>
+                        <div class="product-price">
+                            <span class="price">299.99 د.أ</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -945,144 +1030,182 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section fade-in delay-3" id="contact">
-        <div class="container">
-            <h2 class="contact-title">تواصل معنا</h2>
-            <p class="contact-subtitle">
-                نحن هنا للإجابة على استفساراتك ومساعدتك في اختيار أفضل البرامج لطفلك
-            </p>
-            
+    <section class="contact-section" id="contact">
+        <div class="container contact-container">
             <div class="contact-info">
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-label">الهاتف</div>
-                    <div class="contact-value">0797234982</div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-label">واتساب</div>
-                    <div class="contact-value">962797234982</div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-label">الموقع</div>
-                    <div class="contact-value">منطقة الأطفال والتسلية</div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-label">ساعات العمل</div>
-                    <div class="contact-value">يوميًا: 9 صباحًا - 9 مساءً</div>
-                </div>
-            </div>
-            
-            <div style="margin-top: 40px;">
-                <a href="https://maps.google.com/maps?q=32.097660064697266%2C36.10493850708008&z=17&hl=en" 
-                   class="nav-btn" target="_blank" style="background: white; color: var(--primary);">
-                    <i class="fas fa-map-marked-alt"></i> عرض الموقع على الخريطة
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Section -->
-    <section class="social-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">تابعنا على وسائل التواصل</h2>
-                <p class="section-subtitle">
-                    كن على اطلاع بآخر أنشطتنا وبرامجنا الخاصة
+                <h2>تواصل معنا</h2>
+                <p>
+                    لديك استفسار عن لعبة معينة؟ تريد معرفة توفر منتج؟
+                    نحن هنا لمساعدتك في أي وقت.
                 </p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>الهاتف</h3>
+                            <p>0797234982</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>واتساب</h3>
+                            <p>962797234982</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>العنوان</h3>
+                            <p>متجر الألعاب - منطقة الألعاب والتسلية</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>ساعات العمل</h3>
+                            <p>يوميًا: 10 صباحًا - 10 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://maps.google.com/maps?q=32.097660064697266%2C36.10493850708008&z=17&hl=en" 
+                   class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-map-marked-alt"></i> عرض الموقع
+                </a>
             </div>
             
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1AcNkxqgRF/?mibextid=wwXIfr" class="social-link" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com" class="social-link" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/962797234982" class="social-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="tel:0797234982" class="social-link">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://maps.google.com/maps?q=32.097660064697266%2C36.10493850708008&z=17&hl=en" 
-                   class="social-link" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i>
-                </a>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <h3 style="color: var(--dark); margin-bottom: 20px;">أرسل رسالة</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="رقم الهاتف" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="رسالتك..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">
+                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kids Freinds</h3>
-                    <p>
-                        وجهتكم الأولى للترفيه والتعليم للأطفال،
-                        نقدم بيئة آمنة ومحفزة تنمي مواهب الأطفال
-                        وتطور قدراتهم بطريقة ممتعة وإبداعية.
+                    <div class="logo-container" style="justify-content: flex-start;">
+                        <img src="https://i.imgur.com/Fyh6oN8.png" alt="متجر الألعاب" class="logo-img" style="height: 50px;">
+                        <div class="logo-text">
+                            <div class="store-name" style="color: white; font-size: 1.5rem;">متجر الألعاب</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #ccc;">
+                        وجهتك الأولى لشراء ألعاب الفيديو والأجهزة الإلكترونية.
+                        نوفر أفضل المنتجات بأسعار تنافسية وخدمة عملاء متميزة.
                     </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1AcNkxqgRF/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/962797234982" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:0797234982" class="social-icon">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
                     <h3>روابط سريعة</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">خدماتنا</a></li>
-                        <li><a href="#activities">أنشطتنا</a></li>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">الألعاب الجديدة</a></li>
+                        <li><a href="#consoles">أجهزة الألعاب</a></li>
+                        <li><a href="#categories">التصنيفات</a></li>
                         <li><a href="#contact">اتصل بنا</a></li>
-                        <li><a href="tel:0797234982">حجز موعد</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>معلومات الاتصال</h3>
+                    <h3>معلومات التواصل</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> 0797234982</li>
                         <li><i class="fab fa-whatsapp"></i> 962797234982</li>
-                        <li><i class="fas fa-clock"></i> 9:00 ص - 9:00 م</li>
-                        <li><i class="fas fa-map-marker-alt"></i> منطقة الأطفال والتسلية</li>
+                        <li><i class="fas fa-map-marker-alt"></i> منطقة الألعاب والتسلية</li>
+                        <li><i class="fas fa-clock"></i> 10:00 ص - 10:00 م</li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>تابعنا</h3>
-                    <div class="social-links" style="justify-content: flex-start;">
-                        <a href="https://www.facebook.com/share/1AcNkxqgRF/?mibextid=wwXIfr" class="social-link" 
-                           style="width: 45px; height: 45px; font-size: 1.2rem;" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://wa.me/962797234982" class="social-link" 
-                           style="width: 45px; height: 45px; font-size: 1.2rem;" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+                    <h3>المنصات المدعومة</h3>
+                    <ul class="footer-links">
+                        <li>PlayStation 4/5</li>
+                        <li>Xbox One/Series X</li>
+                        <li>Nintendo Switch</li>
+                        <li>PC Gaming</li>
+                        <li>ملحقات الألعاب</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>© 2024 Kids Freinds. جميع الحقوق محفوظة.</p>
-                <p>تصميم وتطوير خصيصًا للأطفال وأولياء الأمور</p>
+                <p>© 2024 متجر الألعاب. جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير لتجربة تسوق أفضل لعشاق الألعاب</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Add smooth scrolling for anchor links
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartCount = document.querySelector('.cart-count');
+                let count = parseInt(cartCount.textContent);
+                count++;
+                cartCount.textContent = count;
+                
+                // Animation effect
+                this.style.transform = 'scale(1.3)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لك! سنتواصل معك قريباً.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1092,42 +1215,24 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Add scroll animation
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.feature-card, .service-card, .activity-card').forEach(el => {
-            observer.observe(el);
+        // Search functionality
+        document.querySelector('.fa-search').parentElement.addEventListener('click', function() {
+            const searchTerm = prompt('ما هي اللعبة التي تبحث عنها؟');
+            if(searchTerm) {
+                alert(`سيتم البحث عن: "${searchTerm}"\nهذه ميزة تجريبية، في النسخة الكاملة سيتم البحث في قاعدة البيانات.`);
+            }
         });
 
-        // Add click effects
-        document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.nav-btn, .social-link');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            });
+        // Cart button functionality
+        document.querySelector('.cart-btn').addEventListener('click', function() {
+            alert('عربة التسوق تحتوي على ' + document.querySelector('.cart-count').textContent + ' منتجات');
         });
     </script>
 </body>
