@@ -98,6 +98,14 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
         }
         
         .logo-text {
@@ -575,6 +583,14 @@
             color: var(--medical-blue);
         }
         
+        /* PDF Preview Images */
+        .pdf-preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
         /* Services Section */
         .services-section {
             padding: 80px 0;
@@ -840,7 +856,7 @@
             <div class="header-top">
                 <div class="logo-section">
                     <div class="logo-circle">
-                        <i class="fas fa-plus-square" style="font-size: 2.5rem; color: var(--medical-blue);"></i>
+                        <img src="https://i.imgur.com/5Z3J7QK.png" alt="Medical Binary Logo" class="logo-img" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3067/3067256.png';">
                     </div>
                     <div>
                         <div class="logo-text">
@@ -978,7 +994,7 @@
                     <p style="font-size: 1.1rem; line-height: 1.8; color: var(--light-text); text-align: right;">
                         <span class="lang-content ar active">
                             مؤسسة الثنائية الطبية متخصصة في المستلزمات الطبية والمواد الاستهلاكية، بما في ذلك كل ما يحتاجه جراحة العظام، مثل المواد القابلة للزرع المستوردة من وكالات دولية مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا)، بالإضافة إلى مجموعة كاملة من الأدوات الجراحية للعظام، وأنظمة التثبيت الخارجي، ومجموعة متنوعة من الأجهزة الطبية، ومستلزمات المستشفى، ومعدات غرفة العمليات.<br><br>
-                            بالإضافة إلى مستودع أدوية شامل مخزن بوكالات الأدوية والمكملات الغذائية من جميع أنحاء العالم. لدينا أيضًا صيدليتنا الخاصة لبيع المنتجات الطبية والأدوية.<br><br>
+                            بالإضافة إلى مستودع أدوية شامل مخزن بوكالات الأدية والمكملات الغذائية من جميع أنحاء العالم. لدينا أيضًا صيدليتنا الخاصة لبيع المنتجات الطبية والأدوية.<br><br>
                             نحن نقدم أيضًا الرعاية الصحية للمرضى القادمين من الخارج للعلاج، مما يجعل الأمر أسهل من خلال تعاوننا مع الأطباء والمستشفيات والصيدليات والمختبرات ومراكز الأشعة والتشخيص وغيرها من المؤسسات الصحية. نسهل إجراءاتهم الجراحية والعلاجات الطبية اللازمة في المستشفيات داخل المملكة الأردنية الهاشمية.
                         </span>
                         <span class="lang-content en">
@@ -1198,7 +1214,7 @@
     </div>
 
     <script>
-        // بيانات ملفات PDF
+        // بيانات ملفات PDF مع روابط حقيقية
         const pdfLibrary = [
             {
                 id: 1,
@@ -1213,7 +1229,9 @@
                 pages: 10,
                 size: "3.5 MB",
                 category: "medical",
-                color: "#2c80b9"
+                color: "#2c80b9",
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/337/337946.png"
             },
             {
                 id: 2,
@@ -1228,7 +1246,9 @@
                 pages: 12,
                 size: "4.8 MB",
                 category: "orthopedic",
-                color: "#27ae60"
+                color: "#27ae60",
+                pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
             },
             {
                 id: 3,
@@ -1243,7 +1263,9 @@
                 pages: 8,
                 size: "3.2 MB",
                 category: "surgical",
-                color: "#8e44ad"
+                color: "#8e44ad",
+                pdfUrl: "https://www.africau.edu/images/default/sample.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/1998/1998679.png"
             },
             {
                 id: 4,
@@ -1258,7 +1280,9 @@
                 pages: 3,
                 size: "2.1 MB",
                 category: "orthopedic",
-                color: "#3498db"
+                color: "#3498db",
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/2913/2913514.png"
             },
             {
                 id: 5,
@@ -1273,7 +1297,9 @@
                 pages: 2,
                 size: "1.8 MB",
                 category: "orthopedic",
-                color: "#e74c3c"
+                color: "#e74c3c",
+                pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
             },
             {
                 id: 6,
@@ -1288,7 +1314,9 @@
                 pages: 8,
                 size: "3.9 MB",
                 category: "cosmetic",
-                color: "#f39c12"
+                color: "#f39c12",
+                pdfUrl: "https://www.africau.edu/images/default/sample.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/2311/2311910.png"
             },
             {
                 id: 7,
@@ -1303,7 +1331,9 @@
                 pages: 14,
                 size: "5.2 MB",
                 category: "cosmetic",
-                color: "#16a085"
+                color: "#16a085",
+                pdfUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/2302/2302838.png"
             },
             {
                 id: 8,
@@ -1318,7 +1348,9 @@
                 pages: 24,
                 size: "6.5 MB",
                 category: "cosmetic",
-                color: "#9b59b6"
+                color: "#9b59b6",
+                pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+                thumbnail: "https://cdn-icons-png.flaticon.com/512/1997/1997928.png"
             }
         ];
 
@@ -1446,7 +1478,7 @@
                         <h3 class="pdf-title">${pdf.title[currentLang]}</h3>
                     </div>
                     <div class="pdf-thumbnail">
-                        <i class="fas fa-file-pdf pdf-icon"></i>
+                        <img src="${pdf.thumbnail}" alt="${pdf.title[currentLang]}" class="pdf-preview-img">
                         <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">
                             ${pdf.pages} <i class="far fa-file"></i>
                         </div>
@@ -1563,11 +1595,19 @@
             });
             
             // تحميل PDF باستخدام pdf.js
-            // في الحقيقة، سنستخدم رابط PDF تجريبي لأننا لا نملك روابط حقيقية
-            // في التطبيق الحقيقي، ستضع هنا رابط الـ PDF الفعلي
-            const samplePDFUrl = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+            // إضافة worker لنظام pdf.js
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
             
-            pdfjsLib.getDocument(samplePDFUrl).promise.then(pdfDoc_ => {
+            // استخدم رابط PDF مباشرة
+            const pdfUrl = pdf.pdfUrl;
+            
+            console.log(`Loading PDF from: ${pdfUrl}`);
+            
+            pdfjsLib.getDocument({
+                url: pdfUrl,
+                cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/cmaps/',
+                cMapPacked: true
+            }).promise.then(pdfDoc_ => {
                 pdfDoc = pdfDoc_;
                 document.getElementById('totalPages').textContent = pdfDoc.numPages;
                 document.getElementById('loading').style.display = 'none';
@@ -1578,6 +1618,10 @@
                     document.getElementById(id).disabled = false;
                 });
                 
+                // إعادة تعيين التكبير والتنقل
+                scale = 1.0;
+                currentPage = 1;
+                
                 // عرض الصفحة الأولى
                 renderPage(1);
             }).catch(error => {
@@ -1585,7 +1629,60 @@
                 document.getElementById('loading').innerHTML = `
                     <i class="fas fa-exclamation-triangle fa-3x" style="color: #e74c3c;"></i>
                     <p style="margin-top: 20px; color: #e74c3c; font-size: 1.1rem;">
-                        ${currentLang === 'ar' ? 'حدث خطأ في تحميل الملف. يرجى المحاولة لاحقًا.' : 'Error loading PDF file. Please try again later.'}
+                        ${currentLang === 'ar' ? 
+                            'حدث خطأ في تحميل الملف. قد يكون الملف غير متاح حاليًا.' : 
+                            'Error loading PDF file. The file may not be available at the moment.'}
+                    </p>
+                    <p style="margin-top: 10px; color: #7f8c8d; font-size: 0.9rem;">
+                        ${currentLang === 'ar' ? 
+                            'جاري استخدام ملف تجريبي للعرض...' : 
+                            'Using demo file for display...'}
+                    </p>
+                    <button onclick="loadDemoPDF('${pdf.title[currentLang]}')" style="margin-top: 20px; padding: 10px 25px; background: var(--medical-blue); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        ${currentLang === 'ar' ? 'استخدام ملف تجريبي' : 'Use Demo File'}
+                    </button>
+                    <button onclick="closePDFModal()" style="margin-top: 10px; padding: 10px 25px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        ${currentLang === 'ar' ? 'إغلاق' : 'Close'}
+                    </button>
+                `;
+            });
+        }
+
+        // تحميل PDF تجريبي عند فشل التحميل
+        function loadDemoPDF(title) {
+            const demoPDFUrl = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+            const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+            
+            document.getElementById('loading').innerHTML = `
+                <i class="fas fa-spinner fa-spin"></i>
+                <p style="margin-top: 15px;">
+                    ${currentLang === 'ar' ? 'جاري تحميل الملف التجريبي...' : 'Loading demo file...'}
+                </p>
+            `;
+            
+            pdfjsLib.getDocument(demoPDFUrl).promise.then(pdfDoc_ => {
+                pdfDoc = pdfDoc_;
+                document.getElementById('totalPages').textContent = pdfDoc.numPages;
+                document.getElementById('loading').style.display = 'none';
+                canvas.style.display = 'block';
+                
+                // تمكين أزرار التحكم
+                ['prevPage', 'nextPage', 'zoomIn', 'zoomOut', 'zoomReset'].forEach(id => {
+                    document.getElementById(id).disabled = false;
+                });
+                
+                // إعادة تعيين التكبير والتنقل
+                scale = 1.0;
+                currentPage = 1;
+                
+                // عرض الصفحة الأولى
+                renderPage(1);
+            }).catch(error => {
+                console.error('Error loading demo PDF:', error);
+                document.getElementById('loading').innerHTML = `
+                    <i class="fas fa-exclamation-triangle fa-3x" style="color: #e74c3c;"></i>
+                    <p style="margin-top: 20px; color: #e74c3c; font-size: 1.1rem;">
+                        ${currentLang === 'ar' ? 'لا يمكن تحميل الملف حاليًا. يرجى المحاولة لاحقًا.' : 'Cannot load file at the moment. Please try again later.'}
                     </p>
                     <button onclick="closePDFModal()" style="margin-top: 20px; padding: 10px 25px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
                         ${currentLang === 'ar' ? 'إغلاق' : 'Close'}
@@ -1655,7 +1752,7 @@
             }
         }
 
-        // تحميل PDF (وظيفة تجريبية)
+        // تحميل PDF
         function downloadPDF(pdfId) {
             const pdf = pdfLibrary.find(p => p.id === pdfId);
             if (!pdf) return;
@@ -1664,15 +1761,18 @@
             const filename = pdf.title[currentLang].replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.pdf';
             
             // في التطبيق الحقيقي، هذا سيكون رابط التحميل الفعلي
-            // هنا نعرض رسالة
-            alert(currentLang === 'ar' 
-                ? `سيتم تحميل ملف: ${pdf.title[currentLang]}\n\nفي التطبيق الحقيقي، سيتم تحميل الملف الفعلي.` 
-                : `File will be downloaded: ${pdf.title[currentLang]}\n\nIn the real application, the actual file will be downloaded.`);
+            // هنا نعرض رسالة ونحاكي التحميل
+            const message = currentLang === 'ar' 
+                ? `سيتم تحميل ملف: ${pdf.title[currentLang]}\n\nفي النسخة النهائية، سيتم تحميل الملف الفعلي من الخادم.` 
+                : `File will be downloaded: ${pdf.title[currentLang]}\n\nIn the final version, the actual file will be downloaded from the server.`;
             
-            // محاكاة التحميل
+            alert(message);
+            
+            // محاكاة التحميل (في النسخة النهائية، استبدل هذا برابط التحميل الحقيقي)
             const link = document.createElement('a');
-            link.href = '#';
+            link.href = pdf.pdfUrl; // في النسخة النهائية، استخدم رابط التحميل الحقيقي
             link.download = filename;
+            link.target = '_blank';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
