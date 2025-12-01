@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Freinds - عالم الألعاب والمرح لجميع الأعمار</title>
+    <title>Kids Freinds - معرض الألعاب التعليمية والترفيهية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -472,90 +472,6 @@
             line-height: 1.6;
         }
         
-        /* Activities Section */
-        .activities-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .activity-card {
-            background-color: white;
-            border-radius: var(--radius);
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow);
-            border: var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .activity-card:nth-child(1) {
-            background: linear-gradient(135deg, rgba(46, 134, 171, 0.05) 0%, rgba(74, 160, 200, 0.05) 100%);
-        }
-        
-        .activity-card:nth-child(2) {
-            background: linear-gradient(135deg, rgba(255, 154, 60, 0.05) 0%, rgba(255, 179, 102, 0.05) 100%);
-        }
-        
-        .activity-card:nth-child(3) {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 142, 142, 0.05) 100%);
-        }
-        
-        .activity-card:nth-child(4) {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(102, 187, 106, 0.05) 100%);
-        }
-        
-        .activity-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 10px 20px rgba(46, 134, 171, 0.2);
-        }
-        
-        .activity-card:nth-child(2) .activity-icon {
-            background: var(--gradient-secondary);
-        }
-        
-        .activity-card:nth-child(3) .activity-icon {
-            background: var(--gradient-accent);
-        }
-        
-        .activity-card:nth-child(4) .activity-icon {
-            background: var(--gradient-success);
-        }
-        
-        .activity-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: var(--dark-text);
-        }
-        
-        .activity-description {
-            color: var(--light-text);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
         /* Contact Section */
         .contact-section {
             padding: 100px 0;
@@ -636,6 +552,27 @@
         .contact-value a {
             color: white;
             text-decoration: none;
+        }
+        
+        .opening-hours {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .opening-hours h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .opening-hours p {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
         
         .map-container {
@@ -853,7 +790,6 @@
                     <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> الرئيسية</a></li>
                     <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> عنّا</a></li>
                     <li><a href="#games" class="nav-link"><i class="fas fa-gamepad"></i> معرض الألعاب</a></li>
-                    <li><a href="#activities" class="nav-link"><i class="fas fa-running"></i> أنشطتنا</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-phone"></i> اتصل بنا</a></li>
                 </ul>
             </nav>
@@ -898,7 +834,7 @@
             </div>
             
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                <img src="https://i.imgur.com/cGRl0UM.png" 
                      alt="Kids Freinds معرض الألعاب" class="hero-img">
             </div>
         </div>
@@ -921,7 +857,7 @@
             
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                    <img src="https://i.imgur.com/BMgVNQI.png" 
                          alt="عن Kids Freinds">
                 </div>
                 
@@ -994,7 +930,7 @@
             <div class="games-grid">
                 <div class="game-card" data-category="educational creative">
                     <div class="game-age">3+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1593430799969-31e7ad2f8e6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/gceqigp.png" 
                          alt="ألعاب التركيب" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">ألعاب التركيب والبناء</h3>
@@ -1008,7 +944,7 @@
                 
                 <div class="game-card" data-category="physical group">
                     <div class="game-age">5+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/C3q5Jn0.png" 
                          alt="ألعاب القفز" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">منطقة القفز والحركة</h3>
@@ -1022,7 +958,7 @@
                 
                 <div class="game-card" data-category="educational creative">
                     <div class="game-age">4+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/AHCNuo3.png" 
                          alt="المختبر العلمي" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">المختبر العلمي الصغير</h3>
@@ -1036,7 +972,7 @@
                 
                 <div class="game-card" data-category="physical educational">
                     <div class="game-age">6+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/2z4ImXz.png" 
                          alt="ألعاب الذكاء" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">منطقة ألعاب الذكاء</h3>
@@ -1050,7 +986,7 @@
                 
                 <div class="game-card" data-category="creative group">
                     <div class="game-age">3+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1578885450374-d2c8e7d36182?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/GF2A0Bb.png" 
                          alt="الرسم والتلوين" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">ركن الرسم والتلوين</h3>
@@ -1064,7 +1000,7 @@
                 
                 <div class="game-card" data-category="group physical">
                     <div class="game-age">7+ سنوات</div>
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://i.imgur.com/YaLNJK4.png" 
                          alt="ألعاب جماعية" class="game-image">
                     <div class="game-content">
                         <h3 class="game-title">ألعاب تعاونية جماعية</h3>
@@ -1075,63 +1011,33 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <section class="activities-section" id="activities">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">أنشطتنا وبرامجنا</h2>
-                <p class="section-subtitle">
-                    برامج وأنشطة مميزة مصممة خصيصًا لتنمية مواهب وقدرات الأطفال
-                </p>
-            </div>
-            
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i class="fas fa-birthday-cake"></i>
+                
+                <div class="game-card" data-category="educational creative">
+                    <div class="game-age">4+ سنوات</div>
+                    <img src="https://i.imgur.com/GKb8ldw.png" 
+                         alt="ألعاب الموسيقى" class="game-image">
+                    <div class="game-content">
+                        <h3 class="game-title">ركن الموسيقى والإيقاع</h3>
+                        <span class="game-category">تعليمية • إبداعية</span>
+                        <p class="game-description">
+                            أدوات موسيقية آمنة ومناسبة للأطفال تنمي الحس الإيقاعي 
+                            والسمعي والمهارات الموسيقية المبكرة.
+                        </p>
                     </div>
-                    <h3 class="activity-title">حفلات أعياد الميلاد</h3>
-                    <p class="activity-description">
-                        تنظيم حفلات أعياد ميلاد مميزة مع أنشطة ترفيهية وتجارب 
-                        لا تُنسى تجعل مناسبة طفلك استثنائية.
-                    </p>
                 </div>
                 
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i class="fas fa-users"></i>
+                <div class="game-card" data-category="physical educational">
+                    <div class="game-age">5+ سنوات</div>
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="ألعاب التوازن" class="game-image">
+                    <div class="game-content">
+                        <h3 class="game-title">ألعاب التوازن والتنسيق</h3>
+                        <span class="game-category">حركية • تعليمية</span>
+                        <p class="game-description">
+                            ألعاب مخصصة لتحسين التوازن والتنسيق بين العين واليد، 
+                            مما يعزز الثقة بالنفس والمهارات الحركية.
+                        </p>
                     </div>
-                    <h3 class="activity-title">ورش العمل الجماعية</h3>
-                    <p class="activity-description">
-                        ورش عمل أسبوعية في مختلف المجالات تشجع التعلم الجماعي 
-                        وتبادل المعرفة والخبرات بين الأطفال.
-                    </p>
-                </div>
-                
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="activity-title">مسابقات وجوائز</h3>
-                    <p class="activity-description">
-                        مسابقات دورية في مختلف الأنشطة مع جوائز تشجيعية تحفز 
-                        الأطفال على المشاركة والإبداع.
-                    </p>
-                </div>
-                
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="activity-title">أنشطة موسمية</h3>
-                    <p class="activity-description">
-                        برامج وأنشطة خاصة بالأعياد والمناسبات تجعل كل زيارة 
-                        تجربة جديدة ومختلفة للأطفال.
-                    </p>
                 </div>
             </div>
         </div>
@@ -1166,17 +1072,6 @@
                 
                 <div class="contact-card">
                     <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-label">ساعات العمل</div>
-                    <div class="contact-value">
-                        يوميًا: 9 صباحًا - 9 مساءً<br>
-                        الجمعة: 3 عصرًا - 10 مساءً
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="contact-label">الموقع</div>
@@ -1185,6 +1080,12 @@
                         معرض الألعاب التعليمية والترفيهية
                     </div>
                 </div>
+            </div>
+            
+            <div class="opening-hours">
+                <h3><i class="fas fa-clock"></i> ساعات الدوام</h3>
+                <p>كل الأيام من الساعة 11:00 صباحاً إلى 12:00 منتصف الليل</p>
+                <p style="font-size: 1.1rem; opacity: 0.9;">نستقبل زياراتكم على مدار الساعة تقريباً!</p>
             </div>
             
             <div class="map-container">
@@ -1243,7 +1144,6 @@
                         <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
                         <li><a href="#about"><i class="fas fa-info-circle"></i> عنّا</a></li>
                         <li><a href="#games"><i class="fas fa-gamepad"></i> معرض الألعاب</a></li>
-                        <li><a href="#activities"><i class="fas fa-running"></i> أنشطتنا</a></li>
                         <li><a href="#contact"><i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -1256,7 +1156,7 @@
                         <li><a href="https://maps.google.com/maps?q=32.097660064697266%2C36.10493850708008&z=17&hl=en" target="_blank">
                             <i class="fas fa-map-marker-alt"></i> منطقة الألعاب والتسلية
                         </a></li>
-                        <li><i class="fas fa-clock"></i> 9:00 ص - 9:00 م يوميًا</li>
+                        <li><i class="fas fa-clock"></i> 11:00 ص - 12:00 ص (كل الأيام)</li>
                     </ul>
                 </div>
                 
@@ -1345,16 +1245,6 @@
             });
         });
 
-        // Form submission (if added later)
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت.');
-                this.reset();
-            });
-        }
-
         // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -1371,7 +1261,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.game-card, .activity-card, .about-feature').forEach(el => {
+        document.querySelectorAll('.game-card, .about-feature').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
