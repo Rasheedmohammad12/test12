@@ -14,13 +14,13 @@
             --primary-dark: #1A5F7A;
             --secondary: #FF9A3C;
             --accent: #FF6B6B;
-            --bargi-color: #8A2BE2;
+            --click-color: #FF4081;
             --success: #4CAF50;
             --light-blue: #E8F4F8;
             --gradient: linear-gradient(135deg, #2E86AB 0%, #4AA0C8 100%);
             --gradient-secondary: linear-gradient(135deg, #FF9A3C 0%, #FFB366 100%);
             --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
-            --gradient-bargi: linear-gradient(135deg, #8A2BE2 0%, #9B4DFF 100%);
+            --gradient-click: linear-gradient(135deg, #FF4081 0%, #FF80AB 100%);
             --gradient-success: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
             --light-bg: #F8FDFF;
             --light-card: #FFFFFF;
@@ -29,7 +29,7 @@
             --shadow: 0 8px 25px rgba(46, 134, 171, 0.15);
             --shadow-lg: 0 15px 35px rgba(46, 134, 171, 0.25);
             --shadow-hover: 0 20px 40px rgba(46, 134, 171, 0.3);
-            --shadow-bargi: 0 8px 25px rgba(138, 43, 226, 0.25);
+            --shadow-click: 0 8px 25px rgba(255, 64, 129, 0.25);
             --border: 1px solid #D6E9F2;
             --radius: 16px;
         }
@@ -145,30 +145,30 @@
             cursor: pointer;
         }
         
-        /* BARGI787 Section */
-        .bargi-section {
+        /* Click Service Section */
+        .click-section {
             padding: 60px 0;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, rgba(155, 77, 255, 0.05) 100%);
-            border-top: 3px solid var(--bargi-color);
-            border-bottom: 3px solid var(--bargi-color);
+            background: linear-gradient(135deg, rgba(255, 64, 129, 0.05) 0%, rgba(255, 128, 171, 0.05) 100%);
+            border-top: 3px solid var(--click-color);
+            border-bottom: 3px solid var(--click-color);
         }
         
-        .bargi-container {
+        .click-container {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .bargi-badge {
+        .click-badge {
             display: inline-block;
-            background: var(--gradient-bargi);
+            background: var(--gradient-click);
             color: white;
             padding: 10px 25px;
             border-radius: 30px;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-bargi);
+            box-shadow: var(--shadow-click);
             animation: pulse 2s infinite;
         }
         
@@ -178,57 +178,57 @@
             100% { transform: scale(1); }
         }
         
-        .bargi-title {
+        .click-title {
             font-size: 2.2rem;
             font-weight: 900;
-            color: var(--bargi-color);
+            color: var(--click-color);
             margin-bottom: 20px;
             font-family: 'Rubik', sans-serif;
         }
         
-        .bargi-description {
+        .click-description {
             font-size: 1.2rem;
             color: var(--light-text);
             margin-bottom: 30px;
             line-height: 1.8;
         }
         
-        .bargi-features {
+        .click-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
         
-        .bargi-feature {
+        .click-feature {
             background: white;
             padding: 25px 20px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--bargi-color);
+            border-top: 4px solid var(--click-color);
         }
         
-        .bargi-feature:hover {
+        .click-feature:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
         
-        .bargi-feature-icon {
+        .click-feature-icon {
             font-size: 2rem;
-            color: var(--bargi-color);
+            color: var(--click-color);
             margin-bottom: 15px;
         }
         
-        .bargi-feature-title {
+        .click-feature-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--dark-text);
         }
         
-        .bargi-cta {
-            background: var(--gradient-bargi);
+        .click-cta {
+            background: var(--gradient-click);
             color: white;
             border: none;
             padding: 18px 40px;
@@ -240,14 +240,14 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: var(--shadow-bargi);
+            box-shadow: var(--shadow-click);
             margin-top: 20px;
         }
         
-        .bargi-cta:hover {
+        .click-cta:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.4);
-            background: linear-gradient(135deg, #9B4DFF 0%, #8A2BE2 100%);
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.4);
+            background: linear-gradient(135deg, #FF80AB 0%, #FF4081 100%);
         }
         
         /* Hero Section */
@@ -800,20 +800,20 @@
             text-decoration: none;
         }
         
-        .bargi-float {
+        .click-float {
             position: fixed;
             bottom: 100px;
             left: 30px;
             width: 60px;
             height: 60px;
-            background: var(--gradient-bargi);
+            background: var(--gradient-click);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4);
             z-index: 1000;
             transition: all 0.3s ease;
             animation: float 3s ease-in-out infinite;
@@ -826,8 +826,8 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* BARGI Modal */
-        .bargi-modal {
+        /* Click Modal */
+        .click-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -840,7 +840,7 @@
             align-items: center;
         }
         
-        .bargi-modal-content {
+        .click-modal-content {
             background: white;
             width: 90%;
             max-width: 500px;
@@ -855,47 +855,76 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .bargi-modal-header {
-            background: var(--gradient-bargi);
+        .click-modal-header {
+            background: var(--gradient-click);
             color: white;
             padding: 25px;
             text-align: center;
         }
         
-        .bargi-modal-header h3 {
+        .click-modal-header h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
         }
         
-        .bargi-modal-body {
+        .click-modal-body {
             padding: 30px;
             text-align: center;
         }
         
-        .bargi-code {
+        .click-code {
             background: #f8f9fa;
             padding: 25px;
             border-radius: 12px;
             margin: 20px 0;
-            border: 2px dashed var(--bargi-color);
+            border: 2px dashed var(--click-color);
         }
         
-        .bargi-code-text {
+        .click-code-text {
             font-family: monospace;
             font-size: 2rem;
             font-weight: 900;
-            color: var(--bargi-color);
+            color: var(--click-color);
             letter-spacing: 3px;
         }
         
-        .bargi-instructions {
+        .click-instructions {
             color: var(--light-text);
             margin-bottom: 25px;
             line-height: 1.6;
         }
         
-        .bargi-modal-close {
-            background: var(--gradient-bargi);
+        .click-steps {
+            text-align: right;
+            margin: 20px 0;
+        }
+        
+        .click-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 64, 129, 0.05);
+            border-radius: 10px;
+            border-right: 3px solid var(--click-color);
+        }
+        
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-click);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .click-modal-close {
+            background: var(--gradient-click);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -906,8 +935,8 @@
             transition: all 0.3s ease;
         }
         
-        .bargi-modal-close:hover {
-            background: var(--bargi-color);
+        .click-modal-close:hover {
+            background: var(--click-color);
             transform: translateY(-2px);
         }
         
@@ -946,7 +975,7 @@
                 box-shadow: var(--shadow);
             }
             
-            .bargi-float {
+            .click-float {
                 bottom: 90px;
             }
         }
@@ -972,7 +1001,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .whatsapp-float, .bargi-float {
+            .whatsapp-float, .click-float {
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
@@ -980,11 +1009,11 @@
                 left: 20px;
             }
             
-            .bargi-float {
+            .click-float {
                 bottom: 80px;
             }
             
-            .bargi-title {
+            .click-title {
                 font-size: 1.8rem;
             }
         }
@@ -996,9 +1025,9 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- BARGI Float -->
-    <a href="#" class="bargi-float" id="bargiFloatBtn">
-        <i class="fas fa-exchange-alt"></i>
+    <!-- Click Float -->
+    <a href="#" class="click-float" id="clickFloatBtn">
+        <i class="fas fa-mouse-pointer"></i>
     </a>
 
     <!-- Header -->
@@ -1019,7 +1048,7 @@
             <nav class="main-nav" id="mainNav">
                 <ul>
                     <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#bargi" class="nav-link"><i class="fas fa-exchange-alt"></i> BARGI787</a></li>
+                    <li><a href="#click" class="nav-link"><i class="fas fa-mouse-pointer"></i> خدمة كليك</a></li>
                     <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> عنّا</a></li>
                     <li><a href="#games" class="nav-link"><i class="fas fa-gamepad"></i> معرض الألعاب</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-phone"></i> اتصل بنا</a></li>
@@ -1077,60 +1106,60 @@
         </div>
     </section>
 
-    <!-- BARGI787 Section -->
-    <section class="bargi-section" id="bargi">
-        <div class="container bargi-container">
-            <div class="bargi-badge">
-                <i class="fas fa-bolt"></i> خدمة خاصة
+    <!-- Click Service Section -->
+    <section class="click-section" id="click">
+        <div class="container click-container">
+            <div class="click-badge">
+                <i class="fas fa-mouse-pointer"></i> خدمة كليك
             </div>
             
-            <h2 class="bargi-title">خدمة التحويل عبر BARGI787</h2>
+            <h2 class="click-title">خدمة الدفع عبر كليك - BARGI787</h2>
             
-            <p class="bargi-description">
-                نقدم لكم خدمة التحويل السريع والمباشر عبر اسم <strong>BARGI787</strong>، 
-                التي تتيح لكم تحويل الأموال بسهولة وأمان لشراء تذاكر الدخول أو الحجز المسبق.
+            <p class="click-description">
+                نقدم لكم خدمة الدفع السريع والمباشر عبر تطبيق <strong>كليك</strong> باستخدام اسم المستخدم 
+                <strong>BARGI787</strong>، التي تتيح لكم دفع تذاكر الدخول أو الحجز المسبق بسهولة وأمان.
             </p>
             
-            <div class="bargi-features">
-                <div class="bargi-feature">
-                    <div class="bargi-feature-icon">
+            <div class="click-features">
+                <div class="click-feature">
+                    <div class="click-feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="bargi-feature-title">سرعة التحويل</h3>
-                    <p>تحويل فوري خلال ثوانٍ معدودة</p>
+                    <h3 class="click-feature-title">دفع فوري</h3>
+                    <p>إتمام عملية الدفع خلال ثوانٍ معدودة</p>
                 </div>
                 
-                <div class="bargi-feature">
-                    <div class="bargi-feature-icon">
+                <div class="click-feature">
+                    <div class="click-feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="bargi-feature-title">آمن ومضمون</h3>
-                    <p>تحويلات مؤكدة وموثوقة</p>
+                    <h3 class="click-feature-title">آمن ومضمون</h3>
+                    <p>معاملات آمنة وموثوقة عبر كليك</p>
                 </div>
                 
-                <div class="bargi-feature">
-                    <div class="bargi-feature-icon">
+                <div class="click-feature">
+                    <div class="click-feature-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h3 class="bargi-feature-title">خدمة 24/7</h3>
+                    <h3 class="click-feature-title">خدمة 24/7</h3>
                     <p>متاحة على مدار الساعة</p>
                 </div>
                 
-                <div class="bargi-feature">
-                    <div class="bargi-feature-icon">
+                <div class="click-feature">
+                    <div class="click-feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="bargi-feature-title">دعم فني</h3>
-                    <p>مساعدة فورية في أي وقت</p>
+                    <h3 class="click-feature-title">دعم فوري</h3>
+                    <p>مساعدة مباشرة في أي وقت</p>
                 </div>
             </div>
             
-            <button class="bargi-cta" id="showBargiCode">
-                <i class="fas fa-eye"></i> عرض كود التحويل
+            <button class="click-cta" id="showClickCode">
+                <i class="fas fa-eye"></i> عرض تفاصيل الخدمة
             </button>
             
             <p style="color: var(--light-text); margin-top: 20px; font-size: 0.9rem;">
-                <i class="fas fa-info-circle"></i> انقر أعلاه لعرض كود التحويل وتفاصيل الخدمة
+                <i class="fas fa-info-circle"></i> انقر أعلاه لعرض اسم المستخدم وتفاصيل خدمة كليك
             </p>
         </div>
     </section>
@@ -1394,37 +1423,70 @@
         </div>
     </section>
 
-    <!-- BARGI Modal -->
-    <div class="bargi-modal" id="bargiModal">
-        <div class="bargi-modal-content">
-            <div class="bargi-modal-header">
-                <h3><i class="fas fa-exchange-alt"></i> خدمة التحويل BARGI787</h3>
-                <p>كود التحويل الخاص بنا</p>
+    <!-- Click Modal -->
+    <div class="click-modal" id="clickModal">
+        <div class="click-modal-content">
+            <div class="click-modal-header">
+                <h3><i class="fas fa-mouse-pointer"></i> خدمة الدفع عبر كليك</h3>
+                <p>اسم المستخدم الخاص بنا في تطبيق كليك</p>
             </div>
-            <div class="bargi-modal-body">
-                <p class="bargi-instructions">
-                    لتحويل المبلغ المطلوب، يرجى استخدام الكود التالي في تطبيق التحويل:
+            <div class="click-modal-body">
+                <p class="click-instructions">
+                    لدفع المبلغ المطلوب عبر تطبيق كليك، يرجى استخدام اسم المستخدم التالي:
                 </p>
                 
-                <div class="bargi-code">
-                    <div class="bargi-code-text">BARGI787</div>
+                <div class="click-code">
+                    <div class="click-code-text">BARGI787</div>
                 </div>
                 
-                <p class="bargi-instructions">
-                    <strong>تعليمات الاستخدام:</strong><br>
-                    1. افتح تطبيق التحويل الخاص بك<br>
-                    2. ادخل الكود <strong>BARGI787</strong><br>
-                    3. أدخل المبلغ المطلوب<br>
-                    4. أكمل عملية التحويل<br>
-                    5. أرسل إيصال التحويل على واتساب
-                </p>
+                <div class="click-steps">
+                    <div class="click-step">
+                        <div class="step-number">1</div>
+                        <div style="text-align: right;">
+                            <strong>افتح تطبيق كليك</strong><br>
+                            قم بفتح تطبيق كليك على هاتفك
+                        </div>
+                    </div>
+                    
+                    <div class="click-step">
+                        <div class="step-number">2</div>
+                        <div style="text-align: right;">
+                            <strong>اذهب للتحويل</strong><br>
+                            اختر خيار "تحويل" أو "إرسال أموال"
+                        </div>
+                    </div>
+                    
+                    <div class="click-step">
+                        <div class="step-number">3</div>
+                        <div style="text-align: right;">
+                            <strong>أدخل اسم المستخدم</strong><br>
+                            اكتب <strong>BARGI787</strong> في خانة اسم المستخدم
+                        </div>
+                    </div>
+                    
+                    <div class="click-step">
+                        <div class="step-number">4</div>
+                        <div style="text-align: right;">
+                            <strong>أدخل المبلغ</strong><br>
+                            أدخل المبلغ المطلوب دفعهُ
+                        </div>
+                    </div>
+                    
+                    <div class="click-step">
+                        <div class="step-number">5</div>
+                        <div style="text-align: right;">
+                            <strong>أكمل العملية</strong><br>
+                            أكمل عملية الدفع وأرسل الإيصال على واتساب
+                        </div>
+                    </div>
+                </div>
                 
                 <div style="margin-top: 30px;">
-                    <a href="https://wa.me/962797234982?text=مرحبًا، لقد قمت بالتحويل عبر BARGI787، هذه تفاصيل التحويل:" 
-                       class="bargi-modal-close" target="_blank" style="text-decoration: none; margin-right: 10px;">
-                        <i class="fab fa-whatsapp"></i> إرسال الإيصال
+                    <a href="https://wa.me/962797234982?text=مرحبًا، لقد قمت بالدفع عبر كليك باسم المستخدم BARGI787، هذه تفاصيل الدفع:" 
+                       class="click-modal-close" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fab fa-whatsapp"></i> إرسال إيصال الدفع
                     </a>
-                    <button class="bargi-modal-close" id="closeBargiModal">
+                    <button class="click-modal-close" id="closeClickModal">
                         <i class="fas fa-times"></i> إغلاق
                     </button>
                 </div>
@@ -1470,7 +1532,7 @@
                     <h3>روابط سريعة</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
-                        <li><a href="#bargi"><i class="fas fa-exchange-alt"></i> BARGI787</a></li>
+                        <li><a href="#click"><i class="fas fa-mouse-pointer"></i> خدمة كليك</a></li>
                         <li><a href="#about"><i class="fas fa-info-circle"></i> عنّا</a></li>
                         <li><a href="#games"><i class="fas fa-gamepad"></i> معرض الألعاب</a></li>
                         <li><a href="#contact"><i class="fas fa-phone"></i> اتصل بنا</a></li>
@@ -1490,13 +1552,13 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h3>خدمات إضافية</h3>
+                    <h3>طرق الدفع</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-exchange-alt"></i> التحويل عبر BARGI787</li>
-                        <li><i class="fas fa-ticket-alt"></i> حجز تذاكر مسبق</li>
-                        <li><i class="fas fa-birthday-cake"></i> حفلات أعياد ميلاد</li>
-                        <li><i class="fas fa-users"></i> جولات جماعية</li>
-                        <li><i class="fas fa-gift"></i> عروض وتخفيضات</li>
+                        <li><i class="fas fa-mouse-pointer"></i> كليك (BARGI787)</li>
+                        <li><i class="fas fa-money-bill-wave"></i> نقداً عند الوصول</li>
+                        <li><i class="fab fa-cc-visa"></i> بطاقات ائتمان</li>
+                        <li><i class="fas fa-mobile-alt"></i> محافظ إلكترونية</li>
+                        <li><i class="fas fa-qrcode"></i> مدفوعات QR</li>
                     </ul>
                 </div>
             </div>
@@ -1520,34 +1582,34 @@
                 : '<i class="fas fa-bars"></i>';
         });
 
-        // BARGI Modal functionality
-        const bargiModal = document.getElementById('bargiModal');
-        const showBargiCodeBtn = document.getElementById('showBargiCode');
-        const bargiFloatBtn = document.getElementById('bargiFloatBtn');
-        const closeBargiModalBtn = document.getElementById('closeBargiModal');
+        // Click Modal functionality
+        const clickModal = document.getElementById('clickModal');
+        const showClickCodeBtn = document.getElementById('showClickCode');
+        const clickFloatBtn = document.getElementById('clickFloatBtn');
+        const closeClickModalBtn = document.getElementById('closeClickModal');
         
         // Show modal
-        showBargiCodeBtn.addEventListener('click', () => {
-            bargiModal.style.display = 'flex';
+        showClickCodeBtn.addEventListener('click', () => {
+            clickModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
         
-        bargiFloatBtn.addEventListener('click', (e) => {
+        clickFloatBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            bargiModal.style.display = 'flex';
+            clickModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
         
         // Close modal
-        closeBargiModalBtn.addEventListener('click', () => {
-            bargiModal.style.display = 'none';
+        closeClickModalBtn.addEventListener('click', () => {
+            clickModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
         
         // Close modal when clicking outside
-        bargiModal.addEventListener('click', (e) => {
-            if (e.target === bargiModal) {
-                bargiModal.style.display = 'none';
+        clickModal.addEventListener('click', (e) => {
+            if (e.target === clickModal) {
+                clickModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
@@ -1555,7 +1617,7 @@
         // Close modal with ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                bargiModal.style.display = 'none';
+                clickModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
@@ -1630,26 +1692,26 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.game-card, .about-feature, .bargi-feature').forEach(el => {
+        document.querySelectorAll('.game-card, .about-feature, .click-feature, .click-step').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
         });
         
-        // Copy BARGI code to clipboard
-        const bargiCodeText = document.querySelector('.bargi-code-text');
-        bargiCodeText.addEventListener('click', () => {
+        // Copy Click username to clipboard
+        const clickCodeText = document.querySelector('.click-code-text');
+        clickCodeText.addEventListener('click', () => {
             const textToCopy = 'BARGI787';
             navigator.clipboard.writeText(textToCopy).then(() => {
                 // Show copied message
-                const originalText = bargiCodeText.textContent;
-                bargiCodeText.textContent = 'تم النسخ!';
-                bargiCodeText.style.color = 'green';
+                const originalText = clickCodeText.textContent;
+                clickCodeText.textContent = 'تم النسخ!';
+                clickCodeText.style.color = '#4CAF50';
                 
                 setTimeout(() => {
-                    bargiCodeText.textContent = originalText;
-                    bargiCodeText.style.color = 'var(--bargi-color)';
+                    clickCodeText.textContent = originalText;
+                    clickCodeText.style.color = 'var(--click-color)';
                 }, 1500);
             });
         });
