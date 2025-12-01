@@ -1,1 +1,866 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كنوز مكة - معرض التحف والهدايا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --primary-dark: #654321;
+            --accent: #D2691E;
+            --gold: #D4AF37;
+            --gradient: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            --gradient-accent: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            --light-bg: #FAF0E6;
+            --light-card: #FFFFFF;
+            --dark-text: #2C1810;
+            --light-text: #5D4037;
+            --shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            --shadow-lg: 0 20px 40px rgba(139, 69, 19, 0.3);
+            --border: 1px solid #E8D5C4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Amiri', sans-serif;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .profile-header {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--light-card);
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+        
+        .profile-info {
+            position: relative;
+            padding: 0 20px 40px;
+            text-align: center;
+            margin-top: -80px;
+            z-index: 2;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--light-card);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--gold);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border: 3px solid var(--light-card);
+        }
+        
+        .profile-name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+            font-family: 'Amiri', serif;
+        }
+        
+        .profile-username {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .profile-position {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            font-family: 'Amiri', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 20px;
+            direction: rtl;
+        }
+        
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-right: 4px solid var(--gold);
+        }
+        
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 1000px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+        }
+        
+        .gallery-container {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-item {
+            min-width: 280px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .save-concat-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+        
+        .save-concat-btn:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .slider-btn:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-btn.prev {
+            right: -25px;
+        }
+        
+        .slider-btn.next {
+            left: -25px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+        }
+        
+        .contact-item:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .contact-item i {
+            color: var(--gold);
+            font-size: 1.3rem;
+            width: 30px;
+        }
+        
+        .business-contact {
+            background: var(--gradient-gold);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .business-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .business-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            direction: ltr;
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 50px 0 30px;
+        }
+        
+        .social-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--dark-text);
+            font-family: 'Amiri', serif;
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            background: white;
+            position: relative;
+            border: 2px solid var(--gold);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            background: var(--gold);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 32px;
+            background: white;
+            color: var(--dark-text);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient-gold);
+            color: white;
+            border: 2px solid var(--gold);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .action-button i {
+            font-size: 1.3rem;
+        }
+        
+        /* Location Section */
+        .location-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .map-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            border: var(--border);
+        }
+        
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        .footer-text {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 2.2rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .cover-container {
+                height: 300px;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .slider-btn.prev {
+                right: -20px;
+            }
+            
+            .slider-btn.next {
+                left: -20px;
+            }
+            
+            .gallery-item {
+                min-width: 250px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-header fade-in">
+        <div class="cover-container">
+            <img src="https://i.imgur.com/twetZyS.png" alt="كنوز مكة - غلاف" class="cover-photo">
+        </div>
+        <div class="profile-info">
+            <div class="profile-image-container">
+                <img src="https://i.imgur.com/twetZyS.png" alt="عدي النعيمات" class="profile-image">
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <h1 class="profile-name">كنوز مكة</h1>
+            <div class="profile-username">معرض التحف والهدايا</div>
+            <div class="profile-position">عدي النعيمات - صاحب المعرض</div>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">0799474344</span>
+                    <span class="stat-label">رقم الهاتف</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0796700855</span>
+                    <span class="stat-label">واتساب</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">⭐ ⭐ ⭐ ⭐ ⭐</span>
+                    <span class="stat-label">التقييم</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section fade-in delay-1">
+            <h2 class="section-title">مرحباً بكم في كنوز مكة</h2>
+            <div class="about-text">
+                معرض كنوز مكة وجهتكم المميزة للتحف والهدايا ذات الطابع الإسلامي والفني المميز
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">من نحن</div>
+                <div class="about-text">
+                    معرض كنوز مكة هو وجهة مميزة لعشاق التحف والهدايا ذات الطابع الإسلامي والفني. 
+                    نقدم لكم تشكيلة متنوعة من القطع الفنية والتحف النادرة والهدايا التي تعكس التراث الإسلامي الأصيل. 
+                    بقيادة السيد عدي النعيمات، نسعى لتقديم أفضل القطع التي تليق بذوقكم الرفيع.
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section fade-in delay-2">
+            <h2 class="section-title">صور المعرض</h2>
+            <div class="gallery-container">
+                <button class="slider-btn prev" onclick="scrollGallery(-1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollGallery(1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="gallery-slider" id="gallerySlider">
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/gY4r8QA.png" alt="معرض كنوز مكة 1">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/gY4r8QA.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/36s8dPB.png" alt="معرض كنوز مكة 2">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/36s8dPB.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/3iQrKQZ.png" alt="معرض كنوز مكة 3">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/3iQrKQZ.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/F9seb2G.png" alt="معرض كنوز مكة 4">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/F9seb2G.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/hiHq9Mp.png" alt="معرض كنوز مكة 5">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/hiHq9Mp.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/fbWmufE.png" alt="معرض كنوز مكة 6">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/fbWmufE.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/nNNyv9y.png" alt="معرض كنوز مكة 7">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/nNNyv9y.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/FF2OKWy.png" alt="معرض كنوز مكة 8">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/FF2OKWy.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/AXy45y3.png" alt="معرض كنوز مكة 9">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/AXy45y3.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/PHgel6Z.png" alt="معرض كنوز مكة 10">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/PHgel6Z.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/ngIw0WB.png" alt="معرض كنوز مكة 11">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/ngIw0WB.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.imgur.com/WYezHVe.png" alt="معرض كنوز مكة 12">
+                        <button class="save-concat-btn" onclick="saveImage('https://i.imgur.com/WYezHVe.png')">
+                            <i class="fas fa-download"></i> حفظ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in delay-3">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <span>عدي النعيمات - صاحب المعرض</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0799474344</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>0796700855</span>
+                </div>
+            </div>
+            
+            <div class="business-contact">
+                <div class="business-title">للاستفسارات والحجوزات</div>
+                <div class="business-number">00962796700855</div>
+            </div>
+        </div>
+
+        <!-- Location Section -->
+        <div class="location-section fade-in delay-2">
+            <h2 class="section-title">موقعنا على الخريطة</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=31.97602653503418%2C35.853580474853516&z=17&hl=ar&output=embed"
+                    class="map-iframe"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-section fade-in delay-3">
+            <h2 class="social-title">تابعونا على وسائل التواصل</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.facebook.com/share/1EX7UuUFEV/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/knozmakah?igsh=NHN1b2RjN2NxNXgw&utm_source=qr" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/962796700855" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:0799474344" class="social-icon">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://maps.google.com/maps?q=31.97602653503418%2C35.853580474853516&z=17&hl=en" class="social-icon" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in delay-3">
+            <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:كنوز مكة - معرض التحف والهدايا%0ATEL:0799474344%0ATEL;TYPE=WHATSAPP:0796700855%0AURL:https://www.facebook.com/share/1EX7UuUFEV/%0AURL:https://www.instagram.com/knozmakah%0AEND:VCARD" 
+               class="action-button primary" download="كنوز-مكة.vcf">
+                <i class="fas fa-download"></i>
+                حفظ جهة الاتصال
+            </a>
+            <a href="https://wa.me/962796700855" class="action-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                التواصل عبر واتساب
+            </a>
+            <a href="tel:0799474344" class="action-button">
+                <i class="fas fa-phone"></i>
+                الاتصال الآن
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">كنوز مكة - معرض التحف والهدايا</p>
+            <p class="footer-text">عدي النعيمات - هاتف: 0799474344 | واتساب: 0796700855</p>
+            <p class="footer-text">© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery slider functionality
+        function scrollGallery(direction) {
+            const slider = document.getElementById('gallerySlider');
+            const scrollAmount = 300;
+            slider.scrollLeft += direction * scrollAmount;
+        }
+
+        // Save image function
+        function saveImage(imageUrl) {
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'كنوز-مكة-صورة.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Add click effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.social-icon, .action-button, .save-concat-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Auto-scroll gallery every 5 seconds
+            setInterval(() => {
+                const slider = document.getElementById('gallerySlider');
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                    slider.scrollLeft = 0;
+                } else {
+                    slider.scrollLeft += 300;
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
