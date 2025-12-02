@@ -66,24 +66,44 @@
         
         .cover-container {
             width: 100%;
-            height: 350px;
+            height: 300px;
             overflow: hidden;
             position: relative;
+            background: var(--gradient);
         }
         
-        .cover-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background-color: white;
+        .cover-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            z-index: 2;
+        }
+        
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cover-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         .profile-info {
             position: relative;
-            padding: 0 20px 30px;
+            padding: 40px 20px 30px;
             text-align: center;
             z-index: 2;
+            background: white;
         }
         
         .profile-image-container {
@@ -93,11 +113,15 @@
         }
         
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 120px;
+            height: 120px;
             object-fit: contain;
             background-color: white;
             display: block;
+            border-radius: 20px;
+            border: 3px solid var(--accent);
+            padding: 10px;
+            box-shadow: var(--shadow);
         }
         
         .verified-badge {
@@ -113,7 +137,7 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
-            border: 2px solid var(--light-card);
+            border: 2px solid white;
         }
         
         .profile-name {
@@ -155,32 +179,6 @@
             color: var(--light-text);
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-        
-        /* Logo Container */
-        .logo-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .logo-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .logo-image {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            margin: 0 auto;
-            display: block;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
         }
         
         /* About Section */
@@ -245,7 +243,7 @@
             margin: 40px auto;
             padding: 40px;
             border-radius: 20px;
-            max-width: 1000px;
+            max-width: 1200px;
             box-shadow: var(--shadow);
             border: var(--border);
             position: relative;
@@ -254,16 +252,28 @@
         .category-title {
             font-size: 1.8rem;
             font-weight: 700;
-            margin: 40px 0 20px;
+            margin: 50px 0 20px;
             color: var(--primary);
             text-align: center;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
         }
         
+        .category-title:first-child {
+            margin-top: 20px;
+        }
+        
+        .category-note {
+            font-size: 1rem;
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
         .slider-container {
             position: relative;
-            margin: 30px 0;
+            margin: 30px 0 50px;
         }
         
         .slider {
@@ -470,53 +480,6 @@
             font-weight: 800;
         }
         
-        /* Social Icons */
-        .social-section {
-            text-align: center;
-            padding: 50px 0 30px;
-        }
-        
-        .social-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 40px;
-            color: var(--dark-text);
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .social-icons-grid {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .social-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--accent);
-            text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow);
-            background: white;
-            position: relative;
-            border: 2px solid var(--accent);
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow-lg);
-            background: var(--accent);
-            color: white;
-        }
-        
         /* Action Buttons */
         .action-buttons {
             display: flex;
@@ -565,18 +528,6 @@
             text-align: center;
             margin-top: 60px;
             color: white;
-        }
-        
-        .footer-logo {
-            max-width: 250px;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            margin: 0 auto 20px;
-            display: block;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
         }
         
         .footer-text {
@@ -637,13 +588,21 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .cover-title {
+                font-size: 2.5rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.3rem;
+            }
+            
             .profile-name {
                 font-size: 2rem;
             }
             
             .profile-image {
-                width: 150px;
-                height: 150px;
+                width: 100px;
+                height: 100px;
             }
             
             .cover-container {
@@ -672,14 +631,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .logo-image {
-                max-width: 250px;
-            }
-            
-            .footer-logo {
-                max-width: 200px;
-            }
         }
     </style>
 </head>
@@ -687,11 +638,13 @@
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
-            <img src="https://imgur.com/hu0YIa4.png" alt="Medical Binary Cover" class="cover-photo">
+            <div class="cover-content">
+                <h1 class="cover-title">Medical Binary</h1>
+                <div class="cover-subtitle">Establishment - الثنائية الطبية</div>
+            </div>
         </div>
         <div class="profile-info">
             <div class="profile-image-container">
-                <img src="https://imgur.com/hu0YIa4.png" alt="Medical Binary" class="profile-image">
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
@@ -701,7 +654,7 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">3+</span>
+                    <span class="stat-number">8+</span>
                     <span class="stat-label">Specialties</span>
                 </div>
                 <div class="stat-item">
@@ -712,12 +665,6 @@
                     <span class="stat-number">⭐</span>
                     <span class="stat-label">Excellence</span>
                 </div>
-            </div>
-            
-            <!-- Logo Display Section -->
-            <div class="logo-container">
-                <div class="logo-title">شعار الشركة</div>
-                <img src="https://imgur.com/hu0YIa4.png" alt="Medical Binary Logo" class="logo-image">
             </div>
         </div>
     </header>
@@ -750,7 +697,64 @@
         <!-- Gallery Section -->
         <div class="gallery-section fade-in delay-2">
             <h2 class="section-title">معرض منتجاتنا</h2>
+            <p class="category-note">تصفح كتالوجات منتجاتنا المتخصصة في مختلف المجالات الطبية</p>
             
+            <!-- AUSTOFIX Ortho Pedic Section -->
+            <h3 class="category-title">AUSTOFIX Ortho Pedic</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider('austofixSlider', -1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider('austofixSlider', 1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="austofixSlider">
+                    <!-- AUSTOFIX images will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Catalog D.C.Tuna Section -->
+            <h3 class="category-title">Catalog D.C.Tuna</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider('tunaSlider', -1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider('tunaSlider', 1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="tunaSlider">
+                    <!-- Tuna images will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- NIMO TURKEY Section -->
+            <h3 class="category-title">NIMO TURKEY</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider('nimoSlider', -1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider('nimoSlider', 1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="nimoSlider">
+                    <!-- NIMO images will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- OHO Cataloge Section -->
+            <h3 class="category-title">OHO Cataloge</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="scrollSlider('ohoSlider', -1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="slider-btn next" onclick="scrollSlider('ohoSlider', 1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider" id="ohoSlider">
+                    <!-- OHO images will be added by JavaScript -->
+                </div>
+            </div>
+
             <!-- Ortho Pedic Section -->
             <h3 class="category-title">Ortho Pedic</h3>
             <div class="slider-container">
@@ -821,10 +825,10 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="service-name">رعاية المرضى الدوليين</h3>
-                    <p class="service-desc">تسهيل العلاج للمرضى القادمين من الخارج</p>
+                    <h3 class="service-name">وكالات عالمية</h3>
+                    <p class="service-desc">وكالات طبية متخصصة من مختلف دول العالم</p>
                 </div>
             </div>
         </div>
@@ -897,7 +901,6 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="https://imgur.com/hu0YIa4.png" alt="Medical Binary Logo" class="footer-logo">
             <p class="footer-text">Medical Binary Establishment - الثنائية الطبية</p>
             <p class="footer-text">متخصصون في المستلزمات الطبية والمستهلكات الجراحية • جودة عالمية • خدمة متميزة</p>
         </div>
@@ -906,8 +909,78 @@
     <script>
         // Gallery images categorized
         const galleryData = {
+            "austofixOrthoPedic": {
+                title: "AUSTOFIX Ortho Pedic",
+                sliderId: "austofixSlider",
+                images: [
+                    "https://imgur.com/kcerskG.png",
+                    "https://imgur.com/xziqaJl.png",
+                    "https://imgur.com/jB3CNx3.png",
+                    "https://imgur.com/E2TC67H.png",
+                    "https://imgur.com/bdHIwJW.png",
+                    "https://imgur.com/rQllPJj.png",
+                    "https://imgur.com/uov4j5j.png",
+                    "https://imgur.com/DrYrKX4.png",
+                    "https://imgur.com/2P7lKZI.png",
+                    "https://imgur.com/2KKVEfa.png",
+                    "https://imgur.com/PpWFrb4.png"
+                ]
+            },
+            "catalogDCTuna": {
+                title: "Catalog D.C.Tuna",
+                sliderId: "tunaSlider",
+                images: [
+                    "https://imgur.com/P6UwufU.png",
+                    "https://imgur.com/TpPZdDH.png",
+                    "https://imgur.com/rmJnYwo.png",
+                    "https://imgur.com/hiEkC01.png",
+                    "https://imgur.com/RZP5ojl.png",
+                    "https://imgur.com/cXvbLPT.png",
+                    "https://imgur.com/J9H6lVA.png",
+                    "https://imgur.com/OPQzgkO.png",
+                    "https://imgur.com/8NKjf4T.png",
+                    "https://imgur.com/8Dy2fir.png",
+                    "https://imgur.com/pwduu7o.png",
+                    "https://imgur.com/fZtnhkP.png",
+                    "https://imgur.com/6tD94u5.png",
+                    "https://imgur.com/LN65cjQ.png",
+                    "https://imgur.com/JTUWYm4.png",
+                    "https://imgur.com/ggmMP86.png",
+                    "https://imgur.com/8cE1pgc.png"
+                ]
+            },
+            "nimoTurkey": {
+                title: "NIMO TURKEY",
+                sliderId: "nimoSlider",
+                images: [
+                    "https://imgur.com/elxjh91.png",
+                    "https://imgur.com/1ZRY6lF.png",
+                    "https://imgur.com/Dx4CL5v.png",
+                    "https://imgur.com/DgLCFV3.png",
+                    "https://imgur.com/vMSzP9N.png",
+                    "https://imgur.com/p55vgZQ.png",
+                    "https://imgur.com/ru8XnGy.png",
+                    "https://imgur.com/h0MGsKj.png",
+                    "https://imgur.com/3whhVaM.png",
+                    "https://imgur.com/rSNFh5u.png"
+                ]
+            },
+            "ohoCataloge": {
+                title: "OHO Cataloge",
+                sliderId: "ohoSlider",
+                images: [
+                    "https://imgur.com/Ytz2pXT.png",
+                    "https://imgur.com/POWP8lM.png",
+                    "https://imgur.com/1WlnkPo.png",
+                    "https://imgur.com/KwJFSuT.png",
+                    "https://imgur.com/loqECwV.png",
+                    "https://imgur.com/nuWcit0.png",
+                    "https://imgur.com/hAx9wxG.png"
+                ]
+            },
             "orthoPedic": {
                 title: "Ortho Pedic",
+                sliderId: "orthoSlider",
                 images: [
                     "https://imgur.com/tbxB4lW.png",
                     "https://imgur.com/6fQV82p.png",
@@ -916,6 +989,7 @@
             },
             "conwePDF": {
                 title: "Conwe PDF",
+                sliderId: "conweSlider",
                 images: [
                     "https://imgur.com/cJ12heT.png",
                     "https://imgur.com/m35wviO.png"
@@ -923,6 +997,7 @@
             },
             "farmasiCatalogue": {
                 title: "Farmasi Catalogue",
+                sliderId: "farmasiSlider",
                 images: [
                     "https://imgur.com/4Vgtcb6.png",
                     "https://imgur.com/2unW8Mu.png",
@@ -946,26 +1021,18 @@
 
         // Initialize galleries
         function initializeGalleries() {
-            // Ortho Pedic Gallery
-            const orthoSlider = document.getElementById('orthoSlider');
-            galleryData.orthoPedic.images.forEach((imgSrc, index) => {
-                const galleryItem = createGalleryItem(imgSrc, galleryData.orthoPedic.title, index + 1);
-                orthoSlider.appendChild(galleryItem);
-            });
-
-            // Conwe PDF Gallery
-            const conweSlider = document.getElementById('conweSlider');
-            galleryData.conwePDF.images.forEach((imgSrc, index) => {
-                const galleryItem = createGalleryItem(imgSrc, galleryData.conwePDF.title, index + 1);
-                conweSlider.appendChild(galleryItem);
-            });
-
-            // Farmasi Catalogue Gallery
-            const farmasiSlider = document.getElementById('farmasiSlider');
-            galleryData.farmasiCatalogue.images.forEach((imgSrc, index) => {
-                const galleryItem = createGalleryItem(imgSrc, galleryData.farmasiCatalogue.title, index + 1);
-                farmasiSlider.appendChild(galleryItem);
-            });
+            // Loop through all categories and create galleries
+            for (const categoryKey in galleryData) {
+                const category = galleryData[categoryKey];
+                const slider = document.getElementById(category.sliderId);
+                
+                if (slider) {
+                    category.images.forEach((imgSrc, index) => {
+                        const galleryItem = createGalleryItem(imgSrc, category.title, index + 1);
+                        slider.appendChild(galleryItem);
+                    });
+                }
+            }
         }
 
         function createGalleryItem(imgSrc, category, index) {
@@ -985,7 +1052,9 @@
         function scrollSlider(sliderId, direction) {
             const slider = document.getElementById(sliderId);
             const scrollAmount = 300;
-            slider.scrollLeft += direction * scrollAmount;
+            if (slider) {
+                slider.scrollLeft += direction * scrollAmount;
+            }
         }
 
         // Modal functions
