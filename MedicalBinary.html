@@ -56,6 +56,34 @@
             padding: 0 20px;
         }
         
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-btn {
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
         /* Header */
         .profile-header {
             width: 100%;
@@ -703,8 +731,64 @@
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
         
+        /* Language specific styles */
+        .lang-ar {
+            display: block;
+        }
+        
+        .lang-en {
+            display: none;
+        }
+        
+        body[dir="ltr"] .lang-ar {
+            display: none;
+        }
+        
+        body[dir="ltr"] .lang-en {
+            display: block;
+        }
+        
+        body[dir="ltr"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--accent);
+        }
+        
+        body[dir="ltr"] .slider-btn.prev {
+            right: auto;
+            left: -25px;
+        }
+        
+        body[dir="ltr"] .slider-btn.next {
+            left: auto;
+            right: -25px;
+        }
+        
+        body[dir="ltr"] .slider-btn.prev i {
+            transform: rotate(180deg);
+        }
+        
+        body[dir="ltr"] .slider-btn.next i {
+            transform: rotate(180deg);
+        }
+        
+        body[dir="ltr"] .contact-item,
+        body[dir="ltr"] .service-card,
+        body[dir="ltr"] .gallery-item-content {
+            text-align: left;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .lang-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
             .profile-name {
                 font-size: 2rem;
             }
@@ -736,6 +820,14 @@
                 left: -20px;
             }
             
+            body[dir="ltr"] .slider-btn.prev {
+                left: -20px;
+            }
+            
+            body[dir="ltr"] .slider-btn.next {
+                right: -20px;
+            }
+            
             .gallery-item {
                 min-width: 250px;
             }
@@ -760,7 +852,15 @@
         }
     </style>
 </head>
-<body>
+<body dir="rtl">
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <i class="fas fa-language"></i>
+            <span id="langText">English</span>
+        </button>
+    </div>
+
     <!-- Header Section -->
     <header class="profile-header fade-in">
         <div class="cover-container">
@@ -779,15 +879,18 @@
             <div class="stats-container">
                 <div class="stat-item">
                     <span class="stat-number">10+</span>
-                    <span class="stat-label">Specialties</span>
+                    <span class="stat-label lang-ar">تخصصات</span>
+                    <span class="stat-label lang-en">Specialties</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">24/7</span>
-                    <span class="stat-label">Service</span>
+                    <span class="stat-label lang-ar">خدمة</span>
+                    <span class="stat-label lang-en">Service</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">⭐</span>
-                    <span class="stat-label">Excellence</span>
+                    <span class="stat-label lang-ar">تميز</span>
+                    <span class="stat-label lang-en">Excellence</span>
                 </div>
             </div>
         </div>
@@ -797,25 +900,29 @@
     <div class="container">
         <!-- Click Section -->
         <div class="click-section fade-in delay-1">
-            <h2 class="click-title">Medical Binary Click</h2>
+            <h2 class="click-title lang-ar">Medical Binary Click</h2>
+            <h2 class="click-title lang-en">Medical Binary Click</h2>
             <div class="click-code" id="clickCode">AMERRAMAHA</div>
-            <p class="click-instruction">انقر على الزر أدناه لنسخ الكود</p>
+            <p class="click-instruction lang-ar">انقر على الزر أدناه لنسخ الكود</p>
+            <p class="click-instruction lang-en">Click the button below to copy the code</p>
             <button class="click-copy-btn" onclick="copyClickCode()">
                 <i class="far fa-copy"></i>
-                نسخ الكود
+                <span class="lang-ar">نسخ الكود</span>
+                <span class="lang-en">Copy Code</span>
             </button>
         </div>
 
         <!-- About Section -->
         <div class="about-section fade-in delay-1">
-            <h2 class="section-title">مرحباً بكم</h2>
-            <div class="about-text">
-                متخصصون في المستلزمات الطبية والمستهلكات الجراحية
-            </div>
+            <h2 class="section-title lang-ar">مرحباً بكم</h2>
+            <h2 class="section-title lang-en">Welcome</h2>
+            <div class="about-text lang-ar">متخصصون في المستلزمات الطبية والمستهلكات الجراحية</div>
+            <div class="about-text lang-en">Specialists in medical supplies and surgical consumables</div>
             
             <div class="highlight-box">
-                <div class="highlight-title">عن الثنائية الطبية</div>
-                <div class="about-text" style="text-align: center; direction: rtl;">
+                <div class="highlight-title lang-ar">عن الثنائية الطبية</div>
+                <div class="highlight-title lang-en">About Medical Binary</div>
+                <div class="about-text lang-ar" style="text-align: center;">
                     Medical Binary Establishment، متخصصون في المستلزمات الطبية والمستهلكات الجراحية، 
                     بما في ذلك كل ما يلزم لجراحة العظام، مثل المواد القابلة للزرع التي يتم الحصول عليها من 
                     وكالات دولية مثل Austofix (أستراليا) و Ortho-Trauma (إنجلترا)، بالإضافة إلى 
@@ -826,13 +933,26 @@
                     نحن نوفر أيضًا الرعاية الصحية للمرضى القادمين من الخارج للعلاج، مما يسهل الأمر من خلال تعاوننا مع الأطباء والمستشفيات والصيدليات والمختبرات ومراكز الأشعة والتشخيص ومؤسسات الرعاية الصحية الأخرى.
                     نسهل إجراءاتهم الجراحية والعلاجات الطبية اللازمة في المستشفيات داخل المملكة الأردنية الهاشمية.
                 </div>
+                <div class="about-text lang-en" style="text-align: center;">
+                    Medical Binary Establishment specializes in medical supplies and surgical consumables, 
+                    including all necessities for orthopedic surgery, such as implantable materials obtained from 
+                    international agencies like Austofix (Australia) and Ortho-Trauma (England), in addition to 
+                    a complete range of orthopedic surgical instruments, external fixation systems, various medical devices, 
+                    hospital supplies, and operating room equipment.
+                    Additionally, we have a comprehensive drug warehouse stocked with pharmaceutical and nutritional supplement agencies from around the world.
+                    We also have our own pharmacy for selling medical products and medicines.
+                    We provide healthcare for patients coming from abroad for treatment, facilitating the process through our cooperation with doctors, hospitals, pharmacies, laboratories, radiology and diagnostic centers, and other healthcare institutions.
+                    We facilitate their surgical procedures and necessary medical treatments in hospitals within the Hashemite Kingdom of Jordan.
+                </div>
             </div>
         </div>
 
         <!-- Gallery Section -->
         <div class="gallery-section fade-in delay-2">
-            <h2 class="section-title">معرض منتجاتنا</h2>
-            <p class="category-note">تصفح كتالوجات منتجاتنا المتخصصة في مختلف المجالات الطبية</p>
+            <h2 class="section-title lang-ar">معرض منتجاتنا</h2>
+            <h2 class="section-title lang-en">Our Products Gallery</h2>
+            <p class="category-note lang-ar">تصفح كتالوجات منتجاتنا المتخصصة في مختلف المجالات الطبية</p>
+            <p class="category-note lang-en">Browse our specialized product catalogs in various medical fields</p>
             
             <!-- Catalogue Lenses Section -->
             <h3 class="category-title">Catalogue Lenses</h3>
@@ -949,72 +1069,90 @@
 
         <!-- Services Section -->
         <div class="services-section fade-in delay-2">
-            <h2 class="section-title">خدماتنا</h2>
+            <h2 class="section-title lang-ar">خدماتنا</h2>
+            <h2 class="section-title lang-en">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <h3 class="service-name">مستلزمات جراحة العظام</h3>
-                    <p class="service-desc">مواد قابلة للزرع وأدوات جراحية متخصصة</p>
+                    <h3 class="service-name lang-ar">مستلزمات جراحة العظام</h3>
+                    <h3 class="service-name lang-en">Orthopedic Surgery Supplies</h3>
+                    <p class="service-desc lang-ar">مواد قابلة للزرع وأدوات جراحية متخصصة</p>
+                    <p class="service-desc lang-en">Implantable materials and specialized surgical instruments</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-pills"></i>
                     </div>
-                    <h3 class="service-name">مستودع أدوية شامل</h3>
-                    <p class="service-desc">وكالات أدوية ومكملات غذائية عالمية</p>
+                    <h3 class="service-name lang-ar">مستودع أدوية شامل</h3>
+                    <h3 class="service-name lang-en">Comprehensive Drug Warehouse</h3>
+                    <p class="service-desc lang-ar">وكالات أدوية ومكملات غذائية عالمية</p>
+                    <p class="service-desc lang-en">International drug and supplement agencies</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hospital"></i>
                     </div>
-                    <h3 class="service-name">مستلزمات المستشفيات</h3>
-                    <p class="service-desc">أجهزة طبية ومعدات غرف عمليات</p>
+                    <h3 class="service-name lang-ar">مستلزمات المستشفيات</h3>
+                    <h3 class="service-name lang-en">Hospital Supplies</h3>
+                    <p class="service-desc lang-ar">أجهزة طبية ومعدات غرف عمليات</p>
+                    <p class="service-desc lang-en">Medical devices and operating room equipment</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h3 class="service-name">عدسات طبية</h3>
-                    <p class="service-desc">تشكيلة واسعة من العدسات الطبية المتخصصة</p>
+                    <h3 class="service-name lang-ar">عدسات طبية</h3>
+                    <h3 class="service-name lang-en">Medical Lenses</h3>
+                    <p class="service-desc lang-ar">تشكيلة واسعة من العدسات الطبية المتخصصة</p>
+                    <p class="service-desc lang-en">Wide range of specialized medical lenses</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-prescription-bottle-medical"></i>
                     </div>
-                    <h3 class="service-name">صيدلية أدوية</h3>
-                    <p class="service-desc">صيدليتنا المتخصصة لبيع الأدوية والمنتجات الطبية</p>
+                    <h3 class="service-name lang-ar">صيدلية أدوية</h3>
+                    <h3 class="service-name lang-en">Pharmacy</h3>
+                    <p class="service-desc lang-ar">صيدليتنا المتخصصة لبيع الأدوية والمنتجات الطبية</p>
+                    <p class="service-desc lang-en">Our specialized pharmacy for selling medicines and medical products</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <h3 class="service-name">خدمات المرضى الدوليين</h3>
-                    <p class="service-desc">تسهيل العلاج للمرضى القادمين من الخارج</p>
+                    <h3 class="service-name lang-ar">خدمات المرضى الدوليين</h3>
+                    <h3 class="service-name lang-en">International Patient Services</h3>
+                    <p class="service-desc lang-ar">تسهيل العلاج للمرضى القادمين من الخارج</p>
+                    <p class="service-desc lang-en">Facilitating treatment for patients coming from abroad</p>
                 </div>
             </div>
         </div>
 
         <!-- Contact Section -->
         <div class="contact-section fade-in delay-3">
-            <h2 class="section-title">تواصل معنا</h2>
+            <h2 class="section-title lang-ar">تواصل معنا</h2>
+            <h2 class="section-title lang-en">Contact Us</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>الهاتف الأرضي: 065692727</span>
+                    <span class="lang-ar">الهاتف الأرضي: 065692727</span>
+                    <span class="lang-en">Landline: 065692727</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-mobile-alt"></i>
-                    <span>الجوال: 0790408227</span>
+                    <span class="lang-ar">الجوال: 0790408227</span>
+                    <span class="lang-en">Mobile: 0790408227</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>العنوان: جبل الحسين - مقابل مستشفى هبة، مجمع لؤلؤات القريني ١٩٨</span>
+                    <span class="lang-ar">العنوان: جبل الحسين - مقابل مستشفى هبة، مجمع لؤلؤات القريني ١٩٨</span>
+                    <span class="lang-en">Address: Jabal Al Hussein - Opposite Hiba Hospital, Lu'lu'at Al-Qarini Complex 198</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>الموقع: <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" target="_blank">اضغط هنا للوصول للموقع</a></span>
+                    <span class="lang-ar">الموقع: <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" target="_blank">اضغط هنا للوصول للموقع</a></span>
+                    <span class="lang-en">Location: <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" target="_blank">Click here to access location</a></span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -1026,12 +1164,14 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-mouse-pointer"></i>
-                    <span>الكود الخاص: AMERRAMAHA</span>
+                    <span class="lang-ar">الكود الخاص: AMERRAMAHA</span>
+                    <span class="lang-en">Special Code: AMERRAMAHA</span>
                 </div>
             </div>
             
             <div class="business-contact">
-                <div class="business-title">للطلبات والاستفسارات</div>
+                <div class="business-title lang-ar">للطلبات والاستفسارات</div>
+                <div class="business-title lang-en">For Orders and Inquiries</div>
                 <div class="business-number">0790408227</div>
             </div>
         </div>
@@ -1042,23 +1182,28 @@
                download="medical-binary.vcf" 
                class="action-button primary">
                 <i class="fas fa-download"></i>
-                حفظ جهة الاتصال
+                <span class="lang-ar">حفظ جهة الاتصال</span>
+                <span class="lang-en">Save Contact</span>
             </a>
             <a href="tel:0790408227" class="action-button" target="_blank">
                 <i class="fas fa-phone"></i>
-                اتصل الآن
+                <span class="lang-ar">اتصل الآن</span>
+                <span class="lang-en">Call Now</span>
             </a>
             <a href="tel:065692727" class="action-button">
                 <i class="fas fa-phone-alt"></i>
-                الهاتف الأرضي
+                <span class="lang-ar">الهاتف الأرضي</span>
+                <span class="lang-en">Landline</span>
             </a>
             <a href="https://maps.google.com/maps?q=31.968494415283203%2C35.91759490966797&z=17&hl=en" class="action-button" target="_blank">
                 <i class="fas fa-map-marker-alt"></i>
-                الموقع
+                <span class="lang-ar">الموقع</span>
+                <span class="lang-en">Location</span>
             </a>
             <a href="https://wa.me/962790408227" class="action-button" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                واتساب
+                <span class="lang-ar">واتساب</span>
+                <span class="lang-en">WhatsApp</span>
             </a>
         </div>
     </div>
@@ -1071,7 +1216,8 @@
 
     <!-- Copy Success Message -->
     <div class="copy-success" id="copySuccess">
-        تم نسخ الكود بنجاح! ✓
+        <span class="lang-ar">تم نسخ الكود بنجاح! ✓</span>
+        <span class="lang-en">Code copied successfully! ✓</span>
     </div>
 
     <!-- Footer -->
@@ -1080,8 +1226,10 @@
             <div class="footer-logo-container">
                 <img src="https://imgur.com/hu0YIa4.png" alt="Medical Binary Logo" class="footer-logo">
             </div>
-            <p class="footer-text">Medical Binary Establishment - الثنائية الطبية</p>
-            <p class="footer-text">متخصصون في المستلزمات الطبية والمستهلكات الجراحية • جودة عالمية • خدمة متميزة</p>
+            <p class="footer-text lang-ar">Medical Binary Establishment - الثنائية الطبية</p>
+            <p class="footer-text lang-en">Medical Binary Establishment</p>
+            <p class="footer-text lang-ar">متخصصون في المستلزمات الطبية والمستهلكات الجراحية • جودة عالمية • خدمة متميزة</p>
+            <p class="footer-text lang-en">Specialists in medical supplies and surgical consumables • Global quality • Premium service</p>
             <p class="footer-text" style="margin-top: 15px;">جميع الحقوق محفوظة © 2024 الثنائية الطبية</p>
         </div>
     </footer>
@@ -1212,6 +1360,38 @@
             }
         };
 
+        // Language management
+        let currentLang = 'ar';
+        
+        function toggleLanguage() {
+            const body = document.body;
+            const langText = document.getElementById('langText');
+            
+            if (currentLang === 'ar') {
+                // Switch to English
+                body.dir = 'ltr';
+                currentLang = 'en';
+                langText.textContent = 'العربية';
+                
+                // Update page title
+                document.title = 'Medical Binary Establishment - Medical Supplies Specialists';
+                
+                // Update meta description
+                document.querySelector('meta[name="description"]').content = 'Medical Binary Establishment - Specialists in medical supplies and surgical consumables';
+            } else {
+                // Switch to Arabic
+                body.dir = 'rtl';
+                currentLang = 'ar';
+                langText.textContent = 'English';
+                
+                // Update page title
+                document.title = 'Medical Binary Establishment - الثنائية الطبية';
+                
+                // Update meta description
+                document.querySelector('meta[name="description"]').content = 'Medical Binary Establishment - متخصصون في المستلزمات الطبية والمستهلكات الجراحية';
+            }
+        }
+
         // Copy Click Code function
         function copyClickCode() {
             const clickCode = document.getElementById('clickCode');
@@ -1236,7 +1416,13 @@
             // Change button text temporarily
             const copyBtn = event.currentTarget;
             const originalHtml = copyBtn.innerHTML;
-            copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+            
+            if (currentLang === 'ar') {
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+            } else {
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            }
+            
             copyBtn.style.backgroundColor = '#2ECC71';
             copyBtn.style.color = 'white';
             
@@ -1272,11 +1458,15 @@
         function createGalleryItem(imgSrc, category, index) {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item';
+            
+            let imgLabel = currentLang === 'ar' ? `صورة ${index}` : `Image ${index}`;
+            
             galleryItem.innerHTML = `
                 <img src="${imgSrc}" alt="${category} ${index}" onclick="openModal('${imgSrc}')">
                 <div class="gallery-item-content">
                     <div class="item-category">${category}</div>
-                    <p>صورة ${index}</p>
+                    <p class="lang-ar">صورة ${index}</p>
+                    <p class="lang-en">Image ${index}</p>
                 </div>
             `;
             return galleryItem;
