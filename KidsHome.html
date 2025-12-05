@@ -8,22 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B8B;
-            --primary-light: #FF9EB5;
-            --primary-dark: #E05573;
-            --secondary: #6A67CE;
-            --secondary-light: #8B89E3;
-            --accent: #00C9B7;
-            --yellow: #FFD166;
-            --light-bg: #FFF9F5;
+            --primary: #7B68EE;      /* MediumSlateBlue - لون فاخر */
+            --primary-light: #9370DB; /* MediumPurple */
+            --primary-dark: #483D8B;  /* DarkSlateBlue */
+            --secondary: #00CED1;     /* DarkTurquoise */
+            --secondary-light: #20B2AA; /* LightSeaGreen */
+            --accent: #FF69B4;        /* HotPink */
+            --accent-light: #FFB6C1;   /* LightPink */
+            --gold: #FFD700;          /* Gold */
+            --light-bg: #FAF9F6;      /* Luxury light background */
             --white: #FFFFFF;
-            --dark-text: #2D3047;
-            --light-text: #5A5D7A;
-            --shadow: 0 10px 30px rgba(255, 107, 139, 0.15);
-            --shadow-lg: 0 20px 40px rgba(106, 103, 206, 0.2);
-            --gradient: linear-gradient(135deg, #FF6B8B 0%, #6A67CE 100%);
-            --gradient-accent: linear-gradient(135deg, #00C9B7 0%, #6A67CE 100%);
-            --border-radius: 20px;
+            --dark-text: #2F4F4F;     /* DarkSlateGray */
+            --light-text: #696969;    /* DimGray */
+            --card-bg: #FFFFFF;
+            --shadow: 0 8px 25px rgba(123, 104, 238, 0.08);
+            --shadow-lg: 0 15px 35px rgba(123, 104, 238, 0.15);
+            --gradient: linear-gradient(135deg, #7B68EE 0%, #00CED1 100%);
+            --gradient-accent: linear-gradient(135deg, #FF69B4 0%, #9370DB 100%);
+            --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            --border-radius: 18px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -37,149 +41,305 @@
             background: var(--light-bg);
             color: var(--dark-text);
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.8;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        body.english {
+            direction: ltr;
+            font-family: 'Poppins', sans-serif;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
         
-        /* Rating Stars */
-        .rating-container {
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-btn {
             background: var(--white);
-            padding: 15px 30px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
             border-radius: 50px;
-            box-shadow: var(--shadow);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px auto;
-            border: 2px solid var(--primary-light);
-        }
-        
-        .rating-stars {
-            color: var(--yellow);
-            font-size: 1.3rem;
-        }
-        
-        .rating-text {
-            font-weight: 700;
-            color: var(--dark-text);
-            font-size: 1.1rem;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
-                        url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=2070') center/cover;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
-        .hero-content {
-            text-align: center;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--white);
+        .lang-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Header */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
         .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 30px;
+            width: 70px;
+            height: 70px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            color: white;
+            overflow: hidden;
             box-shadow: var(--shadow);
-            border: 5px solid var(--white);
+            border: 3px solid var(--white);
         }
         
         .logo img {
-            width: 80px;
-            height: 80px;
+            width: 80%;
+            height: 80%;
             object-fit: contain;
         }
         
-        .hero-title {
-            font-size: 3.5rem;
+        .brand-name {
+            font-size: 2rem;
             font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Rating Section */
+        .rating-section {
+            background: linear-gradient(135deg, #f8f7ff 0%, #f0f7ff 100%);
+            padding: 40px 0;
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .rating-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .rating-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+        
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .star {
+            font-size: 2.5rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .star.active {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .rating-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 10px 0;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .rating-count {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        .submit-rating {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(123, 104, 238, 0.25);
+        }
+        
+        .submit-rating:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(123, 104, 238, 0.35);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 247, 255, 0.9) 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+            border-radius: 0 0 0 100px;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding: 40px 0;
+        }
+        
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
             line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+        
+        .hero-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .hero-subtitle {
             font-size: 1.4rem;
-            color: var(--secondary);
+            color: var(--light-text);
             margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+        
+        .hero-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
+        .action-btn.primary {
+            background: var(--gradient);
+            color: white;
         }
         
-        .floating-1 {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 50%;
-            top: 20%;
-            right: 10%;
-            opacity: 0.3;
-            animation-delay: 1s;
+        .action-btn.secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
         
-        .floating-2 {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            bottom: 20%;
-            left: 10%;
-            opacity: 0.3;
-            animation-delay: 2s;
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .floating-3 {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 40%;
-            left: 15%;
-            opacity: 0.4;
-            animation-delay: 3s;
+        /* Save Contact */
+        .save-contact {
+            background: linear-gradient(135deg, #f0f7ff 0%, #f8f7ff 100%);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+        .save-contact:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
         }
         
-        /* Services Grid */
+        /* Services */
         .services-section {
             padding: 100px 0;
-            background: var(--white);
         }
         
         .section-title {
@@ -188,7 +348,7 @@
             font-weight: 800;
             margin-bottom: 60px;
             position: relative;
-            color: var(--dark-text);
+            color: var(--primary-dark);
         }
         
         .section-title::after {
@@ -203,21 +363,25 @@
             border-radius: 2px;
         }
         
+        body.english .section-title::after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
         
         .service-card {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: var(--border-radius);
             padding: 40px 30px;
-            text-align: center;
             box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
+            transition: var(--transition);
+            border: 1px solid transparent;
             position: relative;
             overflow: hidden;
         }
@@ -228,54 +392,49 @@
             top: 0;
             right: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: var(--gradient);
         }
         
         .service-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
             border-color: var(--primary-light);
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background: var(--gradient);
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, rgba(123, 104, 238, 0.1) 0%, rgba(0, 206, 209, 0.1) 100%);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
-            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: var(--transition);
         }
         
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(10deg);
+            background: var(--gradient);
+            color: white;
+            transform: rotate(10deg) scale(1.1);
         }
         
         .service-name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--dark-text);
+            color: var(--primary-dark);
         }
         
-        .service-desc {
-            color: var(--light-text);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        
-        /* NFC Card Section */
+        /* NFC Section */
         .nfc-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f9f7ff 0%, #f0edff 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #f8f7ff 0%, #fff0f7 100%);
+            border-radius: var(--border-radius);
+            margin: 40px 0;
         }
         
         .nfc-card {
@@ -285,129 +444,97 @@
             border-radius: var(--border-radius);
             padding: 50px 40px;
             box-shadow: var(--shadow-lg);
-            position: relative;
-            border: 3px solid var(--secondary-light);
+            text-align: center;
+            border: 2px solid var(--primary-light);
         }
         
         .nfc-icon {
             width: 100px;
             height: 100px;
             margin: 0 auto 30px;
-            background: var(--gradient-accent);
+            background: var(--gradient);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: white;
-            transform: rotate(-5deg);
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0%, 100% { transform: rotate(-5deg) scale(1); }
-            50% { transform: rotate(-5deg) scale(1.05); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .nfc-title {
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--primary-dark);
         }
         
-        .nfc-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--gradient);
-            color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(106, 103, 206, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .nfc-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(106, 103, 206, 0.4);
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 0;
-            background: var(--white);
-        }
-        
-        .contact-grid {
+        /* Contact Info */
+        .contact-info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 25px;
+            margin: 50px 0;
         }
         
         .contact-item {
             background: var(--white);
             padding: 30px;
             border-radius: var(--border-radius);
-            text-align: center;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: var(--transition);
+            text-align: center;
         }
         
         .contact-item:hover {
-            border-color: var(--accent);
             transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .contact-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             margin: 0 auto 20px;
-            background: rgba(0, 201, 183, 0.1);
+            background: linear-gradient(135deg, rgba(123, 104, 238, 0.1) 0%, rgba(0, 206, 209, 0.1) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: var(--accent);
+            font-size: 1.5rem;
+            color: var(--primary);
         }
         
         .contact-number {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--dark-text);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
             margin: 10px 0;
-        }
-        
-        .contact-label {
-            color: var(--light-text);
-            font-size: 1rem;
         }
         
         /* Footer */
         footer {
-            background: var(--dark-text);
+            background: var(--primary-dark);
             color: white;
             padding: 60px 0 30px;
-            text-align: center;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
         
         .footer-logo {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #FF6B8B, #6A67CE);
+            background: linear-gradient(to right, #FFD700, #00CED1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -415,33 +542,31 @@
         
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .social-link {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
             text-decoration: none;
+            transition: var(--transition);
         }
         
         .social-link:hover {
             background: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .copyright {
-            margin-top: 40px;
+            text-align: center;
+            margin-top: 50px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
@@ -449,33 +574,54 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .hero-bg {
+                width: 100%;
+                height: 50%;
+                border-radius: 0 0 100px 100px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .language-switcher {
+                position: static;
+                margin: 20px auto;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
             
             .section-title {
                 font-size: 2.2rem;
             }
             
-            .service-card {
-                padding: 30px 20px;
+            .rating-value {
+                font-size: 2.5rem;
             }
             
-            .nfc-card {
-                padding: 40px 20px;
-            }
-            
-            .floating-element {
-                display: none;
+            .star {
+                font-size: 2rem;
             }
         }
         
-        /* Animation Classes */
+        /* Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         
         @keyframes fadeInUp {
@@ -488,49 +634,133 @@
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-    <!-- Rating Section -->
-    <div class="container" style="text-align: center; padding-top: 20px;">
-        <div class="rating-container fade-in">
-            <div class="rating-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <span class="rating-text">4.8/5 تقييم</span>
-        </div>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i>
+            <span id="lang-text">English</span>
+        </button>
     </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="https://i.imgur.com/D3X2vm5.png" alt="Kids Home Logo">
+                    </div>
+                    <div class="brand-name">Kids Home</div>
+                </div>
+                <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Kids Home%0ATEL:+962 6 4 202 101%0ATEL;TYPE=CELL:+962 79 618 5777%0AEND:VCARD" 
+                   class="save-contact" download="KidsHome.vcf">
+                    <i class="fas fa-download"></i>
+                    <span class="ar-text">حفظ جهة الاتصال</span>
+                    <span class="en-text" style="display: none;">Save Contact</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Rating Section -->
+    <section class="rating-section">
+        <div class="container">
+            <div class="rating-container fade-in">
+                <h2 class="rating-title ar-text">قيم تجربتك معنا</h2>
+                <h2 class="rating-title en-text" style="display: none;">Rate Your Experience</h2>
+                
+                <div class="stars-container">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                
+                <div class="rating-value">0.0</div>
+                <div class="rating-count ar-text">0 تقييم</div>
+                <div class="rating-count en-text" style="display: none;">0 ratings</div>
+                
+                <button class="submit-rating ar-text">إرسال التقييم</button>
+                <button class="submit-rating en-text" style="display: none;">Submit Rating</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="floating-element floating-1"></div>
-        <div class="floating-element floating-2"></div>
-        <div class="floating-element floating-3"></div>
-        
+        <div class="hero-bg"></div>
         <div class="container">
-            <div class="hero-content fade-in">
-                <div class="logo">
-                    <img src="https://i.imgur.com/D3X2vm5.png" alt="Kids Home Logo">
+            <div style="display: flex; align-items: center; gap: 60px;">
+                <div class="hero-content">
+                    <h1 class="hero-title fade-in">
+                        <span class="ar-text">عالم الأطفال</span>
+                        <span class="en-text" style="display: none;">Kids World</span>
+                        <br>
+                        <span class="ar-text">الممتع والآمن</span>
+                        <span class="en-text" style="display: none;">Fun & Safe</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle fade-in delay-1">
+                        <span class="ar-text">وجهة العائلة المثالية للترفيه والتعلم في أجواء سعيدة وآمنة، حيث يلتقي المرح بالتعلم في مكان واحد.</span>
+                        <span class="en-text" style="display: none;">The perfect family destination for entertainment and learning in happy, safe surroundings, where fun meets education in one place.</span>
+                    </p>
+                    
+                    <div class="action-buttons fade-in delay-2">
+                        <a href="https://wa.me/962796185777" class="action-btn primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="ar-text">تواصل معنا</span>
+                            <span class="en-text" style="display: none;">Contact Us</span>
+                        </a>
+                        
+                        <a href="tel:+96264202101" class="action-btn secondary">
+                            <i class="fas fa-phone"></i>
+                            <span class="ar-text">اتصل الآن</span>
+                            <span class="en-text" style="display: none;">Call Now</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-info fade-in delay-3" style="margin-top: 40px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+                            <div style="background: rgba(123, 104, 238, 0.08); padding: 15px 25px; border-radius: 15px; border-right: 4px solid var(--primary);">
+                                <div style="font-weight: 600; color: var(--primary); margin-bottom: 5px;" class="ar-text">الهاتف الأرضي</div>
+                                <div style="font-weight: 600; color: var(--primary); margin-bottom: 5px;" class="en-text" style="display: none;">Landline</div>
+                                <div style="font-size: 1.3rem; font-weight: 700; color: var(--primary-dark);">+962 6 4 202 101</div>
+                            </div>
+                            <div style="background: rgba(0, 206, 209, 0.08); padding: 15px 25px; border-radius: 15px; border-right: 4px solid var(--secondary);">
+                                <div style="font-weight: 600; color: var(--secondary); margin-bottom: 5px;">WhatsApp</div>
+                                <div style="font-size: 1.3rem; font-weight: 700; color: var(--primary-dark);">+962 79 618 5777</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="hero-title">Kids Home</h1>
-                <h2 class="hero-subtitle">عالم الأطفال الممتع والآمن</h2>
-                <p style="font-size: 1.2rem; color: var(--light-text); margin-bottom: 30px; line-height: 1.8;">
-                    وجهة العائلة المثالية للترفيه والتعلم في أجواء سعيدة وآمنة
-                </p>
                 
-                <div class="contact-info" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                    <div style="background: rgba(106, 103, 206, 0.1); padding: 15px 25px; border-radius: 15px; border-right: 4px solid var(--secondary);">
-                        <div style="font-weight: 700; color: var(--secondary); margin-bottom: 5px;">الهاتف الأرضي</div>
-                        <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-text);">+962 6 4 202 101</div>
-                    </div>
-                    <div style="background: rgba(255, 107, 139, 0.1); padding: 15px 25px; border-radius: 15px; border-right: 4px solid var(--primary);">
-                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 5px;">الواتساب</div>
-                        <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-text);">+962 79 618 5777</div>
-                    </div>
+                <div class="hero-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1000" alt="Kids Home" class="hero-img">
                 </div>
             </div>
         </div>
@@ -539,38 +769,50 @@
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title fade-in">خدماتنا المميزة</h2>
+            <h2 class="section-title fade-in">
+                <span class="ar-text">خدماتنا المميزة</span>
+                <span class="en-text" style="display: none;">Our Premium Services</span>
+            </h2>
+            
             <div class="services-grid">
                 <div class="service-card fade-in delay-1">
                     <div class="service-icon">
                         <i class="fas fa-puzzle-piece"></i>
                     </div>
-                    <h3 class="service-name">ألعاب الذكاء</h3>
-                    <p class="service-desc">مجموعة متنوعة من ألعاب الذكاء والتركيز التي تنمي مهارات الأطفال العقلية</p>
+                    <h3 class="service-name ar-text">ألعاب الذكاء والتركيز</h3>
+                    <h3 class="service-name en-text" style="display: none;">Brain Games</h3>
+                    <p class="ar-text" style="color: var(--light-text);">مجموعة متنوعة من الألعاب التعليمية التي تنمي المهارات العقلية والإبداعية لدى الأطفال</p>
+                    <p class="en-text" style="color: var(--light-text); display: none;">A variety of educational games that develop children's mental and creative skills</p>
                 </div>
                 
                 <div class="service-card fade-in delay-2">
                     <div class="service-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3 class="service-name">حفلات الميلاد</h3>
-                    <p class="service-desc">تنظيم حفلات أعياد ميلاد مميزة مع أنشطة ترفيهية وتجهيزات خاصة</p>
+                    <h3 class="service-name ar-text">حفلات أعياد الميلاد</h3>
+                    <h3 class="service-name en-text" style="display: none;">Birthday Parties</h3>
+                    <p class="ar-text" style="color: var(--light-text);">تنظيم حفلات مميزة مع ديكورات وأنشطة ترفيهية خاصة تجعل من يوم ميلاد طفلك ذكرى لا تنسى</p>
+                    <p class="en-text" style="color: var(--light-text); display: none;">Organizing special parties with decorations and entertainment activities that make your child's birthday an unforgettable memory</p>
                 </div>
                 
                 <div class="service-card fade-in delay-3">
                     <div class="service-icon">
-                        <i class="fas fa-gamepad"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 class="service-name">المنطقة الترفيهية</h3>
-                    <p class="service-desc">مساحة آمنة مليئة بالألعاب الترفيهية المناسبة لجميع الأعمار</p>
+                    <h3 class="service-name ar-text">ورش العمل التعليمية</h3>
+                    <h3 class="service-name en-text" style="display: none;">Educational Workshops</h3>
+                    <p class="ar-text" style="color: var(--light-text);">ورش تعليمية تفاعلية تغطي مواضيع متنوعة تناسب مختلف الفئات العمرية</p>
+                    <p class="en-text" style="color: var(--light-text); display: none;">Interactive educational workshops covering various topics suitable for different age groups</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="service-name">ورش العمل</h3>
-                    <p class="service-desc">ورش تعليمية وترفيهية تطور مهارات الأطفال الإبداعية والاجتماعية</p>
+                    <h3 class="service-name ar-text">الأنشطة الجماعية</h3>
+                    <h3 class="service-name en-text" style="display: none;">Group Activities</h3>
+                    <p class="ar-text" style="color: var(--light-text);">أنشطة جماعية تعزز مهارات التواصل والتعاون بين الأطفال في أجواء مسلية</p>
+                    <p class="en-text" style="color: var(--light-text); display: none;">Group activities that enhance communication and cooperation skills among children in an entertaining atmosphere</p>
                 </div>
             </div>
         </div>
@@ -583,55 +825,70 @@
                 <div class="nfc-icon">
                     <i class="fas fa-id-card"></i>
                 </div>
-                <h3 class="nfc-title">NFC CARD Request</h3>
-                <p style="font-size: 1.1rem; color: var(--light-text); line-height: 1.8; margin-bottom: 20px;">
-                    اطلب بطاقة NFC الذكية للوصول السريع والمميز لجميع خدمات Kids Home. بطاقة واحدة تفتح لك عالم من المرح!
+                <h3 class="nfc-title ar-text">طلب بطاقة NFC الذكية</h3>
+                <h3 class="nfc-title en-text" style="display: none;">NFC Smart Card Request</h3>
+                
+                <p class="ar-text" style="font-size: 1.1rem; color: var(--light-text); line-height: 1.8; margin-bottom: 20px;">
+                    بطاقة ذكية تمنحك وصولاً مميزاً لجميع خدمات Kids Home. احصل عليها الآن واستمتع بتجربة فريدة!
+                </p>
+                <p class="en-text" style="font-size: 1.1rem; color: var(--light-text); line-height: 1.8; margin-bottom: 20px; display: none;">
+                    A smart card that gives you privileged access to all Kids Home services. Get yours now and enjoy a unique experience!
                 </p>
                 
                 <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" 
-                   class="nfc-btn" target="_blank">
+                   class="action-btn primary" target="_blank" style="text-decoration: none;">
                     <i class="fab fa-instagram"></i>
-                    طلب البطاقة عبر الإنستغرام
+                    <span class="ar-text">طلب البطاقة عبر الإنستغرام</span>
+                    <span class="en-text" style="display: none;">Request Card via Instagram</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section">
+    <section class="contact-section" style="padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title fade-in">تواصل معنا</h2>
-            <div class="contact-grid">
+            <h2 class="section-title fade-in">
+                <span class="ar-text">معلومات الاتصال</span>
+                <span class="en-text" style="display: none;">Contact Information</span>
+            </h2>
+            
+            <div class="contact-info-grid">
                 <div class="contact-item fade-in delay-1">
                     <div class="contact-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark-text);">الهاتف الأرضي</h3>
+                    <h3 class="ar-text" style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-dark);">الهاتف الأرضي</h3>
+                    <h3 class="en-text" style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-dark); display: none;">Landline Phone</h3>
                     <div class="contact-number">+962 6 4 202 101</div>
-                    <div class="contact-label">للاستفسارات والحجوزات</div>
+                    <p class="ar-text" style="color: var(--light-text); font-size: 0.95rem;">للاستفسارات والحجوزات</p>
+                    <p class="en-text" style="color: var(--light-text); font-size: 0.95rem; display: none;">For inquiries and reservations</p>
                 </div>
                 
                 <div class="contact-item fade-in delay-2">
                     <div class="contact-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark-text);">الواتساب</h3>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-dark);">WhatsApp</h3>
                     <div class="contact-number">+962 79 618 5777</div>
-                    <div class="contact-label">للحجوزات والاستفسارات الفورية</div>
+                    <p class="ar-text" style="color: var(--light-text); font-size: 0.95rem;">للحجوزات السريعة والاستفسارات</p>
+                    <p class="en-text" style="color: var(--light-text); font-size: 0.95rem; display: none;">For quick reservations and inquiries</p>
                 </div>
                 
                 <div class="contact-item fade-in delay-3">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark-text);">الموقع</h3>
+                    <h3 class="ar-text" style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-dark);">الموقع</h3>
+                    <h3 class="en-text" style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary-dark); display: none;">Location</h3>
                     <div class="contact-number">الأردن</div>
-                    <div class="contact-label">
-                        <a href="https://maps.app.goo.gl/mdKVqpjVdBbDiSb96?g_st=ipc" 
-                           style="color: var(--accent); text-decoration: none; font-weight: 600;" target="_blank">
-                            عرض الموقع على الخريطة
-                        </a>
-                    </div>
+                    <a href="https://maps.app.goo.gl/mdKVqpjVdBbDiSb96?g_st=ipc" 
+                       style="color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 10px;" 
+                       target="_blank">
+                        <span class="ar-text">عرض الموقع على الخريطة</span>
+                        <span class="en-text" style="display: none;">View on Map</span>
+                        <i class="fas fa-external-link-alt" style="margin-right: 5px;"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -640,59 +897,244 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">Kids Home</div>
-            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">
-                وجهتكم المفضلة للترفيه العائلي وتنمية مهارات الأطفال في أجواء آمنة وممتعة
-            </p>
-            
-            <div class="social-links">
-                <a href="tel:+962796185777" class="social-link">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://wa.me/962796185777" class="social-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" 
-                   class="social-link" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://maps.app.goo.gl/mdKVqpjVdBbDiSb96?g_st=ipc" class="social-link" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i>
-                </a>
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Kids Home</div>
+                    <p class="ar-text" style="opacity: 0.9; line-height: 1.8;">
+                        وجهتكم المفضلة للترفيه العائلي وتنمية مهارات الأطفال في أجواء آمنة وممتعة، حيث نرعى الإبداع وننمي المواهب.
+                    </p>
+                    <p class="en-text" style="opacity: 0.9; line-height: 1.8; display: none;">
+                        Your preferred destination for family entertainment and developing children's skills in safe and fun surroundings, where we nurture creativity and develop talents.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="tel:+962796185777" class="social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://wa.me/962796185777" class="social-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" 
+                           class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/mdKVqpjVdBbDiSb96?g_st=ipc" class="social-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: white;">Kids Home</h3>
+                    <p style="opacity: 0.9; margin-bottom: 15px;">
+                        <i class="fas fa-phone" style="margin-left: 8px;"></i>
+                        <span>+962 6 4 202 101</span>
+                    </p>
+                    <p style="opacity: 0.9; margin-bottom: 15px;">
+                        <i class="fab fa-whatsapp" style="margin-left: 8px;"></i>
+                        <span>+962 79 618 5777</span>
+                    </p>
+                    <p style="opacity: 0.9;">
+                        <i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i>
+                        <span class="ar-text">الأردن</span>
+                        <span class="en-text" style="display: none;">Jordan</span>
+                    </p>
+                </div>
             </div>
             
             <div class="copyright">
-                © 2024 Kids Home. جميع الحقوق محفوظة | تصميم وتطوير خصيصاً لعالم الأطفال
+                © 2024 Kids Home. 
+                <span class="ar-text">جميع الحقوق محفوظة | تصميم وتطوير خصيصاً لعالم الأطفال</span>
+                <span class="en-text" style="display: none;">All rights reserved | Specially designed for kids world</span>
             </div>
         </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="ar-text">شكراً لتقييمك!</span>
+        <span class="en-text" style="display: none;">Thank you for your rating!</span>
+    </div>
+
     <script>
-        // Add animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+        // Language Toggle
+        function toggleLanguage() {
+            const body = document.body;
+            const langText = document.getElementById('lang-text');
+            const arTexts = document.querySelectorAll('.ar-text');
+            const enTexts = document.querySelectorAll('.en-text');
             
-            const fadeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
+            if (body.classList.contains('english')) {
+                // Switch to Arabic
+                body.classList.remove('english');
+                langText.textContent = 'English';
+                arTexts.forEach(el => el.style.display = '');
+                enTexts.forEach(el => el.style.display = 'none');
+            } else {
+                // Switch to English
+                body.classList.add('english');
+                langText.textContent = 'العربية';
+                arTexts.forEach(el => el.style.display = 'none');
+                enTexts.forEach(el => el.style.display = '');
+            }
+        }
+
+        // Rating System
+        let currentRating = 0;
+        let totalRatings = 0;
+        let totalScore = 0;
+        
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.querySelector('.rating-value');
+        const ratingCount = document.querySelector('.rating-count');
+        const submitBtn = document.querySelector('.submit-rating');
+        const toast = document.getElementById('toast');
+        
+        // Load saved ratings from localStorage
+        const savedRatings = localStorage.getItem('kidsHomeRatings');
+        if (savedRatings) {
+            const data = JSON.parse(savedRatings);
+            totalRatings = data.totalRatings || 0;
+            totalScore = data.totalScore || 0;
+            updateRatingDisplay();
+        }
+        
+        // Star click event
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                currentRating = value;
+                
+                // Update stars display
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
                     }
                 });
-            }, { threshold: 0.1 });
+            });
             
-            fadeElements.forEach(el => fadeObserver.observe(el));
+            // Hover effect
+            star.addEventListener('mouseenter', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.style.color = '#FFD700';
+                    }
+                });
+            });
             
-            // Add click animation to buttons
-            const buttons = document.querySelectorAll('.nfc-btn, .social-link');
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+            star.addEventListener('mouseleave', function() {
+                stars.forEach((s, index) => {
+                    if (index >= currentRating) {
+                        s.style.color = '';
+                    }
                 });
             });
         });
+        
+        // Submit rating
+        submitBtn.addEventListener('click', function() {
+            if (currentRating === 0) {
+                showToast('الرجاء اختيار تقييم أولاً', 'Please select a rating first');
+                return;
+            }
+            
+            totalRatings++;
+            totalScore += currentRating;
+            const averageRating = (totalScore / totalRatings).toFixed(1);
+            
+            // Save to localStorage
+            localStorage.setItem('kidsHomeRatings', JSON.stringify({
+                totalRatings,
+                totalScore
+            }));
+            
+            // Update display
+            ratingValue.textContent = averageRating;
+            ratingCount.textContent = document.body.classList.contains('english') 
+                ? `${totalRatings} ratings` 
+                : `${totalRatings} تقييم`;
+            
+            showToast('شكراً لتقييمك!', 'Thank you for your rating!');
+            
+            // Reset current rating
+            currentRating = 0;
+            stars.forEach(star => star.classList.remove('active'));
+        });
+        
+        function updateRatingDisplay() {
+            if (totalRatings > 0) {
+                const averageRating = (totalScore / totalRatings).toFixed(1);
+                ratingValue.textContent = averageRating;
+                ratingCount.textContent = document.body.classList.contains('english')
+                    ? `${totalRatings} ratings`
+                    : `${totalRatings} تقييم`;
+            }
+        }
+        
+        function showToast(arMessage, enMessage) {
+            const toastAr = toast.querySelector('.ar-text');
+            const toastEn = toast.querySelector('.en-text');
+            
+            if (document.body.classList.contains('english')) {
+                toastAr.style.display = 'none';
+                toastEn.style.display = '';
+                toastEn.textContent = enMessage;
+            } else {
+                toastAr.style.display = '';
+                toastEn.style.display = 'none';
+                toastAr.textContent = arMessage;
+            }
+            
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Save Contact VCF
+        function saveContact() {
+            const vcfData = `BEGIN:VCARD
+VERSION:3.0
+N:Kids Home
+TEL:+962 6 4 202 101
+TEL;TYPE=CELL:+962 79 618 5777
+END:VCARD`;
+            
+            const blob = new Blob([vcfData], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'KidsHome.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            showToast('تم حفظ جهة الاتصال بنجاح', 'Contact saved successfully');
+        }
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Initialize with Arabic
+        updateRatingDisplay();
     </script>
 </body>
 </html>
