@@ -3,44 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flick Mobile - أحدث الهواتف والأجهزة الذكية</title>
+    <title>Flick Mobile - متجر الهواتف الذكية والأجهزة الإلكترونية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0077FF;
-            --primary-light: #4DA6FF;
-            --primary-dark: #0055CC;
-            --accent: #FF4081;
-            --gradient: linear-gradient(135deg, #0077FF 0%, #0055CC 100%);
-            --gradient-accent: linear-gradient(135deg, #0077FF 0%, #FF4081 100%);
-            --light-bg: #F5F9FF;
+            --primary: #FF6B35;
+            --primary-light: #FF8E5E;
+            --primary-dark: #E55A2B;
+            --accent: #2D5BFF;
+            --nfc-color: #9C27B0;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #FF8E5E 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #2D5BFF 100%);
+            --gradient-nfc: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            --light-bg: #FFF8F5;
             --light-card: #FFFFFF;
-            --dark-text: #1A1A2E;
-            --light-text: #6B7280;
-            --shadow: 0 10px 30px rgba(0, 119, 255, 0.15);
-            --shadow-lg: 0 20px 40px rgba(0, 119, 255, 0.25);
-            --border: 1px solid #E0EAFF;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+            --shadow-lg: 0 20px 40px rgba(255, 107, 53, 0.25);
+            --border: 1px solid #FFE8E0;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        html {
-            -webkit-text-size-adjust: 100%;
         }
         
         body {
+            font-family: 'Cairo', 'Inter', sans-serif;
             background: var(--light-bg);
             color: var(--dark-text);
             min-height: 100vh;
             line-height: 1.7;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+        }
+        
+        .english-text {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
         }
         
         a {
@@ -54,15 +58,44 @@
             padding: 0 20px;
         }
         
-        /* Header */
-        .main-header {
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: white;
+            border-radius: 25px;
+            padding: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 5px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background: transparent;
+            color: var(--light-text);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
             background: var(--gradient);
             color: white;
-            padding: 15px 0;
+        }
+        
+        /* Header */
+        .main-header {
+            background: white;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 85, 204, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .header-content {
@@ -77,35 +110,26 @@
             gap: 15px;
         }
         
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--primary);
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        .logo-img {
+            height: 60px;
+            width: auto;
         }
         
         .brand-name {
             font-size: 1.8rem;
             font-weight: 800;
-            color: white;
+            color: var(--primary);
         }
         
         .brand-tagline {
             font-size: 0.9rem;
-            opacity: 0.9;
+            color: var(--light-text);
             margin-top: 2px;
         }
         
         .contact-header {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
         }
         
@@ -113,20 +137,30 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--light-bg);
             padding: 10px 18px;
             border-radius: 25px;
             transition: all 0.3s ease;
+            color: var(--dark-text);
         }
         
         .header-contact:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--primary);
+            color: white;
+        }
+        
+        .header-contact:hover i {
+            color: white;
+        }
+        
+        .header-contact i {
+            color: var(--primary);
         }
         
         /* Hero Section */
         .hero-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(0, 119, 255, 0.1) 0%, rgba(255, 64, 129, 0.05) 100%);
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(45, 91, 255, 0.05) 100%);
             text-align: center;
         }
         
@@ -154,35 +188,188 @@
             margin-right: auto;
         }
         
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 60px;
-            flex-wrap: wrap;
+        /* NFC Card Section */
+        .nfc-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.05) 100%);
         }
         
-        .feature-item {
+        .nfc-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(156, 39, 176, 0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 3px solid var(--nfc-color);
+        }
+        
+        .nfc-content {
+            padding: 60px 50px;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .nfc-image {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .nfc-icon {
+            font-size: 8rem;
+            color: white;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .nfc-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-nfc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nfc-description {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .nfc-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .nfc-features li {
+            padding: 10px 0;
+            color: var(--dark-text);
+            position: relative;
+            padding-right: 35px;
+            font-weight: 500;
+        }
+        
+        .nfc-features li:before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--nfc-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
+            background: rgba(156, 39, 176, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nfc-button {
+            display: inline-flex;
             align-items: center;
             gap: 15px;
-            padding: 20px;
-            background: white;
+            background: var(--gradient-nfc);
+            color: white;
+            padding: 18px 35px;
             border-radius: 15px;
-            box-shadow: var(--shadow);
-            min-width: 250px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(156, 39, 176, 0.3);
         }
         
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: var(--gradient);
+        .nfc-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(156, 39, 176, 0.4);
+        }
+        
+        .nfc-button i {
+            font-size: 1.5rem;
+        }
+        
+        /* Rating Section */
+        .rating-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .rating-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .rating-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .rating-star {
+            color: #FFD700;
+            font-size: 2.5rem;
+        }
+        
+        .rating-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .rating-count {
+            color: var(--light-text);
+            margin-bottom: 30px;
+        }
+        
+        .rating-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .rating-platform {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--light-bg);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .rating-platform:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
         
         /* Brands Section */
@@ -277,7 +464,7 @@
         .product-image {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e1eeff 100%);
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -286,7 +473,7 @@
         
         .product-image i {
             font-size: 5rem;
-            color: var(--primary-light);
+            color: var(--primary);
         }
         
         .product-content {
@@ -295,7 +482,7 @@
         
         .product-category {
             display: inline-block;
-            background: rgba(0, 119, 255, 0.1);
+            background: rgba(255, 107, 53, 0.1);
             color: var(--primary);
             padding: 5px 15px;
             border-radius: 20px;
@@ -381,7 +568,7 @@
         /* Contact Section */
         .contact-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, rgba(0, 119, 255, 0.05) 0%, rgba(255, 64, 129, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(45, 91, 255, 0.05) 100%);
         }
         
         .contact-grid {
@@ -409,11 +596,17 @@
             background: var(--light-bg);
             border-radius: 12px;
             transition: all 0.3s ease;
+            color: var(--dark-text);
         }
         
         .contact-item:hover {
-            background: rgba(0, 119, 255, 0.1);
+            background: var(--primary);
+            color: white;
             transform: translateY(-2px);
+        }
+        
+        .contact-item:hover i {
+            color: white;
         }
         
         .contact-item i {
@@ -472,15 +665,15 @@
         }
         
         .footer-logo {
-            font-size: 2rem;
-            font-weight: 800;
+            height: 50px;
+            width: auto;
             margin-bottom: 20px;
-            display: block;
         }
         
         .footer-about {
             opacity: 0.9;
             line-height: 1.8;
+            font-size: 0.95rem;
         }
         
         .footer-title {
@@ -536,6 +729,24 @@
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
         
         /* Responsive */
+        @media (max-width: 992px) {
+            .nfc-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .nfc-content {
+                padding: 40px 30px;
+            }
+            
+            .nfc-image {
+                padding: 30px;
+            }
+            
+            .nfc-icon {
+                font-size: 6rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -551,16 +762,21 @@
                 gap: 10px;
             }
             
-            .feature-item {
-                min-width: 100%;
-            }
-            
             .brands-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .language-switcher {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .nfc-title {
+                font-size: 1.8rem;
             }
         }
         
@@ -580,19 +796,42 @@
             .hero-title {
                 font-size: 2rem;
             }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .nfc-content {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('ar')">العربية</button>
+        <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+    </div>
+
     <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <div class="logo">FM</div>
+                    <img src="https://i.imgur.com/fbB8XKv.png" alt="Flick Mobile Logo" class="logo-img">
                     <div>
                         <div class="brand-name">Flick Mobile</div>
-                        <div class="brand-tagline">أحدث الهواتف والأجهزة الذكية</div>
+                        <div class="brand-tagline">متجر الهواتف الذكية والأجهزة الإلكترونية</div>
                     </div>
                 </div>
                 
@@ -610,366 +849,784 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section fade-in">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Flick Mobile</h1>
-                <p class="hero-subtitle">
-                    وجهتك الأولى لأحدث الهواتف الذكية والأجهزة الإلكترونية بأفضل الأسعار. 
-                    نوفر لكم مجموعة واسعة من المنتجات والخدمات التقنية مع ضمان الجودة والتميز في الخدمة.
+    <!-- Arabic Content -->
+    <div id="ar-content" class="lang-content active">
+        <!-- Hero Section -->
+        <section class="hero-section fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Flick Mobile</h1>
+                    <p class="hero-subtitle">
+                        وجهتك الأولى لأحدث الهواتف الذكية والأجهزة الإلكترونية. 
+                        نوفر لكم مجموعة واسعة من المنتجات والخدمات التقنية مع ضمان الجودة والتميز في الخدمة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NFC Card Section -->
+        <section class="nfc-section fade-in delay-1">
+            <div class="container">
+                <div class="nfc-card">
+                    <div class="nfc-content">
+                        <h2 class="nfc-title">NFC CARD Request</h2>
+                        <p class="nfc-description">
+                            اطلب بطاقة NFC المميزة الآن! بطاقة ذكية تعمل بتقنية NFC المتطورة، 
+                            تمكنك من مشاركة معلوماتك بسهولة وسرعة مع الأجهزة الذكية.
+                        </p>
+                        
+                        <ul class="nfc-features">
+                            <li>تكنولوجيا NFC المتقدمة</li>
+                            <li>تصميم أنيق وعصري</li>
+                            <li>سهولة مشاركة المعلومات</li>
+                            <li>متوافقة مع جميع الأجهزة الذكية</li>
+                            <li>خيارات تخصيص متعددة</li>
+                            <li>تسليم سريع لكافة المناطق</li>
+                        </ul>
+                        
+                        <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" class="nfc-button" target="_blank">
+                            <i class="fas fa-shopping-cart"></i>
+                            طلب بطاقة NFC الآن
+                        </a>
+                    </div>
+                    
+                    <div class="nfc-image">
+                        <i class="fas fa-id-card nfc-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rating Section -->
+        <section class="rating-section fade-in delay-2">
+            <div class="container">
+                <div class="rating-container">
+                    <h2 class="rating-title">تقييم متجرنا</h2>
+                    <div class="rating-stars">
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star-half-alt rating-star"></i>
+                    </div>
+                    <div class="rating-value">4.7</div>
+                    <div class="rating-count">بناءً على 347 تقييم</div>
+                    
+                    <div class="rating-platforms">
+                        <div class="rating-platform">
+                            <i class="fab fa-google" style="color: #4285F4;"></i>
+                            <span>جوجل</span>
+                        </div>
+                        <div class="rating-platform">
+                            <i class="fab fa-facebook" style="color: #1877F2;"></i>
+                            <span>فيسبوك</span>
+                        </div>
+                        <div class="rating-platform">
+                            <i class="fab fa-instagram" style="color: #E4405F;"></i>
+                            <span>انستجرام</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section fade-in delay-3">
+            <div class="container">
+                <h2 class="section-title">العلامات التجارية</h2>
+                <p style="color: var(--light-text); max-width: 700px; margin: 0 auto 40px;">
+                    نتعامل مع أشهر العلامات التجارية العالمية في مجال الهواتف والأجهزة الذكية
                 </p>
                 
-                <div class="hero-features">
-                    <div class="feature-item fade-in delay-1">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                <div class="brands-grid">
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fab fa-apple"></i>
                         </div>
-                        <div>
-                            <div style="font-weight: 700;">ضمان حقيقي</div>
-                            <div style="font-size: 0.9rem; color: var(--light-text);">ضمان على جميع المنتجات</div>
+                        <div style="font-weight: 700;">Apple</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">آيفون، آيباد، أجهزة أبل</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div style="font-weight: 700;">Samsung</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">جالاكسي، أجهزة سامسونج</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div style="font-weight: 700;">Xiaomi</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">هواتف شاومي وأجهزتها</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <div style="font-weight: 700;">Huawei</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">هواوي وموديلاتها</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div style="font-weight: 700;">Oppo</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">أوبو وريلمي</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div style="font-weight: 700;">إكسسوارات</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">إكسسوارات متنوعة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section fade-in delay-1">
+            <div class="container">
+                <h2 class="section-title">منتجاتنا المميزة</h2>
+                <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    اكتشف مجموعة واسعة من الهواتف الذكية والأجهزة التقنية بأفضل المواصفات
+                </p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">هواتف ذكية</span>
+                            <h3 class="product-name">هواتف أندرويد</h3>
+                            <ul class="product-features">
+                                <li>أحدث الموديلات</li>
+                                <li>مواصفات عالية</li>
+                                <li>ضمان حقيقي</li>
+                                <li>دعم فني متكامل</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <div class="feature-item fade-in delay-2">
-                        <div class="feature-icon">
-                            <i class="fas fa-truck"></i>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fab fa-apple"></i>
                         </div>
-                        <div>
-                            <div style="font-weight: 700;">توصيل سريع</div>
-                            <div style="font-size: 0.9rem; color: var(--light-text);">توصيل لكافة مناطق المملكة</div>
+                        <div class="product-content">
+                            <span class="product-category">أجهزة أبل</span>
+                            <h3 class="product-name">آيفون وآيباد</h3>
+                            <ul class="product-features">
+                                <li>جميع موديلات آيفون</li>
+                                <li>أجهزة آيباد</li>
+                                <li>أجهزة أبل الأصلية</li>
+                                <li>إكسسوارات أبل</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <div class="feature-item fade-in delay-3">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-tablet-alt"></i>
                         </div>
-                        <div>
-                            <div style="font-weight: 700;">دعم فني</div>
-                            <div style="font-size: 0.9rem; color: var(--light-text);">دعم فني متواصل</div>
+                        <div class="product-content">
+                            <span class="product-category">أجهزة لوحية</span>
+                            <h3 class="product-name">تابلت وأيباد</h3>
+                            <ul class="product-features">
+                                <li>أجهزة لوحية متنوعة</li>
+                                <li>شاشات عالية الجودة</li>
+                                <li>بطاريات طويلة الأمد</li>
+                                <li>لجميع الاستخدامات</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">إكسسوارات</span>
+                            <h3 class="product-name">إكسسوارات متنوعة</h3>
+                            <ul class="product-features">
+                                <li>سماعات رأس</li>
+                                <li>شواحن وسلك</li>
+                                <li>أغطية وحافظات</li>
+                                <li>شاشات حماية</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Brands Section -->
-    <section class="brands-section fade-in delay-1">
-        <div class="container">
-            <h2 class="section-title">العلامات التجارية</h2>
-            <p style="color: var(--light-text); max-width: 700px; margin: 0 auto 40px;">
-                نتعامل مع أشهر العلامات التجارية العالمية في مجال الهواتف والأجهزة الذكية
-            </p>
-            
-            <div class="brands-grid">
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <div style="font-weight: 700;">Apple</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">آيفون، آيباد، أجهزة أبل</div>
-                </div>
+        <!-- Services Section -->
+        <section class="services-section fade-in delay-2">
+            <div class="container">
+                <h2 class="section-title">خدماتنا</h2>
+                <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    نقدم لكم مجموعة متكاملة من الخدمات التقنية لضمان رضاكم وتلبية جميع احتياجاتكم
+                </p>
                 
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div style="font-weight: 700;">Samsung</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">جالاكسي، أجهزة سامسونج</div>
-                </div>
-                
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div style="font-weight: 700;">Xiaomi</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">هواتف شاومي وأجهزتها</div>
-                </div>
-                
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fas fa-tablet-alt"></i>
-                    </div>
-                    <div style="font-weight: 700;">Huawei</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">هواوي وموديلاتها</div>
-                </div>
-                
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div style="font-weight: 700;">Oppo</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">أوبو وريلمي</div>
-                </div>
-                
-                <div class="brand-card">
-                    <div class="brand-logo">
-                        <i class="fas fa-headphones"></i>
-                    </div>
-                    <div style="font-weight: 700;">Accessories</div>
-                    <div style="font-size: 0.9rem; color: var(--light-text);">إكسسوارات متنوعة</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section fade-in delay-2">
-        <div class="container">
-            <h2 class="section-title">منتجاتنا المميزة</h2>
-            <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
-                اكتشف مجموعة واسعة من الهواتف الذكية والأجهزة التقنية بأفضل المواصفات والأسعار
-            </p>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">هواتف ذكية</span>
-                        <h3 class="product-name">هواتف أندرويد</h3>
-                        <ul class="product-features">
-                            <li>أحدث الموديلات</li>
-                            <li>مواصفات عالية</li>
-                            <li>أسعار تنافسية</li>
-                            <li>ضمان حقيقي</li>
-                        </ul>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                            <span style="font-weight: 700; color: var(--accent);">أسعار تبدأ من 150 دينار</span>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
+                        <h3 class="service-name">بيع أجهزة جديدة</h3>
+                        <p>نوفر لكم أحدث الهواتف الذكية والأجهزة اللوحية بمواصفات عالية وأسعار تنافسية مع ضمان حقيقي.</p>
                     </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">أجهزة أبل</span>
-                        <h3 class="product-name">آيفون وآيباد</h3>
-                        <ul class="product-features">
-                            <li>جميع موديلات آيفون</li>
-                            <li>أجهزة آيباد</li>
-                            <li>أجهزة أبل الأصلية</li>
-                            <li>إكسسوارات أبل</li>
-                        </ul>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                            <span style="font-weight: 700; color: var(--accent);">متنوعة الأسعار</span>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
                         </div>
+                        <h3 class="service-name">تبديل الأجهزة</h3>
+                        <p>خدمة تبديل الأجهزة المستعملة بأجهزة جديدة أو مستعملة بحالة جيدة مع تقييم عادل لجهازك.</p>
                     </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-tablet-alt"></i>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">أجهزة لوحية</span>
-                        <h3 class="product-name">تابلت وأيباد</h3>
-                        <ul class="product-features">
-                            <li>أجهزة لوحية متنوعة</li>
-                            <li>شاشات عالية الجودة</li>
-                            <li>بطاريات طويلة الأمد</li>
-                            <li>لجميع الاستخدامات</li>
-                        </ul>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                            <span style="font-weight: 700; color: var(--accent);">أسعار مناسبة</span>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-headphones"></i>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">إكسسوارات</span>
-                        <h3 class="product-name">إكسسوارات متنوعة</h3>
-                        <ul class="product-features">
-                            <li>سماعات رأس</li>
-                            <li>شواحن وسلك</li>
-                            <li>أغطية وحافظات</li>
-                            <li>شاشات حماية</li>
-                        </ul>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                            <span style="font-weight: 700; color: var(--accent);">أسعار مميزة</span>
-                        </div>
+                        <h3 class="service-name">صيانة وإصلاح</h3>
+                        <p>صيانة وإصلاح جميع أنواع الهواتف والأجهزة الذكية بكوادر فنية متخصصة وأسعار معقولة.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section class="services-section fade-in delay-3">
-        <div class="container">
-            <h2 class="section-title">خدماتنا</h2>
-            <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
-                نقدم لكم مجموعة متكاملة من الخدمات التقنية لضمان رضاكم وتلبية جميع احتياجاتكم
-            </p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
+        <!-- Contact Section -->
+        <section class="contact-section fade-in delay-3">
+            <div class="container">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    نحن دائماً على استعداد لخدمتكم والرد على استفساراتكم في أي وقت
+                </p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">معلومات الاتصال</h3>
+                        
+                        <a href="tel:0790777900" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0790777900</span>
+                        </a>
+                        
+                        <a href="https://wa.me/962790777900" class="contact-item" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>واتساب: 0790777900</span>
+                        </a>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>ساعات العمل: 9 صباحاً - 10 مساءً</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الأردن - جميع المحافظات</span>
+                        </div>
                     </div>
-                    <h3 class="service-name">بيع أجهزة جديدة</h3>
-                    <p>نوفر لكم أحدث الهواتف الذكية والأجهزة اللوحية بمواصفات عالية وأسعار تنافسية مع ضمان حقيقي.</p>
+                    
+                    <div class="contact-info-card">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">خدمة Cliq للتحويلات</h3>
+                        
+                        <div style="background: rgba(255, 107, 53, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                            <div style="font-weight: 700; margin-bottom: 10px; color: var(--primary);">رقم Cliq الخاص بنا:</div>
+                            <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent);">FLICKJO1</div>
+                        </div>
+                        
+                        <p style="color: var(--light-text); line-height: 1.8;">
+                            يمكنكم التحويل لنا عبر خدمة Cliq باستخدام المعرف أعلاه، أو عبر الرقم المباشر: <strong>0790777900</strong>
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
+                <div class="social-section">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: var(--dark-text);">تابعنا على وسائل التواصل</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/15RKe8qGEtu/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/flick_express?igsh=dWJkZWxtNmdqenN6" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/962790777900" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:0790777900" class="social-icon">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/FFZcWyoFH3Njn8gk8?g_st=ipc" class="social-icon" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
                     </div>
-                    <h3 class="service-name">تبديل الأجهزة</h3>
-                    <p>خدمة تبديل الأجهزة المستعملة بأجهزة جديدة أو مستعملة بحالة جيدة مع تقييم عادل لجهازك.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="service-name">صيانة وإصلاح</h3>
-                    <p>صيانة وإصلاح جميع أنواع الهواتف والأجهزة الذكية بكوادر فنية متخصصة وأسعار معقولة.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="service-name">استشارات تقنية</h3>
-                    <p>نقدم استشارات تقنية مجانية لمساعدتك في اختيار الجهاز المناسب لاحتياجاتك وميزانيتك.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section fade-in delay-3">
-        <div class="container">
-            <h2 class="section-title">تواصل معنا</h2>
-            <p style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
-                نحن دائماً على استعداد لخدمتكم والرد على استفساراتكم في أي وقت
-            </p>
-            
-            <div class="contact-grid">
-                <div class="contact-info-card">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">معلومات الاتصال</h3>
-                    
-                    <a href="tel:0790777900" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>0790777900</span>
-                    </a>
-                    
-                    <a href="https://wa.me/962790777900" class="contact-item" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>واتساب: 0790777900</span>
-                    </a>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>ساعات العمل: 9 صباحاً - 10 مساءً</span>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        <img src="https://i.imgur.com/fbB8XKv.png" alt="Flick Mobile Logo" class="footer-logo">
+                        <p class="footer-about">
+                            وجهتك الأولى لأحدث الهواتف الذكية والأجهزة الإلكترونية في الأردن. 
+                            نقدم لكم أفضل المنتجات والخدمات التقنية مع ضمان الجودة والتميز في الخدمة.
+                        </p>
                     </div>
                     
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>الأردن - جميع المحافظات</span>
+                    <div>
+                        <h4 class="footer-title">روابط سريعة</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">الرئيسية</a></li>
+                            <li><a href="#nfc">بطاقة NFC</a></li>
+                            <li><a href="#products">المنتجات</a></li>
+                            <li><a href="#brands">العلامات التجارية</a></li>
+                            <li><a href="#services">الخدمات</a></li>
+                            <li><a href="#contact">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="footer-title">خدماتنا</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">بيع أجهزة جديدة</a></li>
+                            <li><a href="#">تبديل الأجهزة</a></li>
+                            <li><a href="#">صيانة وإصلاح</a></li>
+                            <li><a href="#">NFC CARD Request</a></li>
+                            <li><a href="#">خدمة Cliq للتحويل</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="footer-title">معلومات الاتصال</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-phone" style="margin-left: 8px;"></i> 0790777900</li>
+                            <li><i class="fab fa-whatsapp" style="margin-left: 8px;"></i> واتساب: 0790777900</li>
+                            <li><i class="fas fa-clock" style="margin-left: 8px;"></i> 9:00 ص - 10:00 م</li>
+                            <li><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> الأردن</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="contact-info-card">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">خدمة Cliq للتحويلات</h3>
-                    
-                    <div style="background: rgba(0, 119, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
-                        <div style="font-weight: 700; margin-bottom: 10px; color: var(--primary);">رقم Cliq الخاص بنا:</div>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent);">FLICKJO1</div>
-                    </div>
-                    
-                    <p style="color: var(--light-text); line-height: 1.8;">
-                        يمكنكم التحويل لنا عبر خدمة Cliq باستخدام المعرف أعلاه، أو عبر الرقم المباشر: <strong>0790777900</strong>
+                <div class="copyright">
+                    <p>© 2024 Flick Mobile. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- English Content -->
+    <div id="en-content" class="lang-content">
+        <!-- Hero Section -->
+        <section class="hero-section fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title english-text">Flick Mobile</h1>
+                    <p class="hero-subtitle english-text">
+                        Your premier destination for the latest smartphones and electronic devices.
+                        We offer a wide range of products and technical services with guaranteed quality and excellent service.
                     </p>
                 </div>
             </div>
-            
-            <div class="social-section">
-                <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: var(--dark-text);">تابعنا على وسائل التواصل</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/share/15RKe8qGEtu/?mibextid=wwXIfr" class="social-icon" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/flick_express?igsh=dWJkZWxtNmdqenN6" class="social-icon" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/962790777900" class="social-icon" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="tel:0790777900" class="social-icon">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="https://maps.app.goo.gl/FFZcWyoFH3Njn8gk8?g_st=ipc" class="social-icon" target="_blank">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">Flick Mobile</div>
-                    <p class="footer-about">
-                        وجهتك الأولى لأحدث الهواتف الذكية والأجهزة الإلكترونية في الأردن. 
-                        نقدم لكم أفضل المنتجات والخدمات التقنية مع ضمان الجودة والتميز في الخدمة.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="footer-title">روابط سريعة</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#products">المنتجات</a></li>
-                        <li><a href="#brands">العلامات التجارية</a></li>
-                        <li><a href="#services">الخدمات</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="footer-title">خدماتنا</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">بيع أجهزة جديدة</a></li>
-                        <li><a href="#">تبديل الأجهزة</a></li>
-                        <li><a href="#">صيانة وإصلاح</a></li>
-                        <li><a href="#">استشارات تقنية</a></li>
-                        <li><a href="#">خدمة Cliq للتحويل</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="footer-title">معلومات الاتصال</h4>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone" style="margin-left: 8px;"></i> 0790777900</li>
-                        <li><i class="fab fa-whatsapp" style="margin-left: 8px;"></i> واتساب: 0790777900</li>
-                        <li><i class="fas fa-clock" style="margin-left: 8px;"></i> 9:00 ص - 10:00 م</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> الأردن</li>
-                    </ul>
+        <!-- NFC Card Section -->
+        <section class="nfc-section fade-in delay-1">
+            <div class="container">
+                <div class="nfc-card">
+                    <div class="nfc-content">
+                        <h2 class="nfc-title english-text">NFC CARD Request</h2>
+                        <p class="nfc-description english-text">
+                            Order your exclusive NFC Card now! A smart card using advanced NFC technology,
+                            allowing you to share your information easily and quickly with smart devices.
+                        </p>
+                        
+                        <ul class="nfc-features english-text">
+                            <li>Advanced NFC Technology</li>
+                            <li>Elegant and Modern Design</li>
+                            <li>Easy Information Sharing</li>
+                            <li>Compatible with All Smart Devices</li>
+                            <li>Multiple Customization Options</li>
+                            <li>Fast Delivery to All Areas</li>
+                        </ul>
+                        
+                        <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" class="nfc-button" target="_blank">
+                            <i class="fas fa-shopping-cart"></i>
+                            Order NFC Card Now
+                        </a>
+                    </div>
+                    
+                    <div class="nfc-image">
+                        <i class="fas fa-id-card nfc-icon"></i>
+                    </div>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p>© 2024 Flick Mobile. جميع الحقوق محفوظة.</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">تصميم وتطوير لخدمة عملائنا الكرام</p>
+        </section>
+
+        <!-- Rating Section -->
+        <section class="rating-section fade-in delay-2">
+            <div class="container">
+                <div class="rating-container">
+                    <h2 class="rating-title english-text">Store Rating</h2>
+                    <div class="rating-stars">
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star rating-star"></i>
+                        <i class="fas fa-star-half-alt rating-star"></i>
+                    </div>
+                    <div class="rating-value">4.7</div>
+                    <div class="rating-count english-text">Based on 347 reviews</div>
+                    
+                    <div class="rating-platforms">
+                        <div class="rating-platform">
+                            <i class="fab fa-google" style="color: #4285F4;"></i>
+                            <span class="english-text">Google</span>
+                        </div>
+                        <div class="rating-platform">
+                            <i class="fab fa-facebook" style="color: #1877F2;"></i>
+                            <span class="english-text">Facebook</span>
+                        </div>
+                        <div class="rating-platform">
+                            <i class="fab fa-instagram" style="color: #E4405F;"></i>
+                            <span class="english-text">Instagram</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section fade-in delay-3">
+            <div class="container">
+                <h2 class="section-title english-text">Brands</h2>
+                <p class="english-text" style="color: var(--light-text); max-width: 700px; margin: 0 auto 40px;">
+                    We work with the most famous global brands in smartphones and smart devices
+                </p>
+                
+                <div class="brands-grid">
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Apple</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">iPhone, iPad, Apple devices</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Samsung</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">Galaxy, Samsung devices</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Xiaomi</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">Xiaomi phones and devices</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Huawei</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">Huawei and its models</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Oppo</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">Oppo and Realme</div>
+                    </div>
+                    
+                    <div class="brand-card">
+                        <div class="brand-logo">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="english-text" style="font-weight: 700;">Accessories</div>
+                        <div class="english-text" style="font-size: 0.9rem; color: var(--light-text);">Various accessories</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section fade-in delay-1">
+            <div class="container">
+                <h2 class="section-title english-text">Our Products</h2>
+                <p class="english-text" style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    Discover a wide range of smartphones and technical devices with the best specifications
+                </p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category english-text">Smartphones</span>
+                            <h3 class="product-name english-text">Android Phones</h3>
+                            <ul class="product-features english-text">
+                                <li>Latest models</li>
+                                <li>High specifications</li>
+                                <li>Real warranty</li>
+                                <li>Complete technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category english-text">Apple Devices</span>
+                            <h3 class="product-name english-text">iPhone & iPad</h3>
+                            <ul class="product-features english-text">
+                                <li>All iPhone models</li>
+                                <li>iPad devices</li>
+                                <li>Original Apple devices</li>
+                                <li>Apple accessories</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category english-text">Tablets</span>
+                            <h3 class="product-name english-text">Tablets & iPads</h3>
+                            <ul class="product-features english-text">
+                                <li>Various tablet devices</li>
+                                <li>High-quality screens</li>
+                                <li>Long-lasting batteries</li>
+                                <li>For all uses</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category english-text">Accessories</span>
+                            <h3 class="product-name english-text">Various Accessories</h3>
+                            <ul class="product-features english-text">
+                                <li>Headphones</li>
+                                <li>Chargers and cables</li>
+                                <li>Covers and cases</li>
+                                <li>Screen protectors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section fade-in delay-2">
+            <div class="container">
+                <h2 class="section-title english-text">Our Services</h2>
+                <p class="english-text" style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    We provide a comprehensive range of technical services to ensure your satisfaction
+                </p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="service-name english-text">New Device Sales</h3>
+                        <p class="english-text">We provide the latest smartphones and tablets with high specifications and competitive prices with real warranty.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="service-name english-text">Device Exchange</h3>
+                        <p class="english-text">Service for exchanging used devices for new or good-condition used devices with fair evaluation of your device.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="service-name english-text">Maintenance & Repair</h3>
+                        <p class="english-text">Maintenance and repair of all types of phones and smart devices with specialized technical teams and reasonable prices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section fade-in delay-3">
+            <div class="container">
+                <h2 class="section-title english-text">Contact Us</h2>
+                <p class="english-text" style="color: var(--light-text); text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    We are always ready to serve you and answer your inquiries at any time
+                </p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <h3 class="english-text" style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">Contact Information</h3>
+                        
+                        <a href="tel:0790777900" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span class="english-text">0790777900</span>
+                        </a>
+                        
+                        <a href="https://wa.me/962790777900" class="contact-item" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="english-text">WhatsApp: 0790777900</span>
+                        </a>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="english-text">Working Hours: 9 AM - 10 PM</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="english-text">Jordan - All Governorates</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <h3 class="english-text" style="font-size: 1.4rem; margin-bottom: 30px; color: var(--dark-text);">Cliq Transfer Service</h3>
+                        
+                        <div style="background: rgba(255, 107, 53, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                            <div class="english-text" style="font-weight: 700; margin-bottom: 10px; color: var(--primary);">Our Cliq ID:</div>
+                            <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent);">FLICKJO1</div>
+                        </div>
+                        
+                        <p class="english-text" style="color: var(--light-text); line-height: 1.8;">
+                            You can transfer to us via Cliq service using the above ID, or via direct number: <strong>0790777900</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="social-section">
+                    <h3 class="english-text" style="font-size: 1.4rem; margin-bottom: 20px; color: var(--dark-text);">Follow us on social media</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/15RKe8qGEtu/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/flick_express?igsh=dWJkZWxtNmdqenN6" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/962790777900" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:0790777900" class="social-icon">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/FFZcWyoFH3Njn8gk8?g_st=ipc" class="social-icon" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        <img src="https://i.imgur.com/fbB8XKv.png" alt="Flick Mobile Logo" class="footer-logo">
+                        <p class="footer-about english-text">
+                            Your premier destination for the latest smartphones and electronic devices in Jordan.
+                            We provide the best products and technical services with guaranteed quality and excellent service.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="footer-title english-text">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="english-text">Home</a></li>
+                            <li><a href="#nfc" class="english-text">NFC Card</a></li>
+                            <li><a href="#products" class="english-text">Products</a></li>
+                            <li><a href="#brands" class="english-text">Brands</a></li>
+                            <li><a href="#services" class="english-text">Services</a></li>
+                            <li><a href="#contact" class="english-text">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="footer-title english-text">Our Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="english-text">New Device Sales</a></li>
+                            <li><a href="#" class="english-text">Device Exchange</a></li>
+                            <li><a href="#" class="english-text">Maintenance & Repair</a></li>
+                            <li><a href="#" class="english-text">NFC CARD Request</a></li>
+                            <li><a href="#" class="english-text">Cliq Transfer Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="footer-title english-text">Contact Information</h4>
+                        <ul class="footer-links">
+                            <li class="english-text"><i class="fas fa-phone" style="margin-left: 8px;"></i> 0790777900</li>
+                            <li class="english-text"><i class="fab fa-whatsapp" style="margin-left: 8px;"></i> WhatsApp: 0790777900</li>
+                            <li class="english-text"><i class="fas fa-clock" style="margin-left: 8px;"></i> 9:00 AM - 10:00 PM</li>
+                            <li class="english-text"><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> Jordan</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p class="english-text">© 2024 Flick Mobile. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Language Switching
+        function switchLanguage(lang) {
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show selected language content
+            document.querySelectorAll('.lang-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update direction
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+            }
+            
+            // Scroll to top when changing language
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         // Add scroll animations
         document.addEventListener('DOMContentLoaded', function() {
             const fadeElements = document.querySelectorAll('.fade-in');
@@ -990,7 +1647,7 @@
             });
             
             // Add click effects to buttons
-            const buttons = document.querySelectorAll('.social-icon, .contact-item, .product-card');
+            const buttons = document.querySelectorAll('.social-icon, .contact-item, .product-card, .nfc-button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     if (this.tagName === 'A') {
@@ -998,6 +1655,23 @@
                         setTimeout(() => {
                             this.style.transform = '';
                         }, 150);
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
