@@ -101,101 +101,38 @@
             background: rgba(30, 64, 175, 0.3);
         }
         
-        /* Header Cover Slider */
-        .cover-slider {
+        /* Full Cover Image */
+        .full-cover {
             width: 100%;
             height: 500px;
             position: relative;
             overflow: hidden;
-            background: var(--dark-gradient);
         }
         
-        .slide {
+        .full-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .cover-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .slide.active {
-            opacity: 1;
-        }
-        
-        .slide-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-        }
-        
-        .slide-logo {
-            position: absolute;
-            max-width: 350px;
+        .cover-logo {
+            max-width: 400px;
             height: auto;
-            filter: drop-shadow(0 5px 25px rgba(30, 64, 175, 0.7));
+            filter: drop-shadow(0 5px 25px rgba(30, 64, 175, 0.8));
             z-index: 2;
-        }
-        
-        .slider-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .slider-dot.active {
-            background: var(--accent-light);
-            transform: scale(1.2);
-        }
-        
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(30, 64, 175, 0.5);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
-        
-        .slider-nav:hover {
-            background: var(--accent-light);
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        .slider-nav.prev {
-            right: 20px;
-        }
-        
-        .slider-nav.next {
-            left: 20px;
         }
         
         /* Header */
@@ -666,7 +603,7 @@
             transform: scale(1.05);
         }
         
-        /* Menu Slider Section */
+        /* Menu Image Slider Section */
         .menu-section {
             background: var(--light-card);
             margin: 40px auto;
@@ -691,111 +628,95 @@
             opacity: 0.1;
         }
         
-        .slider-container {
+        .image-slider-container {
             position: relative;
             margin: 30px 0;
-        }
-        
-        .slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            gap: 25px;
-            padding: 15px 5px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .slider::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .menu-item {
-            min-width: 300px;
-            background: #1A1A1A;
-            border-radius: 20px;
+            height: 400px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            border-radius: 20px;
             border: var(--blue-border);
-            transition: all 0.4s ease;
+        }
+        
+        .image-slider {
             position: relative;
+            width: 100%;
+            height: 100%;
         }
         
-        .menu-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), var(--glow);
-        }
-        
-        .menu-item:before {
-            content: '';
+        .menu-slide {
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--blue-gradient);
-            z-index: 2;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
         
-        .menu-item img {
+        .menu-slide.active {
+            opacity: 1;
+        }
+        
+        .menu-slide img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
         
-        .menu-item:hover img {
-            transform: scale(1.05);
+        .menu-slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
         }
         
-        .menu-item-content {
-            padding: 25px;
+        .menu-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .menu-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--accent-light);
-            font-weight: 700;
+        .menu-slider-dot.active {
+            background: var(--accent-light);
+            transform: scale(1.2);
         }
         
-        .menu-item p {
-            font-size: 1rem;
-            color: var(--light-text);
-            line-height: 1.6;
-        }
-        
-        .slider-btn {
+        .menu-slider-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             width: 60px;
             height: 60px;
-            background: var(--blue-gradient);
+            background: rgba(30, 64, 175, 0.7);
             color: white;
             border: none;
             border-radius: 50%;
             font-size: 1.4rem;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.5);
-            transition: all 0.3s ease;
-            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 3;
+            transition: all 0.3s ease;
         }
         
-        .slider-btn:hover {
-            transform: translateY(-50%) scale(1.15);
-            box-shadow: 0 12px 25px rgba(30, 64, 175, 0.7);
+        .menu-slider-nav:hover {
+            background: var(--accent-light);
+            transform: translateY(-50%) scale(1.1);
         }
         
-        .slider-btn.prev {
-            right: -30px;
+        .menu-slider-nav.prev {
+            right: 20px;
         }
         
-        .slider-btn.next {
-            left: -30px;
+        .menu-slider-nav.next {
+            left: 20px;
         }
         
         /* Customer Reviews Section */
@@ -1240,18 +1161,12 @@
                 font-size: 0.9rem;
             }
             
-            .cover-slider {
+            .full-cover {
                 height: 400px;
             }
             
-            .slide-logo {
-                max-width: 250px;
-            }
-            
-            .slider-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+            .cover-logo {
+                max-width: 300px;
             }
             
             .profile-name {
@@ -1288,22 +1203,14 @@
                 font-size: 1.5rem;
             }
             
-            .slider-btn {
+            .image-slider-container {
+                height: 300px;
+            }
+            
+            .menu-slider-nav {
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
-            }
-            
-            .slider-btn.prev {
-                right: -20px;
-            }
-            
-            .slider-btn.next {
-                left: -20px;
-            }
-            
-            .menu-item, .category-card {
-                min-width: 270px;
             }
             
             .categories-grid {
@@ -1321,12 +1228,12 @@
         }
         
         @media (max-width: 480px) {
-            .cover-slider {
+            .full-cover {
                 height: 300px;
             }
             
-            .slide-logo {
-                max-width: 200px;
+            .cover-logo {
+                max-width: 250px;
             }
             
             .profile-name {
@@ -1350,6 +1257,10 @@
             .category-img {
                 height: 120px;
             }
+            
+            .image-slider-container {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -1360,30 +1271,11 @@
         <button class="lang-btn" onclick="changeLanguage('en')">English</button>
     </div>
     
-    <!-- Cover Image Slider -->
-    <div class="cover-slider fade-in">
-        <div class="slide active">
-            <img src="https://i.imgur.com/8tFQU5m.png" alt="Zasty Logo" class="slide-img">
-            <img src="https://i.imgur.com/8tFQU5m.png" alt="Zasty Logo" class="slide-logo">
-        </div>
-        <div class="slide">
-            <img src="https://i.imgur.com/ciyRrTl.png" alt="Zasty Food" class="slide-img">
-        </div>
-        <div class="slide">
-            <img src="https://i.imgur.com/bYslIFg.png" alt="Zasty Menu" class="slide-img">
-        </div>
-        
-        <button class="slider-nav prev" onclick="prevSlide()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        <button class="slider-nav next" onclick="nextSlide()">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        
-        <div class="slider-controls">
-            <div class="slider-dot active" onclick="goToSlide(0)"></div>
-            <div class="slider-dot" onclick="goToSlide(1)"></div>
-            <div class="slider-dot" onclick="goToSlide(2)"></div>
+    <!-- Full Cover Image -->
+    <div class="full-cover fade-in">
+        <img src="https://i.imgur.com/8tFQU5m.png" alt="Zasty Cover" class="full-cover-img">
+        <div class="cover-overlay">
+            <img src="https://i.imgur.com/8tFQU5m.png" alt="Zasty Logo" class="cover-logo">
         </div>
     </div>
     
@@ -1539,52 +1431,53 @@
             </div>
         </div>
 
-        <!-- Menu Slider Section -->
+        <!-- Menu Image Slider Section -->
         <div class="menu-section fade-in delay-2">
             <h2 class="section-title" data-ar="قائمة الطعام" data-en="Our Menu">قائمة الطعام</h2>
-            <div class="slider-container">
-                <button class="slider-btn prev" onclick="scrollSlider(-1)">
+            
+            <div class="image-slider-container">
+                <div class="image-slider">
+                    <!-- Menu Slide 1 -->
+                    <div class="menu-slide active">
+                        <img src="https://i.imgur.com/bYslIFg.png" alt="Menu Item 1">
+                    </div>
+                    
+                    <!-- Menu Slide 2 -->
+                    <div class="menu-slide">
+                        <img src="https://i.imgur.com/LyCsC3D.png" alt="Menu Item 2">
+                    </div>
+                    
+                    <!-- Menu Slide 3 -->
+                    <div class="menu-slide">
+                        <img src="https://i.imgur.com/PAFgjuD.png" alt="Menu Item 3">
+                    </div>
+                    
+                    <!-- Menu Slide 4 -->
+                    <div class="menu-slide">
+                        <img src="https://i.imgur.com/9iMzv9o.png" alt="Menu Item 4">
+                    </div>
+                    
+                    <!-- Menu Slide 5 -->
+                    <div class="menu-slide">
+                        <img src="https://i.imgur.com/MOl1ZVp.png" alt="Menu Item 5">
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="menu-slider-nav prev" onclick="prevMenuSlide()">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-                <button class="slider-btn next" onclick="scrollSlider(1)">
+                <button class="menu-slider-nav next" onclick="nextMenuSlide()">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="slider" id="menuSlider">
-                    <div class="menu-item">
-                        <img src="https://i.imgur.com/bYslIFg.png" alt="Menu Item 1">
-                        <div class="menu-item-content">
-                            <h3 data-ar="وافل بلجيكي مميز" data-en="Special Belgian Waffle">وافل بلجيكي مميز</h3>
-                            <p data-ar="وافل مقرمش مع توبينغات فاخرة" data-en="Crispy waffle with premium toppings">وافل مقرمش مع توبينغات فاخرة</p>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://i.imgur.com/LyCsC3D.png" alt="Menu Item 2">
-                        <div class="menu-item-content">
-                            <h3 data-ar="كوكتيلات الصيف" data-en="Summer Cocktails">كوكتيلات الصيف</h3>
-                            <p data-ar="كوكتيلات منعشة مع فواكه طازجة" data-en="Refreshing cocktails with fresh fruits">كوكتيلات منعشة مع فواكه طازجة</p>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://i.imgur.com/PAFgjuD.png" alt="Menu Item 3">
-                        <div class="menu-item-content">
-                            <h3 data-ar="حلويات بيتية" data-en="Homemade Desserts">حلويات بيتية</h3>
-                            <p data-ar="حلويات طازجة محضرة يوميًا" data-en="Fresh desserts prepared daily">حلويات طازجة محضرة يوميًا</p>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://i.imgur.com/9iMzv9o.png" alt="Menu Item 4">
-                        <div class="menu-item-content">
-                            <h3 data-ar="مشروبات باردة" data-en="Cold Drinks">مشروبات باردة</h3>
-                            <p data-ar="تشكيلة من المشروبات المنعشة" data-en="Variety of refreshing drinks">تشكيلة من المشروبات المنعشة</p>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://i.imgur.com/MOl1ZVp.png" alt="Menu Item 5">
-                        <div class="menu-item-content">
-                            <h3 data-ar="قهوة مميزة" data-en="Special Coffee">قهوة مميزة</h3>
-                            <p data-ar="أجود أنواع القهوة الإيطالية" data-en="Finest Italian coffee types">أجود أنواع القهوة الإيطالية</p>
-                        </div>
-                    </div>
+                
+                <!-- Dots -->
+                <div class="menu-slider-controls">
+                    <div class="menu-slider-dot active" onclick="goToMenuSlide(0)"></div>
+                    <div class="menu-slider-dot" onclick="goToMenuSlide(1)"></div>
+                    <div class="menu-slider-dot" onclick="goToMenuSlide(2)"></div>
+                    <div class="menu-slider-dot" onclick="goToMenuSlide(3)"></div>
+                    <div class="menu-slider-dot" onclick="goToMenuSlide(4)"></div>
                 </div>
             </div>
         </div>
@@ -1770,35 +1663,35 @@
             document.title = lang === 'ar' ? 'Zasty Coffee & Waffle' : 'Zasty Coffee & Waffle';
         }
         
-        // Cover Slider functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
+        // Menu Image Slider functionality
+        let currentMenuSlide = 0;
+        const menuSlides = document.querySelectorAll('.menu-slide');
+        const menuDots = document.querySelectorAll('.menu-slider-dot');
         
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+        function showMenuSlide(n) {
+            menuSlides.forEach(slide => slide.classList.remove('active'));
+            menuDots.forEach(dot => dot.classList.remove('active'));
             
-            currentSlide = (n + slides.length) % slides.length;
+            currentMenuSlide = (n + menuSlides.length) % menuSlides.length;
             
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
+            menuSlides[currentMenuSlide].classList.add('active');
+            menuDots[currentMenuSlide].classList.add('active');
         }
         
-        function nextSlide() {
-            showSlide(currentSlide + 1);
+        function nextMenuSlide() {
+            showMenuSlide(currentMenuSlide + 1);
         }
         
-        function prevSlide() {
-            showSlide(currentSlide - 1);
+        function prevMenuSlide() {
+            showMenuSlide(currentMenuSlide - 1);
         }
         
-        function goToSlide(n) {
-            showSlide(n);
+        function goToMenuSlide(n) {
+            showMenuSlide(n);
         }
         
-        // Auto slide every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Auto slide menu every 4 seconds
+        setInterval(nextMenuSlide, 4000);
         
         // Save Contact functionality
         function saveContact() {
@@ -1846,13 +1739,6 @@ END:VCARD`;
             document.getElementById('star1').checked = true;
         });
         
-        // Menu Slider functionality
-        function scrollSlider(direction) {
-            const slider = document.getElementById('menuSlider');
-            const scrollAmount = 300;
-            slider.scrollLeft += direction * scrollAmount;
-        }
-
         // Add click effects
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.social-icon, .action-button');
@@ -1865,21 +1751,11 @@ END:VCARD`;
                 });
             });
             
-            // Auto-scroll menu slider every 5 seconds
-            const menuSlider = document.getElementById('menuSlider');
-            setInterval(() => {
-                if (menuSlider.scrollLeft + menuSlider.clientWidth >= menuSlider.scrollWidth) {
-                    menuSlider.scrollLeft = 0;
-                } else {
-                    menuSlider.scrollLeft += 300;
-                }
-            }, 5000);
-            
             // Initialize language
             changeLanguage('ar');
             
-            // Initialize slider
-            showSlide(0);
+            // Initialize menu slider
+            showMenuSlide(0);
         });
     </script>
 </body>
