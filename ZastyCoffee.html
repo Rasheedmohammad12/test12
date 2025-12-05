@@ -28,6 +28,7 @@
             --border: 1px solid #1F2937;
             --blue-border: 1px solid #1E40AF;
             --glow: 0 0 20px rgba(59, 130, 246, 0.3);
+            --facebook-color: #1877F2;
         }
         
         * {
@@ -1032,28 +1033,51 @@
         .social-icons-grid {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto;
         }
         
         .social-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
+            width: 75px;
+            height: 75px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: var(--accent-light);
+            font-size: 1.8rem;
+            color: white;
             text-decoration: none;
             transition: all 0.4s ease;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            background: #1A1A1A;
             position: relative;
             border: var(--blue-border);
             overflow: hidden;
+        }
+        
+        .social-icon.facebook {
+            background: linear-gradient(135deg, #1877F2 0%, #0D5BB5 100%);
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #E4405F 0%, #C13584 100%);
+        }
+        
+        .social-icon.tiktok {
+            background: linear-gradient(135deg, #000000 0%, #25F4EE 100%);
+        }
+        
+        .social-icon.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        
+        .social-icon.map {
+            background: linear-gradient(135deg, #4285F4 0%, #0F9D58 100%);
+        }
+        
+        .social-icon.phone {
+            background: linear-gradient(135deg, #34B7F1 0%, #1E8BC3 100%);
         }
         
         .social-icon:before {
@@ -1063,7 +1087,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: var(--blue-gradient);
+            background: rgba(255, 255, 255, 0.2);
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 0;
@@ -1077,15 +1101,11 @@
         
         .social-icon:hover {
             transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), var(--glow);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2);
         }
         
         .social-icon:hover:before {
             opacity: 1;
-        }
-        
-        .social-icon:hover i {
-            color: white;
         }
         
         /* Action Buttons */
@@ -1461,9 +1481,13 @@
             }
             
             .social-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
+                width: 65px;
+                height: 65px;
+                font-size: 1.6rem;
+            }
+            
+            .social-icons-grid {
+                gap: 15px;
             }
             
             .nfc-button {
@@ -1498,9 +1522,13 @@
             }
             
             .social-icon {
-                width: 65px;
-                height: 65px;
-                font-size: 1.6rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .social-icons-grid {
+                gap: 12px;
             }
             
             .category-images {
@@ -1521,6 +1549,11 @@
             
             .nfc-card {
                 padding: 30px 20px;
+            }
+            
+            .action-buttons a {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -1868,19 +1901,22 @@
         <div class="social-section fade-in delay-3">
             <h2 class="social-title" data-ar="تابعنا على وسائل التواصل" data-en="Follow Us on Social Media">تابعنا على وسائل التواصل</h2>
             <div class="social-icons-grid">
-                <a href="https://www.instagram.com/zasty.jo?igsh=aWw5NXdrZGs3dm03" class="social-icon" target="_blank">
+                <a href="https://www.facebook.com/share/16cpGDvHih/?mibextid=wwXIfr" class="social-icon facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/zasty.jo?igsh=aWw5NXdrZGs3dm03" class="social-icon instagram" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.tiktok.com/@zasty83?_r=1&_t=ZS-91ui5ubNqQX" class="social-icon" target="_blank">
+                <a href="https://www.tiktok.com/@zasty83?_r=1&_t=ZS-91ui5ubNqQX" class="social-icon tiktok" target="_blank">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <a href="https://maps.app.goo.gl/mM4xX44S5rtiEc1v5?g_st=iw" class="social-icon" target="_blank">
+                <a href="https://maps.app.goo.gl/mM4xX44S5rtiEc1v5?g_st=iw" class="social-icon map" target="_blank">
                     <i class="fas fa-map-marked-alt"></i>
                 </a>
-                <a href="https://wa.me/962790717175" class="social-icon" target="_blank">
+                <a href="https://wa.me/962790717175" class="social-icon whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="tel:0790717175" class="social-icon">
+                <a href="tel:0790717175" class="social-icon phone">
                     <i class="fas fa-phone"></i>
                 </a>
             </div>
@@ -1891,6 +1927,10 @@
             <a href="https://maps.app.goo.gl/mM4xX44S5rtiEc1v5?g_st=iw" class="action-button primary" target="_blank">
                 <i class="fas fa-map-marked-alt"></i>
                 <span data-ar="الموقع على الخريطة" data-en="Location on Map">الموقع على الخريطة</span>
+            </a>
+            <a href="https://www.facebook.com/share/16cpGDvHih/?mibextid=wwXIfr" class="action-button" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+                <span data-ar="فيسبوك" data-en="Facebook">فيسبوك</span>
             </a>
             <a href="https://wa.me/962790717175" class="action-button" target="_blank">
                 <i class="fab fa-whatsapp"></i>
@@ -1911,6 +1951,7 @@
             <p class="footer-text" data-ar="هاتف: 0790717175" data-en="Phone: 0790717175">هاتف: <span class="footer-highlight">0790717175</span></p>
             
             <div class="footer-links">
+                <a href="https://www.facebook.com/share/16cpGDvHih/?mibextid=wwXIfr" class="footer-link" target="_blank" data-ar="فيسبوك" data-en="Facebook">فيسبوك</a>
                 <a href="https://www.instagram.com/zasty.jo" class="footer-link" target="_blank" data-ar="انستجرام" data-en="Instagram">انستجرام</a>
                 <a href="https://www.tiktok.com/@zasty83" class="footer-link" target="_blank" data-ar="تيك توك" data-en="TikTok">تيك توك</a>
                 <a href="https://wa.me/962790717175" class="footer-link" target="_blank" data-ar="واتساب" data-en="WhatsApp">واتساب</a>
@@ -2036,6 +2077,7 @@ TEL;TYPE=CELL:0790717175
 EMAIL:info@zasty.com
 ADR;TYPE=WORK:;;شفا بدران ـ الكوم ـ مقابل اسواق السلالة;;;;;
 URL:https://www.instagram.com/zasty.jo
+URL:https://www.facebook.com/share/16cpGDvHih/?mibextid=wwXIfr
 NOTE:أصنافنا مصنوعة بحب 💙
 END:VCARD`;
             
