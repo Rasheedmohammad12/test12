@@ -1166,6 +1166,134 @@
             font-size: 1.3rem;
         }
         
+        /* NFC Card Request Section */
+        .nfc-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 40px 30px;
+            border-radius: 25px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: var(--blue-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nfc-section:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background: var(--blue-gradient);
+            border-radius: 120px 0 0 0;
+            opacity: 0.1;
+        }
+        
+        .nfc-section:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--blue-gradient);
+            border-radius: 0 0 0 100px;
+            opacity: 0.05;
+        }
+        
+        .nfc-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nfc-card {
+            background: var(--dark-gradient);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 30px 0;
+            border: var(--blue-border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nfc-card:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(30, 64, 175, 0.15);
+            border-radius: 50%;
+        }
+        
+        .nfc-icon {
+            font-size: 3.5rem;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .nfc-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--light-text);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .nfc-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: var(--blue-gradient);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .nfc-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .nfc-button:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        .nfc-button:hover:before {
+            opacity: 1;
+        }
+        
+        .nfc-button i {
+            font-size: 1.4rem;
+        }
+        
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -1233,6 +1361,7 @@
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        .delay-4 { animation-delay: 0.8s; opacity: 0; }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -1336,6 +1465,15 @@
                 height: 70px;
                 font-size: 1.8rem;
             }
+            
+            .nfc-button {
+                padding: 16px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .nfc-icon {
+                font-size: 2.8rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1375,6 +1513,14 @@
             
             .menu-item {
                 height: 200px;
+            }
+            
+            .nfc-section {
+                padding: 30px 20px;
+            }
+            
+            .nfc-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -1577,19 +1723,19 @@
                     </div>
                 </div>
                 
-                <!-- Menu Item 4 -->
-                <div class="menu-item" onclick="openLightbox(3)">
-                    <div class="menu-number">4</div>
-                    <img src="https://i.imgur.com/9iMzv9o.png" alt="Menu Item 4">
+                <!-- Menu Item 5 (تم تبديله مع 4) -->
+                <div class="menu-item" onclick="openLightbox(4)">
+                    <div class="menu-number">5</div>
+                    <img src="https://i.imgur.com/MOl1ZVp.png" alt="Menu Item 5">
                     <div class="menu-item-overlay">
                         <small data-ar="انقر للتكبير" data-en="Click to enlarge">انقر للتكبير</small>
                     </div>
                 </div>
                 
-                <!-- Menu Item 5 -->
-                <div class="menu-item" onclick="openLightbox(4)">
-                    <div class="menu-number">5</div>
-                    <img src="https://i.imgur.com/MOl1ZVp.png" alt="Menu Item 5">
+                <!-- Menu Item 4 (تم تبديله مع 5) -->
+                <div class="menu-item" onclick="openLightbox(3)">
+                    <div class="menu-number">4</div>
+                    <img src="https://i.imgur.com/9iMzv9o.png" alt="Menu Item 4">
                     <div class="menu-item-overlay">
                         <small data-ar="انقر للتكبير" data-en="Click to enlarge">انقر للتكبير</small>
                     </div>
@@ -1695,6 +1841,29 @@
             </div>
         </div>
 
+        <!-- NFC CARD Request Section -->
+        <div class="nfc-section fade-in delay-4">
+            <div class="nfc-content">
+                <h2 class="section-title" data-ar="NFC CARD Request" data-en="NFC CARD Request">NFC CARD Request</h2>
+                <div class="nfc-text" data-ar="اطلب بطاقة NFC مخصصة لمطعمك أو عملك الآن! تواصل معنا للحصول على بطاقة ذكية تعمل بتقنية اللمس لتسهيل الوصول إلى معلوماتك وخدماتك." data-en="Request a custom NFC card for your restaurant or business now! Contact us to get a smart touch-enabled card to easily access your information and services.">
+                    اطلب بطاقة NFC مخصصة لمطعمك أو عملك الآن! تواصل معنا للحصول على بطاقة ذكية تعمل بتقنية اللمس لتسهيل الوصول إلى معلوماتك وخدماتك.
+                </div>
+                
+                <div class="nfc-card">
+                    <div class="nfc-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="nfc-text" data-ar="تواصل معنا للحصول على بطاقة NFC مخصصة لتطوير عملك وتسهيل الوصول إلى معلوماتك." data-en="Contact us to get a custom NFC card to develop your business and facilitate access to your information.">
+                        تواصل معنا للحصول على بطاقة NFC مخصصة لتطوير عملك وتسهيل الوصول إلى معلوماتك.
+                    </div>
+                    <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" class="nfc-button" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <span data-ar="اطلب الآن" data-en="Request Now">اطلب الآن</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Social Icons -->
         <div class="social-section fade-in delay-3">
             <h2 class="social-title" data-ar="تابعنا على وسائل التواصل" data-en="Follow Us on Social Media">تابعنا على وسائل التواصل</h2>
@@ -1795,13 +1964,13 @@
             document.title = lang === 'ar' ? 'Zasty Coffee & Waffle' : 'Zasty Coffee & Waffle';
         }
         
-        // Menu Images Array
+        // Menu Images Array (تم تعديل الترتيب: الصورة 5 أصبحت 4، والصورة 4 أصبحت 5)
         const menuImages = [
-            'https://i.imgur.com/bYslIFg.png',
-            'https://i.imgur.com/LyCsC3D.png',
-            'https://i.imgur.com/PAFgjuD.png',
-            'https://i.imgur.com/9iMzv9o.png',
-            'https://i.imgur.com/MOl1ZVp.png'
+            'https://i.imgur.com/bYslIFg.png',      // 1
+            'https://i.imgur.com/LyCsC3D.png',      // 2
+            'https://i.imgur.com/PAFgjuD.png',      // 3
+            'https://i.imgur.com/MOl1ZVp.png',      // 4 (كانت 5 سابقاً)
+            'https://i.imgur.com/9iMzv9o.png'       // 5 (كانت 4 سابقاً)
         ];
         
         // Lightbox functionality
