@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>على الويب عالم الأناقة - متجر الأزياء النسائية والأطفال</title>
+    <title>عالم الأناقة - متجر الأزياء النسائية والأطفال</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -173,7 +173,9 @@
             height: 180px;
             border-radius: 20px;
             border: 5px solid var(--light-card);
-            object-fit: cover;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
             box-shadow: var(--shadow-lg);
             display: block;
         }
@@ -641,6 +643,26 @@
             font-size: 1.5rem;
         }
         
+        /* Logo in Footer */
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -752,12 +774,12 @@
         </div>
         <div class="profile-info">
             <div class="profile-image-container">
-                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="على الويب عالم الأناقة" class="profile-image">
+                <img src="https://i.imgur.com/PnmQEro.png" alt="عالم الأناقة - Logo" class="profile-image">
                 <div class="verified-badge">
                     <i class="fas fa-check"></i>
                 </div>
             </div>
-            <h1 class="profile-name lang-text" data-ar="على الويب عالم الأناقة" data-en="Online Fashion World">على الويب عالم الأناقة</h1>
+            <h1 class="profile-name lang-text" data-ar="عالم الأناقة" data-en="Fashion World">عالم الأناقة</h1>
             <div class="profile-username">@world.fashion505</div>
             
             <div class="stats-container">
@@ -789,7 +811,7 @@
             <div class="highlight-box">
                 <div class="highlight-title lang-text" data-ar="عن متجرنا" data-en="About Our Store">عن متجرنا</div>
                 <div class="about-text">
-                    <p class="lang-text" data-ar="متجر 'على الويب عالم الأناقة' هو وجهتكم المفضلة لشراء الملابس الجاهزة بجميع أنواعها. نقدم تشكيلة واسعة من الأزياء العصرية المناسبة لكل المناسبات. فريقنا يسعى دائمًا لتقديم أفضل خدمة عملاء وضمان رضاكم التام عن كل عملية شراء." data-en="'Online Fashion World' store is your favorite destination for purchasing all types of ready-to-wear clothing. We offer a wide range of modern fashion suitable for all occasions. Our team always strives to provide the best customer service and ensure your complete satisfaction with every purchase.">متجر 'على الويب عالم الأناقة' هو وجهتكم المفضلة لشراء الملابس الجاهزة بجميع أنواعها. نقدم تشكيلة واسعة من الأزياء العصرية المناسبة لكل المناسبات. فريقنا يسعى دائمًا لتقديم أفضل خدمة عملاء وضمان رضاكم التام عن كل عملية شراء.</p>
+                    <p class="lang-text" data-ar="متجر 'عالم الأناقة' هو وجهتكم المفضلة لشراء الملابس الجاهزة بجميع أنواعها. نقدم تشكيلة واسعة من الأزياء العصرية المناسبة لكل المناسبات. فريقنا يسعى دائمًا لتقديم أفضل خدمة عملاء وضمان رضاكم التام عن كل عملية شراء." data-en="'Fashion World' store is your favorite destination for purchasing all types of ready-to-wear clothing. We offer a wide range of modern fashion suitable for all occasions. Our team always strives to provide the best customer service and ensure your complete satisfaction with every purchase.">متجر 'عالم الأناقة' هو وجهتكم المفضلة لشراء الملابس الجاهزة بجميع أنواعها. نقدم تشكيلة واسعة من الأزياء العصرية المناسبة لكل المناسبات. فريقنا يسعى دائمًا لتقديم أفضل خدمة عملاء وضمان رضاكم التام عن كل عملية شراء.</p>
                 </div>
             </div>
         </div>
@@ -841,7 +863,7 @@
                         </div>
                     </div>
                     <div class="product-item">
-                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w-600&q=80" alt="Girls Outfit">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Girls Outfit">
                         <div class="product-content">
                             <h3 class="lang-text" data-ar="لبس بناتي شتوي" data-en="Winter Girls Outfit">لبس بناتي شتوي</h3>
                             <p class="lang-text" data-ar="طقم بناتي دافئ ومريح للشتاء" data-en="Warm and comfortable winter outfit for girls">طقم بناتي دافئ ومريح للشتاء</p>
@@ -977,7 +999,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text lang-text" data-ar="على الويب عالم الأناقة - متجر الأزياء المتكامل" data-en="Online Fashion World - Complete Fashion Store">على الويب عالم الأناقة - متجر الأزياء المتكامل</p>
+            <div class="footer-logo">
+                <img src="https://i.imgur.com/PnmQEro.png" alt="عالم الأناقة - Logo">
+            </div>
+            <p class="footer-text lang-text" data-ar="عالم الأناقة - متجر الأزياء المتكامل" data-en="Fashion World - Complete Fashion Store">عالم الأناقة - متجر الأزياء المتكامل</p>
             <p class="footer-text lang-text" data-ar="أزياء نسائية • أزياء بناتية • أزياء أولادية • خدمة 24/7" data-en="Women's Fashion • Girls Fashion • Boys Fashion • 24/7 Service">أزياء نسائية • أزياء بناتية • أزياء أولادية • خدمة 24/7</p>
         </div>
     </footer>
