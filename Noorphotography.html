@@ -506,43 +506,100 @@
             left: -35px;
         }
         
-        /* Lightbox Customization */
-        .lightbox .lb-image {
-            border-radius: 10px;
-            border: 3px solid var(--white);
-            box-shadow: var(--shadow-lg);
+        /* Custom Lightbox Styling */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
         }
         
-        .lb-nav a.lb-prev, 
-        .lb-nav a.lb-next {
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        
+        .lightbox-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             background: var(--gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10001;
+        }
+        
+        .lightbox-nav-btn {
+            background: var(--gradient);
+            color: white;
             width: 60px;
             height: 60px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .lb-data .lb-caption {
-            font-size: 1.3rem !important;
-            color: var(--dark-text) !important;
-            font-weight: 600;
+        .lightbox-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
         
-        .lb-data .lb-number {
-            color: var(--dark-gray) !important;
-            font-size: 1rem !important;
-        }
-        
-        .lb-close {
-            background: var(--gradient) !important;
-            border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+        .lightbox-counter {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 5px;
         }
         
         /* Services Section */
@@ -1074,6 +1131,12 @@
             .gallery-btn.next {
                 left: -25px;
             }
+            
+            .lightbox-nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1155,6 +1218,18 @@
             
             .payment-details {
                 text-align: center;
+            }
+            
+            .lightbox-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
             
             .about-section,
@@ -1270,7 +1345,7 @@
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <div class="gallery-main">
-                    <a href="https://i.imgur.com/tPaxiZ3.png" data-lightbox="gallery" data-title="Professional Photography - تصوير احترافي" id="mainImageLink">
+                    <a href="javascript:void(0);" onclick="openLightbox(currentImageIndex)" id="mainImageLink">
                         <img id="mainImage" src="https://i.imgur.com/tPaxiZ3.png" alt="Photography Work">
                     </a>
                     <div class="gallery-overlay">
@@ -1287,6 +1362,30 @@
                 
                 <div class="gallery-grid" id="galleryGrid">
                     <!-- Gallery items will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Lightbox -->
+        <div class="lightbox-overlay" id="lightboxOverlay">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="lightbox-nav">
+                <button class="lightbox-nav-btn" onclick="lightboxPrev()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="lightbox-nav-btn" onclick="lightboxNext()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="lightbox-container">
+                <img id="lightboxImage" class="lightbox-image" src="" alt="">
+                <div class="lightbox-info">
+                    <div id="lightboxTitle"></div>
+                    <div class="lightbox-counter" id="lightboxCounter"></div>
                 </div>
             </div>
         </div>
@@ -1421,24 +1520,7 @@
         </div>
     </footer>
 
-    <!-- Lightbox Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script>
-        // Configure Lightbox
-        lightbox.option({
-            'resizeDuration': 300,
-            'wrapAround': true,
-            'albumLabel': function(currentImageNum, totalImages) {
-                return currentLang === 'ar' 
-                    ? `صورة ${currentImageNum} من ${totalImages}`
-                    : `Image ${currentImageNum} of ${totalImages}`;
-            },
-            'fadeDuration': 300,
-            'imageFadeDuration': 300,
-            'disableScrolling': true,
-            'fitImagesInViewport': true
-        });
-
         // Gallery functionality
         const images = [
             { 
@@ -1485,6 +1567,12 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         
+        // Lightbox elements
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        
         // Create gallery grid
         function createGalleryGrid() {
             galleryGrid.innerHTML = '';
@@ -1492,18 +1580,13 @@
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
                 
-                const title = currentLang === 'ar' ? image.title.ar : image.title.en;
-                
                 galleryItem.innerHTML = `
-                    <a href="${image.src}" data-lightbox="gallery" data-title="${title}">
-                        <img src="${image.src}" alt="${image.alt}" loading="lazy">
-                    </a>
+                    <img src="${image.src}" alt="${image.alt}" loading="lazy" data-index="${index}">
                 `;
                 
-                galleryItem.addEventListener('click', (e) => {
-                    if (!e.target.closest('a')) {
-                        changeImage(index);
-                    }
+                galleryItem.addEventListener('click', () => {
+                    changeImage(index);
+                    openLightbox(index);
                 });
                 
                 galleryGrid.appendChild(galleryItem);
@@ -1516,11 +1599,6 @@
             const image = images[index];
             mainImage.src = image.src;
             mainImage.alt = image.alt;
-            
-            // Update image title based on language
-            const title = currentLang === 'ar' ? image.title.ar : image.title.en;
-            mainImageLink.href = image.src;
-            mainImageLink.setAttribute('data-title', title);
             
             // Update image info and counter
             updateImageInfo();
@@ -1552,21 +1630,45 @@
             imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
         }
         
-        // Open lightbox at specific index
+        // Open lightbox
         function openLightbox(index) {
-            const links = document.querySelectorAll('.gallery-item a');
-            if (links[index]) {
-                links[index].click();
-            }
+            const image = images[index];
+            const title = currentLang === 'ar' ? image.title.ar : image.title.en;
+            
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightboxTitle.textContent = title;
+            lightboxCounter.textContent = `${index + 1} / ${images.length}`;
+            
+            lightboxOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
         }
         
-        // Next image
+        // Close lightbox
+        function closeLightbox() {
+            lightboxOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        // Lightbox navigation
+        function lightboxNext() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            openLightbox(currentImageIndex);
+            changeImage(currentImageIndex);
+        }
+        
+        function lightboxPrev() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            openLightbox(currentImageIndex);
+            changeImage(currentImageIndex);
+        }
+        
+        // Gallery navigation
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % images.length;
             changeImage(currentImageIndex);
         }
         
-        // Previous image
         function prevImage() {
             currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
             changeImage(currentImageIndex);
@@ -1604,13 +1706,62 @@
             updateImageInfo();
             createGalleryGrid();
             changeImage(currentImageIndex);
+            
+            // Update lightbox if open
+            if (lightboxOverlay.classList.contains('active')) {
+                openLightbox(currentImageIndex);
+            }
         }
         
         // Event listeners
         prevBtn.addEventListener('click', prevImage);
         nextBtn.addEventListener('click', nextImage);
         
-        // Language switcher - FIXED VERSION
+        // Close lightbox on overlay click
+        lightboxOverlay.addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('lightbox-overlay')) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Gallery navigation
+            if (e.key === 'ArrowRight' || e.key === 'Right') {
+                if (currentLang === 'ar') {
+                    prevImage();
+                } else {
+                    nextImage();
+                }
+            } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+                if (currentLang === 'ar') {
+                    nextImage();
+                } else {
+                    prevImage();
+                }
+            }
+            
+            // Lightbox navigation
+            if (lightboxOverlay.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+                    if (currentLang === 'ar') {
+                        lightboxPrev();
+                    } else {
+                        lightboxNext();
+                    }
+                } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+                    if (currentLang === 'ar') {
+                        lightboxNext();
+                    } else {
+                        lightboxPrev();
+                    }
+                }
+            }
+        });
+        
+        // Language switcher
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
@@ -1631,23 +1782,6 @@
             galleryContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
             galleryContainer.addEventListener('mouseleave', () => {
                 slideInterval = setInterval(nextImage, 5000);
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === 'Right') {
-                    if (currentLang === 'ar') {
-                        prevImage();
-                    } else {
-                        nextImage();
-                    }
-                } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-                    if (currentLang === 'ar') {
-                        nextImage();
-                    } else {
-                        prevImage();
-                    }
-                }
             });
             
             // Touch/swipe support for mobile
