@@ -1,1 +1,846 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Photography - مصورة احترافية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-light: #8B5CF6;
+            --primary-dark: #5B21B6;
+            --accent: #EC4899;
+            --gradient: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+            --gradient-dark: linear-gradient(135deg, #5B21B6 0%, #BE185D 100%);
+            --light-bg: #FAF5FF;
+            --light-card: #FFFFFF;
+            --dark-text: #1F2937;
+            --light-text: #6B7280;
+            --shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            --shadow-lg: 0 20px 40px rgba(124, 58, 237, 0.3);
+            --border: 1px solid #E5E7EB;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            background: var(--light-bg);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .profile-header {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-dark);
+            color: white;
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.8;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(91, 33, 182, 0.8), rgba(124, 58, 237, 0.6));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+        
+        .profile-name {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 30px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-right: 4px solid var(--accent);
+        }
+        
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 30px;
+            max-width: 1200px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+        }
+        
+        .gallery-container {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .gallery-main {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-main img:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .thumbnail {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        
+        .thumbnail.active {
+            opacity: 1;
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .gallery-btn:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .gallery-btn.prev {
+            right: -30px;
+        }
+        
+        .gallery-btn.next {
+            left: -30px;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 30px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(236, 72, 153, 0.05));
+            padding: 40px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .service-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+        
+        .service-desc {
+            font-size: 1rem;
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-card);
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 30px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.2rem;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(236, 72, 153, 0.05));
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+        }
+        
+        .contact-item:hover {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+            transform: translateY(-5px);
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            width: 30px;
+        }
+        
+        .business-contact {
+            background: var(--gradient);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .business-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .business-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        /* Social Icons */
+        .social-section {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+        
+        .social-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--dark-text);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            background: white;
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient);
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 35px;
+            background: white;
+            color: var(--dark-text);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .action-button.primary {
+            background: var(--gradient);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .action-button i {
+            font-size: 1.4rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-text {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 2.2rem;
+            }
+            
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .cover-container {
+                height: 400px;
+            }
+            
+            .gallery-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .gallery-btn.prev {
+                right: -20px;
+            }
+            
+            .gallery-btn.next {
+                left: -20px;
+            }
+            
+            .gallery-main {
+                height: 350px;
+            }
+            
+            .thumbnail {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-header fade-in">
+        <div class="cover-container">
+            <img src="https://i.imgur.com/dRpnuUG.png" alt="Photography Background" class="cover-photo">
+            <div class="overlay">
+                <div class="profile-image-container">
+                    <img src="https://i.imgur.com/7OTHjxN.png" alt="Noor Photography Logo" class="profile-image">
+                </div>
+                <h1 class="profile-name">نور للتصوير الاحترافي</h1>
+                <div class="profile-title">التقاط الذكريات باحترافية وإبداع - تخصص في تصوير المناسبات والأفراد</div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section fade-in delay-1">
+            <h2 class="section-title">مرحباً بك في عالمي</h2>
+            <div class="about-text">
+                أنا نور، مصورة احترافية متخصصة في توثيق اللحظات الجميلة بلمسة فنية متميزة. أسعى دائمًا إلى إبراز الجمال في كل تفصيل.
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">فلسفتي في التصوير</div>
+                <div class="about-text" style="text-align: center; direction: rtl;">
+                    أؤمن بأن كل شخص وكل لحظة لها قصتها الفريدة. مهمتي هي التقاط هذه القصص بصدق وإبداع، وتحويل الذكريات إلى أعمال فنية تبقى خالدة. مع سنوات من الخبرة في مختلف أنواع التصوير، أضمن لكم جودة استثنائية وخدمة مخصصة تناسب احتياجاتكم.
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section fade-in delay-2">
+            <h2 class="section-title">معرض أعمالي</h2>
+            <div class="gallery-container">
+                <button class="gallery-btn prev" id="prevBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="gallery-btn next" id="nextBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="gallery-main">
+                    <img id="mainImage" src="https://i.imgur.com/tPaxiZ3.png" alt="Photography Work">
+                </div>
+                <div class="gallery-thumbnails" id="thumbnailsContainer">
+                    <!-- Thumbnails will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-section fade-in delay-2">
+            <h2 class="section-title">خدماتي</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3 class="service-name">تصوير المناسبات</h3>
+                    <p class="service-desc">تصوير احترافي للأعراس، الحفلات، والمناسبات الخاصة مع توفير ألبوم كامل</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="service-name">تصوير الأفراد</h3>
+                    <p class="service-desc">جلسات تصوير شخصية احترافية في الاستوديو أو الهواء الطلق</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-name">تصوير الحمل والأطفال</h3>
+                    <p class="service-desc">توثيق مراحل الحمل الأولى ولحظات الأطفال الخاصة بطريقة فنية</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-name">تصوير المنتجات</h3>
+                    <p class="service-desc">تصوير احترافي للمنتجات التجارية بجودة عالية تناسب التسويق</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in delay-3">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>0775250597</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0775250597</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>NOORMO2006</span>
+                </div>
+            </div>
+            
+            <div class="business-contact">
+                <div class="business-title">للحجز والاستفسارات</div>
+                <div class="business-number">0775250597</div>
+                <p style="margin-top: 10px; opacity: 0.9;">متاحة للتواصل على الواتساب في أي وقت</p>
+            </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-section fade-in delay-3">
+            <h2 class="social-title">تابعني على وسائل التواصل</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.instagram.com/futures_journey_programmingin?igsh=Nmt4dTlyem9vMTVm&utm_source=qr" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1DBXcqZmZB/?mibextid=wwXIfr" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://wa.me/962775250597" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:0775250597" class="social-icon">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:NOORMO2006" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons fade-in delay-3">
+            <a href="https://wa.me/962775250597" class="action-button primary" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                تواصل عبر واتساب
+            </a>
+            <a href="tel:0775250597" class="action-button">
+                <i class="fas fa-phone"></i>
+                اتصل الآن
+            </a>
+            <a href="#gallery-section" class="action-button">
+                <i class="fas fa-images"></i>
+                معرض الأعمال
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="https://i.imgur.com/7OTHjxN.png" alt="Noor Photography Logo" class="footer-logo">
+            <p class="footer-text">نور للتصوير الاحترافي - Noor Photography</p>
+            <p class="footer-text">التقاط الذكريات باحترافية وإبداع</p>
+            <p class="footer-text">© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery functionality
+        const images = [
+            { src: "https://i.imgur.com/tPaxiZ3.png", alt: "تصوير احترافي 1" },
+            { src: "https://i.imgur.com/dRpnuUG.png", alt: "تصوير احترافي 2" },
+            { src: "https://i.imgur.com/RzRvGHU.png", alt: "تصوير احترافي 3" },
+            { src: "https://i.imgur.com/C88ilqa.png", alt: "تصوير احترافي 4" }
+        ];
+        
+        let currentImageIndex = 0;
+        const mainImage = document.getElementById('mainImage');
+        const thumbnailsContainer = document.getElementById('thumbnailsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Create thumbnails
+        function createThumbnails() {
+            images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+                thumbnail.addEventListener('click', () => {
+                    changeImage(index);
+                });
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+        }
+        
+        // Change main image
+        function changeImage(index) {
+            currentImageIndex = index;
+            mainImage.src = images[index].src;
+            mainImage.alt = images[index].alt;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+        
+        // Next image
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            changeImage(currentImageIndex);
+        }
+        
+        // Previous image
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            changeImage(currentImageIndex);
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+        
+        // Initialize gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            createThumbnails();
+            
+            // Auto slide every 5 seconds
+            setInterval(nextImage, 5000);
+            
+            // Add click effects
+            const buttons = document.querySelectorAll('.social-icon, .action-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+        
+        // Smooth scroll to gallery
+        document.querySelector('a[href="#gallery-section"]')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.gallery-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
