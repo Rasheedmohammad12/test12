@@ -265,91 +265,87 @@
             margin-top: 5px;
         }
         
-        /* Rating Section */
-        .rating-section {
-            background: var(--light-card);
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 25px;
-            max-width: 800px;
+        /* Social Icons - في الهيدر */
+        .social-section {
             text-align: center;
-            box-shadow: var(--shadow-lg);
-            border: var(--border);
+            padding: 20px 0 10px;
+            margin-top: 20px;
+        }
+        
+        .social-icons-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
         }
         
-        .rating-stars {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 25px 0;
-            direction: ltr;
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .star {
-            font-size: 2.5rem;
-            color: #ddd;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
         }
         
-        .star:hover,
-        .star.active {
-            color: var(--gold);
-            transform: scale(1.1);
+        .social-icon.facebook:hover {
+            background: #1877F2;
         }
         
-        .star:hover ~ .star {
-            color: #ddd;
+        .social-icon.whatsapp:hover {
+            background: #25D366;
         }
         
-        .rating-form {
-            max-width: 500px;
-            margin: 30px auto 0;
+        .social-icon.phone:hover {
+            background: #34B7F1;
         }
         
-        .rating-input {
-            width: 100%;
-            padding: 15px;
-            border: var(--border);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s ease;
+        .social-icon.location:hover {
+            background: #FF0000;
         }
         
-        .rating-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-        }
-        
-        .rating-submit {
-            background: var(--gradient-accent);
+        /* Save Contact Button Styles */
+        .save-contact-btn {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 15px;
+            padding: 15px 30px;
+            border-radius: 20px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px auto;
         }
         
-        .rating-submit:hover {
+        .save-contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .rating-message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--dark-text);
-            display: none;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
         }
         
         /* About Section */
@@ -419,228 +415,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--primary);
-        }
-        
-        /* Categories Section */
-        .categories-section {
-            background: var(--light-card);
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 25px;
-            max-width: 1000px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            border: var(--border);
-            backdrop-filter: blur(10px);
-        }
-        
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: var(--border);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFF8F3 100%);
-        }
-        
-        .category-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-accent);
-        }
-        
-        .category-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 8px 16px rgba(139, 0, 0, 0.2);
-        }
-        
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .category-desc {
-            font-size: 1.1rem;
-            color: var(--light-text);
-            line-height: 1.6;
-        }
-        
-        /* Products Section */
-        .products-section {
-            background: var(--light-card);
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 25px;
-            max-width: 1000px;
-            box-shadow: var(--shadow-lg);
-            border: var(--border);
-            backdrop-filter: blur(10px);
-        }
-        
-        .products-list {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .product-item {
-            background: white;
-            border-radius: 20px;
-            padding: 25px 30px;
-            box-shadow: var(--shadow);
-            border: var(--border);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFF8F3 100%);
-        }
-        
-        .product-item:before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient-accent);
-        }
-        
-        .product-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: 0 5px 10px rgba(139, 0, 0, 0.2);
-        }
-        
-        .product-content {
-            flex: 1;
-        }
-        
-        .product-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-        
-        .product-desc {
-            font-size: 1.1rem;
-            color: var(--light-text);
-        }
-        
-        /* Services Section */
-        .services-section {
-            background: var(--light-card);
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 25px;
-            max-width: 900px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            border: var(--border);
-            backdrop-filter: blur(10px);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .service-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 0, 0, 0.05) 100%);
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(139, 0, 0, 0.1) 100%);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 8px 16px rgba(139, 0, 0, 0.2);
-        }
-        
-        .service-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .service-desc {
-            font-size: 1rem;
-            color: var(--light-text);
         }
         
         /* Contact Section */
@@ -720,54 +494,6 @@
             font-weight: 800;
         }
         
-        /* Social Icons */
-        .social-section {
-            text-align: center;
-            padding: 60px 0 40px;
-        }
-        
-        .social-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: var(--primary);
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .social-icons-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .social-icon {
-            width: 90px;
-            height: 90px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: var(--accent);
-            text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow);
-            background: white;
-            position: relative;
-            border: 2px solid var(--accent);
-            overflow: hidden;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow-lg);
-            background: var(--gradient-accent);
-            color: white;
-        }
-        
         /* Action Buttons */
         .action-buttons {
             display: flex;
@@ -807,30 +533,6 @@
         
         .action-button i {
             font-size: 1.5rem;
-        }
-        
-        /* Save Contact Button Styles */
-        .save-contact-btn {
-            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px auto;
-        }
-        
-        .save-contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
-            background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
         }
         
         /* Footer */
@@ -927,29 +629,10 @@
                 height: 180px;
             }
             
-            .category-card {
-                padding: 30px 20px;
-                min-height: 200px;
-            }
-            
-            .category-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-            }
-            
-            .product-item {
-                padding: 20px;
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .product-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
             
             .action-buttons {
@@ -957,12 +640,58 @@
                 align-items: center;
             }
             
-            .rating-stars {
-                gap: 5px;
+            .stats-container {
+                gap: 20px;
             }
             
-            .star {
+            .stat-item {
+                padding: 10px 15px;
+                min-width: 100px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-name {
                 font-size: 2rem;
+            }
+            
+            .profile-username {
+                font-size: 1.2rem;
+            }
+            
+            .social-icons-grid {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .stats-container {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                padding: 8px 12px;
+                min-width: 80px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -996,16 +725,16 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">3</span>
-                    <span class="stat-label lang-text" data-ar="فئات" data-en="Categories">فئات</span>
+                    <span class="stat-number">⏰</span>
+                    <span class="stat-label lang-text" data-ar="24/7" data-en="24/7">24/7</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label lang-text" data-ar="خدمة" data-en="Service">خدمة</span>
+                    <span class="stat-number">📱</span>
+                    <span class="stat-label lang-text" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">⭐ 4.9</span>
-                    <span class="stat-label lang-text" data-ar="تقييم" data-en="Rating">تقييم</span>
+                    <span class="stat-number">📍</span>
+                    <span class="stat-label lang-text" data-ar="موقعنا" data-en="Location">موقعنا</span>
                 </div>
             </div>
             
@@ -1014,39 +743,34 @@
                 <i class="fas fa-download"></i>
                 <span class="lang-text" data-ar="حفظ جهة الاتصال" data-en="Save Contact">حفظ جهة الاتصال</span>
             </button>
+            
+            <!-- Social Icons في الهيدر -->
+            <div class="social-section">
+                <div class="social-icons-grid">
+                    <a href="https://www.instagram.com/world.fashion505" class="social-icon instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1ASpz2p6Ub/" class="social-icon facebook" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/962777610909" class="social-icon whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:0777610909" class="social-icon phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://maps.app.goo.gl/waNbd2Z1GYPo6sRj7" class="social-icon location" target="_blank">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Rating Section -->
-        <div class="rating-section fade-in delay-1">
-            <h2 class="section-title lang-text" data-ar="قيم متجرنا" data-en="Rate Our Store">قيم متجرنا</h2>
-            <div class="about-text">
-                <p class="lang-text" data-ar="شاركنا رأيك وساعدنا على تحسين خدمتنا. تقييمك يعني الكثير لنا!" data-en="Share your opinion and help us improve our service. Your rating means a lot to us!">شاركنا رأيك وساعدنا على تحسين خدمتنا. تقييمك يعني الكثير لنا!</p>
-            </div>
-            
-            <div class="rating-stars">
-                <div class="star" data-rating="1">☆</div>
-                <div class="star" data-rating="2">☆</div>
-                <div class="star" data-rating="3">☆</div>
-                <div class="star" data-rating="4">☆</div>
-                <div class="star" data-rating="5">☆</div>
-            </div>
-            
-            <div class="rating-form">
-                <input type="text" class="rating-input" id="ratingName" placeholder="اسمك (اختياري)">
-                <textarea class="rating-input" id="ratingComment" placeholder="اكتب تعليقك هنا (اختياري)" rows="3"></textarea>
-                <button class="rating-submit" onclick="submitRating()">
-                    <span class="lang-text" data-ar="إرسال التقييم" data-en="Submit Rating">إرسال التقييم</span>
-                </button>
-            </div>
-            
-            <div class="rating-message" id="ratingMessage"></div>
-        </div>
-
         <!-- About Section -->
-        <div class="about-section fade-in delay-2">
+        <div class="about-section fade-in delay-1">
             <h2 class="section-title lang-text" data-ar="مرحباً بكم" data-en="Welcome">مرحباً بكم</h2>
             <div class="about-text">
                 <p class="lang-text" data-ar="متجرنا متخصص في الأزياء النسائية والبناتية والأولادية الجاهزة. نقدم لكم أحدث صيحات الموضة بجودة عالية وأسعار منافسة." data-en="Our store specializes in ready-to-wear fashion for women, girls, and boys. We offer the latest fashion trends with high quality and competitive prices.">متجرنا متخصص في الأزياء النسائية والبناتية والأولادية الجاهزة. نقدم لكم أحدث صيحات الموضة بجودة عالية وأسعار منافسة.</p>
@@ -1060,105 +784,8 @@
             </div>
         </div>
 
-        <!-- Categories Section -->
-        <div class="categories-section fade-in delay-2">
-            <h2 class="section-title lang-text" data-ar="فئات المنتجات" data-en="Product Categories">فئات المنتجات</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <h3 class="category-title lang-text" data-ar="أزياء نسائية" data-en="Women's Fashion">أزياء نسائية</h3>
-                    <p class="category-desc lang-text" data-ar="تشكيلة مميزة من الملابس النسائية الجاهزة بجميع المقاسات والألوان والأنماط العصرية" data-en="A distinctive collection of ready-to-wear women's clothing in all sizes, colors and modern styles">تشكيلة مميزة من الملابس النسائية الجاهزة بجميع المقاسات والألوان والأنماط العصرية</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3 class="category-title lang-text" data-ar="أزياء بناتية" data-en="Girls Fashion">أزياء بناتية</h3>
-                    <p class="category-desc lang-text" data-ar="أجمل الأزياء والألبسة الخاصة بالبنات بجميع الأعمار مع التركيز على الراحة والجمال" data-en="The most beautiful fashion and clothing for girls of all ages with focus on comfort and beauty">أجمل الأزياء والألبسة الخاصة بالبنات بجميع الأعمار مع التركيز على الراحة والجمال</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-male"></i>
-                    </div>
-                    <h3 class="category-title lang-text" data-ar="أزياء أولادية" data-en="Boys Fashion">أزياء أولادية</h3>
-                    <p class="category-desc lang-text" data-ar="أحدث صيحات الموضة للأولاد بمختلف الأعمار مع خيارات متنوعة للأنشطة اليومية والمناسبات" data-en="Latest fashion trends for boys of different ages with diverse options for daily activities and occasions">أحدث صيحات الموضة للأولاد بمختلف الأعمار مع خيارات متنوعة للأنشطة اليومية والمناسبات</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Products Section -->
-        <div class="products-section fade-in delay-3">
-            <h2 class="section-title lang-text" data-ar="أحدث المنتجات" data-en="Latest Products">أحدث المنتجات</h2>
-            <div class="products-list">
-                <div class="product-item">
-                    <div class="product-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title lang-text" data-ar="فساتين سهرة أنيقة" data-en="Elegant Evening Dresses">فساتين سهرة أنيقة</h3>
-                        <p class="product-desc lang-text" data-ar="مجموعة من الفساتين الأنيقة للسهرات والحفلات بتصميمات عصرية وألوان متنوعة" data-en="A collection of elegant dresses for evenings and parties with modern designs and various colors">مجموعة من الفساتين الأنيقة للسهرات والحفلات بتصميمات عصرية وألوان متنوعة</p>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-icon">
-                        <i class="fas fa-vest"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title lang-text" data-ar="سترات شتوية دافئة" data-en="Warm Winter Jackets">سترات شتوية دافئة</h3>
-                        <p class="product-desc lang-text" data-ar="سترات عالية الجودة للشتاء بتصميمات عصرية وألوان متنوعة تناسب جميع الأذواق" data-en="High quality winter jackets with modern designs and various colors to suit all tastes">سترات عالية الجودة للشتاء بتصميمات عصرية وألوان متنوعة تناسب جميع الأذواق</p>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-icon">
-                        <i class="fas fa-hat-cowboy"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title lang-text" data-ar="ملابس رياضية مريحة" data-en="Comfortable Sportswear">ملابس رياضية مريحة</h3>
-                        <p class="product-desc lang-text" data-ar="ملابس رياضية مصممة للراحة والحركة السهلة مع خامات عالية الجودة تناسب النشاطات اليومية" data-en="Sportswear designed for comfort and easy movement with high quality materials suitable for daily activities">ملابس رياضية مصممة للراحة والحركة السهلة مع خامات عالية الجودة تناسب النشاطات اليومية</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Services Section -->
-        <div class="services-section fade-in delay-3">
-            <h2 class="section-title lang-text" data-ar="خدماتنا" data-en="Our Services">خدماتنا</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3 class="service-name lang-text" data-ar="توصيل سريع" data-en="Fast Delivery">توصيل سريع</h3>
-                    <p class="service-desc lang-text" data-ar="توصيل الطلبات بسرعة وأمان لجميع مناطق المملكة" data-en="Fast and secure delivery of orders to all regions of the Kingdom">توصيل الطلبات بسرعة وأمان لجميع مناطق المملكة</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3 class="service-name lang-text" data-ar="استبدال مجاني" data-en="Free Exchange">استبدال مجاني</h3>
-                    <p class="service-desc lang-text" data-ar="إمكانية استبدال المنتج في حالة عدم المطابقة خلال 7 أيام" data-en="Possibility to exchange the product in case of mismatch within 7 days">إمكانية استبدال المنتج في حالة عدم المطابقة خلال 7 أيام</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="service-name lang-text" data-ar="دعم فني 24/7" data-en="24/7 Support">دعم فني 24/7</h3>
-                    <p class="service-desc lang-text" data-ar="فريق دعم فني متاح على مدار الساعة لخدمتكم" data-en="Technical support team available 24/7 to serve you">فريق دعم فني متاح على مدار الساعة لخدمتكم</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="service-name lang-text" data-ar="دفع آمن" data-en="Secure Payment">دفع آمن</h3>
-                    <p class="service-desc lang-text" data-ar="أنظمة دفع آمنة ومتعددة لضمان سلامة معاملاتكم" data-en="Secure and multiple payment systems to ensure the safety of your transactions">أنظمة دفع آمنة ومتعددة لضمان سلامة معاملاتكم</p>
-                </div>
-            </div>
-        </div>
-
         <!-- Contact Section -->
-        <div class="contact-section fade-in delay-3">
+        <div class="contact-section fade-in delay-2">
             <h2 class="section-title lang-text" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
             <div class="contact-info">
                 <div class="contact-item">
@@ -1182,28 +809,6 @@
             <div class="business-contact">
                 <div class="business-title lang-text" data-ar="للحجوزات والاستفسارات" data-en="For Reservations & Inquiries">للحجوزات والاستفسارات</div>
                 <div class="business-number">00962777610909</div>
-            </div>
-        </div>
-
-        <!-- Social Icons -->
-        <div class="social-section fade-in delay-3">
-            <h2 class="social-title lang-text" data-ar="تابعونا على وسائل التواصل" data-en="Follow Us on Social Media">تابعونا على وسائل التواصل</h2>
-            <div class="social-icons-grid">
-                <a href="https://www.instagram.com/world.fashion505" class="social-icon" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1ASpz2p6Ub/" class="social-icon" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://wa.me/962777610909" class="social-icon" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="tel:0777610909" class="social-icon">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://maps.app.goo.gl/waNbd2Z1GYPo6sRj7" class="social-icon" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i>
-                </a>
             </div>
         </div>
 
@@ -1267,100 +872,6 @@
         // NFC Card functionality
         function openNFCPage() {
             window.open('https://www.instagram.com/futures_journey_programmingin', '_blank');
-        }
-        
-        // Rating System
-        let currentRating = 0;
-        
-        // Initialize stars
-        document.querySelectorAll('.star').forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                currentRating = rating;
-                
-                // Update stars display
-                document.querySelectorAll('.star').forEach(s => {
-                    const starRating = parseInt(s.getAttribute('data-rating'));
-                    if (starRating <= rating) {
-                        s.classList.add('active');
-                        s.textContent = '★';
-                    } else {
-                        s.classList.remove('active');
-                        s.textContent = '☆';
-                    }
-                });
-            });
-            
-            // Hover effect
-            star.addEventListener('mouseover', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                
-                document.querySelectorAll('.star').forEach(s => {
-                    const starRating = parseInt(s.getAttribute('data-rating'));
-                    if (starRating <= rating) {
-                        s.style.color = '#F4D03F';
-                    } else {
-                        s.style.color = '#ddd';
-                    }
-                });
-            });
-            
-            star.addEventListener('mouseout', function() {
-                document.querySelectorAll('.star').forEach(s => {
-                    const starRating = parseInt(s.getAttribute('data-rating'));
-                    if (starRating <= currentRating) {
-                        s.style.color = '#D4AF37';
-                    } else {
-                        s.style.color = '#ddd';
-                    }
-                });
-            });
-        });
-        
-        // Submit rating function
-        function submitRating() {
-            if (currentRating === 0) {
-                showMessage('يرجى اختيار تقييم من 1 إلى 5 نجوم', 'error');
-                return;
-            }
-            
-            const name = document.getElementById('ratingName').value.trim();
-            const comment = document.getElementById('ratingComment').value.trim();
-            
-            // Simulate sending rating to server
-            setTimeout(() => {
-                showMessage(`شكراً لك ${name ? name + ' ' : ''}على تقييمك بـ ${currentRating} نجوم!`, 'success');
-                
-                // Reset form
-                document.getElementById('ratingName').value = '';
-                document.getElementById('ratingComment').value = '';
-                currentRating = 0;
-                
-                // Reset stars
-                document.querySelectorAll('.star').forEach(s => {
-                    s.classList.remove('active');
-                    s.textContent = '☆';
-                    s.style.color = '#ddd';
-                });
-            }, 500);
-        }
-        
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('ratingMessage');
-            messageDiv.textContent = text;
-            messageDiv.style.display = 'block';
-            
-            if (type === 'error') {
-                messageDiv.style.background = 'rgba(139, 0, 0, 0.1)';
-                messageDiv.style.border = '1px solid rgba(139, 0, 0, 0.3)';
-            } else {
-                messageDiv.style.background = 'rgba(212, 175, 55, 0.1)';
-                messageDiv.style.border = '1px solid rgba(212, 175, 55, 0.3)';
-            }
-            
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 5000);
         }
         
         // Save Contact Functionality
