@@ -131,91 +131,79 @@
             box-shadow: 0 15px 30px rgba(139, 0, 139, 0.4);
         }
         
-        /* Header */
+        /* Header - بدون صورة خلفية */
         .profile-header {
             width: 100%;
             position: relative;
             overflow: hidden;
-            background: var(--light-card);
-        }
-        
-        .cover-container {
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .cover-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.9);
+            background: var(--gradient);
+            padding: 40px 20px;
+            text-align: center;
         }
         
         .profile-info {
             position: relative;
-            padding: 0 20px 40px;
+            padding: 40px 20px 20px;
             text-align: center;
-            margin-top: -80px;
             z-index: 2;
         }
         
         .profile-image-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            border: 5px solid var(--light-card);
+            width: 220px;
+            height: 220px;
+            border-radius: 25px;
+            border: 6px solid white;
             object-fit: contain;
             background: white;
-            padding: 10px;
+            padding: 15px;
             box-shadow: var(--shadow-lg);
             display: block;
         }
         
         .verified-badge {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 15px;
+            right: 15px;
             background: var(--accent);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            border: 3px solid var(--light-card);
+            font-size: 1.1rem;
+            border: 3px solid white;
         }
         
         .profile-name {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            color: var(--dark-text);
+            margin-bottom: 15px;
+            color: white;
             font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .profile-username {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 20px;
+            color: white;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
         
         .stats-container {
             display: flex;
             justify-content: center;
             gap: 50px;
-            margin: 20px 0;
+            margin: 30px 0;
             flex-wrap: wrap;
         }
         
@@ -224,17 +212,19 @@
         }
         
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--accent);
+            color: white;
             display: block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .stat-label {
-            font-size: 1rem;
-            color: var(--light-text);
+            font-size: 1.1rem;
+            color: white;
             text-transform: uppercase;
             letter-spacing: 1px;
+            opacity: 0.9;
         }
         
         /* About Section */
@@ -706,16 +696,12 @@
             }
             
             .profile-name {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .profile-image {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .cover-container {
-                height: 350px;
+                width: 180px;
+                height: 180px;
             }
             
             .category-card {
@@ -767,9 +753,6 @@
 
     <!-- Header Section -->
     <header class="profile-header fade-in">
-        <div class="cover-container">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fashion Store Cover" class="cover-photo">
-        </div>
         <div class="profile-info">
             <div class="profile-image-container">
                 <img src="https://i.imgur.com/PnmQEro.png" alt="عالم الأناقة - Logo" class="profile-image">
